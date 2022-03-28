@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.swift
+//  IdentificationViewController.swift
 //  SignUp
 //
 //  Created by 백상휘 on 2022/03/28.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class IdentificationViewController: UIViewController {
     
     @IBOutlet weak var nextButtonView: UIView!
     

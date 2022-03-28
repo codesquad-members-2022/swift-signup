@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B64B70027F14CF700B29580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B6FF27F14CF700B29580 /* AppDelegate.swift */; };
 		1B64B70227F14CF700B29580 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B70127F14CF700B29580 /* SceneDelegate.swift */; };
-		1B64B70427F14CF700B29580 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B70327F14CF700B29580 /* SignUpViewController.swift */; };
+		1B64B70427F14CF700B29580 /* IdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B70327F14CF700B29580 /* IdentificationViewController.swift */; };
 		1B64B70727F14CF700B29580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B64B70527F14CF700B29580 /* Main.storyboard */; };
 		1B64B70927F14CF900B29580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B64B70827F14CF900B29580 /* Assets.xcassets */; };
 		1B64B70C27F14CF900B29580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B64B70A27F14CF900B29580 /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 		1B64B73727F15D9400B29580 /* CustomSegueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73627F15D9400B29580 /* CustomSegueButton.swift */; };
 		1B64B73927F1744B00B29580 /* PrivateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73827F1744B00B29580 /* PrivateInfoViewController.swift */; };
 		1B64B73B27F19E6E00B29580 /* CustomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73A27F19E6D00B29580 /* CustomTextFieldDelegate.swift */; };
-		1B64B73D27F19F9500B29580 /* CommentUnderTheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73C27F19F9500B29580 /* CommentUnderTheView.swift */; };
+		1B64B73D27F19F9500B29580 /* CustomTextFieldCommentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73C27F19F9500B29580 /* CustomTextFieldCommentLabel.swift */; };
 		1B64B73F27F1A34100B29580 /* ValidationRegularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */; };
 		1B64B74227F1B13200B29580 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B74127F1B13200B29580 /* CustomTextField.swift */; };
 		1B64B74427F1B33700B29580 /* ValidationRegularTextFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B74327F1B33700B29580 /* ValidationRegularTextFactory.swift */; };
@@ -44,7 +44,7 @@
 		1B64B6FC27F14CF700B29580 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B64B6FF27F14CF700B29580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B64B70127F14CF700B29580 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1B64B70327F14CF700B29580 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		1B64B70327F14CF700B29580 /* IdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationViewController.swift; sourceTree = "<group>"; };
 		1B64B70627F14CF700B29580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B64B70827F14CF900B29580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B64B70B27F14CF900B29580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		1B64B73627F15D9400B29580 /* CustomSegueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegueButton.swift; sourceTree = "<group>"; };
 		1B64B73827F1744B00B29580 /* PrivateInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateInfoViewController.swift; sourceTree = "<group>"; };
 		1B64B73A27F19E6D00B29580 /* CustomTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldDelegate.swift; sourceTree = "<group>"; };
-		1B64B73C27F19F9500B29580 /* CommentUnderTheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUnderTheView.swift; sourceTree = "<group>"; };
+		1B64B73C27F19F9500B29580 /* CustomTextFieldCommentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCommentLabel.swift; sourceTree = "<group>"; };
 		1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegularText.swift; sourceTree = "<group>"; };
 		1B64B74127F1B13200B29580 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1B64B74327F1B33700B29580 /* ValidationRegularTextFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegularTextFactory.swift; sourceTree = "<group>"; };
@@ -147,11 +147,11 @@
 		1B64B73227F14D7400B29580 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1B64B70327F14CF700B29580 /* SignUpViewController.swift */,
+				1B64B70327F14CF700B29580 /* IdentificationViewController.swift */,
 				1B64B73827F1744B00B29580 /* PrivateInfoViewController.swift */,
 				1B64B73627F15D9400B29580 /* CustomSegueButton.swift */,
 				1B64B74127F1B13200B29580 /* CustomTextField.swift */,
-				1B64B73C27F19F9500B29580 /* CommentUnderTheView.swift */,
+				1B64B73C27F19F9500B29580 /* CustomTextFieldCommentLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,9 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B64B73F27F1A34100B29580 /* ValidationRegularText.swift in Sources */,
-				1B64B73D27F19F9500B29580 /* CommentUnderTheView.swift in Sources */,
+				1B64B73D27F19F9500B29580 /* CustomTextFieldCommentLabel.swift in Sources */,
 				1B64B73927F1744B00B29580 /* PrivateInfoViewController.swift in Sources */,
-				1B64B70427F14CF700B29580 /* SignUpViewController.swift in Sources */,
+				1B64B70427F14CF700B29580 /* IdentificationViewController.swift in Sources */,
 				1B64B73B27F19E6E00B29580 /* CustomTextFieldDelegate.swift in Sources */,
 				1B64B74427F1B33700B29580 /* ValidationRegularTextFactory.swift in Sources */,
 				1B64B70027F14CF700B29580 /* AppDelegate.swift in Sources */,

@@ -12,7 +12,7 @@ final class CustomSegueButton: UIButton {
     
     // MARK: - Local Properties
     
-    private var arrowDirection: ButtonArrow = .right
+    private(set) var arrowImageDirection: ButtonArrow = .right
     private var buttonTitle: String = "titleNone"
     
     // MARK: - Initializers
@@ -65,6 +65,18 @@ final class CustomSegueButton: UIButton {
         )
         label.textColor = .tintColor
         return label
+    }
+    
+    // MARK: - Utility in CustomSegueButton
+    
+    func changeArrowDirection() {
+        arrowImageDirection = arrowImageDirection == .left ? .right : .left
+        let image = arrowImageDirection.convertUIImageView().image
+        self.subviews.forEach { subview in
+            if let imageView = subview as? UIImageView {
+                imageView.image = image
+            }
+        }
     }
     
     // MARK: - Arrow Image Type
