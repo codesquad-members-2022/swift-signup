@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class SignUpRepositoryImpl: NetworkRepository<SignUpTarget>, SignUpRepository {
-    func signUp(userId: String, password: String) -> AnyPublisher<Response<testModel>, Error> {
+    func signUp(userId: String, password: String) -> AnyPublisher<Response<ResponseResult>, Error> {
         request(.signUp(userId: userId, password: password))
     }
 }
