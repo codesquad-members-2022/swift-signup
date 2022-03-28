@@ -41,6 +41,7 @@ final class SignUpInputViewComponent:UIView,SignUpInputViewable {
     
     private func setUp() {
         let space:CGFloat = 8.0
+        let textFieldHeight:CGFloat = 32.0
         [label,textField].forEach{ self.addSubview($0) }
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +53,7 @@ final class SignUpInputViewComponent:UIView,SignUpInputViewable {
         textField.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         textField.topAnchor.constraint(equalTo: label.bottomAnchor,constant: space).isActive = true
-        
+        textField.heightAnchor.constraint(equalToConstant:textFieldHeight).isActive = true
     }
 }
 
