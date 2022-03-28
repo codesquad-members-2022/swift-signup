@@ -15,9 +15,16 @@ final class SignUpViewController: UIViewController {
     }
     
     private func configureSignUpView() {
-        self.title = "회원가입"
-        
+        setTitle()
     }
+    
+    private func setTitle() {
+        let label = UILabel()
+        label.text = "회원가입"
+        label.font = .systemFont(ofSize: 32, weight: .bold)
+        self.navigationItem.titleView = label
+    }
+    
     
 }
 
