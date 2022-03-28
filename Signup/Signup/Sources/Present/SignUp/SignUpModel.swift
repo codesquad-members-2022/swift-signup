@@ -33,12 +33,6 @@ class SignUpModel {
     let signUpRespository: SignUpRepository = SignUpRepositoryImpl()
     
     init() {
-        
-        let test = Publishers
-            .Merge4(action.userIdEntered, action.passwordEntered, action.checkPasswordEntered, action.userNameEntered)
-            .combineLatest(state.userIdMessage, state.passwordMessage, state.userNameMessage)
-            
-        
         action.userIdEntered
             .sink {
                 if $0.isEmpty {
