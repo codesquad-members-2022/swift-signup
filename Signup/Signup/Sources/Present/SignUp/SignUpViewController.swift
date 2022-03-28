@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class SignUpViewController: UIViewController {
 
@@ -30,42 +31,46 @@ class SignUpViewController: UIViewController {
     let userId: InputView = {
         let inputView = InputView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
-        inputView.title.text = "아이디"
-        inputView.textField.placeholder = "  영문 소문자, 숫자, 특수기호(_,-), 5~20자"
-        inputView.errorLabel.text = "이미 사용중인 아이디입니다."
+        inputView.title = "아이디"
+        inputView.textContentType = .name
+        inputView.placeholder = "  영문 소문자, 숫자, 특수기호(_,-), 5~20자"
         return inputView
     }()
     
     let password: InputView = {
         let inputView = InputView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
-        inputView.title.text = "비밀번호"
-        inputView.textField.placeholder = "  영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자"
-        inputView.errorLabel.text = "이미 사용중인 아이디입니다."
+        inputView.title = "비밀번호"
+        inputView.textContentType = .password
+        inputView.placeholder = "  영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자"
+        inputView.isSecureTextEntry = true
         return inputView
     }()
     
-    let passwordCheck: InputView = {
+    let checkPassword: InputView = {
         let inputView = InputView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
-        inputView.title.text = "비밀번호 재확인"
-        inputView.textField.placeholder = ""
-        inputView.errorLabel.text = "이미 사용중인 아이디입니다."
+        inputView.textContentType = .password
+        inputView.title = "비밀번호 재확인"
+        inputView.placeholder = ""
+        inputView.isSecureTextEntry = true
         return inputView
     }()
     
     let userName: InputView = {
         let inputView = InputView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
-        inputView.title.text = "이름"
-        inputView.textField.placeholder = ""
-        inputView.errorLabel.text = "이미 사용중인 아이디입니다."
+        inputView.title = "이름"
+        inputView.textContentType = .name
+        inputView.placeholder = ""
         return inputView
     }()
     
     var inputViews: [InputView] {
-        [self.userId, self.password, self.passwordCheck, self.userName]
+        [self.userId, self.password, self.checkPassword, self.userName]
     }
+    
+    var cancellables = Set<AnyCancellable>()
     
     let model = SignUpModel()
     
@@ -77,18 +82,35 @@ class SignUpViewController: UIViewController {
     }
     
     private func bind() {
+        userId.textPublisher
+            .sink {
+                self.model.action.userIdEntered.send($0)
+            }.store(in: &cancellables)
+                
+        model.state.userIdMessage
+            .sink {
+                self.userId.setMessage($1, type: $0)
+            }.store(in: &cancellables)
         
-//        model.action.nextButtonTapped.send()
-//        model.action.userIdEntered.send("idididid")
-//        model.action.passwordEntered.send("password")
+        password.textPublisher
+            .sink {
+                self.model.action.passwordEntered.send($0)
+            }.store(in: &cancellables)
         
-//        model.action.nextButtonTapped.send()
-//
-//        model.action.userIdEntered.send("****")
-//        model.action.passwordEntered.send("password")
-//        model.action.userIdEntered.send("idididid1234")
-//        model.action.userIdEntered.send("idididid123")
-//        model.action.passwordEntered.send("password113")
+        model.state.passwordMessage
+            .sink {
+                self.password.setMessage($1, type: $0)
+            }.store(in: &cancellables)
+        
+        checkPassword.textPublisher
+            .sink {
+                self.model.action.checkPasswordEntered.send($0)
+            }.store(in: &cancellables)
+        
+        model.state.checkPasswordMessage
+            .sink {
+                self.checkPassword.setMessage($1, type: $0)
+            }.store(in: &cancellables)
     }
     
     private func attribute() {
@@ -110,16 +132,9 @@ class SignUpViewController: UIViewController {
         
         inputViews.forEach {
             stackView.addArrangedSubview($0)
-//            $0.heightAnchor.constraint(equalToConstant: 80).isActive = true
         }
         
         stackView.bottomAnchor.constraint(equalTo: userName.bottomAnchor).isActive = true
-        
-//        self.view.addSubview(userId)
-//        userId.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: 30).isActive = true
-//        userId.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 30).isActive = true
-//        userId.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -30).isActive = true
-//        userId.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
 }
 
