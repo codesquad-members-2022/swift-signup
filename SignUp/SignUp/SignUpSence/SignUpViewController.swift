@@ -7,14 +7,17 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
-
+final class SignUpViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-     
+        configureSignUpView()
     }
-
-
+    
+    private func configureSignUpView() {
+        self.title = "회원가입"
+        
+    }
+    
 }
 
