@@ -39,7 +39,7 @@ final class SignUpViewComponent:UIView {
         
         textField.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        textField.topAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
+        textField.topAnchor.constraint(equalTo: label.bottomAnchor,constant: 8).isActive = true
         
     }
     
