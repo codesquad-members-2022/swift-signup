@@ -8,15 +8,21 @@
 import UIKit
 
 /// 버튼의 내부 라벨, 상태, 내용 등을 관리한다.
-class CustomSegueButton: UIButton {
+final class CustomSegueButton: UIButton {
+    
+    // MARK: - Local Properties
     
     private var arrowDirection: ButtonArrow = .right
     private var buttonTitle: String = "titleNone"
     
+    // MARK: - Initializers
+    
     convenience init(with frame: CGRect, as title: String, using selector: Selector, direction: ButtonArrow = .right) {
         self.init(frame: frame)
-        self.buttonTitle = title
+        buttonTitle = title
+        
         addTarget(superview, action: selector, for: .touchUpInside)
+        
         (self.subviews.first(where: {v in v is UILabel}) as? UILabel)?.text = buttonTitle
     }
     
@@ -34,8 +40,10 @@ class CustomSegueButton: UIButton {
         setNameLabel(maskingView: imageView, as: leftPadding, using: buttonTitle)
     }
     
+    // MARK: - Add Subviews
+    
     @discardableResult
-    func setArrowImageView(direction: ButtonArrow, as padding: CGFloat) -> UIImageView {
+    private func setArrowImageView(direction: ButtonArrow, as padding: CGFloat) -> UIImageView {
         let imageView = direction.convertUIImageView()
         addSubview(imageView)
         imageView.center.y = self.center.y
@@ -44,7 +52,7 @@ class CustomSegueButton: UIButton {
     }
     
     @discardableResult
-    func setNameLabel(maskingView: UIView, as padding: CGFloat, using title: String) -> UILabel {
+    private func setNameLabel(maskingView: UIView, as padding: CGFloat, using title: String) -> UILabel {
         let label = UILabel()
         addSubview(label)
         label.text = title
@@ -58,6 +66,8 @@ class CustomSegueButton: UIButton {
         label.textColor = .tintColor
         return label
     }
+    
+    // MARK: - Arrow Image Type
     
     enum ButtonArrow: String {
         case left = "arrow.left.circle"
