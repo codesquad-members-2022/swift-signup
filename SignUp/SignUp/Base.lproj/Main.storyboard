@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignUpViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,17 +121,18 @@
                     <navigationItem key="navigationItem" id="80R-VT-ZUa"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <segue destination="ymB-Tt-lQO" kind="show" id="wbA-AY-Ccm"/>
+                        <outlet property="nextButtonView" destination="Bfo-Eo-mM2" id="vjL-h3-hk4"/>
+                        <segue destination="ymB-Tt-lQO" kind="show" identifier="PrivateInfoViewController" id="wbA-AY-Ccm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="257.97101449275362" y="134.59821428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Private Info View Controller-->
         <scene sceneID="i6f-JG-bgg">
             <objects>
-                <viewController id="ymB-Tt-lQO" sceneMemberID="viewController">
+                <viewController id="ymB-Tt-lQO" customClass="PrivateInfoViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vmb-KN-0wa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
