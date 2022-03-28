@@ -21,7 +21,6 @@
 		1B64B73027F14D1E00B29580 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1B64B72F27F14D1E00B29580 /* README.md */; };
 		1B64B73727F15D9400B29580 /* CustomSegueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73627F15D9400B29580 /* CustomSegueButton.swift */; };
 		1B64B73927F1744B00B29580 /* PrivateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73827F1744B00B29580 /* PrivateInfoViewController.swift */; };
-		1B64B73B27F19E6E00B29580 /* CustomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73A27F19E6D00B29580 /* CustomTextFieldDelegate.swift */; };
 		1B64B73D27F19F9500B29580 /* CustomCommentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73C27F19F9500B29580 /* CustomCommentLabel.swift */; };
 		1B64B73F27F1A34100B29580 /* ValidationRegularText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */; };
 		1B64B74227F1B13200B29580 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B74127F1B13200B29580 /* CustomTextField.swift */; };
@@ -64,7 +63,6 @@
 		1B64B72F27F14D1E00B29580 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1B64B73627F15D9400B29580 /* CustomSegueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegueButton.swift; sourceTree = "<group>"; };
 		1B64B73827F1744B00B29580 /* PrivateInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateInfoViewController.swift; sourceTree = "<group>"; };
-		1B64B73A27F19E6D00B29580 /* CustomTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldDelegate.swift; sourceTree = "<group>"; };
 		1B64B73C27F19F9500B29580 /* CustomCommentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCommentLabel.swift; sourceTree = "<group>"; };
 		1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegularText.swift; sourceTree = "<group>"; };
 		1B64B74127F1B13200B29580 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -106,6 +104,34 @@
 				1B27823A27F1DDEC003A5ADD /* EmailCommentGenerator.swift */,
 			);
 			path = CommentGenerators;
+			sourceTree = "<group>";
+		};
+		1B27824227F1F473003A5ADD /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				1B64B73627F15D9400B29580 /* CustomSegueButton.swift */,
+				1B64B74127F1B13200B29580 /* CustomTextField.swift */,
+				1B64B73C27F19F9500B29580 /* CustomCommentLabel.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1B27824327F1F4F7003A5ADD /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				1B64B74327F1B33700B29580 /* ValidationRegularTextFactory.swift */,
+				1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		1B27824427F1F505003A5ADD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B64B70327F14CF700B29580 /* IdentificationViewController.swift */,
+				1B64B73827F1744B00B29580 /* PrivateInfoViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		1B64B6F327F14CF700B29580 = {
@@ -169,11 +195,8 @@
 		1B64B73227F14D7400B29580 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1B64B70327F14CF700B29580 /* IdentificationViewController.swift */,
-				1B64B73827F1744B00B29580 /* PrivateInfoViewController.swift */,
-				1B64B73627F15D9400B29580 /* CustomSegueButton.swift */,
-				1B64B74127F1B13200B29580 /* CustomTextField.swift */,
-				1B64B73C27F19F9500B29580 /* CustomCommentLabel.swift */,
+				1B27824427F1F505003A5ADD /* ViewControllers */,
+				1B27824227F1F473003A5ADD /* CustomViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,9 +204,7 @@
 		1B64B74027F1A34A00B29580 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1B64B73A27F19E6D00B29580 /* CustomTextFieldDelegate.swift */,
-				1B64B74327F1B33700B29580 /* ValidationRegularTextFactory.swift */,
-				1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */,
+				1B27824327F1F4F7003A5ADD /* Validation */,
 				1B27823327F1DC4F003A5ADD /* CommentGenerators */,
 			);
 			path = Model;
@@ -325,7 +346,6 @@
 				1B64B73D27F19F9500B29580 /* CustomCommentLabel.swift in Sources */,
 				1B64B73927F1744B00B29580 /* PrivateInfoViewController.swift in Sources */,
 				1B64B70427F14CF700B29580 /* IdentificationViewController.swift in Sources */,
-				1B64B73B27F19E6E00B29580 /* CustomTextFieldDelegate.swift in Sources */,
 				1B64B74427F1B33700B29580 /* ValidationRegularTextFactory.swift in Sources */,
 				1B27823B27F1DDEC003A5ADD /* EmailCommentGenerator.swift in Sources */,
 				1B27824127F1E18A003A5ADD /* PasswordCommentConfirmGenerator.swift in Sources */,

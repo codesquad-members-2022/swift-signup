@@ -9,7 +9,9 @@ import UIKit
 
 typealias CommentColor = CustomCommentLabel.CommentColor
 
-class CustomCommentLabel: UILabel {
+final class CustomCommentLabel: UILabel {
+    
+    // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +25,8 @@ class CustomCommentLabel: UILabel {
         self.frame.origin.y = self.frame.height + self.frame.maxY
     }
     
+    // MARK: - Interfaces
+    
     func showComment(_ valicationComment: ValidationComment?) {
         self.text = valicationComment?.comment
         self.textColor = valicationComment?.commentColor.getCommentColor()
@@ -31,8 +35,10 @@ class CustomCommentLabel: UILabel {
     
     func hideComment() {
         self.text = ""
-        self.frame.size.height
+        self.frame.size.height = 0
     }
+    
+    // MARK: - Nested Types
     
     enum CommentColor {
         case red

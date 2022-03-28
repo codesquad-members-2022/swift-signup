@@ -7,12 +7,11 @@
 
 import UIKit
 
-
-class CustomTextField: UITextField, UITextFieldDelegate {
+final class CustomTextField: UITextField, UITextFieldDelegate {
     
     // MARK: - Local Properties
     
-    private lazy var commentView = CustomCommentLabel(frame: self.frame )
+    private lazy var commentLabel = CustomCommentLabel(frame: self.frame)
     var validator: ValidationRegularText?
     
     // MARK: - Initialzers
@@ -20,40 +19,37 @@ class CustomTextField: UITextField, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.delegate = self
-        addSubview(commentView)
+        addSubview(commentLabel)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.delegate = self
-        addSubview(commentView)
+        addSubview(commentLabel)
     }
 
-    // MARK: - Utilities
-    
-    func resolveComment() {
-        commentView.showComment(validator?.comment)
-    }
-    
-    func hideCommentView() {
-        commentView.hideComment()
-    }
+    // MARK: - Methods in delegate
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        (textField as? CustomTextField)?.hideCommentView()
+        commentLabel.hideComment()
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let targetString = textField.text, let validator = validator else { return }
-        let _ = validator.matches(in: targetString, range: NSMakeRange(0, targetString.count))
-        resolveComment()
+        guard let targetString = textField.text else { return }
+        
+        guard targetString.count == 0 else {
+            commentLabel.hideComment()
+            return
+        }
+        let _ = validator?.matches(in: targetString, range: NSMakeRange(0, targetString.count))
+        commentLabel.showComment(validator?.comment)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let targetString = textField.text else { return false }
         let _ = validator?.matches(in: targetString, range: NSMakeRange(0, targetString.count))
-        resolveComment()
+        commentLabel.showComment(validator?.comment)
         
         return true
     }

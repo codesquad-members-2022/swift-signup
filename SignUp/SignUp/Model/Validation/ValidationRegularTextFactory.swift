@@ -38,7 +38,7 @@ class ValidationRegularTextFactory {
     
     private static func passwordMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .password, using: PasswordCommentGenerator())
+            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .password, using: PasswordCommentGenerator())
         } catch {
             print(error)
             return nil
@@ -47,7 +47,7 @@ class ValidationRegularTextFactory {
     
     private static func birthDayMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .birthDay, using: PasswordCommentConfirmGenerator())
+            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .birthDay, using: PasswordCommentConfirmGenerator())
         } catch {
             print(error)
             return nil
@@ -56,7 +56,7 @@ class ValidationRegularTextFactory {
     
     private static func emailAddressMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .emailAddress, using: EmailCommentGenerator())
+            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .emailAddress, using: EmailCommentGenerator())
         } catch {
             print(error)
             return nil
@@ -65,7 +65,7 @@ class ValidationRegularTextFactory {
     
     private static func phoneNumberMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .phoneNumber)
+            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .phoneNumber)
         } catch {
             print(error)
             return nil
@@ -74,7 +74,7 @@ class ValidationRegularTextFactory {
     
     private static func favoriteCategoryMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .favoriteCategory)
+            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .favoriteCategory)
         } catch {
             print(error)
             return nil
