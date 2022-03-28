@@ -9,7 +9,9 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
     
-    private let stackView = UIStackView()
+    private let stackView = UIStackView(frame: .zero)
+    private let nextButton = SignUpNextButton(frame: .zero)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,7 @@ final class SignUpViewController: UIViewController {
 
     private func configureSignUpView() {
         setTitle()
+        configureNextButton()
         configureStackView()
     }
     
@@ -29,10 +32,11 @@ final class SignUpViewController: UIViewController {
     }
     
     private func configureStackView() {
+        let constant:CGFloat = 32.0
         let inputViewComponents = configureInputViewComponents()
-        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         
         inputViewComponents.forEach{ inputViewable in
             guard let view = inputViewable as? SignUpInputViewComponent else { return }
@@ -40,13 +44,11 @@ final class SignUpViewController: UIViewController {
         }
         
         self.view.addSubview(stackView)
-        
-        stackView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor,constant: 32).isActive = true
-        stackView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor,constant: -32).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: 16).isActive = true
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+    
+        stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,constant: constant).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -constant).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.nextButton.topAnchor,constant: -constant).isActive = true
+        stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: constant / 2).isActive = true
         
     }
     
@@ -59,5 +61,11 @@ final class SignUpViewController: UIViewController {
         return [IDComponent,passwordComponet,passwordRecheckComponent,nameComponent]
     }
     
+    private func configureNextButton() {
+        self.view.addSubview(nextButton)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -300).isActive = true
+    }
 }
 

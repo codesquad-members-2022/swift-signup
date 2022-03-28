@@ -12,7 +12,6 @@ final class SignUpInputViewComponent:UIView,SignUpInputViewable {
     private lazy var label = UILabel()
     private lazy var textField:UITextField = {
         let textField = UITextField()
-        textField.layer.cornerRadius = 6.0
         textField.layer.borderWidth = 1.0
         return textField
     }()
