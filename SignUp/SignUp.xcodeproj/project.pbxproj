@@ -84,6 +84,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D1E791927F1D12E004FD949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D3347D727F151A200AD1F41 /* SignUpInputViewComponent.swift */,
+				8D1E791727F1AB6D004FD949 /* SignUpNextButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D1E791A27F1D13F004FD949 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				8D1E791527F1A2F6004FD949 /* SignUpInputViewCreator.swift */,
+				8D1E791127F1A23A004FD949 /* SignUpInputViewable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		8D33479927F14CDE00AD1F41 = {
 			isa = PBXGroup;
 			children = (
@@ -146,11 +164,9 @@
 			isa = PBXGroup;
 			children = (
 				8D3347A927F14CDE00AD1F41 /* SignUpViewController.swift */,
-				8D3347D727F151A200AD1F41 /* SignUpInputViewComponent.swift */,
 				8D1E791327F1A2C7004FD949 /* SignUpInputViewFactory.swift */,
-				8D1E791527F1A2F6004FD949 /* SignUpInputViewCreator.swift */,
-				8D1E791127F1A23A004FD949 /* SignUpInputViewable.swift */,
-				8D1E791727F1AB6D004FD949 /* SignUpNextButton.swift */,
+				8D1E791927F1D12E004FD949 /* View */,
+				8D1E791A27F1D13F004FD949 /* Protocol */,
 			);
 			path = SignUpSence;
 			sourceTree = "<group>";

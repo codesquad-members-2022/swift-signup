@@ -11,11 +11,17 @@ final class SignUpViewController: UIViewController {
     
     private let stackView = UIStackView(frame: .zero)
     private let nextButton = SignUpNextButton(frame: .zero)
+    private var IDComponent:SignUpInputViewable?
+    private var passwordComponet:SignUpInputViewable?
+    private var passwordRecheckComponent:SignUpInputViewable?
+    private var nameComponent:SignUpInputViewable?
+    
     private var inputViewCreator:SignUpInputViewCreator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignUpView()
+        
     }
 
     private func configureSignUpView() {
@@ -55,14 +61,14 @@ final class SignUpViewController: UIViewController {
     }
     
     //inputViewComponent
-    private func configureInputViewComponents() -> [SignUpInputViewable]{
+    private func configureInputViewComponents() -> [SignUpInputViewable?]{
         inputViewCreator(creator: SignUpInputViewFactory())
         guard let factory = inputViewCreator else { return [] }
         
-        let IDComponent = factory.makeSignUpViewComponent(labelText: "아이디", placeHolder: "영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
-        let passwordComponet = factory.makeSignUpViewComponent(labelText: "비밀번호", placeHolder: "영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
-        let passwordRecheckComponent = factory.makeSignUpViewComponent(labelText: "비밀번호 재확인", placeHolder: "")
-        let nameComponent = factory.makeSignUpViewComponent(labelText: "이름", placeHolder: "")
+        IDComponent = factory.makeSignUpViewComponent(labelText: "아이디", placeHolder: "영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
+        passwordComponet = factory.makeSignUpViewComponent(labelText: "비밀번호", placeHolder: "영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
+        passwordRecheckComponent = factory.makeSignUpViewComponent(labelText: "비밀번호 재확인", placeHolder: "")
+        nameComponent = factory.makeSignUpViewComponent(labelText: "이름", placeHolder: "")
         
         return [IDComponent,passwordComponet,passwordRecheckComponent,nameComponent]
     }
