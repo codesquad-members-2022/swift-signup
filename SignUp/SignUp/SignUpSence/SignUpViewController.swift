@@ -9,9 +9,7 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
     
-    let stackView = UIStackView()
-    let IDComponent = SignUpViewComponent(frame: .zero)
-    
+    private let stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +29,15 @@ final class SignUpViewController: UIViewController {
     }
     
     private func configureStackView() {
-        configureViewComponents()
+        let inputViewComponents = configureInputViewComponents()
         
         stackView.alignment = .fill
         stackView.distribution = .equalSpacing
         
-        stackView.addArrangedSubview(IDComponent)
+        inputViewComponents.forEach{ inputViewable in
+            guard let view = inputViewable as? SignUpInputViewComponent else { return }
+            stackView.addArrangedSubview(view)
+        }
         self.view.addSubview(stackView)
         
         
@@ -51,9 +52,10 @@ final class SignUpViewController: UIViewController {
         
     }
     
-    private func configureViewComponents() {
-        IDComponent.labelText(text: "아이디")
-        IDComponent.placeholder(text: "영문 대/소문자, 숫자, 특수기호(!@#$%) 8~16자")
+    private func configureInputViewComponents() -> [SignUpInputViewable]{
+        let IDComponent = SignUpInputViewFactory.makeSignUpViewComponent(labelText: "아이디", placeHolder: "영문 대/소문자, 숫자, 특수기호(!@#$%) 8~16자")
+        
+        return [IDComponent]
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  SignUpInputViewComponent.swift
 //  SignUp
 //
 //  Created by 박진섭 on 2022/03/28.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpViewComponent:UIView,SignUpViewable {
+final class SignUpInputViewComponent:UIView,SignUpInputViewable {
     
     private lazy var label = UILabel()
     private lazy var textField:UITextField = {
@@ -36,6 +36,7 @@ final class SignUpViewComponent:UIView,SignUpViewable {
     }
     
     private func setUp() {
+        let space:CGFloat = 8.0
         [label,textField].forEach{ self.addSubview($0) }
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,10 +47,8 @@ final class SignUpViewComponent:UIView,SignUpViewable {
         
         textField.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        textField.topAnchor.constraint(equalTo: label.bottomAnchor,constant: 8).isActive = true
+        textField.topAnchor.constraint(equalTo: label.bottomAnchor,constant: space).isActive = true
         
     }
-    
-
 }
 
