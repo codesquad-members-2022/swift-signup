@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D1E791227F1A23A004FD949 /* SignUpViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E791127F1A23A004FD949 /* SignUpViewable.swift */; };
 		8D3347A627F14CDE00AD1F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347A527F14CDE00AD1F41 /* AppDelegate.swift */; };
 		8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347A727F14CDE00AD1F41 /* SceneDelegate.swift */; };
 		8D3347AA27F14CDE00AD1F41 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347A927F14CDE00AD1F41 /* SignUpViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D1E791127F1A23A004FD949 /* SignUpViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewable.swift; sourceTree = "<group>"; };
 		8D3347A227F14CDE00AD1F41 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3347A527F14CDE00AD1F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D3347A727F14CDE00AD1F41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				8D3347A927F14CDE00AD1F41 /* SignUpViewController.swift */,
 				8D3347D727F151A200AD1F41 /* SignUpViewComponent.swift */,
+				8D1E791127F1A23A004FD949 /* SignUpViewable.swift */,
 			);
 			path = SignUpSence;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				8D3347D827F151A200AD1F41 /* SignUpViewComponent.swift in Sources */,
 				8D3347AA27F14CDE00AD1F41 /* SignUpViewController.swift in Sources */,
+				8D1E791227F1A23A004FD949 /* SignUpViewable.swift in Sources */,
 				8D3347A627F14CDE00AD1F41 /* AppDelegate.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
 			);

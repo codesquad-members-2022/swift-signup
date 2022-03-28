@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpViewComponent:UIView {
+final class SignUpViewComponent:UIView,SignUpViewable {
     
     private lazy var label = UILabel()
     private lazy var textField:UITextField = {
