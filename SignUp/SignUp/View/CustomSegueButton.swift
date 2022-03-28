@@ -11,16 +11,27 @@ import UIKit
 class CustomSegueButton: UIButton {
     
     private var arrowDirection: ButtonArrow = .right
-    private var buttonTitle: String = "다음"
+    private var buttonTitle: String = "titleNone"
     
     convenience init(with frame: CGRect, as title: String, using selector: Selector, direction: ButtonArrow = .right) {
         self.init(frame: frame)
-        
+        self.buttonTitle = title
+        addTarget(superview, action: selector, for: .touchUpInside)
+        (self.subviews.first(where: {v in v is UILabel}) as? UILabel)?.text = buttonTitle
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         let leftPadding = frame.width/6
         let imageView = setArrowImageView(direction: .right, as: leftPadding)
-        setNameLabel(maskingView: imageView, as: leftPadding, using: title)
-        
-        addTarget(superview, action: selector, for: .touchUpInside)
+        setNameLabel(maskingView: imageView, as: leftPadding, using: buttonTitle)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        let leftPadding = frame.width/6
+        let imageView = setArrowImageView(direction: .right, as: leftPadding)
+        setNameLabel(maskingView: imageView, as: leftPadding, using: buttonTitle)
     }
     
     @discardableResult
@@ -46,14 +57,6 @@ class CustomSegueButton: UIButton {
         )
         label.textColor = .tintColor
         return label
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
     
     enum ButtonArrow: String {
