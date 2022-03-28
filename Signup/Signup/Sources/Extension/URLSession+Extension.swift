@@ -9,9 +9,27 @@ import Foundation
 import Combine
 import UIKit
 
+
+
+struct Response<T> {
+    let value: T
+    let response: URLResponse
+}
+
 extension URLSession {
     enum ResponseError: Error {
         case statusCode(HTTPURLResponse)
+    }
+    
+    func networkRequest<T: Decodable>(_ request: URLRequest) -> AnyPublisher<Response<T>, Error> {
+        return self.dataTaskPublisher(for: request)
+            .tryMap { result in
+                let value = try JSONDecoder().decode(T.self, from: result.data)
+                return Response(value: value, response: result.response)
+                
+            }
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
     }
     
     func jsonDecoder<T: Decodable>(_ type: T.Type, for url: URL) -> AnyPublisher<T, Error> {

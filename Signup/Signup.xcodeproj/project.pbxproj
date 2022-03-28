@@ -19,9 +19,26 @@
 		E0B1E38127F149110018D93E /* Color+Exteionsoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */; };
 		E0B1E38227F149110018D93E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37B27F149110018D93E /* URLSession+Extension.swift */; };
 		E0B1E38327F149110018D93E /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37C27F149110018D93E /* Data+Extension.swift */; };
-		E0B1E38927F149F00018D93E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E38827F149F00018D93E /* SignUpViewModel.swift */; };
+		E0B1E38927F149F00018D93E /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E38827F149F00018D93E /* SignUpModel.swift */; };
 		E0B1E38B27F14A140018D93E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E38A27F14A140018D93E /* InputView.swift */; };
+		E0B1E39327F152A70018D93E /* SignupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E39227F152A70018D93E /* SignupTests.swift */; };
+		E0B1E39927F152B10018D93E /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E38827F149F00018D93E /* SignUpModel.swift */; };
+		E0B1E3A327F1B9690018D93E /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A227F1B9690018D93E /* SignUpRepository.swift */; };
+		E0B1E3A527F1B9720018D93E /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A427F1B9720018D93E /* SignUpRepositoryImpl.swift */; };
+		E0B1E3A827F1BA000018D93E /* BaseTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A727F1BA000018D93E /* BaseTarget.swift */; };
+		E0B1E3AA27F1BA6E0018D93E /* SignUpTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A927F1BA6E0018D93E /* SignUpTarget.swift */; };
+		E0B1E3AC27F1BE520018D93E /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AB27F1BE520018D93E /* NetworkRepository.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0B1E39427F152A70018D93E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0B1E34D27F148800018D93E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0B1E35427F148800018D93E;
+			remoteInfo = Signup;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E0B1E35527F148800018D93E /* Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,12 +55,26 @@
 		E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Exteionsoin.swift"; sourceTree = "<group>"; };
 		E0B1E37B27F149110018D93E /* URLSession+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		E0B1E37C27F149110018D93E /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
-		E0B1E38827F149F00018D93E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		E0B1E38827F149F00018D93E /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		E0B1E38A27F14A140018D93E /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		E0B1E39027F152A70018D93E /* SignupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0B1E39227F152A70018D93E /* SignupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTests.swift; sourceTree = "<group>"; };
+		E0B1E3A227F1B9690018D93E /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
+		E0B1E3A427F1B9720018D93E /* SignUpRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImpl.swift; sourceTree = "<group>"; };
+		E0B1E3A727F1BA000018D93E /* BaseTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTarget.swift; sourceTree = "<group>"; };
+		E0B1E3A927F1BA6E0018D93E /* SignUpTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTarget.swift; sourceTree = "<group>"; };
+		E0B1E3AB27F1BE520018D93E /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E0B1E35227F148800018D93E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0B1E38D27F152A70018D93E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -57,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				E0B1E35727F148800018D93E /* Signup */,
+				E0B1E39127F152A70018D93E /* SignupTests */,
 				E0B1E35627F148800018D93E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				E0B1E35527F148800018D93E /* Signup.app */,
+				E0B1E39027F152A70018D93E /* SignupTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,7 +115,9 @@
 		E0B1E36C27F148980018D93E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E0B1E3A627F1B9A00018D93E /* API */,
 				E0B1E38527F1499C0018D93E /* Model */,
+				E0B1E3A027F1B94F0018D93E /* Repository */,
 				E0B1E38427F1498F0018D93E /* Present */,
 				E0B1E37027F149110018D93E /* Common */,
 				E0B1E37927F149110018D93E /* Extension */,
@@ -116,7 +151,7 @@
 				E0B1E38727F149E20018D93E /* New Group */,
 				E0B1E38627F149D70018D93E /* View */,
 				E0B1E35C27F148800018D93E /* SignUpViewController.swift */,
-				E0B1E38827F149F00018D93E /* SignUpViewModel.swift */,
+				E0B1E38827F149F00018D93E /* SignUpModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -195,6 +230,41 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		E0B1E39127F152A70018D93E /* SignupTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1E39227F152A70018D93E /* SignupTests.swift */,
+			);
+			path = SignupTests;
+			sourceTree = "<group>";
+		};
+		E0B1E3A027F1B94F0018D93E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1E3A127F1B9590018D93E /* SignUp */,
+				E0B1E3AB27F1BE520018D93E /* NetworkRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		E0B1E3A127F1B9590018D93E /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1E3A227F1B9690018D93E /* SignUpRepository.swift */,
+				E0B1E3A427F1B9720018D93E /* SignUpRepositoryImpl.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		E0B1E3A627F1B9A00018D93E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1E3A727F1BA000018D93E /* BaseTarget.swift */,
+				E0B1E3A927F1BA6E0018D93E /* SignUpTarget.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,6 +285,24 @@
 			productReference = E0B1E35527F148800018D93E /* Signup.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E0B1E38F27F152A70018D93E /* SignupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0B1E39627F152A70018D93E /* Build configuration list for PBXNativeTarget "SignupTests" */;
+			buildPhases = (
+				E0B1E38C27F152A70018D93E /* Sources */,
+				E0B1E38D27F152A70018D93E /* Frameworks */,
+				E0B1E38E27F152A70018D93E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0B1E39527F152A70018D93E /* PBXTargetDependency */,
+			);
+			name = SignupTests;
+			productName = SignupTests;
+			productReference = E0B1E39027F152A70018D93E /* SignupTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -227,6 +315,10 @@
 				TargetAttributes = {
 					E0B1E35427F148800018D93E = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					E0B1E38F27F152A70018D93E = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = E0B1E35427F148800018D93E;
 					};
 				};
 			};
@@ -244,6 +336,7 @@
 			projectRoot = "";
 			targets = (
 				E0B1E35427F148800018D93E /* Signup */,
+				E0B1E38F27F152A70018D93E /* SignupTests */,
 			);
 		};
 /* End PBXProject section */
@@ -259,6 +352,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E0B1E38E27F152A70018D93E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -267,20 +367,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0B1E35D27F148800018D93E /* SignUpViewController.swift in Sources */,
+				E0B1E3A827F1BA000018D93E /* BaseTarget.swift in Sources */,
 				E0B1E38127F149110018D93E /* Color+Exteionsoin.swift in Sources */,
-				E0B1E38927F149F00018D93E /* SignUpViewModel.swift in Sources */,
+				E0B1E38927F149F00018D93E /* SignUpModel.swift in Sources */,
+				E0B1E3AA27F1BA6E0018D93E /* SignUpTarget.swift in Sources */,
+				E0B1E3A527F1B9720018D93E /* SignUpRepositoryImpl.swift in Sources */,
 				E0B1E38027F149110018D93E /* PHPhoto.swift in Sources */,
 				E0B1E37E27F149110018D93E /* JsonParser.swift in Sources */,
 				E0B1E37F27F149110018D93E /* Log.swift in Sources */,
 				E0B1E38227F149110018D93E /* URLSession+Extension.swift in Sources */,
+				E0B1E3A327F1B9690018D93E /* SignUpRepository.swift in Sources */,
 				E0B1E38327F149110018D93E /* Data+Extension.swift in Sources */,
+				E0B1E3AC27F1BE520018D93E /* NetworkRepository.swift in Sources */,
 				E0B1E38B27F14A140018D93E /* InputView.swift in Sources */,
 				E0B1E35927F148800018D93E /* AppDelegate.swift in Sources */,
 				E0B1E35B27F148800018D93E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E0B1E38C27F152A70018D93E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0B1E39327F152A70018D93E /* SignupTests.swift in Sources */,
+				E0B1E39927F152B10018D93E /* SignUpModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0B1E39527F152A70018D93E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0B1E35427F148800018D93E /* Signup */;
+			targetProxy = E0B1E39427F152A70018D93E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E0B1E35E27F148800018D93E /* Main.storyboard */ = {
@@ -472,6 +594,40 @@
 			};
 			name = Release;
 		};
+		E0B1E39727F152A70018D93E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shingha.SignupTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Signup.app/Signup";
+			};
+			name = Debug;
+		};
+		E0B1E39827F152A70018D93E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shingha.SignupTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Signup.app/Signup";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -489,6 +645,15 @@
 			buildConfigurations = (
 				E0B1E36A27F148810018D93E /* Debug */,
 				E0B1E36B27F148810018D93E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0B1E39627F152A70018D93E /* Build configuration list for PBXNativeTarget "SignupTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0B1E39727F152A70018D93E /* Debug */,
+				E0B1E39827F152A70018D93E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
