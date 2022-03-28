@@ -28,6 +28,7 @@ final class SignUpViewController: UIViewController {
         let label = UILabel()
         label.text = "회원가입"
         label.font = .systemFont(ofSize: 32, weight: .bold)
+        label.textColor = .blue
         self.navigationItem.titleView = label
     }
     

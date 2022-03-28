@@ -9,7 +9,12 @@ import UIKit
 
 final class SignUpInputViewComponent:UIView,SignUpInputViewable {
     
-    private lazy var label = UILabel()
+    private lazy var label:UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .bold)
+        return label
+    }()
+    
     private lazy var textField:UITextField = {
         let textField = UITextField()
         textField.layer.borderWidth = 1.0

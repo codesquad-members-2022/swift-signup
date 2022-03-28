@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpNextButton:UIButton {
+final class SignUpNextButton:UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +28,6 @@ class SignUpNextButton:UIButton {
         config.buttonSize = .large
         self.configuration = config
     }
-    
-    
 }
 
 
