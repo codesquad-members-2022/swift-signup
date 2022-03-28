@@ -9,7 +9,11 @@ import UIKit
 
 class CustomTextFieldDelegate: NSObject, UITextFieldDelegate {
     
+    // MARK: - Local Property
+    
     private var validation: ValidationRegularText?
+    
+    // MARK: - Initializer
     
     convenience init(validation: ValidationRegularText?) {
         self.init()
@@ -29,11 +33,15 @@ class CustomTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let targetString = textField.text, let validation = validation else { return }
-        let matches = validation.matches(in: targetString, range: NSMakeRange(0, targetString.count))
+        let _ = validation.matches(in: targetString, range: NSMakeRange(0, targetString.count))
+        (textField as? CustomTextField)?.resolveComment()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let targetString = textField.text, let validation = validation else { return false }
+        let _ = validation.matches(in: targetString, range: NSMakeRange(0, targetString.count))
+        (textField as? CustomTextField)?.resolveComment()
         
-        // 임시로 구현. 일치하는 부분이 존재하면 correct 상태를 전달하도록 하였습니다.
-        let _: CustomTextFieldCommentLabel.State = matches.count > 0 ? .correct : .warning
-        
-        (textField as? CustomTextField)?.setCommentView(as: .correct)
+        return true
     }
 }

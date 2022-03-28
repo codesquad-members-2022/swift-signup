@@ -29,7 +29,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="영문 소문자, 숫자, 특수기호(_,-), 5~20자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgl-9S-w4W" userLabel="IDTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="영문 소문자, 숫자, 특수기호(_,-), 5~20자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgl-9S-w4W" userLabel="IDTextField" customClass="CustomTextField" customModule="SignUp" customModuleProvider="target">
                                 <rect key="frame" x="20" y="141" width="374" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -109,6 +109,7 @@
                     <navigationItem key="navigationItem" id="80R-VT-ZUa"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="idTextField" destination="qgl-9S-w4W" id="xla-pm-D3P"/>
                         <outlet property="nextButtonView" destination="Bfo-Eo-mM2" id="vjL-h3-hk4"/>
                         <segue destination="ymB-Tt-lQO" kind="show" identifier="PrivateInfoViewController" id="wbA-AY-Ccm"/>
                     </connections>

@@ -8,45 +8,53 @@
 import UIKit
 
 
-class CustomTextField: UITextField {
+class CustomTextField: UITextField, UITextFieldDelegate {
     
     // MARK: - Local Properties
     
-    private var currentState = ValidationRegularText.ValidType.id
-    private var commentView: CustomTextFieldCommentLabel?
+    private lazy var commentView = CustomCommentLabel(frame: self.frame )
+    var validator: ValidationRegularText?
     
     // MARK: - Initialzers
-    
-    convenience init?(in frame: CGRect, type validType: ValidationRegularText.ValidType, messageHandler: ([CustomTextFieldTextState])->Dictionary<CustomTextFieldTextState, String>) {
-        self.init(frame: frame)
-        self.currentState = validType
-        setValidationType(validType)
-        self.commentView = CustomTextFieldCommentLabel(with: self.frame, messageHandler: messageHandler)
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.delegate = self
+        addSubview(commentView)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.delegate = self
+        addSubview(commentView)
     }
 
     // MARK: - Utilities
     
-    func setValidationType(_ type: ValidationRegularText.ValidType) {
-        self.currentState = type
-        let validator = ValidationRegularTextFactory.makeRegularExpression(as: currentState)
-        
-        // TODO: Instance will be immediately deallocated because property 'delegate' is 'weak'
-        self.delegate = CustomTextFieldDelegate(validation: validator)
-    }
-    
-    func setCommentView(as resultType: CustomTextFieldCommentLabel.State) {
-        commentView?.showComment(state: resultType)
+    func resolveComment() {
+        commentView.showComment(validator?.comment)
     }
     
     func hideCommentView() {
-        commentView?.hideComment()
+        commentView.hideComment()
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        (textField as? CustomTextField)?.hideCommentView()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let targetString = textField.text, let validator = validator else { return }
+        let _ = validator.matches(in: targetString, range: NSMakeRange(0, targetString.count))
+        resolveComment()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let targetString = textField.text else { return false }
+        let _ = validator?.matches(in: targetString, range: NSMakeRange(0, targetString.count))
+        resolveComment()
+        
+        return true
     }
 }

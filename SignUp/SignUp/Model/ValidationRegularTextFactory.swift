@@ -29,7 +29,7 @@ class ValidationRegularTextFactory {
     // MARK: - Factory Methods(하나로 만들 수도 있을 것 같음.)
     private static func idMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .id)
+            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .id, using: IDCommentGenerator())
         } catch {
             print(error)
             return nil
@@ -38,7 +38,7 @@ class ValidationRegularTextFactory {
     
     private static func passwordMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .password)
+            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .password, using: PasswordCommentGenerator())
         } catch {
             print(error)
             return nil
@@ -47,7 +47,7 @@ class ValidationRegularTextFactory {
     
     private static func birthDayMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .birthDay)
+            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .birthDay, using: PasswordCommentConfirmGenerator())
         } catch {
             print(error)
             return nil
@@ -56,7 +56,7 @@ class ValidationRegularTextFactory {
     
     private static func emailAddressMaker() -> ValidationRegularText? {
         do {
-            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .emailAddress)
+            return try ValidationRegularText(pattern: "", options: .caseInsensitive, as: .emailAddress, using: EmailCommentGenerator())
         } catch {
             print(error)
             return nil
