@@ -27,6 +27,13 @@ final class SignUpViewComponent:UIView,SignUpViewable {
         setUp()
     }
     
+    func labelText(text:String) {
+        self.label.text = text
+    }
+    
+    func placeholder(text:String) {
+        self.textField.placeholder = text
+    }
     
     private func setUp() {
         [label,textField].forEach{ self.addSubview($0) }
@@ -43,13 +50,6 @@ final class SignUpViewComponent:UIView,SignUpViewable {
         
     }
     
-    func labelText(text:String) {
-        self.label.text = text
-    }
-    
-    func placeholder(text:String) {
-        self.textField.placeholder = text
-    }
-    
+
 }
 

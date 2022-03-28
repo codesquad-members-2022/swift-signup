@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8D1E791227F1A23A004FD949 /* SignUpViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E791127F1A23A004FD949 /* SignUpViewable.swift */; };
+		8D1E791427F1A2C7004FD949 /* SignUpViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E791327F1A2C7004FD949 /* SignUpViewFactory.swift */; };
+		8D1E791627F1A2F6004FD949 /* SignUpViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E791527F1A2F6004FD949 /* SignUpViewCreator.swift */; };
 		8D3347A627F14CDE00AD1F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347A527F14CDE00AD1F41 /* AppDelegate.swift */; };
 		8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347A727F14CDE00AD1F41 /* SceneDelegate.swift */; };
 		8D3347AA27F14CDE00AD1F41 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347A927F14CDE00AD1F41 /* SignUpViewController.swift */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		8D1E791127F1A23A004FD949 /* SignUpViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewable.swift; sourceTree = "<group>"; };
+		8D1E791327F1A2C7004FD949 /* SignUpViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewFactory.swift; sourceTree = "<group>"; };
+		8D1E791527F1A2F6004FD949 /* SignUpViewCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewCreator.swift; sourceTree = "<group>"; };
 		8D3347A227F14CDE00AD1F41 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3347A527F14CDE00AD1F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D3347A727F14CDE00AD1F41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 			children = (
 				8D3347A927F14CDE00AD1F41 /* SignUpViewController.swift */,
 				8D3347D727F151A200AD1F41 /* SignUpViewComponent.swift */,
+				8D1E791327F1A2C7004FD949 /* SignUpViewFactory.swift */,
+				8D1E791527F1A2F6004FD949 /* SignUpViewCreator.swift */,
 				8D1E791127F1A23A004FD949 /* SignUpViewable.swift */,
 			);
 			path = SignUpSence;
@@ -277,9 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D3347D827F151A200AD1F41 /* SignUpViewComponent.swift in Sources */,
+				8D1E791427F1A2C7004FD949 /* SignUpViewFactory.swift in Sources */,
 				8D3347AA27F14CDE00AD1F41 /* SignUpViewController.swift in Sources */,
 				8D1E791227F1A23A004FD949 /* SignUpViewable.swift in Sources */,
 				8D3347A627F14CDE00AD1F41 /* AppDelegate.swift in Sources */,
+				8D1E791627F1A2F6004FD949 /* SignUpViewCreator.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
