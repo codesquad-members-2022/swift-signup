@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class SignUpView:UIView {
+final class SignUpViewComponent:UIView {
+    
+    
     
 }
 
