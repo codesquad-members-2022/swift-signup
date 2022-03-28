@@ -26,6 +26,8 @@ final class SignUpNextButton:UIButton {
         config.imagePlacement = .leading
         config.baseBackgroundColor = .systemGray
         config.buttonSize = .large
+        config.background.strokeWidth = 1.0
+        config.background.strokeColor = .black
         self.configuration = config
     }
 }
