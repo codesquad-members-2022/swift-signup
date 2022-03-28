@@ -34,7 +34,7 @@ final class SignUpViewController: UIViewController {
     private func configureStackView() {
         let constant:CGFloat = 32.0
         let inputViewComponents = configureInputViewComponents()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         
@@ -49,6 +49,8 @@ final class SignUpViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -constant).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.nextButton.topAnchor,constant: -constant).isActive = true
         stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: constant / 2).isActive = true
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
     }
     //title
@@ -75,10 +77,11 @@ final class SignUpViewController: UIViewController {
     
     //button
     private func configureNextButton() {
+        let bottomInset:CGFloat = 300.0
         self.view.addSubview(nextButton)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -300).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -bottomInset).isActive = true
     }
     
     //injection creator
