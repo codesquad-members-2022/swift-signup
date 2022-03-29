@@ -9,7 +9,7 @@
 ## 📱 실행 화면
 
 ![스크린샷 2022-03-30 오전 12 19 05](https://user-images.githubusercontent.com/95578975/160646064-d157ea3d-6a07-4184-889d-7e320214d60e.png)
-![Simulator Screen Recording - iPhone 13 Pro Max - 2022-03-29 at 23 28 09](https://user-images.githubusercontent.com/95578975/160645692-6c344b4c-722b-40a6-80fa-897a5eedba6d.gif)
+![Simulator Screen Recording - iPhone 13 Pro Max - 2022-03-30 at 02 18 41](https://user-images.githubusercontent.com/95578975/160669007-5dceab25-ae59-44a5-8032-c1a08e9ead3c.gif)
 
 - 1번째 화면 (회원가입 - SignUpVC)
     - NavigationController를 Embed하고, NavigationController Top Bar의 속성을 None으로 지정했습니다.
