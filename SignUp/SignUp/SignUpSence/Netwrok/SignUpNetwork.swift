@@ -12,13 +12,19 @@ final class SignUpNetwork {
     static let config = URLSessionConfiguration.default
     static let session = URLSession(configuration:config)
     
-    static func request(httpMethod:HTTPMethod) {
+    static func getRequest() {
         guard let signUpURL = URL(string:"https://api.codesquad.kr/signup") else { return }
         var request = URLRequest(url: signUpURL)
-        request.httpMethod = httpMethod.rawValue
+        request.httpMethod = "GET"
         
     }
-
+    
+    static func postRequest(body:String) {
+        guard let signUpURL = URL(string:"https://api.codesquad.kr/signup") else { return }
+        var request = URLRequest(url: signUpURL)
+        request.httpMethod = "POST"
+    }
+    
 }
 
 

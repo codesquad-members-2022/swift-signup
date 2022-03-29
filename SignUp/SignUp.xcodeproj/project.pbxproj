@@ -21,7 +21,6 @@
 		8D3347C927F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */; };
 		8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347D727F151A200AD1F41 /* SignUpInputView.swift */; };
 		8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */; };
-		8D42512327F2FDA600BF6D7B /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512227F2FDA600BF6D7B /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +59,6 @@
 		8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8D3347D727F151A200AD1F41 /* SignUpInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputView.swift; sourceTree = "<group>"; };
 		8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
-		8D42512227F2FDA600BF6D7B /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */,
-				8D42512227F2FDA600BF6D7B /* HTTPMethod.swift */,
 			);
 			path = Netwrok;
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				8D3347A627F14CDE00AD1F41 /* AppDelegate.swift in Sources */,
 				8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */,
 				8D1E791627F1A2F6004FD949 /* SignUpInputViewCreator.swift in Sources */,
-				8D42512327F2FDA600BF6D7B /* HTTPMethod.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
