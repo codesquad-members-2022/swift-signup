@@ -253,10 +253,10 @@
             </objects>
             <point key="canvasLocation" x="962" y="109"/>
         </scene>
-        <!--View Controller-->
+        <!--Agree View Controller-->
         <scene sceneID="N8r-eS-7Kk">
             <objects>
-                <viewController id="XGl-at-WpN" customClass="ViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XGl-at-WpN" customClass="AgreeViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHN-zd-KxB">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
