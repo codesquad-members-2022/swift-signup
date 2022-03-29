@@ -9,8 +9,6 @@ import Foundation
 import Combine
 import UIKit
 
-
-
 struct Response<T> {
     let value: T
     let response: URLResponse

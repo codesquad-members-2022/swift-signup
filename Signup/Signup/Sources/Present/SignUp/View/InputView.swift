@@ -22,7 +22,7 @@ class InputView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = .systemFont(ofSize: 15)
         textField.backgroundColor = .white
-        textField.addLeftPadding()
+        textField.addLeftPadding(10)
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.systemGray2.cgColor
         return textField
