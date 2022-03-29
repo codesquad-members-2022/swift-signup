@@ -11,12 +11,12 @@ import Foundation
 final class SignUpNetwork {
     
     private let successRange = 200..<300
-    private let config = URLSessionConfiguration.default
-    private let session = URLSession(configuration:.default)
+    private var config = URLSessionConfiguration.default
+    private var session = URLSession(configuration:.default)
     
     var delegate:SignUpNetworkDelegate?
     
-    func requestID() {
+    func getID() {
         guard let signUpURL = URL(string:"https://api.codesquad.kr/signup") else { return }
         
         var request = URLRequest(url: signUpURL)
@@ -37,7 +37,6 @@ final class SignUpNetwork {
         .resume()
     }
     
-    
     func postRequest(body:String) {
         guard let signUpURL = URL(string:"https://api.codesquad.kr/signup") else { return }
         guard let body = body.data(using: .utf8) else { return }
@@ -55,6 +54,12 @@ final class SignUpNetwork {
 
         }
     }
+    
+    func session(_ urlSession: URLSession) {
+        self.session = urlSession
+    }
+    
+    
 }
 
 

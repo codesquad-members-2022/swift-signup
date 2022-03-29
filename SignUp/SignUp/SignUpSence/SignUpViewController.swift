@@ -30,7 +30,7 @@ final class SignUpViewController: UIViewController {
     
     private func configureSignUpNetwork() {
         signUpNetwork.delegate = self
-        signUpNetwork.requestID()
+        signUpNetwork.getID()
     }
     
     
