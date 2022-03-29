@@ -31,6 +31,17 @@
 		E0B1E3AE27F1D13A0018D93E /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AD27F1D13A0018D93E /* TextField+Extension.swift */; };
 		E0B1E3B027F1E95F0018D93E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */; };
 		E0B1E3B227F201230018D93E /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3B127F201230018D93E /* ResponseResult.swift */; };
+		E0B1E3B327F207620018D93E /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A227F1B9690018D93E /* SignUpRepository.swift */; };
+		E0B1E3B427F207620018D93E /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A427F1B9720018D93E /* SignUpRepositoryImpl.swift */; };
+		E0B1E3B527F207700018D93E /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37C27F149110018D93E /* Data+Extension.swift */; };
+		E0B1E3B627F207700018D93E /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AD27F1D13A0018D93E /* TextField+Extension.swift */; };
+		E0B1E3B727F207700018D93E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37B27F149110018D93E /* URLSession+Extension.swift */; };
+		E0B1E3B827F207700018D93E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */; };
+		E0B1E3B927F207700018D93E /* Color+Exteionsoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */; };
+		E0B1E3BA27F207830018D93E /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AB27F1BE520018D93E /* NetworkRepository.swift */; };
+		E0B1E3BB27F207830018D93E /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3B127F201230018D93E /* ResponseResult.swift */; };
+		E0B1E3BC27F2078D0018D93E /* SignUpTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A927F1BA6E0018D93E /* SignUpTarget.swift */; };
+		E0B1E3BD27F2078D0018D93E /* BaseTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A727F1BA000018D93E /* BaseTarget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -401,7 +412,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0B1E3B827F207700018D93E /* String+Extension.swift in Sources */,
 				E0B1E39327F152A70018D93E /* SignupTests.swift in Sources */,
+				E0B1E3B427F207620018D93E /* SignUpRepositoryImpl.swift in Sources */,
+				E0B1E3B727F207700018D93E /* URLSession+Extension.swift in Sources */,
+				E0B1E3B527F207700018D93E /* Data+Extension.swift in Sources */,
+				E0B1E3BD27F2078D0018D93E /* BaseTarget.swift in Sources */,
+				E0B1E3B627F207700018D93E /* TextField+Extension.swift in Sources */,
+				E0B1E3BC27F2078D0018D93E /* SignUpTarget.swift in Sources */,
+				E0B1E3B327F207620018D93E /* SignUpRepository.swift in Sources */,
+				E0B1E3B927F207700018D93E /* Color+Exteionsoin.swift in Sources */,
+				E0B1E3BA27F207830018D93E /* NetworkRepository.swift in Sources */,
+				E0B1E3BB27F207830018D93E /* ResponseResult.swift in Sources */,
 				E0B1E39927F152B10018D93E /* SignUpModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

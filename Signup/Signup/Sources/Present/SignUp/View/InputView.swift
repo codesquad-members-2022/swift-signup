@@ -9,12 +9,7 @@ import Foundation
 import UIKit
 import Combine
 
-class InputView: UIView {
-    
-    enum SubLabelType {
-        case none, error, success
-    }
-    
+class InputView: UIView {    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -70,12 +65,27 @@ class InputView: UIView {
         }
     }
     
+    var error: String {
+        didSet {
+            setMessage(error, isError: true)
+        }
+    }
+    
+    var message: String {
+        didSet {
+            setMessage(message, isError: false)
+        }
+    }
+    
     init() {
         self.title = ""
         self.placeholder = ""
         self.isSecureTextEntry = false
         self.textContentType = .name
+        self.error = ""
+        self.message = ""
         super.init(frame: .zero)
+        bind()
         layout()
     }
     
@@ -84,8 +94,21 @@ class InputView: UIView {
         self.placeholder = ""
         self.isSecureTextEntry = false
         self.textContentType = .name
+        self.error = ""
+        self.message = ""
         super.init(coder: coder)
+        bind()
         layout()
+    }
+    
+    private func bind() {
+        NotificationCenter.default.addObserver(forName: UITextField.textDidBeginEditingNotification, object: self.textField, queue: nil) { _ in
+            self.textField.layer.borderColor = UIColor.systemBlue.cgColor
+        }
+        
+        NotificationCenter.default.addObserver(forName: UITextField.textDidEndEditingNotification, object: self.textField, queue: nil) { _ in
+            self.textField.layer.borderColor = UIColor.clear.cgColor
+        }
     }
     
     private func layout() {
@@ -108,14 +131,11 @@ class InputView: UIView {
         self.bottomAnchor.constraint(equalTo: subLabel.bottomAnchor).isActive = true
     }
     
-    func setMessage(_ message: String, type: SubLabelType) {
-        if type == .none {
-            self.subLabel.isHidden = true
-            return
-        }
-        
-        self.subLabel.isHidden = false
-        self.subLabel.textColor = type == .success ? .systemGreen : .systemRed
+    private func setMessage(_ message: String, isError: Bool) {
+        let color: UIColor = isError ? .systemRed : .systemGreen
+        self.subLabel.isHidden = message.isEmpty
         self.subLabel.text = message
+        self.subLabel.textColor = color
+        self.textField.layer.borderColor = color.cgColor
     }
 }
