@@ -101,62 +101,43 @@ class SignUpViewController: UIViewController {
     }
     
     private func bind() {
+        //UserId
         userId.textPublisher
-            .sink {
-                self.model.action.userIdEntered.send($0)
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.model.action.userIdEntered.send(_:))
+            .store(in: &cancellables)
                 
         model.state.userIdMessage
-            .sink { type, message in
-                if type == .error {
-                    self.userId.error = message
-                } else {
-                    self.userId.message = message
-                }
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.userId.setMessage(_:_:))
+            .store(in: &cancellables)
         
+        //Password
         password.textPublisher
-            .sink {
-                self.model.action.passwordEntered.send($0)
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.model.action.passwordEntered.send(_:))
+            .store(in: &cancellables)
         
         model.state.passwordMessage
-            .sink { type, message in
-                if type == .error {
-                    self.password.error = message
-                } else {
-                    self.password.message = message
-                }
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.password.setMessage(_:_:))
+            .store(in: &cancellables)
         
+        //CheckPassword
         checkPassword.textPublisher
-            .sink {
-                self.model.action.checkPasswordEntered.send($0)
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.model.action.checkPasswordEntered.send(_:))
+            .store(in: &cancellables)
         
         model.state.checkPasswordMessage
-            .sink { type, message in
-                if type == .error {
-                    self.checkPassword.error = message
-                } else {
-                    self.checkPassword.message = message
-                }
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.checkPassword.setMessage(_:_:))
+            .store(in: &cancellables)
         
+        //UserName
         userName.textPublisher
-            .sink {
-                self.model.action.userNameEntered.send($0)
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.model.action.userNameEntered.send(_:))
+            .store(in: &cancellables)
         
         model.state.userNameMessage
-            .sink { type, message in
-                if type == .error {
-                    self.userName.error = message
-                } else {
-                    self.userName.message = message
-                }
-            }.store(in: &cancellables)
+            .sink(receiveValue: self.userName.setMessage(_:_:))
+            .store(in: &cancellables)
         
+        //NextButton
         nextButton.addAction(UIAction { _ in
             self.model.action.nextButtonTapped.send()
         }, for: .touchUpInside)

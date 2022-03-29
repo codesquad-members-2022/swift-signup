@@ -65,25 +65,11 @@ class InputView: UIView {
         }
     }
     
-    var error: String {
-        didSet {
-            setMessage(error, isError: true)
-        }
-    }
-    
-    var message: String {
-        didSet {
-            setMessage(message, isError: false)
-        }
-    }
-    
     init() {
         self.title = ""
         self.placeholder = ""
         self.isSecureTextEntry = false
         self.textContentType = .name
-        self.error = ""
-        self.message = ""
         super.init(frame: .zero)
         bind()
         layout()
@@ -94,8 +80,6 @@ class InputView: UIView {
         self.placeholder = ""
         self.isSecureTextEntry = false
         self.textContentType = .name
-        self.error = ""
-        self.message = ""
         super.init(coder: coder)
         bind()
         layout()
@@ -131,8 +115,8 @@ class InputView: UIView {
         self.bottomAnchor.constraint(equalTo: subLabel.bottomAnchor).isActive = true
     }
     
-    private func setMessage(_ message: String, isError: Bool) {
-        let color: UIColor = isError ? .systemRed : .systemGreen
+    func setMessage(_ type: SignUpModel.MessageType, _ message: String) {
+        let color: UIColor = type == .error ? .systemRed : .systemGreen
         self.subLabel.isHidden = message.isEmpty
         self.subLabel.text = message
         self.subLabel.textColor = color
