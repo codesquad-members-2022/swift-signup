@@ -28,8 +28,8 @@ class SignUpViewController: UIViewController {
         return stackView
     }()
     
-    let userId: InputView = {
-        let inputView = InputView()
+    let userId: InputTextField = {
+        let inputView = InputTextFieldView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "아이디"
         inputView.textContentType = .name
@@ -37,8 +37,8 @@ class SignUpViewController: UIViewController {
         return inputView
     }()
     
-    let password: InputView = {
-        let inputView = InputView()
+    let password: InputTextField = {
+        let inputView = InputTextFieldView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "비밀번호"
         inputView.textContentType = .password
@@ -47,8 +47,8 @@ class SignUpViewController: UIViewController {
         return inputView
     }()
     
-    let checkPassword: InputView = {
-        let inputView = InputView()
+    let checkPassword: InputTextField = {
+        let inputView = InputTextFieldView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.textContentType = .password
         inputView.title = "비밀번호 재확인"
@@ -57,8 +57,8 @@ class SignUpViewController: UIViewController {
         return inputView
     }()
     
-    let userName: InputView = {
-        let inputView = InputView()
+    let userName: InputTextField = {
+        let inputView = InputTextFieldView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "이름"
         inputView.textContentType = .name
@@ -81,12 +81,12 @@ class SignUpViewController: UIViewController {
         button.setTitleColor(.systemGray2, for: .disabled)
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
-        button.isEnabled = false
+        button.isEnabled = true
         return button
     }()
     
-    var inputViews: [InputView] {
-        [self.userId, self.password, self.checkPassword, self.userName]
+    var inputViews: [UIView] {
+        [self.userId.view, self.password.view, self.checkPassword.view, self.userName.view]
     }
     
     var cancellables = Set<AnyCancellable>()
@@ -107,7 +107,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
                 
         model.state.userIdMessage
-            .sink(receiveValue: self.userId.setMessage(_:_:))
+            .sink(receiveValue: self.userId.setSubMessage(_:_:))
             .store(in: &cancellables)
         
         //Password
@@ -116,7 +116,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.passwordMessage
-            .sink(receiveValue: self.password.setMessage(_:_:))
+            .sink(receiveValue: self.password.setSubMessage(_:_:))
             .store(in: &cancellables)
         
         //CheckPassword
@@ -125,7 +125,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.checkPasswordMessage
-            .sink(receiveValue: self.checkPassword.setMessage(_:_:))
+            .sink(receiveValue: self.checkPassword.setSubMessage(_:_:))
             .store(in: &cancellables)
         
         //UserName
@@ -134,7 +134,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.userNameMessage
-            .sink(receiveValue: self.userName.setMessage(_:_:))
+            .sink(receiveValue: self.userName.setSubMessage(_:_:))
             .store(in: &cancellables)
         
         //NextButton
@@ -145,6 +145,14 @@ class SignUpViewController: UIViewController {
         model.state.isNextButtonEnabled
             .sink { isEnabled in
                 self.nextButton.isEnabled = isEnabled
+            }.store(in: &cancellables)
+        
+        model.state.presentNextPage
+            .sink {
+                let viewController = UserInfoViewController()
+                viewController.modalPresentationStyle = .custom
+                viewController.transitioningDelegate = self
+                self.present(viewController, animated: true)
             }.store(in: &cancellables)
     }
     
@@ -169,13 +177,21 @@ class SignUpViewController: UIViewController {
             stackView.addArrangedSubview($0)
         }
         
-        stackView.bottomAnchor.constraint(equalTo: userName.bottomAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: inputViews[inputViews.count - 1].bottomAnchor).isActive = true
         
         self.view.addSubview(nextButton)
         nextButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
         nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-//        nextButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
 
+extension SignUpViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        RightToLeftTransition(duration: 0.3)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        RightToLeftTransition(duration: 0.3)
+    }
+}
