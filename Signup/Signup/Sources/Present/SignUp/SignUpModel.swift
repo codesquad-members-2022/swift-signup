@@ -9,11 +9,7 @@ import Foundation
 import Combine
 
 class SignUpModel {
-    
-    enum MessageType {
-        case none, error, success
-    }
-    
+        
     struct Action {
         let userIdEntered = CurrentValueSubject<String, Never>("")
         let passwordEntered = CurrentValueSubject<String, Never>("")
@@ -23,10 +19,10 @@ class SignUpModel {
     }
     
     struct State {
-        let userIdMessage = PassthroughSubject<(MessageType, String), Never>()
-        let passwordMessage = PassthroughSubject<(MessageType, String), Never>()
-        let checkPasswordMessage = PassthroughSubject<(MessageType, String), Never>()
-        let userNameMessage = PassthroughSubject<(MessageType, String), Never>()
+        let userIdMessage = PassthroughSubject<(Bool, String), Never>()
+        let passwordMessage = PassthroughSubject<(Bool, String), Never>()
+        let checkPasswordMessage = PassthroughSubject<(Bool, String), Never>()
+        let userNameMessage = PassthroughSubject<(Bool, String), Never>()
         let isNextButtonEnabled = PassthroughSubject<Bool, Never>()
         let presentNextPage = PassthroughSubject<Void, Never>()
     }
@@ -49,10 +45,7 @@ class SignUpModel {
                 (user, (password.0, checkPassword.0))
             }
             .sink { user, password in
-                if user.0 == .success,
-                   user.1 == .success,
-                   password.0 == .success,
-                   password.1 == .success {
+                if user.0 && user.1, password.0, password.1 {
                     self.state.isNextButtonEnabled.send(true)
                 } else {
                     self.state.isNextButtonEnabled.send(false)
@@ -62,9 +55,9 @@ class SignUpModel {
         action.userIdEntered
             .map {
                 if $0.validatePredicate(format: "[A-Za-z0-9_-]{5,20}") {
-                    return (.success, "사용 가능한 아이디입니다.")
+                    return (true, "사용 가능한 아이디입니다.")
                 } else {
-                    return (.error, "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다.")
+                    return (false, "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다.")
                 }
             }
             .sink(receiveValue: self.state.userIdMessage.send(_:))
@@ -73,26 +66,26 @@ class SignUpModel {
         action.passwordEntered
             .map {
                 if $0.isEmpty {
-                    return (.success ,"")
+                    return (false ,"")
                 }
                 
                 if $0.count < 8 || $0.count > 16 {
-                    return (.error , "8자 이상 16자 이하로 입력해주세요.")
+                    return (false , "8자 이상 16자 이하로 입력해주세요.")
                 }
                 
                 if $0.vaildateRegex(pattern: "[A-Z]") == false {
-                    return (.error , "영문 대문자를 최소 1자 이상 포함해주세요.")
+                    return (false , "영문 대문자를 최소 1자 이상 포함해주세요.")
                 }
                 
                 if $0.vaildateRegex(pattern: "[0-9]") == false {
-                    return (.error , "숫자를 최소 1자 이상 포함해주세요.")
+                    return (false , "숫자를 최소 1자 이상 포함해주세요.")
                 }
                 
                 if $0.vaildateRegex(pattern: "[!@#$%^&*()_+=-]") == false {
-                    return (.error , "특수문자를 최소 1자 이상 포함해주세요.")
+                    return (false , "특수문자를 최소 1자 이상 포함해주세요.")
                 }
                 
-                return (.success , "안전한 비밀번호입니다.")
+                return (true , "안전한 비밀번호입니다.")
             }
             .sink(receiveValue: self.state.passwordMessage.send(_:))
             .store(in: &cancellables)
@@ -101,9 +94,9 @@ class SignUpModel {
             .combineLatest(action.passwordEntered)
             .map {
                 if $0 != $1 {
-                    return (.error , "비밀번호가 일치하지 않습니다.")
+                    return (false , "비밀번호가 일치하지 않습니다.")
                 } else {
-                    return (.success , "비밀번호가 일치합니다.")
+                    return (true , "비밀번호가 일치합니다.")
                 }
             }
             .sink(receiveValue: self.state.checkPasswordMessage.send(_:))
@@ -112,9 +105,9 @@ class SignUpModel {
         action.userNameEntered
             .map {
                 if $0.isEmpty {
-                    return (.error , "이름은 필수 입력 항목입니다.")
+                    return (false , "이름은 필수 입력 항목입니다.")
                 } else {
-                    return (.success , "비밀번호가 일치합니다.")
+                    return (true , "비밀번호가 일치합니다.")
                 }
             }
             .sink(receiveValue: self.state.userNameMessage.send(_:))
@@ -126,7 +119,6 @@ class SignUpModel {
                 let password = self.action.passwordEntered.value
                 return self.signUpRespository.signUp(userId: userId, password: password)
             }
-            .switchToLatest()
             .sink(receiveCompletion: { data in
                 //TODO: 회원가입 실패 시 처리
             }, receiveValue: { data in
