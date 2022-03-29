@@ -39,7 +39,7 @@ final class SignUpViewController: UIViewController {
         stackView.distribution = .fillProportionally
         
         inputViewComponents.forEach{ inputViewable in
-            guard let view = inputViewable as? SignUpInputViewComponent else { return }
+            guard let view = inputViewable as? SignUpInputView else { return }
             stackView.addArrangedSubview(view)
         }
         

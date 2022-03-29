@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpInputViewComponent:UIView,SignUpInputViewable {
+final class SignUpInputView:UIView,SignUpInputViewable {
     
     private lazy var label:UILabel = {
         let label = UILabel()
