@@ -11,10 +11,10 @@ final class SignUpViewController: UIViewController {
     
     private let stackView = UIStackView(frame: .zero)
     private let nextButton = SignUpNextButton(frame: .zero)
-    private var IDComponent:SignUpInputViewable?
-    private var passwordComponet:SignUpInputViewable?
-    private var passwordRecheckComponent:SignUpInputViewable?
-    private var nameComponent:SignUpInputViewable?
+    private var IDInputView:SignUpInputViewable?
+    private var passwordInputView:SignUpInputViewable?
+    private var passwordRecheckInputView:SignUpInputViewable?
+    private var nameInputView:SignUpInputViewable?
     
     private var inputViewCreator:SignUpInputViewCreator?
     
@@ -64,15 +64,20 @@ final class SignUpViewController: UIViewController {
     
     //inputViewComponent
     private func configureInputViewComponents() -> [SignUpInputViewable?]{
+        let id:(label:String,placeHolder:String) = (label:"아이디",placeHolder:"영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
+        let password:(label:String,placeHolder:String) = (label:"비밀번호",placeHolder:"영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
+        let passwordRecheck:(label:String,placeHolder:String) = (label:"비밀번호 재확인",placeHolder:"")
+        let name:(label:String,placeHolder:String) = (label:"이름",placeHolder:"")
+        
         inputViewCreator(creator: SignUpInputViewFactory())
         guard let factory = inputViewCreator else { return [] }
         
-        IDComponent = factory.makeSignUpViewComponent(labelText: "아이디", placeHolder: "영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
-        passwordComponet = factory.makeSignUpViewComponent(labelText: "비밀번호", placeHolder: "영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
-        passwordRecheckComponent = factory.makeSignUpViewComponent(labelText: "비밀번호 재확인", placeHolder: "")
-        nameComponent = factory.makeSignUpViewComponent(labelText: "이름", placeHolder: "")
+        IDInputView = factory.makeSignUpViewComponent(labelText: id.label, placeHolder: id.placeHolder)
+        passwordInputView = factory.makeSignUpViewComponent(labelText: password.label, placeHolder: password.placeHolder)
+        passwordRecheckInputView = factory.makeSignUpViewComponent(labelText: passwordRecheck.label, placeHolder: password.placeHolder)
+        nameInputView = factory.makeSignUpViewComponent(labelText: name.label, placeHolder: name.placeHolder)
         
-        return [IDComponent,passwordComponet,passwordRecheckComponent,nameComponent]
+        return [IDInputView,passwordInputView,passwordRecheckInputView,nameInputView]
     }
     
     //button
