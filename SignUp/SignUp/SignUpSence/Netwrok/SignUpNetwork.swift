@@ -15,7 +15,8 @@ final class SignUpNetwork {
     static func request(httpMethod:HTTPMethod) {
         guard let signUpURL = URL(string:"https://api.codesquad.kr/signup") else { return }
         var request = URLRequest(url: signUpURL)
-        request.httpMethod = ""
+        request.httpMethod = httpMethod.rawValue
+        
     }
 
 }
