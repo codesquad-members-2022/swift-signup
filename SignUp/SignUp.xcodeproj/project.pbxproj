@@ -21,7 +21,7 @@
 		8D3347C927F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */; };
 		8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347D727F151A200AD1F41 /* SignUpInputView.swift */; };
 		8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */; };
-		8D42512527F3002900BF6D7B /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512427F3002900BF6D7B /* UserInfo.swift */; };
+		8D42512827F32A9700BF6D7B /* SignUpNetworkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512727F32A9700BF6D7B /* SignUpNetworkDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 		8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8D3347D727F151A200AD1F41 /* SignUpInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputView.swift; sourceTree = "<group>"; };
 		8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
-		8D42512427F3002900BF6D7B /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8D42512727F32A9700BF6D7B /* SignUpNetworkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +102,7 @@
 			children = (
 				8D1E791527F1A2F6004FD949 /* SignUpInputViewCreator.swift */,
 				8D1E791127F1A23A004FD949 /* SignUpInputViewable.swift */,
+				8D42512727F32A9700BF6D7B /* SignUpNetworkDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -188,7 +189,6 @@
 		8D42512627F3003000BF6D7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D42512427F3002900BF6D7B /* UserInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */,
+				8D42512827F32A9700BF6D7B /* SignUpNetworkDelegate.swift in Sources */,
 				8D1E791427F1A2C7004FD949 /* SignUpInputViewFactory.swift in Sources */,
 				8D1E791827F1AB6D004FD949 /* SignUpNextButton.swift in Sources */,
 				8D3347AA27F14CDE00AD1F41 /* SignUpViewController.swift in Sources */,
@@ -331,7 +332,6 @@
 				8D3347A627F14CDE00AD1F41 /* AppDelegate.swift in Sources */,
 				8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */,
 				8D1E791627F1A2F6004FD949 /* SignUpInputViewCreator.swift in Sources */,
-				8D42512527F3002900BF6D7B /* UserInfo.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

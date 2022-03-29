@@ -16,14 +16,24 @@ final class SignUpViewController: UIViewController {
     private var passwordRecheckInputView:SignUpInputViewable?
     private var nameInputView:SignUpInputViewable?
     
+    private var signUpNetwork = SignUpNetwork()
+    
+    private var userID:UserID = UserID()
+    
     private var inputViewCreator:SignUpInputViewCreator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignUpView()
-        
+        configureSignUpNetwork()
     }
-
+    
+    private func configureSignUpNetwork() {
+        signUpNetwork.delegate = self
+        signUpNetwork.requestID()
+    }
+    
+    
     private func configureSignUpView() {
         setTitle()
         configureNextButton()
@@ -95,3 +105,8 @@ final class SignUpViewController: UIViewController {
     }
 }
 
+extension SignUpViewController:SignUpNetworkDelegate {
+    func didFetchUserID(userInfo: UserID) {
+        self.userID = userInfo
+    }
+}
