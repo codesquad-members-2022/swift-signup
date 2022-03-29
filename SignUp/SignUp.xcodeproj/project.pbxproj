@@ -56,6 +56,20 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		D09369AB27F2A0C5006FB8CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D09369B127F2A2C0006FB8CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D0B8E37C27F14B6700FE8DEF = {
 			isa = PBXGroup;
 			children = (
@@ -75,8 +89,10 @@
 		D0B8E38727F14B6700FE8DEF /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				D00B97DC27F295F9001952E8 /* SupportingFiles */,
+				D09369B127F2A2C0006FB8CA /* Model */,
+				D09369AB27F2A0C5006FB8CA /* View */,
 				D0CC66D027F213ED0089148D /* Controller */,
+				D00B97DC27F295F9001952E8 /* SupportingFiles */,
 				D0B8E38E27F14B6700FE8DEF /* Main.storyboard */,
 				D0B8E39627F14B6700FE8DEF /* Info.plist */,
 			);
