@@ -33,7 +33,7 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "아이디"
         inputView.textContentType = .name
-        inputView.placeholder = "  영문 소문자, 숫자, 특수기호(_,-), 5~20자"
+        inputView.placeholder = "영문 소문자, 숫자, 특수기호(_,-), 5~20자"
         return inputView
     }()
     
@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "비밀번호"
         inputView.textContentType = .password
-        inputView.placeholder = "  영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자"
+        inputView.placeholder = "영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자"
         inputView.isSecureTextEntry = true
         return inputView
     }()
@@ -64,6 +64,25 @@ class SignUpViewController: UIViewController {
         inputView.textContentType = .name
         inputView.placeholder = ""
         return inputView
+    }()
+    
+    let nextButton: UIButton = {
+        var configuration = UIButton.Configuration.plain()
+        configuration.imagePlacement = .leading
+        configuration.imagePadding = 5
+        
+        let button = UIButton(configuration: configuration, primaryAction: nil)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .white
+        button.setTitle("다음", for: .normal)
+        button.setImage(UIImage(named: "ic_rightArrow")?.withTintColor(.systemGreen), for: .normal)
+        button.setImage(UIImage(named: "ic_rightArrow")?.withTintColor(.systemGray2), for: .disabled)
+        button.setTitleColor(.systemGreen, for: .normal)
+        button.setTitleColor(.systemGray2, for: .disabled)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 1
+        button.isEnabled = false
+        return button
     }()
     
     var inputViews: [InputView] {
@@ -88,8 +107,12 @@ class SignUpViewController: UIViewController {
             }.store(in: &cancellables)
                 
         model.state.userIdMessage
-            .sink {
-                self.userId.setMessage($1, type: $0)
+            .sink { type, message in
+                if type == .error {
+                    self.userId.error = message
+                } else {
+                    self.userId.message = message
+                }
             }.store(in: &cancellables)
         
         password.textPublisher
@@ -98,8 +121,12 @@ class SignUpViewController: UIViewController {
             }.store(in: &cancellables)
         
         model.state.passwordMessage
-            .sink {
-                self.password.setMessage($1, type: $0)
+            .sink { type, message in
+                if type == .error {
+                    self.password.error = message
+                } else {
+                    self.password.message = message
+                }
             }.store(in: &cancellables)
         
         checkPassword.textPublisher
@@ -108,8 +135,35 @@ class SignUpViewController: UIViewController {
             }.store(in: &cancellables)
         
         model.state.checkPasswordMessage
+            .sink { type, message in
+                if type == .error {
+                    self.checkPassword.error = message
+                } else {
+                    self.checkPassword.message = message
+                }
+            }.store(in: &cancellables)
+        
+        userName.textPublisher
             .sink {
-                self.checkPassword.setMessage($1, type: $0)
+                self.model.action.userNameEntered.send($0)
+            }.store(in: &cancellables)
+        
+        model.state.userNameMessage
+            .sink { type, message in
+                if type == .error {
+                    self.userName.error = message
+                } else {
+                    self.userName.message = message
+                }
+            }.store(in: &cancellables)
+        
+        nextButton.addAction(UIAction { _ in
+            self.model.action.nextButtonTapped.send()
+        }, for: .touchUpInside)
+        
+        model.state.isNextButtonEnabled
+            .sink { isEnabled in
+                self.nextButton.isEnabled = isEnabled
             }.store(in: &cancellables)
     }
     
@@ -135,6 +189,12 @@ class SignUpViewController: UIViewController {
         }
         
         stackView.bottomAnchor.constraint(equalTo: userName.bottomAnchor).isActive = true
+        
+        self.view.addSubview(nextButton)
+        nextButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
+        nextButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+//        nextButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
 

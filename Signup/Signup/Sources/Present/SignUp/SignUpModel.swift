@@ -10,19 +10,23 @@ import Combine
 
 class SignUpModel {
     
+    enum MessageType {
+        case none, error, success
+    }
+    
     struct Action {
-        let userIdEntered = PassthroughSubject<String, Never>()
-        let passwordEntered = PassthroughSubject<String, Never>()
+        let userIdEntered = CurrentValueSubject<String, Never>("")
+        let passwordEntered = CurrentValueSubject<String, Never>("")
         let checkPasswordEntered = PassthroughSubject<String, Never>()
         let userNameEntered = PassthroughSubject<String, Never>()
         let nextButtonTapped = PassthroughSubject<Void, Never>()
     }
     
     struct State {
-        let userIdMessage = PassthroughSubject<(InputView.SubLabelType, String), Never>()
-        let passwordMessage = PassthroughSubject<(InputView.SubLabelType, String), Never>()
-        let checkPasswordMessage = PassthroughSubject<(InputView.SubLabelType, String), Never>()
-        let userNameMessage = PassthroughSubject<(InputView.SubLabelType, String), Never>()
+        let userIdMessage = PassthroughSubject<(MessageType, String), Never>()
+        let passwordMessage = PassthroughSubject<(MessageType, String), Never>()
+        let checkPasswordMessage = PassthroughSubject<(MessageType, String), Never>()
+        let userNameMessage = PassthroughSubject<(MessageType, String), Never>()
         let isNextButtonEnabled = PassthroughSubject<Bool, Never>()
     }
     
@@ -33,6 +37,27 @@ class SignUpModel {
     let signUpRespository: SignUpRepository = SignUpRepositoryImpl()
     
     init() {
+        Publishers
+            .Merge4(action.userIdEntered, action.passwordEntered, action.checkPasswordEntered, action.userNameEntered)
+            .combineLatest(state.userIdMessage, state.userNameMessage)
+            .map { _, userId, userName in
+                (userId.0, userName.0)
+            }
+            .combineLatest(state.passwordMessage, state.checkPasswordMessage)
+            .map { user, password, checkPassword in
+                (user, (password.0, checkPassword.0))
+            }
+            .sink { user, password in
+                if user.0 == .success,
+                   user.1 == .success,
+                   password.0 == .success,
+                   password.1 == .success {
+                    self.state.isNextButtonEnabled.send(true)
+                } else {
+                    self.state.isNextButtonEnabled.send(false)
+                }
+            }.store(in: &cancellables)
+        
         action.userIdEntered
             .sink {
                 if $0.isEmpty {
@@ -89,26 +114,17 @@ class SignUpModel {
         action.userNameEntered
             .sink {
                 if $0.isEmpty {
-                    self.state.userNameMessage.send((.success, "이름은 필수 입력 항목입니다."))
+                    self.state.userNameMessage.send((.error, "이름은 필수 입력 항목입니다."))
+                } else {
+                    self.state.userNameMessage.send((.success, ""))
                 }
             }.store(in: &cancellables)
         
         let requestLogin = self.action.nextButtonTapped
-            .combineLatest(action.userIdEntered, action.passwordEntered)
-            .filter { _, userId, password in
-                var inputData = true
-                if userId.isEmpty {
-                    inputData = false
-                }
-
-                if password.isEmpty {
-                    inputData = false
-                }
-
-                return inputData
-            }
-            .map { _, userId, password -> AnyPublisher<Response<ResponseResult>, Error> in
-                self.signUpRespository.signUp(userId: userId, password: password)
+            .map { _ -> AnyPublisher<Response<ResponseResult>, Error> in
+                let userId = self.action.userIdEntered.value
+                let password = self.action.passwordEntered.value
+                return self.signUpRespository.signUp(userId: userId, password: password)
             }.share()
         
         requestLogin
