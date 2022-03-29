@@ -45,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D00B97DC27F295F9001952E8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D0B8E38827F14B6700FE8DEF /* AppDelegate.swift */,
+				D0B8E38A27F14B6700FE8DEF /* SceneDelegate.swift */,
+				D0B8E39127F14B6700FE8DEF /* Assets.xcassets */,
+				D0B8E39327F14B6700FE8DEF /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		D0B8E37C27F14B6700FE8DEF = {
 			isa = PBXGroup;
 			children = (
@@ -64,12 +75,9 @@
 		D0B8E38727F14B6700FE8DEF /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				D00B97DC27F295F9001952E8 /* SupportingFiles */,
 				D0CC66D027F213ED0089148D /* Controller */,
-				D0B8E38827F14B6700FE8DEF /* AppDelegate.swift */,
-				D0B8E38A27F14B6700FE8DEF /* SceneDelegate.swift */,
 				D0B8E38E27F14B6700FE8DEF /* Main.storyboard */,
-				D0B8E39127F14B6700FE8DEF /* Assets.xcassets */,
-				D0B8E39327F14B6700FE8DEF /* LaunchScreen.storyboard */,
 				D0B8E39627F14B6700FE8DEF /* Info.plist */,
 			);
 			path = SignUp;
