@@ -9,6 +9,10 @@ import UIKit
 
 class InfoViewController: UIViewController {
 
+    @IBAction func backButtonDidTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
