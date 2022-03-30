@@ -26,6 +26,7 @@ final class SignUpViewController: UIViewController {
         super.viewDidLoad()
         configureSignUpView()
         configureSignUpNetwork()
+        signUpNetwork.postRequest(body: PostMessage(id: "jkhome", password: "helloWor1$"))
     }
     
     private func configureSignUpNetwork() {
