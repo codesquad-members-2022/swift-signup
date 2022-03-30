@@ -28,8 +28,7 @@ class ValidateTextFieldDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let targetString = textField.text else { return }
-        validationDelegate?.didValidate(in: targetString)
+        validationDelegate?.didEndValidate()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
