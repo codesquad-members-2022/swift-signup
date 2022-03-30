@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 final class SignUpViewController: UIViewController {
     
@@ -29,26 +30,38 @@ final class SignUpViewController: UIViewController {
     //creator
     private var inputViewCreator:SignUpInputViewCreator?
     
+    //For debugging
+    var errorType:SignUpNetworkError?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignUpView()
-        let userinfo = UserInfo(id: "jkhom", password: "helloWor1$")
-        signUpNetwork.postRequest(postBody: userinfo) { (result:Result<PostResult,SignUpNetworkError>) in
+        getRequest()
+    }
+    
+    private func postRequest(userInfo:UserInfo) {
+        signUpNetwork.postRequest(postBody: userInfo) { [weak self] (result:Result<PostResult,SignUpNetworkError>) in
+            guard let self = self else { return }
             switch result {
             case .success(let postResult):
                 self.postResult = postResult
-                print(self.postResult)
             case .failure(let error):
-                print("\(error)")
+                self.errorType = error
+                return
             }
         }
-        
-        signUpNetwork.getRequest { (result: Result<UserID, SignUpNetworkError>) in
+    }
+    
+    
+    private func getRequest() {
+        signUpNetwork.getRequest { [weak self] (result: Result<UserID, SignUpNetworkError>) in
+            guard let self = self else { return }
             switch result {
             case .success(let userID):
-                print(userID)
+                self.userID = userID
             case .failure(let error):
-                print(error)
+                self.errorType = error
+                return
             }
         }
     }
