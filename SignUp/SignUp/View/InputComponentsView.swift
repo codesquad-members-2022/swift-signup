@@ -30,8 +30,12 @@ class InputComponentsView: UIView, InputComponentsViewable {
         return textField
     }()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, delegate: UITextFieldDelegate?) {
         super.init(frame: frame)
+        if let delegate = delegate {
+            self.textField.delegate = delegate
+        }
+        
         setLayout()
     }
     

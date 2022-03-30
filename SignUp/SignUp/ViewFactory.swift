@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct ViewFactory {
-    static func makeInputComponentsView(title: String, placeholder: String) -> InputComponentsViewable {
-        let inputComponentView = InputComponentsView(frame: .zero)
+    static func makeInputComponentsView(title: String, placeholder: String, delegate: UITextFieldDelegate?) -> InputComponentsViewable {
+        let inputComponentView = InputComponentsView(frame: .zero, delegate: delegate)
         inputComponentView.setTitle(title)
         inputComponentView.setPlaceholder(placeholder)
         
