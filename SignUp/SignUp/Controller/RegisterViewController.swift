@@ -17,13 +17,16 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.inputComponentsViewStack = UIStackView()
+        self.nextButton = ViewFactory.makeCustomButton(title: "다음")
+        
         configureInputComponentsViewStack()
         configureNextButton()
         addObserverForUITextField()
     }
     
     private func configureInputComponentsViewStack() {
-        self.inputComponentsViewStack = UIStackView()
         guard let inputComponentsViewStack = inputComponentsViewStack else {
             return
         }
@@ -51,7 +54,6 @@ class RegisterViewController: UIViewController {
     }
     
     private func configureNextButton() {
-        self.nextButton = ViewFactory.makeCustomButton(title: "다음")
         guard let nextButton = nextButton,
               let inputComponentsViewStack = inputComponentsViewStack else {
                   return
