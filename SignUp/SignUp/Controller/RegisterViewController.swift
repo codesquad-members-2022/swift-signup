@@ -28,10 +28,11 @@ class RegisterViewController: UIViewController {
         inputComponentsViewStack.axis = .vertical
         inputComponentsViewStack.distribution = .fillEqually
         
-        inputComponentsViewStack.addArrangedSubview(InputComponentsView(frame: .zero, title: "아이디", placeholder: "영문 소문자, 숫자, 특수기호(_,-), 5~20자"))
-        inputComponentsViewStack.addArrangedSubview(InputComponentsView(frame: .zero, title: "비밀번호", placeholder: "영문 대/소문자, 숫자,. 특수문자(!@#$%) 8~16자"))
-        inputComponentsViewStack.addArrangedSubview(InputComponentsView(frame: .zero, title: "비밀번호 재확인"))
-        inputComponentsViewStack.addArrangedSubview(InputComponentsView(frame: .zero, title: "이름"))
+        let inputComponentsViews = generateInputComponentsView()
+        
+        inputComponentsViews.forEach {
+            inputComponentsViewStack.addArrangedSubview($0)
+        }
         
         self.view.addSubview(inputComponentsViewStack)
         
@@ -47,7 +48,7 @@ class RegisterViewController: UIViewController {
     }
     
     private func configureNextButton() {
-        self.nextButton = CustomButton(frame: .zero, title: "다음")
+        self.nextButton = ViewFactory.makeCustomButton(title: "다음")
         guard let nextButton = nextButton,
               let inputComponentsViewStack = inputComponentsViewStack else {
             return
@@ -63,6 +64,18 @@ class RegisterViewController: UIViewController {
         nextButton.topAnchor.constraint(equalTo: inputComponentsViewStack.bottomAnchor, constant:  0.7 * space).isActive = true
         nextButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.1 * space).isActive = true
         nextButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -3.8 * space).isActive = true
+    }
+    
+    private func generateInputComponentsView() -> [InputComponentsViewable] {
+        let titlePlaceholderMap = ["아이디": "영문 소문자, 숫자, 특수기호(_,-), 5~20자", "비밀번호": "영문 대/소문자, 숫자,. 특수문자(!@#$%) 8~16자", "비밀번호 재확인": "", "이름": ""]
+        let keys = ["아이디", "비밀번호", "비밀번호 재확인", "이름"]
+        var inputComponentsViews = [InputComponentsViewable]()
         
+        for key in keys {
+            let newInputComponentsView = ViewFactory.makeInputComponentsView(title: key, placeholder: titlePlaceholderMap[key] ?? "")
+            inputComponentsViews.append(newInputComponentsView)
+        }
+        
+        return inputComponentsViews
     }
 }

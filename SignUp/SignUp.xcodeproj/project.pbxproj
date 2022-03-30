@@ -16,6 +16,7 @@
 		02B2AFB327F30CE20002BE84 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFB227F30CE20002BE84 /* RegisterViewController.swift */; };
 		02B2AFB727F3F97A0002BE84 /* InputComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFB627F3F97A0002BE84 /* InputComponentsView.swift */; };
 		02B2AFB927F431B30002BE84 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFB827F431B30002BE84 /* CustomButton.swift */; };
+		02B2AFBB27F440300002BE84 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFBA27F440300002BE84 /* ViewFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		02B2AFB227F30CE20002BE84 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		02B2AFB627F3F97A0002BE84 /* InputComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponentsView.swift; sourceTree = "<group>"; };
 		02B2AFB827F431B30002BE84 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		02B2AFBA27F440300002BE84 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				02B2AFA527F304EF0002BE84 /* Assets.xcassets */,
 				02B2AFA727F304EF0002BE84 /* LaunchScreen.storyboard */,
 				02B2AFAA27F304EF0002BE84 /* Info.plist */,
+				02B2AFBA27F440300002BE84 /* ViewFactory.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				02B2AFB727F3F97A0002BE84 /* InputComponentsView.swift in Sources */,
 				02B2AFB927F431B30002BE84 /* CustomButton.swift in Sources */,
 				02B2AF9D27F304ED0002BE84 /* AppDelegate.swift in Sources */,
+				02B2AFBB27F440300002BE84 /* ViewFactory.swift in Sources */,
 				02B2AF9F27F304ED0002BE84 /* SceneDelegate.swift in Sources */,
 				02B2AFB327F30CE20002BE84 /* RegisterViewController.swift in Sources */,
 			);

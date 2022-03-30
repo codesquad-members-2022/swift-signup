@@ -7,7 +7,12 @@
 
 import UIKit
 
-class InputComponentsView: UIView {
+protocol InputComponentsViewable: UIView {
+    func setTitle(_ title: String)
+    func setPlaceholder(_ placeholder: String)
+}
+
+class InputComponentsView: UIView, InputComponentsViewable {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -25,17 +30,13 @@ class InputComponentsView: UIView {
         return textField
     }()
     
-    init(frame: CGRect, title: String, placeholder: String = "") {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.titleLabel.text = title
-        self.textField.placeholder = placeholder
         setLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.titleLabel.text = ""
-        self.textField.placeholder = ""
         setLayout()
     }
     
@@ -57,6 +58,14 @@ class InputComponentsView: UIView {
         textField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: space).isActive = true
         textField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = true
         textField.heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
+    
+    func setTitle(_ title: String) {
+        self.titleLabel.text = title
+    }
+    
+    func setPlaceholder(_ placeholder: String) {
+        self.textField.placeholder = placeholder
     }
 }
 
