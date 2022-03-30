@@ -17,6 +17,8 @@
 		02B2AFB727F3F97A0002BE84 /* InputComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFB627F3F97A0002BE84 /* InputComponentsView.swift */; };
 		02B2AFB927F431B30002BE84 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFB827F431B30002BE84 /* CustomButton.swift */; };
 		02B2AFBB27F440300002BE84 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFBA27F440300002BE84 /* ViewFactory.swift */; };
+		02B2AFC027F47D710002BE84 /* IDValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFBF27F47D710002BE84 /* IDValidator.swift */; };
+		02B2AFC227F4805C0002BE84 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFC127F4805C0002BE84 /* Validatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		02B2AFB627F3F97A0002BE84 /* InputComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponentsView.swift; sourceTree = "<group>"; };
 		02B2AFB827F431B30002BE84 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		02B2AFBA27F440300002BE84 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
+		02B2AFBF27F47D710002BE84 /* IDValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDValidator.swift; sourceTree = "<group>"; };
+		02B2AFC127F4805C0002BE84 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 			children = (
 				02B2AF9C27F304ED0002BE84 /* AppDelegate.swift */,
 				02B2AF9E27F304ED0002BE84 /* SceneDelegate.swift */,
+				02B2AFBE27F47D3D0002BE84 /* Model */,
 				02B2AFB527F3F9140002BE84 /* View */,
 				02B2AFB427F3F8ED0002BE84 /* Controller */,
 				02B2AFA227F304ED0002BE84 /* Main.storyboard */,
@@ -93,6 +98,15 @@
 				02B2AFB827F431B30002BE84 /* CustomButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		02B2AFBE27F47D3D0002BE84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02B2AFBF27F47D710002BE84 /* IDValidator.swift */,
+				02B2AFC127F4805C0002BE84 /* Validatable.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,12 +181,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B2AFA127F304ED0002BE84 /* WelcomeViewController.swift in Sources */,
+				02B2AFC227F4805C0002BE84 /* Validatable.swift in Sources */,
 				02B2AFB727F3F97A0002BE84 /* InputComponentsView.swift in Sources */,
 				02B2AFB927F431B30002BE84 /* CustomButton.swift in Sources */,
 				02B2AF9D27F304ED0002BE84 /* AppDelegate.swift in Sources */,
 				02B2AFBB27F440300002BE84 /* ViewFactory.swift in Sources */,
 				02B2AF9F27F304ED0002BE84 /* SceneDelegate.swift in Sources */,
 				02B2AFB327F30CE20002BE84 /* RegisterViewController.swift in Sources */,
+				02B2AFC027F47D710002BE84 /* IDValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
