@@ -70,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */,
-				B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */,
 			);
 			path = DelegateProtocols;
 			sourceTree = "<group>";
@@ -91,6 +90,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		B557E9D027F4BD4D00448EC6 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		B571ECD327F1FA1100DF501F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +111,7 @@
 		B571ECD627F355A700DF501F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B557E9D027F4BD4D00448EC6 /* New Group */,
 				B557E9C427F4400400448EC6 /* DelegateProtocols */,
 				B571ECD727F355C300DF501F /* LoginView.swift */,
 				B571ECD927F363BE00DF501F /* SigningUpView.swift */,

@@ -31,7 +31,6 @@ class HttpRequestHandler{
             
             guard let data = data, let response = response as? HTTPURLResponse else {
                 self.logger.error("Could not receive any response or data")
-                //네트워크 오류로 인한 로그인 실패 출력
                 return
             }
             
