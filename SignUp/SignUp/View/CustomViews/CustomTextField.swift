@@ -8,16 +8,11 @@
 import UIKit
 
 protocol ValidationDelegate {
-//    func willValidate(in string: String)
     func didValidate(in string: String)
+    func didEndValidate()
 }
 
 class CustomTextField: UITextField {
-    
-    // MARK: - Property Overrided
-//    override var canBecomeFirstResponder: Bool {
-//        return true
-//    }
     
     // MARK: - Local Properties
     
@@ -37,15 +32,15 @@ class CustomTextField: UITextField {
 }
 
 extension CustomTextField: ValidationDelegate {
-//    func willValidate(in string: String) {
-//        validator?.validateResult(in: string)
-//    }
-    
     func didValidate(in string: String) {
         validator?.validateResult(in: string)
         if let validation = validator?.validationResult {
             commentLabel.showComment(in: string, following: validation)
-        } else {
+        }
+    }
+    
+    func didEndValidate() {
+        if validator?.validationResult.state == .good {
             commentLabel.hideComment()
         }
     }

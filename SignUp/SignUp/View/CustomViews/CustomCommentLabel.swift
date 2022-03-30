@@ -14,13 +14,12 @@ final class CustomCommentLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.frame.size.height = 0
-        self.frame.origin.y = self.frame.height + self.frame.maxY
+        self.frame.origin = CGPoint(x: 0, y: frame.height)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.frame.size.height = 0
-        self.frame.origin.y = self.frame.height + self.frame.maxY
     }
     
     // MARK: - Interfaces
