@@ -71,7 +71,26 @@ extension SigninViewController: UITextFieldDelegate{
         
         if textField === idTextField{
             let newText = text + string
-            self.check = TextFieldValueChecker.valueChecker.checkID(text: newText, reasonSection: validIdLabel)
+            
+            switch TextFieldValueChecker.valueChecker.checkID(text: newText){
+            case CheckValidIDCase.invalid
+                : validIdLabel.text = CheckValidIDCase.invalid.showReason()
+                  validIdLabel.textColor = .systemRed
+            case .shortLength
+                : validIdLabel.text = CheckValidIDCase.shortLength.showReason()
+                  validIdLabel.textColor = .systemRed
+            case .longLength
+                : validIdLabel.text = CheckValidIDCase.longLength.showReason()
+                  validIdLabel.textColor = .systemRed
+            case .valid
+                : validIdLabel.text = CheckValidIDCase.valid.showReason()
+                  validIdLabel.textColor = .systemGreen
+            case .usedId
+                : validIdLabel.text = CheckValidIDCase.usedId.showReason()
+                validIdLabel.textColor = .systemRed
+            }
+            
+            //self.check = TextFieldValueChecker.valueChecker.checkID(text: newText, reasonSection: validIdLabel)
             changeTextFieldLayer(textField: textField)
         }
         
