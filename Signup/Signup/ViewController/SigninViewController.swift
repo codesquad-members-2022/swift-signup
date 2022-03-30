@@ -76,18 +76,23 @@ extension SigninViewController: UITextFieldDelegate{
             case CheckValidIDCase.invalid
                 : validIdLabel.text = CheckValidIDCase.invalid.showReason()
                   validIdLabel.textColor = .systemRed
+                  self.check = false
             case .shortLength
                 : validIdLabel.text = CheckValidIDCase.shortLength.showReason()
                   validIdLabel.textColor = .systemRed
+                  self.check = false
             case .longLength
                 : validIdLabel.text = CheckValidIDCase.longLength.showReason()
                   validIdLabel.textColor = .systemRed
+                  self.check = false
             case .valid
                 : validIdLabel.text = CheckValidIDCase.valid.showReason()
                   validIdLabel.textColor = .systemGreen
+                  self.check = true
             case .usedId
                 : validIdLabel.text = CheckValidIDCase.usedId.showReason()
-                validIdLabel.textColor = .systemRed
+                  validIdLabel.textColor = .systemRed
+                  self.check = false
             }
             
             changeTextFieldLayer(textField: textField)
