@@ -19,6 +19,7 @@
 		02B2AFBB27F440300002BE84 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFBA27F440300002BE84 /* ViewFactory.swift */; };
 		02B2AFC027F47D710002BE84 /* IDValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFBF27F47D710002BE84 /* IDValidator.swift */; };
 		02B2AFC227F4805C0002BE84 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFC127F4805C0002BE84 /* Validatable.swift */; };
+		02B2AFC927F4A0EA0002BE84 /* IDTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B2AFC827F4A0EA0002BE84 /* IDTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		02B2AFBA27F440300002BE84 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		02B2AFBF27F47D710002BE84 /* IDValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDValidator.swift; sourceTree = "<group>"; };
 		02B2AFC127F4805C0002BE84 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
+		02B2AFC827F4A0EA0002BE84 /* IDTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		02B2AFB427F3F8ED0002BE84 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				02B2AFC327F49E740002BE84 /* Delegate */,
 				02B2AFA027F304ED0002BE84 /* WelcomeViewController.swift */,
 				02B2AFB227F30CE20002BE84 /* RegisterViewController.swift */,
 			);
@@ -107,6 +110,14 @@
 				02B2AFC127F4805C0002BE84 /* Validatable.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		02B2AFC327F49E740002BE84 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				02B2AFC827F4A0EA0002BE84 /* IDTextFieldDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B2AFA127F304ED0002BE84 /* WelcomeViewController.swift in Sources */,
+				02B2AFC927F4A0EA0002BE84 /* IDTextFieldDelegate.swift in Sources */,
 				02B2AFC227F4805C0002BE84 /* Validatable.swift in Sources */,
 				02B2AFB727F3F97A0002BE84 /* InputComponentsView.swift in Sources */,
 				02B2AFB927F431B30002BE84 /* CustomButton.swift in Sources */,
