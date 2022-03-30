@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D263497D27F427D600F7ED65 /* TextFieldValueChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263497C27F427D600F7ED65 /* TextFieldValueChecker.swift */; };
+		D263498627F436DB00F7ED65 /* CheckValidIDCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263498527F436DB00F7ED65 /* CheckValidIDCase.swift */; };
 		D270C77F27F2CC300065D215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C77E27F2CC300065D215 /* AppDelegate.swift */; };
 		D270C78127F2CC300065D215 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C78027F2CC300065D215 /* SceneDelegate.swift */; };
 		D270C78327F2CC300065D215 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C78227F2CC300065D215 /* LoginViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D263497C27F427D600F7ED65 /* TextFieldValueChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValueChecker.swift; sourceTree = "<group>"; };
+		D263498527F436DB00F7ED65 /* CheckValidIDCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckValidIDCase.swift; sourceTree = "<group>"; };
 		D270C77B27F2CC300065D215 /* Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270C77E27F2CC300065D215 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D270C78027F2CC300065D215 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +43,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D263497E27F42CB700F7ED65 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D270C78227F2CC300065D215 /* LoginViewController.swift */,
+				D270C79227F2EBCB0065D215 /* SigninViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		D263497F27F42CC600F7ED65 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D263497C27F427D600F7ED65 /* TextFieldValueChecker.swift */,
+				D263498527F436DB00F7ED65 /* CheckValidIDCase.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D263498227F42CDF00F7ED65 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D270C77227F2CC300065D215 = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +87,11 @@
 		D270C77D27F2CC300065D215 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				D263497E27F42CB700F7ED65 /* ViewController */,
+				D263497F27F42CC600F7ED65 /* Util */,
+				D263498227F42CDF00F7ED65 /* Model */,
 				D270C77E27F2CC300065D215 /* AppDelegate.swift */,
 				D270C78027F2CC300065D215 /* SceneDelegate.swift */,
-				D270C78227F2CC300065D215 /* LoginViewController.swift */,
-				D270C79227F2EBCB0065D215 /* SigninViewController.swift */,
 				D270C78427F2CC300065D215 /* Main.storyboard */,
 				D270C78727F2CC310065D215 /* Assets.xcassets */,
 				D270C78927F2CC310065D215 /* LaunchScreen.storyboard */,
@@ -142,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D270C79327F2EBCB0065D215 /* SigninViewController.swift in Sources */,
+				D263498627F436DB00F7ED65 /* CheckValidIDCase.swift in Sources */,
 				D270C78327F2CC300065D215 /* LoginViewController.swift in Sources */,
+				D263497D27F427D600F7ED65 /* TextFieldValueChecker.swift in Sources */,
 				D270C77F27F2CC300065D215 /* AppDelegate.swift in Sources */,
 				D270C78127F2CC300065D215 /* SceneDelegate.swift in Sources */,
 			);
