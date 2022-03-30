@@ -22,8 +22,11 @@
 		8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347D727F151A200AD1F41 /* SignUpInputView.swift */; };
 		8D3FBF2527F3E7C500D31E72 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */; };
 		8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */; };
+		8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */; };
+		8D3FBF2B27F429D800D31E72 /* IDRegularExpressionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2A27F429D800D31E72 /* IDRegularExpressionChecker.swift */; };
 		8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */; };
 		8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512927F35F2500BF6D7B /* PostResult.swift */; };
+		8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +66,11 @@
 		8D3347D727F151A200AD1F41 /* SignUpInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputView.swift; sourceTree = "<group>"; };
 		8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkError.swift; sourceTree = "<group>"; };
+		8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionCheckable.swift; sourceTree = "<group>"; };
+		8D3FBF2A27F429D800D31E72 /* IDRegularExpressionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDRegularExpressionChecker.swift; sourceTree = "<group>"; };
 		8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
 		8D42512927F35F2500BF6D7B /* PostResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResult.swift; sourceTree = "<group>"; };
+		8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordExpressionChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 			children = (
 				8D1E791527F1A2F6004FD949 /* SignUpInputViewCreator.swift */,
 				8D1E791127F1A23A004FD949 /* SignUpInputViewable.swift */,
+				8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 			children = (
 				8D3347A927F14CDE00AD1F41 /* SignUpViewController.swift */,
 				8D1E791327F1A2C7004FD949 /* SignUpInputViewFactory.swift */,
+				8DD10DA327F438EA00D7C15B /* RegularExpressionChecker */,
 				8D42512627F3003000BF6D7B /* Model */,
 				8D42512127F2FD8400BF6D7B /* Netwrok */,
 				8D1E791927F1D12E004FD949 /* View */,
@@ -197,6 +205,15 @@
 				8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8DD10DA327F438EA00D7C15B /* RegularExpressionChecker */ = {
+			isa = PBXGroup;
+			children = (
+				8D3FBF2A27F429D800D31E72 /* IDRegularExpressionChecker.swift */,
+				8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */,
+			);
+			path = RegularExpressionChecker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,7 +348,10 @@
 			files = (
 				8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */,
 				8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */,
+				8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */,
 				8D1E791427F1A2C7004FD949 /* SignUpInputViewFactory.swift in Sources */,
+				8D3FBF2B27F429D800D31E72 /* IDRegularExpressionChecker.swift in Sources */,
+				8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */,
 				8D1E791827F1AB6D004FD949 /* SignUpNextButton.swift in Sources */,
 				8D3347AA27F14CDE00AD1F41 /* SignUpViewController.swift in Sources */,
 				8D1E791227F1A23A004FD949 /* SignUpInputViewable.swift in Sources */,

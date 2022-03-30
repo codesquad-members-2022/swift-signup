@@ -20,18 +20,19 @@ final class SignUpViewController: UIViewController {
     
     //network
     private var signUpNetwork = SignUpNetwork()
-    
-    //model
     //model that if use get method
     private var userID:UserID = UserID()
     //model that if use post method
     private var postResult:PostResult?
     
+    //RegularExpression
+    private var regualrExpressionChecker:RegularExpressionCheckable?
+    
     //creator
     private var inputViewCreator:SignUpInputViewCreator?
     
     //For debugging
-    var errorType:SignUpNetworkError?
+    var NetWorkErrorType:SignUpNetworkError?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ final class SignUpViewController: UIViewController {
             case .success(let postResult):
                 self.postResult = postResult
             case .failure(let error):
-                self.errorType = error
+                self.NetWorkErrorType = error
                 return
             }
         }
@@ -60,7 +61,7 @@ final class SignUpViewController: UIViewController {
             case .success(let userID):
                 self.userID = userID
             case .failure(let error):
-                self.errorType = error
+                self.NetWorkErrorType = error
                 return
             }
         }
