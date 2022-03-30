@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B0E72A627F3F7AA005DD51B /* CustomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E72A527F3F7AA005DD51B /* CustomTextFieldDelegate.swift */; };
+		1B0E72A627F3F7AA005DD51B /* ValidateTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E72A527F3F7AA005DD51B /* ValidateTextFieldDelegate.swift */; };
+		1B0E72A827F42287005DD51B /* ValidationResultFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E72A727F42287005DD51B /* ValidationResultFactory.swift */; };
 		1B27823227F1DB7B003A5ADD /* CommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */; };
 		1B27823527F1DDD8003A5ADD /* IDCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */; };
 		1B27823727F1DDDD003A5ADD /* PasswordCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */; };
 		1B27823B27F1DDEC003A5ADD /* EmailCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823A27F1DDEC003A5ADD /* EmailCommentGenerator.swift */; };
-		1B27824127F1E18A003A5ADD /* PasswordCommentConfirmGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27824027F1E18A003A5ADD /* PasswordCommentConfirmGenerator.swift */; };
+		1B27824127F1E18A003A5ADD /* PhoneNumberValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27824027F1E18A003A5ADD /* PhoneNumberValidationResult.swift */; };
 		1B64B70027F14CF700B29580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B6FF27F14CF700B29580 /* AppDelegate.swift */; };
 		1B64B70227F14CF700B29580 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B70127F14CF700B29580 /* SceneDelegate.swift */; };
 		1B64B70427F14CF700B29580 /* IdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B70327F14CF700B29580 /* IdentificationViewController.swift */; };
@@ -46,12 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B0E72A527F3F7AA005DD51B /* CustomTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFieldDelegate.swift; sourceTree = "<group>"; };
+		1B0E72A527F3F7AA005DD51B /* ValidateTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateTextFieldDelegate.swift; sourceTree = "<group>"; };
+		1B0E72A727F42287005DD51B /* ValidationResultFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResultFactory.swift; sourceTree = "<group>"; };
 		1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentGenerator.swift; sourceTree = "<group>"; };
 		1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCommentGenerator.swift; sourceTree = "<group>"; };
 		1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCommentGenerator.swift; sourceTree = "<group>"; };
 		1B27823A27F1DDEC003A5ADD /* EmailCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCommentGenerator.swift; sourceTree = "<group>"; };
-		1B27824027F1E18A003A5ADD /* PasswordCommentConfirmGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCommentConfirmGenerator.swift; sourceTree = "<group>"; };
+		1B27824027F1E18A003A5ADD /* PhoneNumberValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberValidationResult.swift; sourceTree = "<group>"; };
 		1B64B6FC27F14CF700B29580 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B64B6FF27F14CF700B29580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B64B70127F14CF700B29580 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,8 +104,8 @@
 				1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */,
 				1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */,
 				1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */,
-				1B27824027F1E18A003A5ADD /* PasswordCommentConfirmGenerator.swift */,
 				1B27823A27F1DDEC003A5ADD /* EmailCommentGenerator.swift */,
+				1B27824027F1E18A003A5ADD /* PhoneNumberValidationResult.swift */,
 			);
 			path = CommentGenerators;
 			sourceTree = "<group>";
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				1B64B74327F1B33700B29580 /* ValidationRegularTextFactory.swift */,
+				1B0E72A727F42287005DD51B /* ValidationResultFactory.swift */,
 				1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */,
 			);
 			path = Validation;
@@ -206,7 +209,7 @@
 		1B64B74027F1A34A00B29580 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1B0E72A527F3F7AA005DD51B /* CustomTextFieldDelegate.swift */,
+				1B0E72A527F3F7AA005DD51B /* ValidateTextFieldDelegate.swift */,
 				1B27824327F1F4F7003A5ADD /* Validation */,
 				1B27823327F1DC4F003A5ADD /* CommentGenerators */,
 			);
@@ -351,14 +354,15 @@
 				1B64B70427F14CF700B29580 /* IdentificationViewController.swift in Sources */,
 				1B64B74427F1B33700B29580 /* ValidationRegularTextFactory.swift in Sources */,
 				1B27823B27F1DDEC003A5ADD /* EmailCommentGenerator.swift in Sources */,
-				1B27824127F1E18A003A5ADD /* PasswordCommentConfirmGenerator.swift in Sources */,
+				1B27824127F1E18A003A5ADD /* PhoneNumberValidationResult.swift in Sources */,
 				1B27823527F1DDD8003A5ADD /* IDCommentGenerator.swift in Sources */,
 				1B64B70027F14CF700B29580 /* AppDelegate.swift in Sources */,
 				1B27823227F1DB7B003A5ADD /* CommentGenerator.swift in Sources */,
+				1B0E72A827F42287005DD51B /* ValidationResultFactory.swift in Sources */,
 				1B64B70227F14CF700B29580 /* SceneDelegate.swift in Sources */,
 				1B64B73727F15D9400B29580 /* CustomSegueButton.swift in Sources */,
 				1B64B74227F1B13200B29580 /* CustomTextField.swift in Sources */,
-				1B0E72A627F3F7AA005DD51B /* CustomTextFieldDelegate.swift in Sources */,
+				1B0E72A627F3F7AA005DD51B /* ValidateTextFieldDelegate.swift in Sources */,
 				1B27823727F1DDDD003A5ADD /* PasswordCommentGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

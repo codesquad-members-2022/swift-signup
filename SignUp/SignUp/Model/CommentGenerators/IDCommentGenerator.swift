@@ -7,36 +7,46 @@
 
 import Foundation
 
-class IDCommentGenerator: CommentGenerator {
-    func convertComment(in string: String, with result: [NSTextCheckingResult]) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result.count)
-        return validation ?? ValidationComment(comment: "사용 가능한 아이디입니다.", commentColor: .green)
+class IDValidationResult: ValidationResult {
+    
+    var state: ValidationResultState = .bad
+    
+    var commentColor: CommentColor {
+        return state == .good ? .green : .red
     }
     
-    func convertComment(in string: String, with result: Int) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result)
-        return validation ?? ValidationComment(comment: "사용 가능한 아이디입니다.", commentColor: .green)
+    var validateResult = [NSTextCheckingResult]()
+    
+    var spottedRangeCount: Int {
+        validateResult.reduce(0) { partialResult, result in
+            result.range.length
+        }
     }
     
-    func convertComment(in string: String, with result: NSRange) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result.length)
-        return validation ?? ValidationComment(comment: "사용 가능한 아이디입니다.", commentColor: .green)
-    }
-    
-    func convertComment(in string: String, with result: NSTextCheckingResult?) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result?.range.length ?? 0)
-        return validation ?? ValidationComment(comment: "사용 가능한 아이디입니다.", commentColor: .green)
-    }
-    
-    private func generateValidation(in string: String, matchingCount: Int) -> ValidationComment? {
-        if string.count > 20 && string.count < 5 {
-            return ValidationComment(comment: "5~20자 내의 ID만 사용 가능합니다.", commentColor: .red)
+    func validateResultState(in string: String, using results: [NSTextCheckingResult]) {
+        validateResult = results
+        if (5...20 ~= string.count) && (spottedRangeCount == string.count) {
+            state = .good
+            return
         }
         
-        if matchingCount > 0 {
-            return ValidationComment(comment: "소문자, 숫자, 특수기호(_)(-)만 사용 가능합니다.", commentColor: .red)
+        state = .bad
+    }
+    
+    func commentRepresentation(in string: String) -> String {
+        switch state {
+        case .good:
+            return "사용가능한 ID입니다."
+        case .bad:
+            if string.count > 20 || string.count < 5 {
+                return "5~20자 내의 ID만 사용 가능합니다."
+            }
+            
+            if spottedRangeCount != string.count {
+                return "소문자, 숫자, 특수기호(-)(_) 만 사용할 수 있습니다."
+            }
+            
+            return "아이디가 적절하지 않습니다. 다시 확인해주시기 바랍니다."
         }
-        
-        return nil
     }
 }
