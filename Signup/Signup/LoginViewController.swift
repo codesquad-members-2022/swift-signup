@@ -24,6 +24,9 @@ class LoginViewController: UIViewController {
         textFieldDismissKeyboard()
         
         addSigninAction()
+        
+        self.idTextField.delegate = self
+        self.pswTextField.delegate = self
     }
     
     private func attributesConfigure(){
@@ -41,7 +44,10 @@ class LoginViewController: UIViewController {
 // MARK: - Use case: TextField Delegate and function
 
 extension LoginViewController: UITextFieldDelegate{
-    // 추후 ID, PW 확인 기능 필요
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     private func textFieldDismissKeyboard(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
