@@ -107,13 +107,13 @@ final class SignUpViewController: UIViewController {
     
     //inputViewComponent
     private func configureInputViewComponents() -> [SignUpInputViewable?]{
+        inputViewCreator(creator: SignUpInputViewFactory())
+        guard let factory = inputViewCreator else { return [] }
+        
         let id:(label:String,placeHolder:String) = (label:"아이디",placeHolder:"영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
         let password:(label:String,placeHolder:String) = (label:"비밀번호",placeHolder:"영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
         let passwordRecheck:(label:String,placeHolder:String) = (label:"비밀번호 재확인",placeHolder:"")
         let name:(label:String,placeHolder:String) = (label:"이름",placeHolder:"")
-        
-        inputViewCreator(creator: SignUpInputViewFactory())
-        guard let factory = inputViewCreator else { return [] }
         
         IDInputView = factory.makeSignUpViewComponent(labelText: id.label, placeHolder: id.placeHolder)
         passwordInputView = factory.makeSignUpViewComponent(labelText: password.label, placeHolder: password.placeHolder)
@@ -132,9 +132,14 @@ final class SignUpViewController: UIViewController {
         nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -bottomInset).isActive = true
     }
     
-    //injection creator
+    //MARK: -- injection
     private func inputViewCreator(creator:SignUpInputViewCreator) {
         self.inputViewCreator = creator
     }
+    
+    private func inputExpressionChecker(checker:RegularExpressionCheckable) {
+        self.regualrExpressionChecker = checker
+    }
+    
 }
 
