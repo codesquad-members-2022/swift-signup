@@ -26,7 +26,7 @@ final class SignUpViewController: UIViewController {
         super.viewDidLoad()
         configureSignUpView()
         configureSignUpNetwork()
-        let postMessage = PostMessage(id: "jkhom", password: "helloWor1$")
+        let postMessage = UserInfo(id: "jkhom", password: "helloWor1$")
         signUpNetwork.postRequest(postBody: postMessage) { result in
             switch result {
             case .success(let postResult):

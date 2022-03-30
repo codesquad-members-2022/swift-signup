@@ -34,7 +34,7 @@ final class SignUpNetwork {
         .resume()
     }
     
-    func postRequest(postBody:PostMessage, completion: @escaping((Result<PostResult,SignUpNetworkError>) -> Void)) {
+    func postRequest(postBody:UserInfo, completion: @escaping((Result<PostResult,SignUpNetworkError>) -> Void)) {
         
         do {
             //is URL available?
