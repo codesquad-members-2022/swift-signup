@@ -10,13 +10,17 @@ import UIKit
 
 class CustomTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    var commentLabelIn: (UITextField) -> CustomCommentLabel? = { textField in
+    // MARK: - Local Properties
+    
+    private var commentLabelIn: (UITextField) -> CustomCommentLabel? = { textField in
         (textField as? CustomTextField)?.commentLabel
     }
     
-    var validatorIn: (UITextField) -> ValidationRegularText? = { textField in
+    private var validatorIn: (UITextField) -> ValidationRegularText? = { textField in
         (textField as? CustomTextField)?.validator
     }
+    
+    // MARK: - Methods Delegate
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         commentLabelIn(textField)?.hideComment()
