@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 import os
 
 class TextFieldValueChecker{
@@ -15,34 +14,24 @@ class TextFieldValueChecker{
     
     private init() { }
     
-    func checkID(text: String, reasonSection: UILabel) -> Bool{
+    func checkID(text: String) -> CheckValidIDCase{
         let pattern: String = "^[0-9a-z_-]*$"
         
         guard text.range(of: pattern, options: .regularExpression) != nil else{
-            reasonSection.text = CheckValidIDCase.invalid.showReason()
-            reasonSection.textColor = .systemRed
-            return false
+            return .invalid
         }
         
         if text.count < 4{
-            reasonSection.text = CheckValidIDCase.shortLength.showReason()
-            reasonSection.textColor = .systemRed
-            return false
+            return .shortLength
         } else if text.count > 20{
-            reasonSection.text = CheckValidIDCase.longLength.showReason()
-            reasonSection.textColor = .systemRed
-            return false
+            return .longLength
         } else{
             let test = users.filter{ $0 == text}
             
             if test.isEmpty{
-                reasonSection.text = CheckValidIDCase.valid.showReason()
-                reasonSection.textColor = .systemGreen
-                return true
+                return .valid
             } else{
-                reasonSection.text = CheckValidIDCase.usedId.showReason()
-                reasonSection.textColor = .systemRed
-                return false
+                return .usedId
             }
         }
     }
