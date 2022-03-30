@@ -69,6 +69,7 @@ class InputView: UIView {
         subLabel.topAnchor.constraint(equalTo: optionView.bottomAnchor, constant: 5).isActive = true
         subLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         subLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        subLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         self.bottomAnchor.constraint(equalTo: subLabel.bottomAnchor).isActive = true
     }

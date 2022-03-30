@@ -81,7 +81,7 @@ class SignUpViewController: UIViewController {
         button.setTitleColor(.systemGray2, for: .disabled)
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
-        button.isEnabled = true
+        button.isEnabled = false
         return button
     }()
     
@@ -188,10 +188,10 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        RightToLeftTransition(duration: 0.3)
+        RightToLeftTransition(.present)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        RightToLeftTransition(duration: 0.3)
+        RightToLeftTransition(.dismiss)
     }
 }
