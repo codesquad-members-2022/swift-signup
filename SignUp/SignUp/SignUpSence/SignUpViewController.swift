@@ -9,6 +9,7 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
     
+    //view
     private let stackView = UIStackView(frame: .zero)
     private let nextButton = SignUpNextButton(frame: .zero)
     private var IDInputView:SignUpInputViewable?
@@ -16,32 +17,41 @@ final class SignUpViewController: UIViewController {
     private var passwordRecheckInputView:SignUpInputViewable?
     private var nameInputView:SignUpInputViewable?
     
+    //network
     private var signUpNetwork = SignUpNetwork()
     
+    //model
+    //model that if use get method
     private var userID:UserID = UserID()
+    //model that fi use post method
+    private var postResult:PostResult?
     
+    //creator
     private var inputViewCreator:SignUpInputViewCreator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignUpView()
-        configureSignUpNetwork()
-        let postMessage = UserInfo(id: "jkhom", password: "helloWor1$")
-        signUpNetwork.postRequest(postBody: postMessage) { result in
+        let userinfo = UserInfo(id: "jkhom", password: "helloWor1$")
+        signUpNetwork.postRequest(postBody: userinfo) { (result:Result<PostResult,SignUpNetworkError>) in
             switch result {
             case .success(let postResult):
-                print("\(postResult)")
+                self.postResult = postResult
+                print(self.postResult)
             case .failure(let error):
                 print("\(error)")
             }
         }
+        
+        signUpNetwork.getRequest { (result: Result<UserID, SignUpNetworkError>) in
+            switch result {
+            case .success(let userID):
+                print(userID)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-    
-    private func configureSignUpNetwork() {
-        signUpNetwork.delegate = self
-//        signUpNetwork.getID()
-    }
-    
     
     private func configureSignUpView() {
         setTitle()
@@ -114,8 +124,3 @@ final class SignUpViewController: UIViewController {
     }
 }
 
-extension SignUpViewController:SignUpNetworkDelegate {
-    func didFetchUserID(userInfo: UserID) {
-        self.userID = userInfo
-    }
-}

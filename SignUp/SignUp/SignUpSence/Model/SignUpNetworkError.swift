@@ -6,7 +6,6 @@
 //
 
 enum SignUpNetworkError:Error {
-    case urlError
     case decodingError
     case encodingError
     case responseError

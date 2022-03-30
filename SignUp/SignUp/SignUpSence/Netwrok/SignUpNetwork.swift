@@ -13,51 +13,57 @@ final class SignUpNetwork {
     private var config = URLSessionConfiguration.default
     private var session = URLSession(configuration:.default)
     
-    var delegate:SignUpNetworkDelegate?
     
-    func getRequest() {
+    func getRequest<T:Decodable>(completion:@escaping (Result<T,SignUpNetworkError>) -> Void) {
+        //is URL available?
         guard let signUpURL = signUpURL else { return }
-
-        var request = URLRequest(url: signUpURL)
-        request.httpMethod = "GET"
         
-        session.dataTask(with: request) { [weak self] data, response, error in
+        var urlRequest = URLRequest(url: signUpURL)
+        urlRequest.httpMethod = "GET"
+        
+        let dataTask = session.dataTask(with: urlRequest) { [weak self] data, response, _ in
             guard let self = self else { return }
-            guard let data = data else { return }
-            guard let response = response,
-                  let response = response as? HTTPURLResponse,(200..<300) ~= response.statusCode else { return }
-                  
-            let decoder = JSONDecoder()
-            guard let userInfo = try? decoder.decode(UserID.self, from: data) else { return }
-            self.delegate?.didFetchUserID(userInfo: userInfo)
-        }
-        .resume()
-    }
-    
-    func postRequest(postBody:UserInfo, completion: @escaping((Result<PostResult,SignUpNetworkError>) -> Void)) {
-        
-        do {
-            //is URL available?
-            guard let signUpURL = signUpURL else {
-                completion(.failure(.urlError))
+            guard let data = data, self.isResponseClear(response: response) == true
+            else {
+                completion(.failure(.responseError))
                 return
             }
             
-            var urlRequest = URLRequest(url: signUpURL)
-            urlRequest.httpMethod = "POST"
+            do {
+                let decoder = JSONDecoder()
+                let data = try decoder.decode(T.self, from: data)
+                completion(.success(data))
+                }
+            
+            catch {
+                completion(.failure(.decodingError))
+            }
+        }
+        
+        dataTask.resume()
+    }
+    
+    func postRequest<T:Decodable>(postBody:UserInfo, completion: @escaping((Result<T,SignUpNetworkError>) -> Void)) {
+        //is URL available?
+        guard let signUpURL = signUpURL else { return }
+        var urlRequest = URLRequest(url: signUpURL)
+        urlRequest.httpMethod = "POST"
+        
+        do {
             urlRequest.httpBody = try JSONEncoder().encode(postBody)
             
             //is response clear?
-            let dataTask = session.dataTask(with: urlRequest) { data, response, _ in
-                guard let httpResponse = response as? HTTPURLResponse,(200..<300) ~= httpResponse.statusCode,
-                      let data = data else {
+            let dataTask = session.dataTask(with: urlRequest) { [weak self] data, response, _ in
+                    guard let self = self else { return }
+                    guard let data = data, self.isResponseClear(response: response) == true
+                    else {
                     completion(.failure(.responseError))
                     return
                 }
             
                 do {
                     //then decode
-                    let messageData = try JSONDecoder().decode(PostResult.self, from: data)
+                    let messageData = try JSONDecoder().decode(T.self, from: data)
                     completion(.success(messageData))
                 }
                     //else failure
@@ -78,4 +84,41 @@ final class SignUpNetwork {
         self.session = urlSession
     }
     
+    func url(_ url:URL) {
+        self.signUpURL = url
+    }
+    
+    private func isResponseClear(response:URLResponse?) -> Bool {
+        guard let httpResponse = response as? HTTPURLResponse else { return false }
+        if (200..<300) ~= httpResponse.statusCode {
+            return true
+        } else {
+            return false
+        }
+    }
 }
+
+
+enum httepMethod:String {
+    case get = "GET"
+    case post = "POST"
+}
+
+
+
+/*
+ var request = URLRequest(url: signUpURL)
+ request.httpMethod = "GET"
+ 
+ let dataTask = session.dataTask(with: request) { [weak self] data, response, error in
+     guard let self = self else { return }
+     guard let data = data else { return }
+     guard let response = response,
+           let response = response as? HTTPURLResponse,(200..<300) ~= response.statusCode else { return }
+           
+     let decoder = JSONDecoder()
+     guard let userInfo = try? decoder.decode(UserID.self, from: data) else { return }
+     
+ }
+ .resume()
+ */
