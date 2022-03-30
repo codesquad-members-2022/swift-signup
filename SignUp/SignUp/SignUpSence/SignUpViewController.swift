@@ -26,12 +26,20 @@ final class SignUpViewController: UIViewController {
         super.viewDidLoad()
         configureSignUpView()
         configureSignUpNetwork()
-        signUpNetwork.postRequest(body: PostMessage(id: "jkhome", password: "helloWor1$"))
+        let postMessage = PostMessage(id: "jkhom", password: "helloWor1$")
+        signUpNetwork.postRequest(postBody: postMessage) { result in
+            switch result {
+            case .success(let postResult):
+                print("\(postResult)")
+            case .failure(let error):
+                print("\(error)")
+            }
+        }
     }
     
     private func configureSignUpNetwork() {
         signUpNetwork.delegate = self
-        signUpNetwork.getID()
+//        signUpNetwork.getID()
     }
     
     

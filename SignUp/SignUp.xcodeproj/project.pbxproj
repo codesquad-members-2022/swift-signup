@@ -21,6 +21,7 @@
 		8D3347C927F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */; };
 		8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347D727F151A200AD1F41 /* SignUpInputView.swift */; };
 		8D3FBF2527F3E7C500D31E72 /* PostMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2427F3E7C500D31E72 /* PostMessage.swift */; };
+		8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */; };
 		8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */; };
 		8D42512827F32A9700BF6D7B /* SignUpNetworkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512727F32A9700BF6D7B /* SignUpNetworkDelegate.swift */; };
 		8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512927F35F2500BF6D7B /* PostResult.swift */; };
@@ -62,6 +63,7 @@
 		8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8D3347D727F151A200AD1F41 /* SignUpInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputView.swift; sourceTree = "<group>"; };
 		8D3FBF2427F3E7C500D31E72 /* PostMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessage.swift; sourceTree = "<group>"; };
+		8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkError.swift; sourceTree = "<group>"; };
 		8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
 		8D42512727F32A9700BF6D7B /* SignUpNetworkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkDelegate.swift; sourceTree = "<group>"; };
 		8D42512927F35F2500BF6D7B /* PostResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResult.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				8D42512927F35F2500BF6D7B /* PostResult.swift */,
 				8D3FBF2427F3E7C500D31E72 /* PostMessage.swift */,
+				8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				8D1E791627F1A2F6004FD949 /* SignUpInputViewCreator.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
 				8D3FBF2527F3E7C500D31E72 /* PostMessage.swift in Sources */,
+				8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,15 +9,15 @@ typealias UserID = [String]
 import Foundation
 
 final class SignUpNetwork {
-    
+    private var signUpURL = URL(string:"https://api.codesquad.kr/signup")
     private var config = URLSessionConfiguration.default
     private var session = URLSession(configuration:.default)
     
     var delegate:SignUpNetworkDelegate?
     
-    func getID() {
-        guard let signUpURL = URL(string:"https://api.codesquad.kr/signup") else { return }
-        
+    func getRequest() {
+        guard let signUpURL = signUpURL else { return }
+
         var request = URLRequest(url: signUpURL)
         request.httpMethod = "GET"
         
@@ -34,29 +34,48 @@ final class SignUpNetwork {
         .resume()
     }
     
-    func postRequest(body:PostMessage) {
-        guard let signUpURL = URL(string:"https://api.codesquad.kr/signup") else { return }
-        guard let requestBody = try? JSONEncoder().encode(body) else { return }
-        var request = URLRequest(url: signUpURL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = requestBody
+    func postRequest(postBody:PostMessage, completion: @escaping((Result<PostResult,SignUpNetworkError>) -> Void)) {
         
-        session.dataTask(with: request) { (data, response, error) in
-            guard let data = data else { return }
-            guard let response = response as? HTTPURLResponse,(200..<300) ~= response.statusCode else { return }
-            let decoder = JSONDecoder()
-            guard let result = try? decoder.decode(PostResult.self, from: data) else { return }
-            print(result)
+        do {
+            //is URL available?
+            guard let signUpURL = signUpURL else {
+                completion(.failure(.urlError))
+                return
+            }
+            
+            var urlRequest = URLRequest(url: signUpURL)
+            urlRequest.httpMethod = "POST"
+            urlRequest.httpBody = try JSONEncoder().encode(postBody)
+            
+            //is response clear?
+            let dataTask = session.dataTask(with: urlRequest) { data, response, _ in
+                guard let httpResponse = response as? HTTPURLResponse,(200..<300) ~= httpResponse.statusCode,
+                      let data = data else {
+                    completion(.failure(.responseError))
+                    return
+                }
+            
+                do {
+                    //then decode
+                    let messageData = try JSONDecoder().decode(PostResult.self, from: data)
+                    completion(.success(messageData))
+                }
+                    //else failure
+                catch {
+                    completion(.failure(.decodingError))
+                }
+            }
+            dataTask.resume()
         }
-        .resume()
+        
+        catch {
+            completion(.failure(.encodingError))
+        }
+        
     }
     
     func session(_ urlSession: URLSession) {
         self.session = urlSession
     }
+    
 }
-
-
-
-
