@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B557E9C327F43B8800448EC6 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9C227F43B8800448EC6 /* LoginUser.swift */; };
+		B557E9C627F4401700448EC6 /* LoginViewDeleagte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */; };
+		B557E9C827F441D200448EC6 /* HttpRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9C727F441D200448EC6 /* HttpRequestHandler.swift */; };
+		B557E9CC27F4776A00448EC6 /* LoginUserProcotol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9CB27F4776A00448EC6 /* LoginUserProcotol.swift */; };
+		B557E9CE27F48A1E00448EC6 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */; };
 		B571ECD527F354E400DF501F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD427F354E400DF501F /* LoginViewController.swift */; };
 		B571ECD827F355C300DF501F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD727F355C300DF501F /* LoginView.swift */; };
 		B571ECDA27F363BE00DF501F /* SigningUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD927F363BE00DF501F /* SigningUpView.swift */; };
@@ -23,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		B557E9C227F43B8800448EC6 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDeleagte.swift; sourceTree = "<group>"; };
+		B557E9C727F441D200448EC6 /* HttpRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestHandler.swift; sourceTree = "<group>"; };
+		B557E9CB27F4776A00448EC6 /* LoginUserProcotol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserProcotol.swift; sourceTree = "<group>"; };
+		B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		B571ECD427F354E400DF501F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B571ECD727F355C300DF501F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B571ECD927F363BE00DF501F /* SigningUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningUpView.swift; sourceTree = "<group>"; };
@@ -49,12 +57,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B557E9C127F43B7500448EC6 /* models */ = {
+		B557E9C127F43B7500448EC6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B557E9CA27F4775D00448EC6 /* Protocols */,
 				B557E9C227F43B8800448EC6 /* LoginUser.swift */,
 			);
-			path = models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B557E9C427F4400400448EC6 /* DelegateProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */,
+				B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */,
+			);
+			path = DelegateProtocols;
+			sourceTree = "<group>";
+		};
+		B557E9C927F441DA00448EC6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B557E9C727F441D200448EC6 /* HttpRequestHandler.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B557E9CA27F4775D00448EC6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B557E9CB27F4776A00448EC6 /* LoginUserProcotol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B571ECD327F1FA1100DF501F /* Controllers */ = {
@@ -70,6 +104,7 @@
 		B571ECD627F355A700DF501F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B557E9C427F4400400448EC6 /* DelegateProtocols */,
 				B571ECD727F355C300DF501F /* LoginView.swift */,
 				B571ECD927F363BE00DF501F /* SigningUpView.swift */,
 				B571ECDD27F3723C00DF501F /* PersonalInfoView.swift */,
@@ -96,7 +131,8 @@
 		B5F8730527F19EE700FFFE7F /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				B557E9C127F43B7500448EC6 /* models */,
+				B557E9C927F441DA00448EC6 /* Common */,
+				B557E9C127F43B7500448EC6 /* Models */,
 				B571ECD627F355A700DF501F /* Views */,
 				B571ECD327F1FA1100DF501F /* Controllers */,
 				B5F8730627F19EE700FFFE7F /* AppDelegate.swift */,
@@ -180,9 +216,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B557E9CC27F4776A00448EC6 /* LoginUserProcotol.swift in Sources */,
 				B571ECD527F354E400DF501F /* LoginViewController.swift in Sources */,
 				B571ECDA27F363BE00DF501F /* SigningUpView.swift in Sources */,
 				B5F8730B27F19EE700FFFE7F /* SigningUpViewController.swift in Sources */,
+				B557E9CE27F48A1E00448EC6 /* AlertPresentable.swift in Sources */,
+				B557E9C827F441D200448EC6 /* HttpRequestHandler.swift in Sources */,
+				B557E9C627F4401700448EC6 /* LoginViewDeleagte.swift in Sources */,
 				B557E9C327F43B8800448EC6 /* LoginUser.swift in Sources */,
 				B5F8730727F19EE700FFFE7F /* AppDelegate.swift in Sources */,
 				B571ECDE27F3723C00DF501F /* PersonalInfoView.swift in Sources */,
