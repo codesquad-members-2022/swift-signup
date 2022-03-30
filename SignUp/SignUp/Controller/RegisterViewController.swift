@@ -10,14 +10,21 @@ import UIKit
 class RegisterViewController: UIViewController {
     static let identifier = "RegisterViewController"
     
+    private var inputComponentsViewStack: UIStackView?
+    private var nextButton: UIButton?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInputComponentsViewStack()
+        configureNextButton()
     }
     
     private func configureInputComponentsViewStack() {
-        let inputComponentsViewStack = UIStackView()
-        
+        self.inputComponentsViewStack = UIStackView()
+        guard let inputComponentsViewStack = inputComponentsViewStack else {
+            return
+        }
+
         inputComponentsViewStack.axis = .vertical
         inputComponentsViewStack.distribution = .fillEqually
         
@@ -37,5 +44,25 @@ class RegisterViewController: UIViewController {
         inputComponentsViewStack.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 2.5 * space).isActive = true
         inputComponentsViewStack.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -space).isActive = true
         inputComponentsViewStack.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -10 * space).isActive = true
+    }
+    
+    private func configureNextButton() {
+        self.nextButton = CustomButton(frame: .zero, title: "다음")
+        guard let nextButton = nextButton,
+              let inputComponentsViewStack = inputComponentsViewStack else {
+            return
+        }
+
+        self.view.addSubview(nextButton)
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        let space: CGFloat = UIScreen.main.bounds.width/5
+        let safeArea = self.view.safeAreaLayoutGuide
+        
+        nextButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 2.1 * space).isActive = true
+        nextButton.topAnchor.constraint(equalTo: inputComponentsViewStack.bottomAnchor, constant:  0.7 * space).isActive = true
+        nextButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -2.1 * space).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -3.8 * space).isActive = true
+        
     }
 }
