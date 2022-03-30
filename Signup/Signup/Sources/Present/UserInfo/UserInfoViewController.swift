@@ -116,7 +116,7 @@ class UserInfoViewController: UIViewController {
         
         model.state.birthDate
             .dropFirst()
-            .map { $0.toString(format: "yyyy-MM-dd")}
+            .map { $0?.toString(format: "yyyy-MM-dd") ?? ""}
             .sink(receiveValue: self.birthDate.setMessage(_:))
             .store(in: &cancellables)
         
@@ -135,6 +135,20 @@ class UserInfoViewController: UIViewController {
         model.state.phoneNumberMessage
             .sink(receiveValue: self.phoneNumber.setSubMessage(_:_:))
             .store(in: &cancellables)
+        
+        model.state.isNextButtonEnabled
+            .sink { isEnabled in
+                self.nextButton.isEnabled = isEnabled
+            }.store(in: &cancellables)
+        
+        prevButton.addAction(UIAction { _ in
+            self.dismiss(animated: true, completion: nil)
+        }, for: .touchUpInside)
+        
+        nextButton.addAction(UIAction { _ in
+//            self.model.action.nextButtonTapped.send()
+        }, for: .touchUpInside)
+        
     }
     
     private func attribute() {
@@ -155,6 +169,14 @@ class UserInfoViewController: UIViewController {
         stackView.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -30).isActive = true
         inputViews.forEach { stackView.addArrangedSubview($0)}
         stackView.bottomAnchor.constraint(equalTo: inputViews[inputViews.count - 1].bottomAnchor).isActive = true
+        
+        self.view.addSubview(prevButton)
+        prevButton.rightAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -40).isActive = true
+        prevButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
+        
+        self.view.addSubview(nextButton)
+        nextButton.leftAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 40).isActive = true
+        nextButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 10).isActive = true
     }
     
     private func showAlertDatePicker(date: Date) {
@@ -165,8 +187,8 @@ class UserInfoViewController: UIViewController {
         datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.timeZone = .autoupdatingCurrent
         datePicker.date = date
-        datePicker.minimumDate = date.addYear(-15)
-        datePicker.maximumDate = date.addYear(99)
+        datePicker.minimumDate = date.addYear(-(99 - 15))
+        datePicker.maximumDate = date.addYear(-15)
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.view.addSubview(datePicker)

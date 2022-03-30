@@ -10,10 +10,15 @@ import UIKit
 
 class RightToLeftTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    let duration: Double
+    enum PresentType {
+        case present, dismiss
+    }
     
-    init(duration: Double) {
-        self.duration = duration
+    private let duration: Double = 0.3
+    private let presentType: PresentType
+    
+    init(_ presentType: PresentType) {
+        self.presentType = presentType
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -23,15 +28,22 @@ class RightToLeftTransition: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         
-        guard let toView = transitionContext.view(forKey: .to) else {
+        guard let targetView = transitionContext.view(forKey: self.presentType == .present ? .to : .from) else {
             return
         }
-        let viewSize = toView.frame.size
-        containerView.addSubview(toView)
-        toView.frame =  CGRect(x: viewSize.width, y: 0, width: viewSize.width * 2, height: viewSize.height)
         
+        let size = targetView.frame.size
+        let halfWidth = size.width / 2.0
+        let halfHeight = size.height / 2.0
+        
+        containerView.addSubview(targetView)
+        
+        let fromCenter = self.presentType == .present ? CGPoint(x: size.width + halfWidth, y: halfHeight) : CGPoint(x: halfWidth, y: halfHeight)
+        let toCenter = self.presentType == .present ? CGPoint(x: halfWidth, y: halfHeight) : CGPoint(x: size.width + halfWidth, y: halfHeight)
+        
+        targetView.center = fromCenter
         UIView.animate(withDuration: duration, animations: {
-            toView.frame = CGRect(x: 0, y: 0, width: viewSize.width, height: viewSize.height)
+            targetView.center = toCenter
         }) { _ in
             transitionContext.completeTransition(true)
         }

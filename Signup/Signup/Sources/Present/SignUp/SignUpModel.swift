@@ -19,10 +19,10 @@ class SignUpModel {
     }
     
     struct State {
-        let userIdMessage = PassthroughSubject<(Bool, String), Never>()
-        let passwordMessage = PassthroughSubject<(Bool, String), Never>()
-        let checkPasswordMessage = PassthroughSubject<(Bool, String), Never>()
-        let userNameMessage = PassthroughSubject<(Bool, String), Never>()
+        let userIdMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
+        let passwordMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
+        let checkPasswordMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
+        let userNameMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
         let isNextButtonEnabled = PassthroughSubject<Bool, Never>()
         let presentNextPage = PassthroughSubject<Void, Never>()
     }
@@ -35,25 +35,28 @@ class SignUpModel {
     
     init() {
         Publishers
-            .Merge4(action.userIdEntered, action.passwordEntered, action.checkPasswordEntered, action.userNameEntered)
-            .combineLatest(state.userIdMessage, state.userNameMessage)
-            .map { _, userId, userName in
-                (userId.0, userName.0)
-            }
-            .combineLatest(state.passwordMessage, state.checkPasswordMessage)
-            .map { user, password, checkPassword in
-                (user, (password.0, checkPassword.0))
-            }
-            .sink { user, password in
-                if user.0 && user.1, password.0, password.1 {
-                    self.state.isNextButtonEnabled.send(true)
-                } else {
-                    self.state.isNextButtonEnabled.send(false)
+            .Merge4(
+                action.userIdEntered.map { _ in },
+                action.passwordEntered.map { _ in },
+                action.checkPasswordEntered.map { _ in },
+                action.userNameEntered.map { _ in })
+            .map {
+                if self.state.userIdMessage.value.0,
+                   self.state.passwordMessage.value.0,
+                   self.state.checkPasswordMessage.value.0,
+                   self.state.userNameMessage.value.0 {
+                    return true
                 }
-            }.store(in: &cancellables)
+                return false
+            }
+            .sink(receiveValue: self.state.isNextButtonEnabled.send(_:))
+            .store(in: &cancellables)
         
         action.userIdEntered
             .map {
+                if $0.isEmpty {
+                    return (false ,"")
+                }
                 if $0.validatePredicate(format: "[A-Za-z0-9_-]{5,20}") {
                     return (true, "사용 가능한 아이디입니다.")
                 } else {

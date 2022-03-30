@@ -76,6 +76,11 @@ class InputTextFieldView: InputView, InputTextField {
     }
     
     func setSubMessage(_ isError: Bool, _ message: String) {
+        if message.isEmpty {
+            self.textField.layer.borderColor = UIColor.systemGray2.cgColor
+            self.subLabel.isHidden = true
+            return
+        }
         let color: UIColor = !isError ? .systemRed : .systemGreen
         self.subLabel.isHidden = message.isEmpty
         self.subLabel.text = message

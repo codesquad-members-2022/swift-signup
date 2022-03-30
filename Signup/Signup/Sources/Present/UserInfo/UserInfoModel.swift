@@ -17,10 +17,12 @@ class UserInfoModel {
     }
     
     struct State {
-        let birthDate = CurrentValueSubject<Date, Never>(Date.now)
+        let birthDate = CurrentValueSubject<Date?, Never>(nil)
+        let emailMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
+        let phoneNumberMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
+        
         let presentDatePickerView = PassthroughSubject<Date, Never>()
-        let emailMessage = PassthroughSubject<(Bool, String), Never>()
-        let phoneNumberMessage = PassthroughSubject<(Bool, String), Never>()
+        let isNextButtonEnabled = PassthroughSubject<Bool, Never>()
     }
     
     var cancellables = Set<AnyCancellable>()
@@ -28,8 +30,25 @@ class UserInfoModel {
     let state = State()
     
     init() {
+        
+        Publishers
+            .Merge3(
+                action.selectBirthDate.map { _ in },
+                action.emailEntered.map { _ in },
+                action.phoneNumberEntered.map { _ in })
+            .map {
+                if self.state.birthDate.value != nil,
+                   self.state.emailMessage.value.0,
+                   self.state.phoneNumberMessage.value.0 {
+                    return true
+                }
+                return false
+            }
+            .sink(receiveValue: self.state.isNextButtonEnabled.send(_:))
+            .store(in: &cancellables)
+        
         action.presentDatePickerView
-            .map { self.state.birthDate.value }
+            .map { self.state.birthDate.value ?? Date.now }
             .sink(receiveValue: self.state.presentDatePickerView.send(_:))
             .store(in: &cancellables)
         
