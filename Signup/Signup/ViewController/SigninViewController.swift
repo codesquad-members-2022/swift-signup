@@ -19,12 +19,18 @@ class SigninViewController: UIViewController {
     private var checkPswTextField: UITextField!
     private var nameTextField: UITextField!
     
+    private var validIdLabel: UILabel!
+    
+    var check = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
         setNavigationBar()
         setAttributes()
+        setTextFieldDelegate()
+        TextFieldValueChecker.valueChecker.httpGetId()
     }
     
     private func setAttributes(){
@@ -36,6 +42,14 @@ class SigninViewController: UIViewController {
         setCheckPswTextField()
         setNameLabel()
         setNameTextField()
+        setValidIdLabel()
+    }
+    
+    private func setTextFieldDelegate(){
+        idTextField.delegate = self
+        pswTextField.delegate = self
+        checkPswTextField.delegate = self
+        nameTextField.delegate = self
     }
     
     func setNavigationBar(){
@@ -49,11 +63,42 @@ class SigninViewController: UIViewController {
 }
 
 
-// MARK: - Use case: Configure attributes
+// MARK: - Use case: TextField Delegate and function
 
 extension SigninViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        
+        if textField === idTextField{
+            let newText = text + string
+            self.check = TextFieldValueChecker.valueChecker.checkID(text: newText, reasonSection: validIdLabel)
+            changeTextFieldLayer(textField: textField)
+        }
+        
         return true
+    }
+    
+    func changeTextFieldLayer(textField: UITextField){
+        if check{
+            textField.layer.borderColor = UIColor.systemGreen.cgColor
+        } else{
+            textField.layer.borderColor = UIColor.systemRed.cgColor
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    private func textFieldDismissKeyboard(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
     }
 }
 
@@ -79,8 +124,15 @@ extension SigninViewController{
         self.view.addSubview(idTextField)
     }
     
+    private func setValidIdLabel(){
+        validIdLabel = UILabel(frame: CGRect(x: 40, y: idTextField.frame.maxY, width: view.frame.width - 80, height: 30))
+        validIdLabel.font = UIFont.systemFont(ofSize: 10)
+        
+        self.view.addSubview(validIdLabel)
+    }
+    
     private func setPswLabel(){
-        pswLabel = UILabel(frame: CGRect(x: 40, y: idTextField.frame.maxY + 20, width: view.frame.width - 80, height: 30))
+        pswLabel = UILabel(frame: CGRect(x: 40, y: idTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
         pswLabel.text = "비밀번호"
         pswLabel.font = UIFont.boldSystemFont(ofSize: 15)
         pswLabel.textColor = .black
@@ -99,7 +151,7 @@ extension SigninViewController{
     }
     
     private func setCheckPswLabel(){
-        checkPswLabel = UILabel(frame: CGRect(x: 40, y: pswTextField.frame.maxY + 20, width: view.frame.width - 80, height: 30))
+        checkPswLabel = UILabel(frame: CGRect(x: 40, y: pswTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
         checkPswLabel.text = "비밀번호 재확인"
         checkPswLabel.font = UIFont.boldSystemFont(ofSize: 15)
         checkPswLabel.textColor = .black
@@ -115,7 +167,7 @@ extension SigninViewController{
     }
     
     private func setNameLabel(){
-        nameLabel = UILabel(frame: CGRect(x: 40, y: checkPswTextField.frame.maxY + 20, width: view.frame.width - 80, height: 30))
+        nameLabel = UILabel(frame: CGRect(x: 40, y: checkPswTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
         nameLabel.text = "이름"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 15)
         nameLabel.textColor = .black
