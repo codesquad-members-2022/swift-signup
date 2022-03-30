@@ -80,7 +80,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oQ0-kv-rcF"/>
-                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="wN4-iy-kjc" firstAttribute="centerX" secondItem="pfu-4k-TMq" secondAttribute="centerX" id="IVW-fT-0hk"/>
                             <constraint firstItem="wN4-iy-kjc" firstAttribute="top" secondItem="oQ0-kv-rcF" secondAttribute="top" constant="18" id="wI0-Wd-4Ap"/>
@@ -114,8 +114,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
