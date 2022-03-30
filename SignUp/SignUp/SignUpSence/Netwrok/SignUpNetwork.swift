@@ -43,7 +43,7 @@ final class SignUpNetwork {
         dataTask.resume()
     }
     
-    func postRequest<T:Decodable>(postBody:UserInfo, completion: @escaping((Result<T,SignUpNetworkError>) -> Void)) {
+    func postRequest<T:Decodable,U:Encodable>(postBody:U, completion: @escaping((Result<T,SignUpNetworkError>) -> Void)) {
         //is URL available?
         guard let signUpURL = signUpURL else { return }
         var urlRequest = URLRequest(url: signUpURL)

@@ -23,7 +23,7 @@ final class SignUpViewController: UIViewController {
     //model
     //model that if use get method
     private var userID:UserID = UserID()
-    //model that fi use post method
+    //model that if use post method
     private var postResult:PostResult?
     
     //creator
