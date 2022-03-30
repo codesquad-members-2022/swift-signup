@@ -1,11 +1,9 @@
 import UIKit
 
-class ViewController: UIViewController {
-
+class PersonalInfoViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-
 }
-
