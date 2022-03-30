@@ -420,8 +420,14 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3tm-zl-lOr" userLabel="아이디 입력">
                                                 <rect key="frame" x="0.0" y="35.5" width="314" height="34"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="idInputEditingChanged:" destination="dpk-hQ-rio" eventType="editingChanged" id="Ox7-KB-whw"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAc-ln-W2G">
                                                 <rect key="frame" x="0.0" y="84.5" width="59" height="20.5"/>
@@ -431,8 +437,14 @@
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Fw-Jf-l8I" userLabel="비밀번호 입력">
                                                 <rect key="frame" x="0.0" y="120" width="314" height="34"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="passwordInputEditingChanged:" destination="dpk-hQ-rio" eventType="editingChanged" id="qkk-ae-idm"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -441,7 +453,7 @@
                                             <constraint firstItem="5Fw-Jf-l8I" firstAttribute="width" secondItem="nP6-Mg-jGf" secondAttribute="width" id="sSI-XK-RKB"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFu-Fo-2nL" userLabel="로그인버튼">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFu-Fo-2nL" userLabel="로그인버튼">
                                         <rect key="frame" x="159.5" y="277.5" width="95" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="로그인">
@@ -481,10 +493,14 @@
                         </constraints>
                         <connections>
                             <outlet property="idTextField" destination="3tm-zl-lOr" id="QAF-4I-FiZ"/>
+                            <outlet property="loginButton" destination="WFu-Fo-2nL" id="2NF-CZ-1Et"/>
                             <outlet property="passwordTextField" destination="5Fw-Jf-l8I" id="Mr7-ZF-QUf"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="GdJ-J0-B4D"/>
+                    <connections>
+                        <outlet property="loginView" destination="dpk-hQ-rio" id="W7V-9Q-IDW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6EX-2A-BXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

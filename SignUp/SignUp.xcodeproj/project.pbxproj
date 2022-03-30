@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B557E9C327F43B8800448EC6 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9C227F43B8800448EC6 /* LoginUser.swift */; };
 		B571ECD527F354E400DF501F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD427F354E400DF501F /* LoginViewController.swift */; };
 		B571ECD827F355C300DF501F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD727F355C300DF501F /* LoginView.swift */; };
 		B571ECDA27F363BE00DF501F /* SigningUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD927F363BE00DF501F /* SigningUpView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B557E9C227F43B8800448EC6 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		B571ECD427F354E400DF501F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B571ECD727F355C300DF501F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B571ECD927F363BE00DF501F /* SigningUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningUpView.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B557E9C127F43B7500448EC6 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				B557E9C227F43B8800448EC6 /* LoginUser.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		B571ECD327F1FA1100DF501F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		B5F8730527F19EE700FFFE7F /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				B557E9C127F43B7500448EC6 /* models */,
 				B571ECD627F355A700DF501F /* Views */,
 				B571ECD327F1FA1100DF501F /* Controllers */,
 				B5F8730627F19EE700FFFE7F /* AppDelegate.swift */,
@@ -172,6 +183,7 @@
 				B571ECD527F354E400DF501F /* LoginViewController.swift in Sources */,
 				B571ECDA27F363BE00DF501F /* SigningUpView.swift in Sources */,
 				B5F8730B27F19EE700FFFE7F /* SigningUpViewController.swift in Sources */,
+				B557E9C327F43B8800448EC6 /* LoginUser.swift in Sources */,
 				B5F8730727F19EE700FFFE7F /* AppDelegate.swift in Sources */,
 				B571ECDE27F3723C00DF501F /* PersonalInfoView.swift in Sources */,
 				B571ECDC27F3722900DF501F /* PersonalInfoViewController.swift in Sources */,
