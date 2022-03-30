@@ -90,7 +90,6 @@ extension SigninViewController: UITextFieldDelegate{
                 validIdLabel.textColor = .systemRed
             }
             
-            //self.check = TextFieldValueChecker.valueChecker.checkID(text: newText, reasonSection: validIdLabel)
             changeTextFieldLayer(textField: textField)
         }
         
