@@ -9,6 +9,8 @@ import UIKit
 
 final class SignUpInputView:UIView,SignUpInputViewable {
     
+    var delegate:InputTextFieldDelegate?
+    
     private lazy var label:UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
@@ -17,6 +19,7 @@ final class SignUpInputView:UIView,SignUpInputViewable {
     
     private lazy var textField:UITextField = {
         let textField = UITextField()
+        textField.delegate = self
         textField.layer.borderWidth = 1.0
         return textField
     }()
@@ -57,3 +60,8 @@ final class SignUpInputView:UIView,SignUpInputViewable {
     }
 }
 
+extension SignUpInputView:UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.textFieldEndEditing(textField: textField)
+    }
+}

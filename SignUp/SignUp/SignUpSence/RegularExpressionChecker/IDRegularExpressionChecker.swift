@@ -8,7 +8,7 @@
 import Foundation
 
 final class IDRegularExpressionChecker:RegularExpressionCheckable {
-    private static let regex = "[a-z0-9-_].{4,20}"
+    private static let regex = "[a-z0-9-_]{5,20}"
     func check(expression: String) -> Bool {
         return expression.range(of: IDRegularExpressionChecker.regex, options: .regularExpression) != nil
     }

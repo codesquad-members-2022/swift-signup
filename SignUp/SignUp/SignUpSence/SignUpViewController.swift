@@ -21,7 +21,7 @@ final class SignUpViewController: UIViewController {
     //network
     private var signUpNetwork = SignUpNetwork()
     //model that if use get method
-    private var userID:UserID = UserID()
+    private var gottenUserID:UserID = UserID()
     //model that if use post method
     private var postResult:PostResult?
     
@@ -59,7 +59,7 @@ final class SignUpViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let userID):
-                self.userID = userID
+                self.gottenUserID = userID
             case .failure(let error):
                 self.NetWorkErrorType = error
                 return
@@ -84,6 +84,7 @@ final class SignUpViewController: UIViewController {
         inputViewComponents.forEach{ inputViewable in
             guard let view = inputViewable as? SignUpInputView else { return }
             stackView.addArrangedSubview(view)
+            view.delegate = self
         }
         
         self.view.addSubview(stackView)
@@ -117,7 +118,7 @@ final class SignUpViewController: UIViewController {
         
         IDInputView = factory.makeSignUpViewComponent(labelText: id.label, placeHolder: id.placeHolder)
         passwordInputView = factory.makeSignUpViewComponent(labelText: password.label, placeHolder: password.placeHolder)
-        passwordRecheckInputView = factory.makeSignUpViewComponent(labelText: passwordRecheck.label, placeHolder: password.placeHolder)
+        passwordRecheckInputView = factory.makeSignUpViewComponent(labelText: passwordRecheck.label, placeHolder: passwordRecheck.placeHolder)
         nameInputView = factory.makeSignUpViewComponent(labelText: name.label, placeHolder: name.placeHolder)
         
         return [IDInputView,passwordInputView,passwordRecheckInputView,nameInputView]
@@ -140,6 +141,9 @@ final class SignUpViewController: UIViewController {
     private func inputExpressionChecker(checker:RegularExpressionCheckable) {
         self.regualrExpressionChecker = checker
     }
-    
 }
 
+extension SignUpViewController:InputTextFieldDelegate {
+    func textFieldEndEditing(textField: UITextField) {
+    }
+}

@@ -4,7 +4,7 @@
 //
 //  Created by 박진섭 on 2022/03/29.
 //
-typealias UserID = [String]
+
 
 import Foundation
 
@@ -12,7 +12,6 @@ final class SignUpNetwork {
     private var signUpURL = URL(string:"https://api.codesquad.kr/signup")
     private var config = URLSessionConfiguration.default
     private var session = URLSession(configuration:.default)
-    
     
     func getRequest<T:Decodable>(completion:@escaping (Result<T,SignUpNetworkError>) -> Void) {
         //is URL available?
