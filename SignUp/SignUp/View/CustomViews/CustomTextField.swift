@@ -7,7 +7,17 @@
 
 import UIKit
 
-final class CustomTextField: UITextField, UITextFieldDelegate {
+protocol ValidationDelegate {
+//    func willValidate(in string: String)
+    func didValidate(in string: String)
+}
+
+class CustomTextField: UITextField {
+    
+    // MARK: - Property Overrided
+//    override var canBecomeFirstResponder: Bool {
+//        return true
+//    }
     
     // MARK: - Local Properties
     
@@ -17,13 +27,26 @@ final class CustomTextField: UITextField, UITextFieldDelegate {
     // MARK: - Initialzers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.delegate = self
         addSubview(commentLabel)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.delegate = self
         addSubview(commentLabel)
+    }
+}
+
+extension CustomTextField: ValidationDelegate {
+//    func willValidate(in string: String) {
+//        validator?.validateResult(in: string)
+//    }
+    
+    func didValidate(in string: String) {
+        validator?.validateResult(in: string)
+        if let validation = validator?.validationResult {
+            commentLabel.showComment(in: string, following: validation)
+        } else {
+            commentLabel.hideComment()
+        }
     }
 }

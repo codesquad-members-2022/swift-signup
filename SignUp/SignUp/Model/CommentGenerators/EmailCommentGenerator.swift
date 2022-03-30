@@ -7,32 +7,33 @@
 
 import Foundation
 
-class EmailCommentGenerator: CommentGenerator {
-    func convertComment(in string: String, with result: [NSTextCheckingResult]) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result.count)
-        return validation ?? ValidationComment(comment: "이메일 형식에 이상이 없습니다.", commentColor: .green)
-    }
+class EmailValidationResult: ValidationResult {
+    var commentColor: CommentColor = .red
+    var state: ValidationResultState = .bad
     
-    func convertComment(in string: String, with result: Int) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result)
-        return validation ?? ValidationComment(comment: "이메일 형식에 이상이 없습니다.", commentColor: .green)
-    }
+    var validateResult = [NSTextCheckingResult]()
     
-    func convertComment(in string: String, with result: NSRange) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result.length)
-        return validation ?? ValidationComment(comment: "이메일 형식에 이상이 없습니다.", commentColor: .green)
-    }
-    
-    func convertComment(in string: String, with result: NSTextCheckingResult?) -> ValidationComment {
-        let validation = generateValidation(in: string, matchingCount: result?.range.length ?? 0)
-        return validation ?? ValidationComment(comment: "이메일 형식에 이상이 없습니다.", commentColor: .green)
-    }
-    
-    private func generateValidation(in string: String, matchingCount: Int) -> ValidationComment? {
-        if matchingCount == 3 {
-            return ValidationComment(comment: "이메일 형식이 맞지 않습니다.", commentColor: .red)
+    var spottedRangeCount: Int {
+        validateResult.reduce(0) { partialResult, result in
+            result.numberOfRanges
         }
-        
-        return nil
+    }
+    
+    func validateResultState(in string: String, using results: [NSTextCheckingResult]) {
+        validateResult = results
+        state = (spottedRangeCount == string.count ? .good : .bad)
+    }
+    
+    func commentRepresentation(in string: String) -> String {
+        switch state {
+        case .good:
+            return "사용가능한 ID입니다."
+        case .bad:
+            if validateResult.count != 3 {
+                return "이메일 형식이 맞지 않습니다."
+            }
+            
+            return "Email이 적절하지 않습니다. 다시 확인해주시기 바랍니다."
+        }
     }
 }

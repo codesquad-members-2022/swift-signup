@@ -5,79 +5,26 @@
 //  Created by 백상휘 on 2022/03/28.
 //
 
-import Foundation
-
-class ValidationRegularTextFactory {
-    
-    static func makeRegularExpression(as validType: ValidationRegularText.ValidType) -> ValidationRegularText? {
-        switch validType {
-        case .id:
-            return idMaker()
-        case .password:
-            return passwordMaker()
-        case .birthDay:
-            return birthDayMaker()
-        case .emailAddress:
-            return emailAddressMaker()
-        case .phoneNumber:
-            return phoneNumberMaker()
-        case .favoriteCategory:
-            return favoriteCategoryMaker()
-        }
-    }
-    
-    // MARK: - Factory Methods(하나로 만들 수도 있을 것 같음.)
-    private static func idMaker() -> ValidationRegularText? {
-        do {
-            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .id, using: IDCommentGenerator())
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-    
-    private static func passwordMaker() -> ValidationRegularText? {
-        do {
-            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .password, using: PasswordCommentGenerator())
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-    
-    private static func birthDayMaker() -> ValidationRegularText? {
-        do {
-            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .birthDay, using: PasswordCommentConfirmGenerator())
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-    
-    private static func emailAddressMaker() -> ValidationRegularText? {
-        do {
-            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .emailAddress, using: EmailCommentGenerator())
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-    
-    private static func phoneNumberMaker() -> ValidationRegularText? {
-        do {
-            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .phoneNumber)
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-    
-    private static func favoriteCategoryMaker() -> ValidationRegularText? {
-        do {
-            return try ValidationRegularText(pattern: "none", options: .caseInsensitive, as: .favoriteCategory)
-        } catch {
-            print(error)
-            return nil
-        }
-    }
-}
+//import Foundation
+//class ValidationRegularTextFactory {
+//
+//    static func makeRegularExpression(as validType: ValidationRegularText.ValidType) -> ValidationRegularText? {
+//
+//        var pattern = ""
+//
+//        switch validType {
+//        case .id:
+//            return ValidationRegularText(pattern: "none", follow: .caseInsensitive, as: .id)
+//        case .password:
+//            return ValidationRegularText(pattern: "none", follow: .caseInsensitive, as: .password)
+//        case .emailAddress:
+//            return ValidationRegularText(pattern: "none", follow: .caseInsensitive, as: .emailAddress)
+//        case .phoneNumber:
+//            return ValidationRegularText(pattern: "none", follow: .caseInsensitive, as: .phoneNumber)
+//        }
+//
+//        return ValidationRegularText(pattern: "none", follow: .caseInsensitive, as: .phoneNumber)
+//    }
+//
+//
+//}

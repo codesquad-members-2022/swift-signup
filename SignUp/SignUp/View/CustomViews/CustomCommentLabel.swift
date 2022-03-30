@@ -7,8 +7,6 @@
 
 import UIKit
 
-typealias CommentColor = CustomCommentLabel.CommentColor
-
 final class CustomCommentLabel: UILabel {
     
     // MARK: - Initializers
@@ -27,9 +25,14 @@ final class CustomCommentLabel: UILabel {
     
     // MARK: - Interfaces
     
-    func showComment(_ valicationComment: ValidationComment?) {
-        self.text = valicationComment?.comment
-        self.textColor = valicationComment?.commentColor.getCommentColor()
+    func showComment(in string: String, following result: ValidationResult?) {
+        self.text = result?.commentRepresentation(in: string)
+        
+        self.textColor = .tintColor
+        if let color = result?.commentColor {
+            self.textColor = getCommentColor(from: color)
+        }
+        
         self.sizeToFit()
     }
     
@@ -40,20 +43,14 @@ final class CustomCommentLabel: UILabel {
     
     // MARK: - Nested Types
     
-    enum CommentColor {
-        case red
-        case green
-        case gray
-        
-        func getCommentColor() -> UIColor {
-            switch self {
-            case .red:
-                return UIColor.systemRed
-            case .green:
-                return UIColor.systemGreen
-            case .gray:
-                return UIColor.systemGray5
-            }
+    func getCommentColor(from color: CommentColor) -> UIColor {
+        switch color {
+        case .red:
+            return UIColor.systemRed
+        case .green:
+            return UIColor.systemGreen
+        case .yellow:
+            return UIColor.systemYellow
         }
     }
 }

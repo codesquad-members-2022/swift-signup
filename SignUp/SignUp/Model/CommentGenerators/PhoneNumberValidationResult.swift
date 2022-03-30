@@ -1,5 +1,5 @@
 //
-//  PasswordCommentGenerator.swift
+//  PasswordCommentConfirmGenerator.swift
 //  SignUp
 //
 //  Created by 백상휘 on 2022/03/28.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PasswordValidationResult: ValidationResult {
+class PhoneNumberValidationResult: ValidationResult {
     var commentColor: CommentColor = .red
     var state: ValidationResultState = .bad
     
