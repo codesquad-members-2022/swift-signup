@@ -64,6 +64,33 @@
             </objects>
             <point key="canvasLocation" x="1049.2307692307693" y="137.91469194312796"/>
         </scene>
+        <!--Register View Controller-->
+        <scene sceneID="8ZB-yI-Qcd">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" id="Fs0-mH-QaU" customClass="RegisterViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfu-4k-TMq">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원가입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wN4-iy-kjc">
+                                <rect key="frame" x="143" y="62" width="104" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.35030133279999998" green="0.81576628920000005" blue="0.91972458960000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oQ0-kv-rcF"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="wN4-iy-kjc" firstAttribute="centerX" secondItem="pfu-4k-TMq" secondAttribute="centerX" id="IVW-fT-0hk"/>
+                            <constraint firstItem="wN4-iy-kjc" firstAttribute="top" secondItem="oQ0-kv-rcF" secondAttribute="top" constant="18" id="wI0-Wd-4Ap"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZJ-HB-oKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2104.6153846153848" y="-362.55924170616112"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="DNv-ow-kYc">
             <objects>
@@ -86,6 +113,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
