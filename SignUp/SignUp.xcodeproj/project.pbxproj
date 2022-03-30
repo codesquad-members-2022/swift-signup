@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0E72A627F3F7AA005DD51B /* CustomTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E72A527F3F7AA005DD51B /* CustomTextFieldDelegate.swift */; };
 		1B27823227F1DB7B003A5ADD /* CommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */; };
 		1B27823527F1DDD8003A5ADD /* IDCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */; };
 		1B27823727F1DDDD003A5ADD /* PasswordCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0E72A527F3F7AA005DD51B /* CustomTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFieldDelegate.swift; sourceTree = "<group>"; };
 		1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentGenerator.swift; sourceTree = "<group>"; };
 		1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCommentGenerator.swift; sourceTree = "<group>"; };
 		1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCommentGenerator.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		1B64B74027F1A34A00B29580 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1B0E72A527F3F7AA005DD51B /* CustomTextFieldDelegate.swift */,
 				1B27824327F1F4F7003A5ADD /* Validation */,
 				1B27823327F1DC4F003A5ADD /* CommentGenerators */,
 			);
@@ -355,6 +358,7 @@
 				1B64B70227F14CF700B29580 /* SceneDelegate.swift in Sources */,
 				1B64B73727F15D9400B29580 /* CustomSegueButton.swift in Sources */,
 				1B64B74227F1B13200B29580 /* CustomTextField.swift in Sources */,
+				1B0E72A627F3F7AA005DD51B /* CustomTextFieldDelegate.swift in Sources */,
 				1B27823727F1DDDD003A5ADD /* PasswordCommentGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
