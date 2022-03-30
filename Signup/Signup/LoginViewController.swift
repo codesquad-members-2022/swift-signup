@@ -21,19 +21,19 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = .systemBackground
         
         attributesConfigure()
-        hideKeyboardWithOutsideTapped()
+        textFieldDismissKeyboard()
         
         addSigninAction()
     }
     
     private func attributesConfigure(){
-        loginLabelConfigure()
-        idLabelConfigure()
-        idTextFieldConfigure()
-        pswLabelConfigure()
-        pswTextFieldConfigure()
-        loginButtonConfigure()
-        signinButtonConfigure()
+        setLoginLabel()
+        setIdLabel()
+        setIdTextField()
+        setPswLabel()
+        setPswTextField()
+        setLoginButton()
+        setSigninButton()
     }
 }
 
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate{
     // 추후 ID, PW 확인 기능 필요
     
-    private func hideKeyboardWithOutsideTapped(){
+    private func textFieldDismissKeyboard(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
@@ -75,13 +75,13 @@ extension LoginViewController{
 // MARK: - Use case: Configure attributes
 
 extension LoginViewController{
-    private func loginLabelConfigure(){
+    private func setLoginLabel(){
         loginLabel.text = "로그인"
         loginLabel.font = UIFont.boldSystemFont(ofSize: 25)
         loginLabel.textColor = .systemGreen
     }
     
-    private func idLabelConfigure(){
+    private func setIdLabel(){
         idLabel = UILabel(frame: CGRect(x: 40, y: loginLabel.frame.maxY + 30, width: view.frame.width - 80, height: 30))
         idLabel.text = "아이디"
         idLabel.font = UIFont.boldSystemFont(ofSize: 15)
@@ -89,7 +89,7 @@ extension LoginViewController{
         self.view.addSubview(idLabel)
     }
     
-    private func pswLabelConfigure(){
+    private func setPswLabel(){
         pswLabel = UILabel(frame: CGRect(x: 40, y: idTextField.frame.maxY + 20, width: view.frame.width - 80, height: 30))
         pswLabel.text = "비밀번호"
         pswLabel.font = UIFont.boldSystemFont(ofSize: 15)
@@ -97,14 +97,14 @@ extension LoginViewController{
         self.view.addSubview(pswLabel)
     }
     
-    private func idTextFieldConfigure(){
+    private func setIdTextField(){
         idTextField = UITextField(frame: CGRect(x: 40, y: idLabel.frame.maxY, width: view.frame.width - 80, height: 40))
         textFieldCommonSetting(textField: idTextField)
         
         self.view.addSubview(idTextField)
     }
     
-    private func pswTextFieldConfigure(){
+    private func setPswTextField(){
         pswTextField = UITextField(frame: CGRect(x: 40, y: pswLabel.frame.maxY, width: view.frame.width - 80, height: 40))
         textFieldCommonSetting(textField: pswTextField)
         pswTextField.isSecureTextEntry = true
@@ -121,7 +121,7 @@ extension LoginViewController{
         textField.layer.borderColor = UIColor.systemBlue.cgColor
     }
     
-    private func loginButtonConfigure(){
+    private func setLoginButton(){
         loginButton = UIButton(frame: CGRect(x: loginLabel.center.x - 90, y: pswTextField.frame.maxY + 30, width: 80, height: 40))
         loginButton.setTitle("로그인", for: .normal)
         loginButton.setTitleColor(.systemGreen, for: .normal)
@@ -131,7 +131,7 @@ extension LoginViewController{
         self.view.addSubview(loginButton)
     }
     
-    private func signinButtonConfigure(){
+    private func setSigninButton(){
         signinButton = UIButton(frame: CGRect(x: loginLabel.center.x + 10, y: pswTextField.frame.maxY + 30, width: 80, height: 40))
         signinButton.setTitle("회원가입", for: .normal)
         signinButton.setTitleColor(.systemGreen, for: .normal)
