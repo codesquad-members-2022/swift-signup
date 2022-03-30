@@ -18,6 +18,8 @@ class IdentificationViewController: UIViewController {
         let button = CustomSegueButton(with: nextButtonView.bounds, as: "다음", using: #selector(nextButtonTouchUpInside(_:)))
         nextButtonView.addSubview(button)
         
+        let del = CustomTextFieldDelegate()
+        idTextField.delegate = del
         idTextField.validator = ValidationRegularTextFactory.makeRegularExpression(as: .id)
     }
     
