@@ -48,6 +48,7 @@ class UserInfoViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "이메일"
         inputView.textContentType = .emailAddress
+        inputView.keyBoardType = .emailAddress
         return inputView
     }()
     
@@ -55,8 +56,9 @@ class UserInfoViewController: UIViewController {
         let inputView = InputTextFieldView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "휴대전화"
-        inputView.placeholder = "- 없이 입력해주세요 예)01012341234"
+        inputView.attributedPlaceholder = NSAttributedString(string: "- 없이 입력해주세요 예)01012341234", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray150])
         inputView.textContentType = .telephoneNumber
+        inputView.keyBoardType = .numberPad
         return inputView
     }()
     
@@ -104,6 +106,10 @@ class UserInfoViewController: UIViewController {
     var cancellables = Set<AnyCancellable>()
     
     let model = UserInfoModel()
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,7 +193,7 @@ class UserInfoViewController: UIViewController {
     }
     
     private func attribute() {
-        self.view.backgroundColor = .systemGray6
+        self.view.backgroundColor = .gray250
     }
     
     private func layout() {

@@ -14,10 +14,12 @@ class InputTextFieldView: InputView, InputTextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = .systemFont(ofSize: 15)
+        textField.textColor = .black
         textField.backgroundColor = .white
         textField.addLeftPadding(10)
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.systemGray2.cgColor
+        textField.layer.borderColor = UIColor.gray200.cgColor
+        textField.layer.cornerRadius = 10
         return textField
     }()
     
@@ -33,9 +35,9 @@ class InputTextFieldView: InputView, InputTextField {
         textField.publisher(for: .editingDidEnd)
     }
     
-    var placeholder: String = "" {
+    var attributedPlaceholder: NSAttributedString? {
         didSet {
-            self.textField.placeholder = placeholder
+            self.textField.attributedPlaceholder = attributedPlaceholder
         }
     }
     
@@ -48,6 +50,12 @@ class InputTextFieldView: InputView, InputTextField {
     var textContentType: UITextContentType = .name {
         didSet {
             textField.textContentType = textContentType
+        }
+    }
+    
+    var keyBoardType: UIKeyboardType = .default {
+        didSet {
+            textField.keyboardType = keyBoardType
         }
     }
     
@@ -71,9 +79,11 @@ class InputTextFieldView: InputView, InputTextField {
         textField.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
     }
     
+    var prevBorderColor: CGColor? = UIColor.gray200.cgColor
+    
     func setMessage(_ isError: Bool, _ message: String) {
         if message.isEmpty {
-            self.textField.layer.borderColor = UIColor.systemGray2.cgColor
+            self.textField.layer.borderColor = UIColor.gray200.cgColor
             self.subLabel.isHidden = true
             return
         }
@@ -82,9 +92,14 @@ class InputTextFieldView: InputView, InputTextField {
         self.subLabel.text = message
         self.subLabel.textColor = color
         self.textField.layer.borderColor = color.cgColor
+        self.prevBorderColor = color.cgColor
     }
     
     func setFocused(_ isFocused: Bool) {
-        self.textField.layer.borderColor = isFocused ? UIColor.systemBlue.cgColor : UIColor.clear.cgColor
+        if isFocused {
+            self.textField.layer.borderColor = UIColor.systemBlue.cgColor
+        } else {
+            self.textField.layer.borderColor = self.prevBorderColor
+        }
     }
 }

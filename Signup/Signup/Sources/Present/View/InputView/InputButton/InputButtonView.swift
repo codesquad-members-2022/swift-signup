@@ -23,7 +23,8 @@ class InputButtonView: InputView, InputButtonField {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
         button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.systemGray2.cgColor
+        button.layer.borderColor = UIColor.gray200.cgColor
+        button.layer.cornerRadius = 10
         return button
     }()
     

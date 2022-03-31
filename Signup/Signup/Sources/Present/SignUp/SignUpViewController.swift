@@ -33,7 +33,8 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "아이디"
         inputView.textContentType = .name
-        inputView.placeholder = "영문 소문자, 숫자, 특수기호(_,-), 5~20자"
+        inputView.attributedPlaceholder = NSAttributedString(string: "영문 소문자, 숫자, 특수기호(_,-), 5~20자", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray150])
+        inputView.keyBoardType = .namePhonePad
         return inputView
     }()
     
@@ -42,8 +43,9 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "비밀번호"
         inputView.textContentType = .password
-        inputView.placeholder = "영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자"
+        inputView.attributedPlaceholder = NSAttributedString(string: "영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray150])
         inputView.isSecureTextEntry = true
+        inputView.keyBoardType = .default
         return inputView
     }()
     
@@ -52,8 +54,8 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.textContentType = .password
         inputView.title = "비밀번호 재확인"
-        inputView.placeholder = ""
         inputView.isSecureTextEntry = true
+        inputView.keyBoardType = .default
         return inputView
     }()
     
@@ -62,7 +64,7 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "이름"
         inputView.textContentType = .name
-        inputView.placeholder = ""
+        inputView.keyBoardType = .namePhonePad
         return inputView
     }()
     
@@ -98,6 +100,10 @@ class SignUpViewController: UIViewController {
         bind()
         attribute()
         layout()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
     }
     
     private func bind() {
@@ -196,7 +202,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func attribute() {
-        self.view.backgroundColor = .systemGray6
+        self.view.backgroundColor = .gray250
     }
     
     private func layout() {
