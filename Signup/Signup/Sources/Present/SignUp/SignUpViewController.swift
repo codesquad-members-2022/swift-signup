@@ -143,11 +143,12 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.checkPasswordState
-            .map {
-                if $0 == .success {
+            .dropFirst()
+            .map { isSuccess in
+                if isSuccess {
                     return (true, "비밀번호가 일치합니다.")
                 }
-                return (false, $0.message)
+                return (false, "비밀번호가 일치하지 않습니다.")
             }
             .sink(receiveValue: self.checkPassword.setMessage(_:_:))
             .store(in: &cancellables)
@@ -158,11 +159,12 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.userNameState
-            .map {
-                if $0 == .success {
+            .dropFirst()
+            .map { isSuccess in
+                if isSuccess {
                     return (true , "")
                 }
-                return (false, $0.message)
+                return (false, "이름은 필수 입력 항목입니다")
             }
             .sink(receiveValue: self.userName.setMessage(_:_:))
             .store(in: &cancellables)
@@ -234,27 +236,5 @@ extension SignUpViewController: UIViewControllerTransitioningDelegate {
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         RightToLeftTransition(.dismiss)
-    }
-}
-
-extension SignUpModel.InputState {
-    var message: String {
-        switch self {
-        case .none, .success: return ""
-        case .errorUserId:
-            return "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다."
-        case .errorLengthLimited:
-            return "8자 이상 16자 이하로 입력해주세요."
-        case .errorNoCapitalLetters:
-            return "영문 대문자를 최소 1자 이상 포함해주세요."
-        case .errorNoNumber:
-            return "숫자를 최소 1자 이상 포함해주세요."
-        case .errorNoSpecialCharacters:
-            return "특수문자를 최소 1자 이상 포함해주세요."
-        case .errorNotMatch:
-            return "비밀번호가 일치하지 않습니다."
-        case .errorNoInput:
-            return "이름은 필수 입력 항목입니다."
-        }
     }
 }

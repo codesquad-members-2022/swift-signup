@@ -21,8 +21,8 @@ class UserInfoModel {
     struct State {
         let birthDate = CurrentValueSubject<Date?, Never>(nil)
         let gender = CurrentValueSubject<Gender, Never>(.female)
-        let emailState = CurrentValueSubject<InputState, Never>(.none)
-        let phoneNumberState = CurrentValueSubject<InputState, Never>(.none)
+        let emailState = CurrentValueSubject<ValidateResultType, Never>(.none)
+        let phoneNumberState = CurrentValueSubject<ValidateResultType, Never>(.none)
         
         let presentDatePickerView = PassthroughSubject<Date, Never>()
         let isEnabledNextButton = PassthroughSubject<Bool, Never>()
@@ -62,22 +62,13 @@ class UserInfoModel {
             .store(in: &cancellables)
         
         action.enteredEmail
-            .map { CommonString.vaildateEmail($0) ? .success : .errorEmail }
+            .map { Verification<EmailValidate>().check(text: $0)}
             .sink(receiveValue: self.state.emailState.send(_:))
             .store(in: &cancellables)
         
         action.enteredPhoneNumber
-            .map { CommonString.vaildatePhoneNumber($0) ? .success : .errorPhoneNumber }
+            .map { Verification<PhoneNumberValidate>().check(text: $0)}
             .sink(receiveValue: self.state.phoneNumberState.send(_:))
             .store(in: &cancellables)
-    }
-}
-
-extension UserInfoModel {
-    enum InputState {
-        case none
-        case success
-        case errorEmail
-        case errorPhoneNumber
     }
 }

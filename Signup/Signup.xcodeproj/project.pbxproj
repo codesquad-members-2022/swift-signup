@@ -47,8 +47,13 @@
 		E0B1E3E327F449020018D93E /* InputSegmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E227F449020018D93E /* InputSegmented.swift */; };
 		E0B1E3E527F538DF0018D93E /* UIConrtol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */; };
 		E0B1E3E727F5677D0018D93E /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */; };
-		E0B1E3EA27F57F390018D93E /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E927F57F390018D93E /* CommonString.swift */; };
 		E0B1E3F027F5860E0018D93E /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3EF27F5860E0018D93E /* TermsViewController.swift */; };
+		E0BE4BA127F5DC590076403C /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BA027F5DC590076403C /* Verification.swift */; };
+		E0BE4BA327F5E1CE0076403C /* BaseValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BA227F5E1CE0076403C /* BaseValidate.swift */; };
+		E0BE4BA527F5E2050076403C /* EmailValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BA427F5E2050076403C /* EmailValidate.swift */; };
+		E0BE4BA827F5E2940076403C /* PhoneNumberValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BA727F5E2940076403C /* PhoneNumberValidate.swift */; };
+		E0BE4BAA27F5E4DD0076403C /* UserIdVelidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BA927F5E4DD0076403C /* UserIdVelidate.swift */; };
+		E0BE4BAC27F5E5740076403C /* PasswordVaildate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BAB27F5E5740076403C /* PasswordVaildate.swift */; };
 		E0F659AB27F58BFD00F5BC48 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,8 +102,13 @@
 		E0B1E3E227F449020018D93E /* InputSegmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSegmented.swift; sourceTree = "<group>"; };
 		E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIConrtol+Extension.swift"; sourceTree = "<group>"; };
 		E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
-		E0B1E3E927F57F390018D93E /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
 		E0B1E3EF27F5860E0018D93E /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		E0BE4BA027F5DC590076403C /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
+		E0BE4BA227F5E1CE0076403C /* BaseValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseValidate.swift; sourceTree = "<group>"; };
+		E0BE4BA427F5E2050076403C /* EmailValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidate.swift; sourceTree = "<group>"; };
+		E0BE4BA727F5E2940076403C /* PhoneNumberValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberValidate.swift; sourceTree = "<group>"; };
+		E0BE4BA927F5E4DD0076403C /* UserIdVelidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdVelidate.swift; sourceTree = "<group>"; };
+		E0BE4BAB27F5E5740076403C /* PasswordVaildate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVaildate.swift; sourceTree = "<group>"; };
 		E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,7 +204,7 @@
 		E0B1E37027F149110018D93E /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E0B1E3EB27F5800D0018D93E /* Method */,
+				E0B1E3EB27F5800D0018D93E /* Verification */,
 				E0B1E3C727F302110018D93E /* Transition */,
 				E0B1E37527F149110018D93E /* Log */,
 			);
@@ -347,12 +357,13 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		E0B1E3EB27F5800D0018D93E /* Method */ = {
+		E0B1E3EB27F5800D0018D93E /* Verification */ = {
 			isa = PBXGroup;
 			children = (
-				E0B1E3E927F57F390018D93E /* CommonString.swift */,
+				E0BE4BA627F5E2100076403C /* Type */,
+				E0BE4BA027F5DC590076403C /* Verification.swift */,
 			);
-			path = Method;
+			path = Verification;
 			sourceTree = "<group>";
 		};
 		E0B1E3EE27F585F70018D93E /* Tterms */ = {
@@ -361,6 +372,18 @@
 				E0B1E3EF27F5860E0018D93E /* TermsViewController.swift */,
 			);
 			path = Tterms;
+			sourceTree = "<group>";
+		};
+		E0BE4BA627F5E2100076403C /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				E0BE4BA227F5E1CE0076403C /* BaseValidate.swift */,
+				E0BE4BA427F5E2050076403C /* EmailValidate.swift */,
+				E0BE4BA727F5E2940076403C /* PhoneNumberValidate.swift */,
+				E0BE4BA927F5E4DD0076403C /* UserIdVelidate.swift */,
+				E0BE4BAB27F5E5740076403C /* PasswordVaildate.swift */,
+			);
+			path = Type;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,6 +494,7 @@
 				E0B1E3DB27F343950018D93E /* Date+Extension.swift in Sources */,
 				E0B1E3E727F5677D0018D93E /* UISegmentedControl+Extension.swift in Sources */,
 				E0B1E38927F149F00018D93E /* SignUpModel.swift in Sources */,
+				E0BE4BA527F5E2050076403C /* EmailValidate.swift in Sources */,
 				E0B1E3C427F2F0250018D93E /* UserInfoModel.swift in Sources */,
 				E0B1E3E027F4440D0018D93E /* Gender.swift in Sources */,
 				E0F659AB27F58BFD00F5BC48 /* UIColor+Extension.swift in Sources */,
@@ -478,11 +502,14 @@
 				E0B1E3CC27F306930018D93E /* InputTextFieldView.swift in Sources */,
 				E0B1E3A527F1B9720018D93E /* SignUpRepositoryImpl.swift in Sources */,
 				E0B1E3CE27F306BC0018D93E /* InputButtonView.swift in Sources */,
+				E0BE4BA827F5E2940076403C /* PhoneNumberValidate.swift in Sources */,
 				E0B1E37F27F149110018D93E /* Log.swift in Sources */,
-				E0B1E3EA27F57F390018D93E /* CommonString.swift in Sources */,
+				E0BE4BA327F5E1CE0076403C /* BaseValidate.swift in Sources */,
+				E0BE4BAC27F5E5740076403C /* PasswordVaildate.swift in Sources */,
 				E0B1E3F027F5860E0018D93E /* TermsViewController.swift in Sources */,
 				E0B1E38227F149110018D93E /* URLSession+Extension.swift in Sources */,
 				E0B1E3A327F1B9690018D93E /* SignUpRepository.swift in Sources */,
+				E0BE4BA127F5DC590076403C /* Verification.swift in Sources */,
 				E0B1E3D827F328D60018D93E /* InputButton.swift in Sources */,
 				E0B1E3DE27F43FE80018D93E /* InputSegmentedView.swift in Sources */,
 				E0B1E3B227F201230018D93E /* ResponseResult.swift in Sources */,
@@ -493,6 +520,7 @@
 				E0B1E38B27F14A140018D93E /* InputView.swift in Sources */,
 				E0B1E35927F148800018D93E /* AppDelegate.swift in Sources */,
 				E0B1E35B27F148800018D93E /* SceneDelegate.swift in Sources */,
+				E0BE4BAA27F5E4DD0076403C /* UserIdVelidate.swift in Sources */,
 				E0B1E3E527F538DF0018D93E /* UIConrtol+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
