@@ -18,10 +18,10 @@ class SignUpModel {
     }
     
     struct State {
-        let userIdState = CurrentValueSubject<InputState, Never>(.none)
-        let passwordState = CurrentValueSubject<InputState, Never>(.none)
-        let checkPasswordState = CurrentValueSubject<InputState, Never>(.none)
-        let userNameState = CurrentValueSubject<InputState, Never>(.none)
+        let userIdState = CurrentValueSubject<ValidateResultType, Never>(.none)
+        let passwordState = CurrentValueSubject<ValidateResultType, Never>(.none)
+        let checkPasswordState = CurrentValueSubject<Bool, Never>(false)
+        let userNameState = CurrentValueSubject<Bool, Never>(false)
         
         let isEnabledNextButton = PassthroughSubject<Bool, Never>()
         let presentNextPage = PassthroughSubject<Void, Never>()
@@ -43,59 +43,30 @@ class SignUpModel {
             .map {
                 self.state.userIdState.value == .success &&
                 self.state.passwordState.value == .success &&
-                self.state.checkPasswordState.value == .success &&
-                self.state.userNameState.value == .success
+                self.state.checkPasswordState.value &&
+                self.state.userNameState.value
             }
             .sink(receiveValue: self.state.isEnabledNextButton.send(_:))
             .store(in: &cancellables)
         
         action.enteredUserId
-            .map {
-                if $0.isEmpty {
-                    return .none
-                }
-                if CommonString.validatePredicate($0, format: "[A-Za-z0-9_-]{5,20}") {
-                    return .success
-                } else { return .errorUserId }
-            }
+            .map { Verification<UserIdVelidate>().check(text: $0)}
             .sink(receiveValue: self.state.userIdState.send(_:))
             .store(in: &cancellables)
         
         action.enteredPassword
-            .map {
-                if $0.isEmpty {
-                    return .none
-                }
-                
-                if CommonString.validatePredicate($0, format: ".{8,16}") == false {
-                    return .errorLengthLimited
-                }
-                
-                if CommonString.vaildateRegex($0, pattern: "[A-Z]") == false {
-                    return .errorNoCapitalLetters
-                }
-                
-                if CommonString.vaildateRegex($0, pattern: "[0-9]") == false {
-                    return .errorNoNumber
-                }
-                
-                if CommonString.vaildateRegex($0, pattern: "[!@#$%^&*()_+=-]") == false {
-                    return .errorNoSpecialCharacters
-                }
-                
-                return .success
-            }
+            .map { Verification<PasswordVaildate>().check(text: $0)}
             .sink(receiveValue: self.state.passwordState.send(_:))
             .store(in: &cancellables)
         
         action.enteredCheckPassword
             .combineLatest(action.enteredPassword)
-            .map { $0 != $1 ? .errorNotMatch : .success }
+            .map { $0 != $1 }
             .sink(receiveValue: self.state.checkPasswordState.send(_:))
             .store(in: &cancellables)
         
         action.enteredUserName
-            .map { $0.isEmpty ? .errorNoInput : .success }
+            .map { !$0.isEmpty }
             .sink(receiveValue: self.state.userNameState.send(_:))
             .store(in: &cancellables)
         
@@ -110,19 +81,5 @@ class SignUpModel {
             }, receiveValue: { data in
                 self.state.presentNextPage.send()
             }).store(in: &cancellables)
-    }
-}
-
-extension SignUpModel {
-    enum InputState {
-        case none
-        case success
-        case errorUserId
-        case errorLengthLimited
-        case errorNoCapitalLetters
-        case errorNoNumber
-        case errorNoSpecialCharacters
-        case errorNotMatch
-        case errorNoInput
     }
 }
