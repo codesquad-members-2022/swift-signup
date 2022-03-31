@@ -11,11 +11,11 @@ import Combine
 class SignUpModel {
         
     struct Action {
-        let userIdEntered = CurrentValueSubject<String, Never>("")
-        let passwordEntered = CurrentValueSubject<String, Never>("")
-        let checkPasswordEntered = PassthroughSubject<String, Never>()
-        let userNameEntered = PassthroughSubject<String, Never>()
-        let nextButtonTapped = PassthroughSubject<Void, Never>()
+        let enteredUserId = CurrentValueSubject<String, Never>("")
+        let enteredPassword = CurrentValueSubject<String, Never>("")
+        let enteredCheckPassword = PassthroughSubject<String, Never>()
+        let enteredUserName = PassthroughSubject<String, Never>()
+        let tappedNextButton = PassthroughSubject<Void, Never>()
     }
     
     struct State {
@@ -23,7 +23,8 @@ class SignUpModel {
         let passwordMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
         let checkPasswordMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
         let userNameMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
-        let isNextButtonEnabled = PassthroughSubject<Bool, Never>()
+        
+        let isEnabledNextButton = PassthroughSubject<Bool, Never>()
         let presentNextPage = PassthroughSubject<Void, Never>()
     }
     
@@ -36,10 +37,10 @@ class SignUpModel {
     init() {
         Publishers
             .Merge4(
-                action.userIdEntered.map { _ in },
-                action.passwordEntered.map { _ in },
-                action.checkPasswordEntered.map { _ in },
-                action.userNameEntered.map { _ in })
+                state.userIdMessage.map { _ in },
+                state.passwordMessage.map { _ in },
+                state.checkPasswordMessage.map { _ in },
+                state.userNameMessage.map { _ in })
             .map {
                 if self.state.userIdMessage.value.0,
                    self.state.passwordMessage.value.0,
@@ -49,10 +50,10 @@ class SignUpModel {
                 }
                 return false
             }
-            .sink(receiveValue: self.state.isNextButtonEnabled.send(_:))
+            .sink(receiveValue: self.state.isEnabledNextButton.send(_:))
             .store(in: &cancellables)
         
-        action.userIdEntered
+        action.enteredUserId
             .map {
                 if $0.isEmpty {
                     return (false ,"")
@@ -66,46 +67,46 @@ class SignUpModel {
             .sink(receiveValue: self.state.userIdMessage.send(_:))
             .store(in: &cancellables)
         
-        action.passwordEntered
+        action.enteredPassword
             .map {
                 if $0.isEmpty {
                     return (false ,"")
                 }
                 
-                if $0.count < 8 || $0.count > 16 {
-                    return (false , "8자 이상 16자 이하로 입력해주세요.")
+                if $0.validatePredicate(format: ".{8,16}") == false {
+                    return (false, "8자 이상 16자 이하로 입력해주세요.")
                 }
                 
                 if $0.vaildateRegex(pattern: "[A-Z]") == false {
-                    return (false , "영문 대문자를 최소 1자 이상 포함해주세요.")
+                    return (false, "영문 대문자를 최소 1자 이상 포함해주세요.")
                 }
                 
                 if $0.vaildateRegex(pattern: "[0-9]") == false {
-                    return (false , "숫자를 최소 1자 이상 포함해주세요.")
+                    return (false, "숫자를 최소 1자 이상 포함해주세요.")
                 }
                 
                 if $0.vaildateRegex(pattern: "[!@#$%^&*()_+=-]") == false {
-                    return (false , "특수문자를 최소 1자 이상 포함해주세요.")
+                    return (false, "특수문자를 최소 1자 이상 포함해주세요.")
                 }
                 
-                return (true , "안전한 비밀번호입니다.")
+                return (true, "안전한 비밀번호입니다.")
             }
             .sink(receiveValue: self.state.passwordMessage.send(_:))
             .store(in: &cancellables)
         
-        action.checkPasswordEntered
-            .combineLatest(action.passwordEntered)
+        action.enteredCheckPassword
+            .combineLatest(action.enteredPassword)
             .map {
                 if $0 != $1 {
-                    return (false , "비밀번호가 일치하지 않습니다.")
+                    return (false, "비밀번호가 일치하지 않습니다.")
                 } else {
-                    return (true , "비밀번호가 일치합니다.")
+                    return (true, "비밀번호가 일치합니다.")
                 }
             }
             .sink(receiveValue: self.state.checkPasswordMessage.send(_:))
             .store(in: &cancellables)
         
-        action.userNameEntered
+        action.enteredUserName
             .map {
                 if $0.isEmpty {
                     return (false , "이름은 필수 입력 항목입니다.")
@@ -116,10 +117,10 @@ class SignUpModel {
             .sink(receiveValue: self.state.userNameMessage.send(_:))
             .store(in: &cancellables)
         
-        self.action.nextButtonTapped
+        self.action.tappedNextButton
             .map { _ -> AnyPublisher<Response<ResponseResult>, Error> in
-                let userId = self.action.userIdEntered.value
-                let password = self.action.passwordEntered.value
+                let userId = self.action.enteredUserId.value
+                let password = self.action.enteredPassword.value
                 return self.signUpRespository.signUp(userId: userId, password: password)
             }
             .sink(receiveCompletion: { data in

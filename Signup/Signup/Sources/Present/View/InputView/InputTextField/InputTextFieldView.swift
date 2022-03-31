@@ -22,9 +22,8 @@ class InputTextFieldView: InputView, InputTextField {
         return textField
     }()
     
-    
-    var textPublisher: AnyPublisher<String, Never> {
-        textField.textPublisher()
+    var changedPublisher: AnyPublisher<String, Never> {
+        textField.changedPublisher()
     }
     
     var placeholder: String = "" {
@@ -57,7 +56,10 @@ class InputTextFieldView: InputView, InputTextField {
         layout()
     }
     
+    var cancale = Set<AnyCancellable>()
+    
     private func bind() {
+        
         NotificationCenter.default.addObserver(forName: UITextField.textDidBeginEditingNotification, object: self.textField, queue: nil) { _ in
             self.textField.layer.borderColor = UIColor.systemBlue.cgColor
         }

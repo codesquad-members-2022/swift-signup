@@ -27,6 +27,10 @@ class InputButtonView: InputView, InputButtonField {
         return button
     }()
     
+    var publisher: AnyPublisher<Void, Never> {
+        button.publisher(for: .touchUpInside)
+    }
+    
     override init() {
         super.init()
         layout()

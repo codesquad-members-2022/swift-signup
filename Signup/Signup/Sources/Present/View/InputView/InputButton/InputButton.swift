@@ -7,8 +7,10 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol InputButtonField {
+    var publisher: AnyPublisher<Void, Never> { get }
     var title: String { get }
     var view: UIView { get }
     func addAction(_ action: UIAction)
