@@ -65,12 +65,18 @@ class UserInfoModel {
             .store(in: &cancellables)
         
         action.enteredEmail
-            .map { CommonString.vaildateEmail($0) ? .success : .errorEmail }
+            .map {
+                if $0.isEmpty { return .none }
+                return CommonString.vaildateEmail($0) ? .success : .errorEmail
+            }
             .sink(receiveValue: self.state.emailState.send(_:))
             .store(in: &cancellables)
         
         action.enteredPhoneNumber
-            .map { CommonString.vaildatePhoneNumber($0) ? .success : .errorPhoneNumber }
+            .map {
+                if $0.isEmpty { return .none }
+                return CommonString.vaildatePhoneNumber($0) ? .success : .errorPhoneNumber
+            }
             .sink(receiveValue: self.state.phoneNumberState.send(_:))
             .store(in: &cancellables)
     }
