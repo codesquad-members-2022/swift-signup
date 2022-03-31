@@ -7,22 +7,19 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class InputSegmentedView: InputView, InputSegmented {
     
-    var selectedIndex: Int {
-        get {
-            segmentedController.selectedSegmentIndex
-        }
-        set {
-            segmentedController.selectedSegmentIndex = newValue
-        }
+    var publisher: AnyPublisher<Int, Never> {
+        segmentedController.publisher()
     }
     
-    let segmentedController: UISegmentedControl
+    private let segmentedController: UISegmentedControl
     
-    init(items: [Any]) {
+    init(items: [Any], defaultIndex: Int = 0) {
         segmentedController = UISegmentedControl(items: items)
+        segmentedController.selectedSegmentIndex = defaultIndex
         super.init()
         attribute()
         layout()
@@ -46,9 +43,5 @@ class InputSegmentedView: InputView, InputSegmented {
         segmentedController.leadingAnchor.constraint(equalTo: optionView.leadingAnchor).isActive = true
         segmentedController.trailingAnchor.constraint(equalTo: optionView.trailingAnchor).isActive = true
         segmentedController.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
-    }
-    
-    func addAction(_ action: UIAction) {
-        segmentedController.addAction(action, for: .valueChanged)
     }
 }

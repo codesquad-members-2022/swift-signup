@@ -7,9 +7,9 @@
 
 import Foundation
 import UIKit
+import Combine
 
 protocol InputSegmented {
+    var publisher: AnyPublisher<Int, Never> { get }
     var view: UIView { get }
-    var selectedIndex: Int { get }
-    func addAction(_ action: UIAction)
 }

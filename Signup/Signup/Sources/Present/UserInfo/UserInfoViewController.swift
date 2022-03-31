@@ -40,7 +40,6 @@ class UserInfoViewController: UIViewController {
         let segmentedView = InputSegmentedView(items: Gender.allCases.map { $0.name })
         segmentedView.translatesAutoresizingMaskIntoConstraints = false
         segmentedView.title = "성별"
-        segmentedView.selectedIndex = 0
         return segmentedView
     }()
     
@@ -129,10 +128,10 @@ class UserInfoViewController: UIViewController {
             .store(in: &cancellables)
         
         //Gender
-        self.gender.addAction(UIAction { _ in
-            let gender = Gender.allCases[self.gender.selectedIndex]
-            self.model.action.selectGender.send(gender)
-        })
+        self.gender.publisher
+            .map { Gender.allCases[$0] }
+            .sink(receiveValue: self.model.action.selectGender.send(_:))
+            .store(in: &cancellables)
         
         //Email
         self.email.changedPublisher
@@ -140,7 +139,7 @@ class UserInfoViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.emailMessage
-            .sink(receiveValue: self.email.setSubMessage(_:_:))
+            .sink(receiveValue: self.email.setMessage(_:_:))
             .store(in: &cancellables)
         
         //PhoneNumber
@@ -149,7 +148,7 @@ class UserInfoViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.phoneNumberMessage
-            .sink(receiveValue: self.phoneNumber.setSubMessage(_:_:))
+            .sink(receiveValue: self.phoneNumber.setMessage(_:_:))
             .store(in: &cancellables)
         
         //Buttons

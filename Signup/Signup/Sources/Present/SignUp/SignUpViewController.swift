@@ -107,7 +107,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
                 
         model.state.userIdMessage
-            .sink(receiveValue: self.userId.setSubMessage(_:_:))
+            .sink(receiveValue: self.userId.setMessage(_:_:))
             .store(in: &cancellables)
         
         //Password
@@ -116,7 +116,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.passwordMessage
-            .sink(receiveValue: self.password.setSubMessage(_:_:))
+            .sink(receiveValue: self.password.setMessage(_:_:))
             .store(in: &cancellables)
         
         //CheckPassword
@@ -125,7 +125,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.checkPasswordMessage
-            .sink(receiveValue: self.checkPassword.setSubMessage(_:_:))
+            .sink(receiveValue: self.checkPassword.setMessage(_:_:))
             .store(in: &cancellables)
         
         //UserName
@@ -134,7 +134,7 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         model.state.userNameMessage
-            .sink(receiveValue: self.userName.setSubMessage(_:_:))
+            .sink(receiveValue: self.userName.setMessage(_:_:))
             .store(in: &cancellables)
         
         //NextButton

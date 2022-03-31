@@ -26,6 +26,14 @@ class InputTextFieldView: InputView, InputTextField {
         textField.changedPublisher()
     }
     
+    var beginEditionPublisher: AnyPublisher<Void, Never> {
+        textField.publisher(for: .editingDidBegin)
+    }
+    
+    var endEditionPublisher: AnyPublisher<Void, Never> {
+        textField.publisher(for: .editingDidEnd)
+    }
+    
     var placeholder: String = "" {
         didSet {
             self.textField.placeholder = placeholder
@@ -77,7 +85,7 @@ class InputTextFieldView: InputView, InputTextField {
         textField.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
     }
     
-    func setSubMessage(_ isError: Bool, _ message: String) {
+    func setMessage(_ isError: Bool, _ message: String) {
         if message.isEmpty {
             self.textField.layer.borderColor = UIColor.systemGray2.cgColor
             self.subLabel.isHidden = true
