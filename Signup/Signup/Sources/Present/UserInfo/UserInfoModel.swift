@@ -65,22 +65,12 @@ class UserInfoModel {
             .store(in: &cancellables)
         
         action.enteredEmail
-            .map {
-                if $0.validatePredicate(format: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}$") {
-                    return .success
-                }
-                return .errorEmail
-            }
+            .map { CommonString.vaildateEmail($0) ? .success : .errorEmail }
             .sink(receiveValue: self.state.emailMessage.send(_:))
             .store(in: &cancellables)
         
         action.enteredPhoneNumber
-            .map {
-                if $0.validatePredicate(format: "^01([0-9])([0-9]{3,4})([0-9]{4})$") {
-                    return .success
-                }
-                return .errorPhoneNumber
-            }
+            .map { CommonString.vaildatePhoneNumber($0) ? .success : .errorPhoneNumber }
             .sink(receiveValue: self.state.phoneNumberMessage.send(_:))
             .store(in: &cancellables)
     }
@@ -92,15 +82,5 @@ extension UserInfoModel {
         case success
         case errorEmail
         case errorPhoneNumber
-        
-        var message: String {
-            switch self {
-            case .none, .success: return ""
-            case .errorEmail:
-                return "이메일 주소를 다시 확인해주세요."
-            case .errorPhoneNumber:
-                return "형식에 맞지 않는 번호입니다."
-            }
-        }
     }
 }
