@@ -57,7 +57,7 @@ class SignUpModel {
                 if $0.isEmpty {
                     return .none
                 }
-                if $0.validatePredicate(format: "[A-Za-z0-9_-]{5,20}") {
+                if CommonString.validatePredicate($0, format: "[A-Za-z0-9_-]{5,20}") {
                     return .success
                 } else { return .errorUserId }
             }
@@ -70,19 +70,19 @@ class SignUpModel {
                     return .none
                 }
                 
-                if $0.validatePredicate(format: ".{8,16}") == false {
+                if CommonString.validatePredicate($0, format: ".{8,16}") == false {
                     return .errorLengthLimited
                 }
                 
-                if $0.vaildateRegex(pattern: "[A-Z]") == false {
+                if CommonString.vaildateRegex($0, pattern: "[A-Z]") == false {
                     return .errorNoCapitalLetters
                 }
                 
-                if $0.vaildateRegex(pattern: "[0-9]") == false {
+                if CommonString.vaildateRegex($0, pattern: "[0-9]") == false {
                     return .errorNoNumber
                 }
                 
-                if $0.vaildateRegex(pattern: "[!@#$%^&*()_+=-]") == false {
+                if CommonString.vaildateRegex($0, pattern: "[!@#$%^&*()_+=-]") == false {
                     return .errorNoSpecialCharacters
                 }
                 
@@ -93,24 +93,12 @@ class SignUpModel {
         
         action.enteredCheckPassword
             .combineLatest(action.enteredPassword)
-            .map {
-                if $0 != $1 {
-                    return .errorNotMatch
-                } else {
-                    return .success
-                }
-            }
+            .map { $0 != $1 ? .errorNotMatch : .success }
             .sink(receiveValue: self.state.checkPasswordState.send(_:))
             .store(in: &cancellables)
         
         action.enteredUserName
-            .map {
-                if $0.isEmpty {
-                    return .errorNoInput
-                } else {
-                    return .success
-                }
-            }
+            .map { $0.isEmpty ? .errorNoInput : .success }
             .sink(receiveValue: self.state.userNameState.send(_:))
             .store(in: &cancellables)
         
@@ -139,25 +127,5 @@ extension SignUpModel {
         case errorNoSpecialCharacters
         case errorNotMatch
         case errorNoInput
-        
-        var message: String {
-            switch self {
-            case .none, .success: return ""
-            case .errorUserId:
-                return "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다."
-            case .errorLengthLimited:
-                return "8자 이상 16자 이하로 입력해주세요."
-            case .errorNoCapitalLetters:
-                return "영문 대문자를 최소 1자 이상 포함해주세요."
-            case .errorNoNumber:
-                return "숫자를 최소 1자 이상 포함해주세요."
-            case .errorNoSpecialCharacters:
-                return "특수문자를 최소 1자 이상 포함해주세요."
-            case .errorNotMatch:
-                return "비밀번호가 일치하지 않습니다."
-            case .errorNoInput:
-                return "이름은 필수 입력 항목입니다."
-            }
-        }
     }
 }

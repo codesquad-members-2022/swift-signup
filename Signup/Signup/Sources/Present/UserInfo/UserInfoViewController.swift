@@ -240,3 +240,15 @@ class UserInfoViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 }
+
+extension UserInfoModel.InputState {
+    var message: String {
+        switch self {
+        case .none, .success: return ""
+        case .errorEmail:
+            return "이메일 주소를 다시 확인해주세요."
+        case .errorPhoneNumber:
+            return "형식에 맞지 않는 번호입니다."
+        }
+    }
+}
