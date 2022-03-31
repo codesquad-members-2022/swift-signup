@@ -5,7 +5,7 @@ class LoginView: UIView {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    var delegate: LoginViewDelegate?
+    weak var delegate: LoginViewDelegate?
     
     @IBAction func loginButtonTouched(_ sender: UIButton) {
         guard let idInput = self.idTextField.text else { return }
