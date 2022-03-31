@@ -154,6 +154,21 @@ class SignUpViewController: UIViewController {
                 viewController.transitioningDelegate = self
                 self.present(viewController, animated: true)
             }.store(in: &cancellables)
+        
+        Publishers
+            .Merge8(
+                self.userId.beginEditionPublisher.map { (self.userId, true) },
+                self.userId.endEditionPublisher.map { (self.userId, false) },
+                self.password.beginEditionPublisher.map { (self.password, true) },
+                self.password.endEditionPublisher.map { (self.password, false) },
+                self.checkPassword.beginEditionPublisher.map { (self.checkPassword, true) },
+                self.checkPassword.endEditionPublisher.map { (self.checkPassword, false) },
+                self.userName.beginEditionPublisher.map { (self.userName, true) },
+                self.userName.endEditionPublisher.map { (self.userName, false) }
+            )
+            .sink { targetView, isFocused in
+                targetView.setFocused(isFocused)
+            }.store(in: &cancellables)
     }
     
     private func attribute() {

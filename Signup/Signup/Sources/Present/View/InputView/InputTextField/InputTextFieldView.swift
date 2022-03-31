@@ -10,7 +10,6 @@ import Combine
 import UIKit
 
 class InputTextFieldView: InputView, InputTextField {
-    
     private let textField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -54,28 +53,15 @@ class InputTextFieldView: InputView, InputTextField {
     
     override init() {
         super.init()
-        bind()
         layout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        bind()
         layout()
     }
     
     var cancale = Set<AnyCancellable>()
-    
-    private func bind() {
-        
-        NotificationCenter.default.addObserver(forName: UITextField.textDidBeginEditingNotification, object: self.textField, queue: nil) { _ in
-            self.textField.layer.borderColor = UIColor.systemBlue.cgColor
-        }
-        
-        NotificationCenter.default.addObserver(forName: UITextField.textDidEndEditingNotification, object: self.textField, queue: nil) { _ in
-            self.textField.layer.borderColor = UIColor.clear.cgColor
-        }
-    }
     
     private func layout() {
         self.optionView.addSubview(textField)
@@ -96,5 +82,9 @@ class InputTextFieldView: InputView, InputTextField {
         self.subLabel.text = message
         self.subLabel.textColor = color
         self.textField.layer.borderColor = color.cgColor
+    }
+    
+    func setFocused(_ isFocused: Bool) {
+        self.textField.layer.borderColor = isFocused ? UIColor.systemBlue.cgColor : UIColor.clear.cgColor
     }
 }

@@ -162,6 +162,16 @@ class UserInfoViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }.store(in: &cancellables)
         
+        Publishers
+            .Merge4(
+                self.email.beginEditionPublisher.map { (self.email, true) },
+                self.email.endEditionPublisher.map { (self.email, false) },
+                self.phoneNumber.beginEditionPublisher.map { (self.phoneNumber, true) },
+                self.phoneNumber.endEditionPublisher.map { (self.phoneNumber, false) }
+            )
+            .sink { targetView, isFocused in
+                targetView.setFocused(isFocused)
+            }.store(in: &cancellables)
     }
     
     private func attribute() {
