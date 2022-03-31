@@ -11,10 +11,11 @@ enum TextFieldInputResult {
 
     case idResult(result:TextFieldInputResult.IDResult)
     case passwordResult(result:TextFieldInputResult.PasswordResult)
+    case unknown
     
     enum IDResult{
         case success
-        case failure
+        case failure(type:IDError)
     }
 
     enum PasswordResult {

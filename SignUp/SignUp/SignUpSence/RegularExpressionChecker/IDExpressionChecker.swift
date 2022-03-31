@@ -13,7 +13,7 @@ final class IDExpressionChecker:RegularExpressionCheckable {
         if expression.range(of: IDExpressionChecker.regex, options: .regularExpression) != nil {
             return TextFieldInputResult.idResult(result: .success)
         } else {
-            return TextFieldInputResult.idResult(result: .failure)
+            return TextFieldInputResult.idResult(result: .failure(type: .notValidateForm))
         }
     }
 }

@@ -168,8 +168,8 @@ extension SignUpViewController:InputTextFieldDelegate {
                 regualrExpressionChecker: regualrExpressionChecker
             )
             //CheckText
-            signUpViewTextFieldManger?.isValidateText()
-
+            let a = signUpViewTextFieldManger?.check()
+            print(a)
         case InputViewComponent.password.id:
             inputExpressionChecker(checker: PasswordExpressionChecker())
             
@@ -178,7 +178,8 @@ extension SignUpViewController:InputTextFieldDelegate {
                 regualrExpressionChecker: regualrExpressionChecker
             )
             
-            signUpViewTextFieldManger?.isValidateText()
+            let b = signUpViewTextFieldManger?.check()
+            print(b)
         case InputViewComponent.passwordRecheck.id:
             
             guard let inputtedPassword = passwordInputView,
@@ -187,7 +188,6 @@ extension SignUpViewController:InputTextFieldDelegate {
             guard let password = inputtedPassword.getTextFieldText(),
                   let text = inputView.getTextFieldText() else { return }
 
-            isValidate = false
             isValidate = (password == text)
             
         default:

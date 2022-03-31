@@ -31,11 +31,10 @@
 		8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA827F443E000D7C15B /* Typealias.swift */; };
 		8DD10DAC27F5453900D7C15B /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DAB27F5453900D7C15B /* HttpMethod.swift */; };
 		8DD10DAE27F54A6100D7C15B /* InputViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DAD27F54A6100D7C15B /* InputViewComponent.swift */; };
-		8DD10DC027F580B500D7C15B /* IDValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DBF27F580B500D7C15B /* IDValidationResult.swift */; };
-		8DD10DC227F580D300D7C15B /* PasswordValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC127F580D300D7C15B /* PasswordValidationResult.swift */; };
 		8DD10DC427F5827300D7C15B /* SignUpViewTextFieldManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC327F5827300D7C15B /* SignUpViewTextFieldManger.swift */; };
 		8DD10DC627F588AC00D7C15B /* TextFieldInputResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */; };
 		8DD10DC827F5A04400D7C15B /* PasswordRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */; };
+		8DD10DCA27F5DA4B00D7C15B /* IDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC927F5DA4B00D7C15B /* IDError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,11 +83,10 @@
 		8DD10DA827F443E000D7C15B /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		8DD10DAB27F5453900D7C15B /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		8DD10DAD27F54A6100D7C15B /* InputViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewComponent.swift; sourceTree = "<group>"; };
-		8DD10DBF27F580B500D7C15B /* IDValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDValidationResult.swift; sourceTree = "<group>"; };
-		8DD10DC127F580D300D7C15B /* PasswordValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationResult.swift; sourceTree = "<group>"; };
 		8DD10DC327F5827300D7C15B /* SignUpViewTextFieldManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewTextFieldManger.swift; sourceTree = "<group>"; };
 		8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputResult.swift; sourceTree = "<group>"; };
 		8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegex.swift; sourceTree = "<group>"; };
+		8DD10DC927F5DA4B00D7C15B /* IDError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,8 +225,7 @@
 				8DD10DAD27F54A6100D7C15B /* InputViewComponent.swift */,
 				8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */,
 				8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */,
-				8DD10DBF27F580B500D7C15B /* IDValidationResult.swift */,
-				8DD10DC127F580D300D7C15B /* PasswordValidationResult.swift */,
+				8DD10DC927F5DA4B00D7C15B /* IDError.swift */,
 				8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */,
 			);
 			path = Model;
@@ -384,10 +381,9 @@
 				8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */,
 				8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */,
 				8DD10DAE27F54A6100D7C15B /* InputViewComponent.swift in Sources */,
-				8DD10DC027F580B500D7C15B /* IDValidationResult.swift in Sources */,
 				8DD10DC827F5A04400D7C15B /* PasswordRegex.swift in Sources */,
+				8DD10DCA27F5DA4B00D7C15B /* IDError.swift in Sources */,
 				8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */,
-				8DD10DC227F580D300D7C15B /* PasswordValidationResult.swift in Sources */,
 				8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */,
 				8DD10DAC27F5453900D7C15B /* HttpMethod.swift in Sources */,
 				8D1E791427F1A2C7004FD949 /* SignUpInputViewFactory.swift in Sources */,
