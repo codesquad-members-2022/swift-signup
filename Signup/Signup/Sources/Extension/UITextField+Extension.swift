@@ -9,14 +9,11 @@ import Foundation
 import UIKit
 import Combine
 
-extension UITextField {
-    func textPublisher() -> AnyPublisher<String, Never> {
-        NotificationCenter.default
-            .publisher(for: UITextField.textDidChangeNotification, object: self)
-            .map{
-                ($0.object as? UITextField)?.text ?? ""
-            }
-            .eraseToAnyPublisher()
+extension UITextField {    
+    func changedPublisher() -> AnyPublisher<String, Never> {
+        EventPublisher<String>(control: self, event: .editingChanged, receiveClosure: {
+            return self.text ?? ""
+        }).eraseToAnyPublisher()
     }
     
     func addLeftPadding(_ padding: CGFloat) {

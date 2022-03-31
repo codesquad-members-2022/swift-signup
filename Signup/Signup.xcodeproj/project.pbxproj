@@ -25,12 +25,12 @@
 		E0B1E3A827F1BA000018D93E /* BaseTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A727F1BA000018D93E /* BaseTarget.swift */; };
 		E0B1E3AA27F1BA6E0018D93E /* SignUpTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A927F1BA6E0018D93E /* SignUpTarget.swift */; };
 		E0B1E3AC27F1BE520018D93E /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AB27F1BE520018D93E /* NetworkRepository.swift */; };
-		E0B1E3AE27F1D13A0018D93E /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AD27F1D13A0018D93E /* TextField+Extension.swift */; };
+		E0B1E3AE27F1D13A0018D93E /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AD27F1D13A0018D93E /* UITextField+Extension.swift */; };
 		E0B1E3B027F1E95F0018D93E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */; };
 		E0B1E3B227F201230018D93E /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3B127F201230018D93E /* ResponseResult.swift */; };
 		E0B1E3B327F207620018D93E /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A227F1B9690018D93E /* SignUpRepository.swift */; };
 		E0B1E3B427F207620018D93E /* SignUpRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A427F1B9720018D93E /* SignUpRepositoryImpl.swift */; };
-		E0B1E3B627F207700018D93E /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AD27F1D13A0018D93E /* TextField+Extension.swift */; };
+		E0B1E3B627F207700018D93E /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AD27F1D13A0018D93E /* UITextField+Extension.swift */; };
 		E0B1E3B727F207700018D93E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37B27F149110018D93E /* URLSession+Extension.swift */; };
 		E0B1E3B827F207700018D93E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */; };
 		E0B1E3B927F207700018D93E /* Color+Exteionsoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */; };
@@ -46,6 +46,10 @@
 		E0B1E3D527F328AF0018D93E /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3D427F328AF0018D93E /* InputTextField.swift */; };
 		E0B1E3D827F328D60018D93E /* InputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3D727F328D60018D93E /* InputButton.swift */; };
 		E0B1E3DB27F343950018D93E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3DA27F343950018D93E /* Date+Extension.swift */; };
+		E0B1E3DE27F43FE80018D93E /* InputSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3DD27F43FE80018D93E /* InputSegmentedView.swift */; };
+		E0B1E3E027F4440D0018D93E /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3DF27F4440D0018D93E /* Gender.swift */; };
+		E0B1E3E327F449020018D93E /* InputSegmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E227F449020018D93E /* InputSegmented.swift */; };
+		E0B1E3E527F538DF0018D93E /* UIConrtol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +83,7 @@
 		E0B1E3A727F1BA000018D93E /* BaseTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTarget.swift; sourceTree = "<group>"; };
 		E0B1E3A927F1BA6E0018D93E /* SignUpTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTarget.swift; sourceTree = "<group>"; };
 		E0B1E3AB27F1BE520018D93E /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
-		E0B1E3AD27F1D13A0018D93E /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
+		E0B1E3AD27F1D13A0018D93E /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E0B1E3B127F201230018D93E /* ResponseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseResult.swift; sourceTree = "<group>"; };
 		E0B1E3C327F2F0250018D93E /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
@@ -90,6 +94,10 @@
 		E0B1E3D427F328AF0018D93E /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		E0B1E3D727F328D60018D93E /* InputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputButton.swift; sourceTree = "<group>"; };
 		E0B1E3DA27F343950018D93E /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		E0B1E3DD27F43FE80018D93E /* InputSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSegmentedView.swift; sourceTree = "<group>"; };
+		E0B1E3DF27F4440D0018D93E /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		E0B1E3E227F449020018D93E /* InputSegmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSegmented.swift; sourceTree = "<group>"; };
+		E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIConrtol+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +149,7 @@
 		E0B1E36C27F148980018D93E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E0B1E3E127F444130018D93E /* Enum */,
 				E0B1E3A627F1B9A00018D93E /* API */,
 				E0B1E38527F1499C0018D93E /* Model */,
 				E0B1E3A027F1B94F0018D93E /* Repository */,
@@ -202,9 +211,10 @@
 			children = (
 				E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */,
 				E0B1E37B27F149110018D93E /* URLSession+Extension.swift */,
-				E0B1E3AD27F1D13A0018D93E /* TextField+Extension.swift */,
+				E0B1E3AD27F1D13A0018D93E /* UITextField+Extension.swift */,
 				E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */,
 				E0B1E3DA27F343950018D93E /* Date+Extension.swift */,
+				E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -290,6 +300,7 @@
 		E0B1E3D227F3288A0018D93E /* InputView */ = {
 			isa = PBXGroup;
 			children = (
+				E0B1E3DC27F43FD70018D93E /* InputSegmented */,
 				E0B1E3D627F328C10018D93E /* InputButton */,
 				E0B1E3D327F328950018D93E /* InputTextField */,
 				E0B1E38A27F14A140018D93E /* InputView.swift */,
@@ -313,6 +324,23 @@
 				E0B1E3D727F328D60018D93E /* InputButton.swift */,
 			);
 			path = InputButton;
+			sourceTree = "<group>";
+		};
+		E0B1E3DC27F43FD70018D93E /* InputSegmented */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1E3DD27F43FE80018D93E /* InputSegmentedView.swift */,
+				E0B1E3E227F449020018D93E /* InputSegmented.swift */,
+			);
+			path = InputSegmented;
+			sourceTree = "<group>";
+		};
+		E0B1E3E127F444130018D93E /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1E3DF27F4440D0018D93E /* Gender.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +452,7 @@
 				E0B1E3DB27F343950018D93E /* Date+Extension.swift in Sources */,
 				E0B1E38927F149F00018D93E /* SignUpModel.swift in Sources */,
 				E0B1E3C427F2F0250018D93E /* UserInfoModel.swift in Sources */,
+				E0B1E3E027F4440D0018D93E /* Gender.swift in Sources */,
 				E0B1E3AA27F1BA6E0018D93E /* SignUpTarget.swift in Sources */,
 				E0B1E3CC27F306930018D93E /* InputTextFieldView.swift in Sources */,
 				E0B1E3A527F1B9720018D93E /* SignUpRepositoryImpl.swift in Sources */,
@@ -433,13 +462,16 @@
 				E0B1E3B027F1E95F0018D93E /* String+Extension.swift in Sources */,
 				E0B1E3A327F1B9690018D93E /* SignUpRepository.swift in Sources */,
 				E0B1E3D827F328D60018D93E /* InputButton.swift in Sources */,
+				E0B1E3DE27F43FE80018D93E /* InputSegmentedView.swift in Sources */,
 				E0B1E3B227F201230018D93E /* ResponseResult.swift in Sources */,
-				E0B1E3AE27F1D13A0018D93E /* TextField+Extension.swift in Sources */,
+				E0B1E3AE27F1D13A0018D93E /* UITextField+Extension.swift in Sources */,
 				E0B1E3C627F2F0300018D93E /* UserInfoViewController.swift in Sources */,
+				E0B1E3E327F449020018D93E /* InputSegmented.swift in Sources */,
 				E0B1E3AC27F1BE520018D93E /* NetworkRepository.swift in Sources */,
 				E0B1E38B27F14A140018D93E /* InputView.swift in Sources */,
 				E0B1E35927F148800018D93E /* AppDelegate.swift in Sources */,
 				E0B1E35B27F148800018D93E /* SceneDelegate.swift in Sources */,
+				E0B1E3E527F538DF0018D93E /* UIConrtol+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +484,7 @@
 				E0B1E3B427F207620018D93E /* SignUpRepositoryImpl.swift in Sources */,
 				E0B1E3B727F207700018D93E /* URLSession+Extension.swift in Sources */,
 				E0B1E3BD27F2078D0018D93E /* BaseTarget.swift in Sources */,
-				E0B1E3B627F207700018D93E /* TextField+Extension.swift in Sources */,
+				E0B1E3B627F207700018D93E /* UITextField+Extension.swift in Sources */,
 				E0B1E3BC27F2078D0018D93E /* SignUpTarget.swift in Sources */,
 				E0B1E3B327F207620018D93E /* SignUpRepository.swift in Sources */,
 				E0B1E3B927F207700018D93E /* Color+Exteionsoin.swift in Sources */,

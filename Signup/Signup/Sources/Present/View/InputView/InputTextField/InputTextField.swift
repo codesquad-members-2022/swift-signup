@@ -10,7 +10,7 @@ import Combine
 import UIKit
 
 protocol InputTextField {
-    var textPublisher: AnyPublisher<String, Never> { get }
+    var changedPublisher: AnyPublisher<String, Never> { get }
     var title: String { get }
     var placeholder: String { get }
     var isSecureTextEntry: Bool { get }

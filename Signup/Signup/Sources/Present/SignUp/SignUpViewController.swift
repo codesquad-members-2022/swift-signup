@@ -102,8 +102,8 @@ class SignUpViewController: UIViewController {
     
     private func bind() {
         //UserId
-        userId.textPublisher
-            .sink(receiveValue: self.model.action.userIdEntered.send(_:))
+        userId.changedPublisher
+            .sink(receiveValue: self.model.action.enteredUserId.send(_:))
             .store(in: &cancellables)
                 
         model.state.userIdMessage
@@ -111,8 +111,8 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         //Password
-        password.textPublisher
-            .sink(receiveValue: self.model.action.passwordEntered.send(_:))
+        password.changedPublisher
+            .sink(receiveValue: self.model.action.enteredPassword.send(_:))
             .store(in: &cancellables)
         
         model.state.passwordMessage
@@ -120,8 +120,8 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         //CheckPassword
-        checkPassword.textPublisher
-            .sink(receiveValue: self.model.action.checkPasswordEntered.send(_:))
+        checkPassword.changedPublisher
+            .sink(receiveValue: self.model.action.enteredCheckPassword.send(_:))
             .store(in: &cancellables)
         
         model.state.checkPasswordMessage
@@ -129,8 +129,8 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         //UserName
-        userName.textPublisher
-            .sink(receiveValue: self.model.action.userNameEntered.send(_:))
+        userName.changedPublisher
+            .sink(receiveValue: self.model.action.enteredUserName.send(_:))
             .store(in: &cancellables)
         
         model.state.userNameMessage
@@ -138,11 +138,11 @@ class SignUpViewController: UIViewController {
             .store(in: &cancellables)
         
         //NextButton
-        nextButton.addAction(UIAction { _ in
-            self.model.action.nextButtonTapped.send()
-        }, for: .touchUpInside)
+        nextButton.publisher(for: .touchUpInside)
+            .sink(receiveValue: self.model.action.tappedNextButton.send)
+            .store(in: &cancellables)
         
-        model.state.isNextButtonEnabled
+        model.state.isEnabledNextButton
             .sink { isEnabled in
                 self.nextButton.isEnabled = isEnabled
             }.store(in: &cancellables)
@@ -172,11 +172,7 @@ class SignUpViewController: UIViewController {
         stackView.topAnchor.constraint(equalTo: signUpTitle.bottomAnchor, constant: 10).isActive = true
         stackView.leftAnchor.constraint(equalTo: safeArea.leftAnchor, constant: 30).isActive = true
         stackView.rightAnchor.constraint(equalTo: safeArea.rightAnchor, constant: -30).isActive = true
-        
-        inputViews.forEach {
-            stackView.addArrangedSubview($0)
-        }
-        
+        inputViews.forEach { stackView.addArrangedSubview($0) }
         stackView.bottomAnchor.constraint(equalTo: inputViews[inputViews.count - 1].bottomAnchor).isActive = true
         
         self.view.addSubview(nextButton)
