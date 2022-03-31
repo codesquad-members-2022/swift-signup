@@ -14,40 +14,28 @@ class LoginView: UIView {
     }
 
     @IBAction func idInputEditingChanged(_ sender: UITextField) {
-        self.checkLoginButtonValidation()
+        guard let idInput = self.idTextField.text else { return }
+        guard let passwordInput = self.passwordTextField.text else { return }
+        self.delegate?.determiningLoginButtonValidationRequested(id: idInput, password: passwordInput)
     }
     
     @IBAction func passwordInputEditingChanged(_ sender: Any) {
-        self.checkLoginButtonValidation()
+        guard let idInput = self.idTextField.text else { return }
+        guard let passwordInput = self.passwordTextField.text else { return }
+        self.delegate?.determiningLoginButtonValidationRequested(id: idInput, password: passwordInput)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         self.endEditing(true)
     }
     
-    private func checkLoginButtonValidation(){
-        guard let idInput = self.idTextField.text else { return }
-        guard let passwordInput = self.passwordTextField.text else { return }
-        if(isInputValid(id: idInput, password: passwordInput)){
-            validateLoginButton()
-        }else{
-            invalidateLoginButton()
-        }
-        
-        func isInputValid(id: String, password: String)-> Bool{
-            if(id.count <= 0 || password.count <= 0){
-                return false
-            }
-            return true
-        }
-    }
-    
-    private func invalidateLoginButton(){
+    func invalidateLoginButton(){
         guard let loginButton = self.loginButton else { return }
         loginButton.isEnabled = false
     }
     
-    private func validateLoginButton(){
+    func validateLoginButton(){
         guard let loginButton = self.loginButton else { return }
         loginButton.isEnabled = true
     }

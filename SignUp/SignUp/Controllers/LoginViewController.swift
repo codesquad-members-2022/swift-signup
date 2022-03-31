@@ -21,6 +21,21 @@ extension LoginViewController: LoginViewDelegate{
         }
     }
     
+    func determiningLoginButtonValidationRequested(id: String, password: String) {
+        if(isInputValid(id: id, password: password)){
+            self.loginView.validateLoginButton()
+        }else{
+            self.loginView.invalidateLoginButton()
+        }
+        
+        func isInputValid(id: String, password: String)-> Bool{
+            if(id.count <= 0 || password.count <= 0){
+                return false
+            }
+            return true
+        }
+    }
+    
     @objc func responseReceived(_ notification: Notification){
         guard let responseBody = notification.userInfo?[HttpResponseKey.responseBodyData] as? Dictionary<String,String> else { return }
         guard let status = responseBody["status"] else { return }
