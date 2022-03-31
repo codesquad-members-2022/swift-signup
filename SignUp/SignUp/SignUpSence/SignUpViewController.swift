@@ -32,6 +32,7 @@ final class SignUpViewController: UIViewController {
     private var inputViewCreator:SignUpInputViewCreator?
     
     //inputIsValidate?
+    private var signUpViewTextFieldManger:SignUpViewTextFieldManger?
     private var isValidate:Bool?
     
     
@@ -144,14 +145,6 @@ final class SignUpViewController: UIViewController {
         nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -bottomInset).isActive = true
     }
     
-    private func isValidateText(inputView:SignUpInputViewable?,checker:RegularExpressionCheckable?) -> Bool{
-        guard let inputView = IDInputView,
-              let text = inputView.getTextFieldText(),
-              let checker = checker else { return false }
-            return checker.check(expression:text)
-    }
-    
-    
     //MARK: -- injection
     private func inputViewCreator(creator:SignUpInputViewCreator) {
         self.inputViewCreator = creator
@@ -166,16 +159,24 @@ extension SignUpViewController:InputTextFieldDelegate {
     func textFieldEndEditing(inputViewID: String, textField: UITextField) {
         switch inputViewID {
         case InputViewComponent.id.id:
-            inputExpressionChecker(checker: IDRegularExpressionChecker())
+            inputExpressionChecker(checker: IDExpressionChecker())
             
-            isValidate = false
-            isValidate = isValidateText(inputView: IDInputView, checker: regualrExpressionChecker)
+            signUpViewTextFieldManger = SignUpViewTextFieldManger(
+                signUpView: IDInputView,
+                regualrExpressionChecker: regualrExpressionChecker
+            )
+            
+            signUpViewTextFieldManger?.isValidateText()
+
         case InputViewComponent.password.id:
             inputExpressionChecker(checker: PasswordExpressionChecker())
-
             
-            isValidate = false
-            isValidate = isValidateText(inputView: IDInputView, checker: regualrExpressionChecker)
+            signUpViewTextFieldManger = SignUpViewTextFieldManger(
+                signUpView: passwordInputView,
+                regualrExpressionChecker: regualrExpressionChecker
+            )
+            
+            signUpViewTextFieldManger?.isValidateText()
         case InputViewComponent.passwordRecheck.id:
             
             guard let inputtedPassword = passwordInputView,

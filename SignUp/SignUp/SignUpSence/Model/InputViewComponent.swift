@@ -8,7 +8,6 @@
 import Foundation
 
 struct InputViewComponent {
-    
     static let id:(id:String, label:String, placeHolder:String) = (id:"ID", label:"아이디", placeHolder:"영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
     static let password:(id:String, label:String, placeHolder:String) = (id:"password", label:"비밀번호",
                                                             placeHolder:"영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
