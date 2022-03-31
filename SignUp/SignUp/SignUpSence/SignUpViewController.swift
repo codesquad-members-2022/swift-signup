@@ -31,6 +31,9 @@ final class SignUpViewController: UIViewController {
     //creator
     private var inputViewCreator:SignUpInputViewCreator?
     
+    //inputIsValidate?
+    private var isValidate:Bool?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,6 +156,36 @@ final class SignUpViewController: UIViewController {
 
 extension SignUpViewController:InputTextFieldDelegate {
     func textFieldEndEditing(inputViewID: String, textField: UITextField) {
-        
+        switch inputViewID {
+        case InputViewComponent.id.id:
+            inputExpressionChecker(checker: IDRegularExpressionChecker())
+
+            guard let inputView = IDInputView else { break }
+            let text = inputView.getTextFieldText()
+
+            isValidate = false
+            isValidate = regualrExpressionChecker?.check(expression: text ?? "")
+        case InputViewComponent.password.id:
+            inputExpressionChecker(checker: PasswordExpressionChecker())
+
+            guard let inputView = passwordInputView else { break }
+            let text = inputView.getTextFieldText()
+
+            isValidate = false
+            isValidate = regualrExpressionChecker?.check(expression: text ?? "")
+        case InputViewComponent.passwordRecheck.id:
+            
+            guard let inputtedPassword = passwordInputView else { break }
+            guard let inputView = passwordRecheckInputView else { break }
+            
+            let password = inputtedPassword.getTextFieldText()
+            let text = inputView.getTextFieldText()
+
+            isValidate = false
+            isValidate = (password == text)
+            
+        default:
+            break
+        }
     }
 }

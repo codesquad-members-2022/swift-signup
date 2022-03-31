@@ -6,6 +6,8 @@
 //
 
 protocol SignUpInputViewable {
+    func getTextFieldText() -> String?
     func labelText(text:String)
     func placeholder(text:String)
+    func setIdentifier(id:String)
 }

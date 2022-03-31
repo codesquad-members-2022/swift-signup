@@ -36,6 +36,10 @@ final class SignUpInputView:UIView,SignUpInputViewable {
         setUp()
     }
     
+    func getTextFieldText() -> String? {
+        return self.textField.text
+    }
+    
     func labelText(text:String) {
         self.label.text = text
     }
