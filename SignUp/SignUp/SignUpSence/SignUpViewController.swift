@@ -31,8 +31,6 @@ final class SignUpViewController: UIViewController {
     //creator
     private var inputViewCreator:SignUpInputViewCreator?
     
-    //For debugging
-    var NetWorkErrorType:SignUpNetworkError?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +45,7 @@ final class SignUpViewController: UIViewController {
             case .success(let postResult):
                 self.postResult = postResult
             case .failure(let error):
-                self.NetWorkErrorType = error
+                os_log(.error, "\(error.localizedDescription)")
                 return
             }
         }
@@ -61,7 +59,7 @@ final class SignUpViewController: UIViewController {
             case .success(let userID):
                 self.gottenUserID = userID
             case .failure(let error):
-                self.NetWorkErrorType = error
+                os_log(.error, "\(error.localizedDescription)")
                 return
             }
         }

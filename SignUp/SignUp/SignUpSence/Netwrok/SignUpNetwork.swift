@@ -9,7 +9,7 @@
 import Foundation
 
 final class SignUpNetwork {
-    private var signUpURL = URL(string:"https://api.codesquad.kr/signup")
+    private var signUpURL = URL(string:"https://api.codesquad.kr/signu")
     private var config = URLSessionConfiguration.default
     private var session = URLSession(configuration:.default)
     
@@ -33,7 +33,6 @@ final class SignUpNetwork {
                 let data = try decoder.decode(T.self, from: data)
                 completion(.success(data))
                 }
-            
             catch {
                 completion(.failure(.decodingError))
             }
@@ -68,6 +67,7 @@ final class SignUpNetwork {
                     //else failure
                 catch {
                     completion(.failure(.decodingError))
+                    
                 }
             }
             dataTask.resume()
