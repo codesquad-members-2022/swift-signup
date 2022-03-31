@@ -21,8 +21,8 @@ class UserInfoModel {
     struct State {
         let birthDate = CurrentValueSubject<Date?, Never>(nil)
         let gender = CurrentValueSubject<Gender, Never>(.female)
-        let emailMessage = CurrentValueSubject<InputState, Never>(.none)
-        let phoneNumberMessage = CurrentValueSubject<InputState, Never>(.none)
+        let emailState = CurrentValueSubject<InputState, Never>(.none)
+        let phoneNumberState = CurrentValueSubject<InputState, Never>(.none)
         
         let presentDatePickerView = PassthroughSubject<Date, Never>()
         let isEnabledNextButton = PassthroughSubject<Bool, Never>()
@@ -37,13 +37,13 @@ class UserInfoModel {
         Publishers
             .Merge3(
                 state.birthDate.map { _ in },
-                state.emailMessage.map { _ in },
-                state.phoneNumberMessage.map { _ in }
+                state.emailState.map { _ in },
+                state.phoneNumberState.map { _ in }
             )
             .map {
                 if self.state.birthDate.value != nil,
-                   self.state.emailMessage.value == .success,
-                   self.state.phoneNumberMessage.value == .success {
+                   self.state.emailState.value == .success,
+                   self.state.phoneNumberState.value == .success {
                     return true
                 }
                 return false
@@ -66,12 +66,12 @@ class UserInfoModel {
         
         action.enteredEmail
             .map { CommonString.vaildateEmail($0) ? .success : .errorEmail }
-            .sink(receiveValue: self.state.emailMessage.send(_:))
+            .sink(receiveValue: self.state.emailState.send(_:))
             .store(in: &cancellables)
         
         action.enteredPhoneNumber
             .map { CommonString.vaildatePhoneNumber($0) ? .success : .errorPhoneNumber }
-            .sink(receiveValue: self.state.phoneNumberMessage.send(_:))
+            .sink(receiveValue: self.state.phoneNumberState.send(_:))
             .store(in: &cancellables)
     }
 }

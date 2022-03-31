@@ -138,7 +138,7 @@ class UserInfoViewController: UIViewController {
             .sink(receiveValue: self.model.action.enteredEmail.send(_:))
             .store(in: &cancellables)
         
-        model.state.emailMessage
+        model.state.emailState
             .map {
                 if $0 == .success {
                     return (true, "사용가능한 메일입니다.")
@@ -153,7 +153,7 @@ class UserInfoViewController: UIViewController {
             .sink(receiveValue: self.model.action.enteredPhoneNumber.send(_:))
             .store(in: &cancellables)
         
-        model.state.phoneNumberMessage
+        model.state.phoneNumberState
             .map {
                 if $0 == .success {
                     return (true, "사용가능한 번호입니다.")
