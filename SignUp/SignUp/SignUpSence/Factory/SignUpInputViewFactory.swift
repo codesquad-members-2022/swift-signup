@@ -10,6 +10,7 @@ final class SignUpInputViewFactory:SignUpInputViewCreator {
         let viewComponent = SignUpInputView(frame: .zero)
         viewComponent.labelText(text: labelText)
         viewComponent.placeholder(text: placeHolder)
+        viewComponent.setIdentifier(id: id)
         return viewComponent
     }
 }

@@ -21,7 +21,7 @@ final class SignUpViewController: UIViewController {
     //network
     private var signUpNetwork = SignUpNetwork()
     //model that if use get method
-    private var gottenUserID:UserID = UserID()
+    private var registeredID:UserID = UserID()
     //model that if use post method
     private var postResult:PostResult?
     
@@ -60,7 +60,7 @@ final class SignUpViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let userID):
-                self.gottenUserID = userID
+                self.registeredID = userID
             case .failure(let error):
                 os_log(.error, "\(error.localizedDescription)")
                 return
@@ -144,6 +144,14 @@ final class SignUpViewController: UIViewController {
         nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -bottomInset).isActive = true
     }
     
+    private func isValidateText(inputView:SignUpInputViewable?,checker:RegularExpressionCheckable?) -> Bool{
+        guard let inputView = IDInputView,
+              let text = inputView.getTextFieldText(),
+              let checker = checker else { return false }
+            return checker.check(expression:text)
+    }
+    
+    
     //MARK: -- injection
     private func inputViewCreator(creator:SignUpInputViewCreator) {
         self.inputViewCreator = creator
@@ -159,27 +167,22 @@ extension SignUpViewController:InputTextFieldDelegate {
         switch inputViewID {
         case InputViewComponent.id.id:
             inputExpressionChecker(checker: IDRegularExpressionChecker())
-
-            guard let inputView = IDInputView else { break }
-            let text = inputView.getTextFieldText()
-
+            
             isValidate = false
-            isValidate = regualrExpressionChecker?.check(expression: text ?? "")
+            isValidate = isValidateText(inputView: IDInputView, checker: regualrExpressionChecker)
         case InputViewComponent.password.id:
             inputExpressionChecker(checker: PasswordExpressionChecker())
 
-            guard let inputView = passwordInputView else { break }
-            let text = inputView.getTextFieldText()
-
+            
             isValidate = false
-            isValidate = regualrExpressionChecker?.check(expression: text ?? "")
+            isValidate = isValidateText(inputView: IDInputView, checker: regualrExpressionChecker)
         case InputViewComponent.passwordRecheck.id:
             
-            guard let inputtedPassword = passwordInputView else { break }
-            guard let inputView = passwordRecheckInputView else { break }
+            guard let inputtedPassword = passwordInputView,
+                  let inputView = passwordRecheckInputView else { return }
             
-            let password = inputtedPassword.getTextFieldText()
-            let text = inputView.getTextFieldText()
+            guard let password = inputtedPassword.getTextFieldText(),
+                  let text = inputView.getTextFieldText() else { return }
 
             isValidate = false
             isValidate = (password == text)

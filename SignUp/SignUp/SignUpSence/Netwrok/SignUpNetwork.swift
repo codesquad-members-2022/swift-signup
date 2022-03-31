@@ -9,7 +9,7 @@
 import Foundation
 
 final class SignUpNetwork {
-    private var signUpURL = URL(string:"https://api.codesquad.kr/signu")
+    private var signUpURL = URL(string:"https://api.codesquad.kr/signup")
     private var config = URLSessionConfiguration.default
     private var session = URLSession(configuration:.default)
     
