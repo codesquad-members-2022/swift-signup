@@ -5,7 +5,7 @@
 //  Created by 박진섭 on 2022/03/31.
 //
 
-enum inValidatePasswordCase {
+enum PasswordvalidationResult {
     case noValidateLength
     case noUpperCharacter
     case noNumber
