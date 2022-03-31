@@ -11,10 +11,9 @@ import UIKit
 
 protocol InputTextField {
     var changedPublisher: AnyPublisher<String, Never> { get }
-    var title: String { get }
-    var placeholder: String { get }
-    var isSecureTextEntry: Bool { get }
-    var textContentType: UITextContentType { get }
+    var beginEditionPublisher: AnyPublisher<Void, Never> { get }
+    var endEditionPublisher: AnyPublisher<Void, Never> { get }
     var view: UIView { get }
-    func setSubMessage(_ isError: Bool, _ message: String)
+    
+    func setMessage(_ isError: Bool, _ message: String)
 }

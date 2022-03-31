@@ -60,6 +60,10 @@ class UserInfoModel {
             .sink(receiveValue: self.state.birthDate.send(_:))
             .store(in: &cancellables)
         
+        action.selectGender
+            .sink(receiveValue: self.state.gender.send(_:))
+            .store(in: &cancellables)
+        
         action.enteredEmail
             .map {
                 if $0.validatePredicate(format: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}$") {

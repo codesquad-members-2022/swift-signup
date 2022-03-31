@@ -50,6 +50,7 @@
 		E0B1E3E027F4440D0018D93E /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3DF27F4440D0018D93E /* Gender.swift */; };
 		E0B1E3E327F449020018D93E /* InputSegmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E227F449020018D93E /* InputSegmented.swift */; };
 		E0B1E3E527F538DF0018D93E /* UIConrtol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */; };
+		E0B1E3E727F5677D0018D93E /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		E0B1E3DF27F4440D0018D93E /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		E0B1E3E227F449020018D93E /* InputSegmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSegmented.swift; sourceTree = "<group>"; };
 		E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIConrtol+Extension.swift"; sourceTree = "<group>"; };
+		E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */,
 				E0B1E3DA27F343950018D93E /* Date+Extension.swift */,
 				E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */,
+				E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				E0B1E3D527F328AF0018D93E /* InputTextField.swift in Sources */,
 				E0B1E3C927F3022B0018D93E /* RightToLeftTransition.swift in Sources */,
 				E0B1E3DB27F343950018D93E /* Date+Extension.swift in Sources */,
+				E0B1E3E727F5677D0018D93E /* UISegmentedControl+Extension.swift in Sources */,
 				E0B1E38927F149F00018D93E /* SignUpModel.swift in Sources */,
 				E0B1E3C427F2F0250018D93E /* UserInfoModel.swift in Sources */,
 				E0B1E3E027F4440D0018D93E /* Gender.swift in Sources */,
