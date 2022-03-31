@@ -48,6 +48,8 @@
 		E0B1E3E527F538DF0018D93E /* UIConrtol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */; };
 		E0B1E3E727F5677D0018D93E /* UISegmentedControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */; };
 		E0B1E3EA27F57F390018D93E /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3E927F57F390018D93E /* CommonString.swift */; };
+		E0B1E3F027F5860E0018D93E /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3EF27F5860E0018D93E /* TermsViewController.swift */; };
+		E0F659AB27F58BFD00F5BC48 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIConrtol+Extension.swift"; sourceTree = "<group>"; };
 		E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Extension.swift"; sourceTree = "<group>"; };
 		E0B1E3E927F57F390018D93E /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
+		E0B1E3EF27F5860E0018D93E /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				E0B1E3DA27F343950018D93E /* Date+Extension.swift */,
 				E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */,
 				E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */,
+				E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				E0B1E3CA27F304940018D93E /* View */,
 				E0B1E36F27F148E40018D93E /* SignUp */,
 				E0B1E3C227F2EFEF0018D93E /* UserInfo */,
+				E0B1E3EE27F585F70018D93E /* Tterms */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -349,6 +355,14 @@
 			path = Method;
 			sourceTree = "<group>";
 		};
+		E0B1E3EE27F585F70018D93E /* Tterms */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1E3EF27F5860E0018D93E /* TermsViewController.swift */,
+			);
+			path = Tterms;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -459,12 +473,14 @@
 				E0B1E38927F149F00018D93E /* SignUpModel.swift in Sources */,
 				E0B1E3C427F2F0250018D93E /* UserInfoModel.swift in Sources */,
 				E0B1E3E027F4440D0018D93E /* Gender.swift in Sources */,
+				E0F659AB27F58BFD00F5BC48 /* UIColor+Extension.swift in Sources */,
 				E0B1E3AA27F1BA6E0018D93E /* SignUpTarget.swift in Sources */,
 				E0B1E3CC27F306930018D93E /* InputTextFieldView.swift in Sources */,
 				E0B1E3A527F1B9720018D93E /* SignUpRepositoryImpl.swift in Sources */,
 				E0B1E3CE27F306BC0018D93E /* InputButtonView.swift in Sources */,
 				E0B1E37F27F149110018D93E /* Log.swift in Sources */,
 				E0B1E3EA27F57F390018D93E /* CommonString.swift in Sources */,
+				E0B1E3F027F5860E0018D93E /* TermsViewController.swift in Sources */,
 				E0B1E38227F149110018D93E /* URLSession+Extension.swift in Sources */,
 				E0B1E3A327F1B9690018D93E /* SignUpRepository.swift in Sources */,
 				E0B1E3D827F328D60018D93E /* InputButton.swift in Sources */,
@@ -649,8 +665,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4JAAT559ZA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Signup/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -662,8 +680,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shingha.Signup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shingha.codesquad.signup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -675,8 +694,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Signup/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -688,8 +709,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shingha.Signup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shingha.codesquad.signup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

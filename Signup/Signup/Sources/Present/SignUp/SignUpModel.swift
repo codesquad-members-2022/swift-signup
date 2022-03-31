@@ -41,13 +41,10 @@ class SignUpModel {
                 state.checkPasswordState.map { _ in },
                 state.userNameState.map { _ in })
             .map {
-                if self.state.userIdState.value == .success,
-                   self.state.passwordState.value == .success,
-                   self.state.checkPasswordState.value == .success,
-                   self.state.userNameState.value == .success {
-                    return true
-                }
-                return false
+                self.state.userIdState.value == .success &&
+                self.state.passwordState.value == .success &&
+                self.state.checkPasswordState.value == .success &&
+                self.state.userNameState.value == .success
             }
             .sink(receiveValue: self.state.isEnabledNextButton.send(_:))
             .store(in: &cancellables)

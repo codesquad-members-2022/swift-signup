@@ -41,12 +41,9 @@ class UserInfoModel {
                 state.phoneNumberState.map { _ in }
             )
             .map {
-                if self.state.birthDate.value != nil,
-                   self.state.emailState.value == .success,
-                   self.state.phoneNumberState.value == .success {
-                    return true
-                }
-                return false
+                self.state.birthDate.value != nil &&
+                self.state.emailState.value == .success &&
+                self.state.phoneNumberState.value == .success
             }
             .sink(receiveValue: self.state.isEnabledNextButton.send(_:))
             .store(in: &cancellables)
@@ -65,18 +62,12 @@ class UserInfoModel {
             .store(in: &cancellables)
         
         action.enteredEmail
-            .map {
-                if $0.isEmpty { return .none }
-                return CommonString.vaildateEmail($0) ? .success : .errorEmail
-            }
+            .map { CommonString.vaildateEmail($0) ? .success : .errorEmail }
             .sink(receiveValue: self.state.emailState.send(_:))
             .store(in: &cancellables)
         
         action.enteredPhoneNumber
-            .map {
-                if $0.isEmpty { return .none }
-                return CommonString.vaildatePhoneNumber($0) ? .success : .errorPhoneNumber
-            }
+            .map { CommonString.vaildatePhoneNumber($0) ? .success : .errorPhoneNumber }
             .sink(receiveValue: self.state.phoneNumberState.send(_:))
             .store(in: &cancellables)
     }

@@ -56,10 +56,6 @@ class InputButtonView: InputView, InputButtonField {
         button.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
     }
     
-    func addAction(_ action: UIAction) {
-        button.addAction(action, for: .touchUpInside)
-    }
-    
     func setMessage(_ message: String) {
         self.message.text = message
     }

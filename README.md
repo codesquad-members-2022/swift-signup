@@ -33,6 +33,20 @@
 
 ![user123](https://user-images.githubusercontent.com/5019378/161012082-93b1a1ed-3c7e-4a95-95c7-e39c2060efdc.gif)
 
+### 고민과 해결
+
+* Combine Publisher
+  * 애플에서 제공하는 Publisher만 사용하다보니 텍스트필드는 퍼블리셔로 하고
+    버튼 액션의 경우는 UIAction을 사용하여 처리
+  * JK의 리뷰를 받고 버튼의 Action도 Combine과 연결 할수 있는 방법을 모색
+  * 구글링을 해보니 보통 커스텀버튼 클래스 제작 후 내부에 Published 프로퍼티를 두어서 사용
+  * 커스텀버튼 제작 말고, UIButton 자체에서 사용할수 있는 방법을 다시 모색
+  * 구글링을 하던 중 UIControl을 활용하여 Combine과 연동하는 방법글을 찾음
+  * UIControl의 확장함수로 Publisher제작. 버튼도 Combine과 연동하여 사용해 볼수 있었음
+  * 그 외에도 텍스트필드의 다른 이벤트들도 Publisher함수 제작.
+    UISegmentedControl도 Publihser을 사용 할 수 있도록 확장함수 제작
+  * 추후 Combine과 연동이 필요한 것들은 확장함수로 제작하여 다뤄볼수 있을것 같습니다!
+
 ------
 
 ## [Step1] 회원가입 페이지
