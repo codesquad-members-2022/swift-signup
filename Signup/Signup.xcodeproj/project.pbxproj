@@ -14,7 +14,6 @@
 		E0B1E36227F148810018D93E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0B1E36127F148810018D93E /* Assets.xcassets */; };
 		E0B1E36527F148810018D93E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0B1E36327F148810018D93E /* LaunchScreen.storyboard */; };
 		E0B1E37F27F149110018D93E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37627F149110018D93E /* Log.swift */; };
-		E0B1E38127F149110018D93E /* Color+Exteionsoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */; };
 		E0B1E38227F149110018D93E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37B27F149110018D93E /* URLSession+Extension.swift */; };
 		E0B1E38927F149F00018D93E /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E38827F149F00018D93E /* SignUpModel.swift */; };
 		E0B1E38B27F14A140018D93E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E38A27F14A140018D93E /* InputView.swift */; };
@@ -33,7 +32,6 @@
 		E0B1E3B627F207700018D93E /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AD27F1D13A0018D93E /* UITextField+Extension.swift */; };
 		E0B1E3B727F207700018D93E /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37B27F149110018D93E /* URLSession+Extension.swift */; };
 		E0B1E3B827F207700018D93E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */; };
-		E0B1E3B927F207700018D93E /* Color+Exteionsoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */; };
 		E0B1E3BA27F207830018D93E /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3AB27F1BE520018D93E /* NetworkRepository.swift */; };
 		E0B1E3BB27F207830018D93E /* ResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3B127F201230018D93E /* ResponseResult.swift */; };
 		E0B1E3BC27F2078D0018D93E /* SignUpTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1E3A927F1BA6E0018D93E /* SignUpTarget.swift */; };
@@ -73,7 +71,6 @@
 		E0B1E36427F148810018D93E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0B1E36627F148810018D93E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0B1E37627F149110018D93E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Exteionsoin.swift"; sourceTree = "<group>"; };
 		E0B1E37B27F149110018D93E /* URLSession+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
 		E0B1E38827F149F00018D93E /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		E0B1E38A27F14A140018D93E /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -211,7 +208,6 @@
 		E0B1E37927F149110018D93E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E0B1E37A27F149110018D93E /* Color+Exteionsoin.swift */,
 				E0B1E37B27F149110018D93E /* URLSession+Extension.swift */,
 				E0B1E3AD27F1D13A0018D93E /* UITextField+Extension.swift */,
 				E0B1E3AF27F1E95F0018D93E /* String+Extension.swift */,
@@ -449,7 +445,6 @@
 			files = (
 				E0B1E35D27F148800018D93E /* SignUpViewController.swift in Sources */,
 				E0B1E3A827F1BA000018D93E /* BaseTarget.swift in Sources */,
-				E0B1E38127F149110018D93E /* Color+Exteionsoin.swift in Sources */,
 				E0B1E3D527F328AF0018D93E /* InputTextField.swift in Sources */,
 				E0B1E3C927F3022B0018D93E /* RightToLeftTransition.swift in Sources */,
 				E0B1E3DB27F343950018D93E /* Date+Extension.swift in Sources */,
@@ -491,7 +486,6 @@
 				E0B1E3B627F207700018D93E /* UITextField+Extension.swift in Sources */,
 				E0B1E3BC27F2078D0018D93E /* SignUpTarget.swift in Sources */,
 				E0B1E3B327F207620018D93E /* SignUpRepository.swift in Sources */,
-				E0B1E3B927F207700018D93E /* Color+Exteionsoin.swift in Sources */,
 				E0B1E3BA27F207830018D93E /* NetworkRepository.swift in Sources */,
 				E0B1E3BB27F207830018D93E /* ResponseResult.swift in Sources */,
 				E0B1E39927F152B10018D93E /* SignUpModel.swift in Sources */,
