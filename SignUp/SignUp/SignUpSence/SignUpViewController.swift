@@ -109,16 +109,26 @@ final class SignUpViewController: UIViewController {
         inputViewCreator(creator: SignUpInputViewFactory())
         guard let factory = inputViewCreator else { return [] }
         
-        let id:(label:String,placeHolder:String) = (label:"아이디",placeHolder:"영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
-        let password:(label:String,placeHolder:String) = (label:"비밀번호",placeHolder:"영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
-        let passwordRecheck:(label:String,placeHolder:String) = (label:"비밀번호 재확인",placeHolder:"")
-        let name:(label:String,placeHolder:String) = (label:"이름",placeHolder:"")
-        
-        IDInputView = factory.makeSignUpViewComponent(labelText: id.label, placeHolder: id.placeHolder)
-        passwordInputView = factory.makeSignUpViewComponent(labelText: password.label, placeHolder: password.placeHolder)
-        passwordRecheckInputView = factory.makeSignUpViewComponent(labelText: passwordRecheck.label, placeHolder: passwordRecheck.placeHolder)
-        nameInputView = factory.makeSignUpViewComponent(labelText: name.label, placeHolder: name.placeHolder)
-        
+        IDInputView = factory.makeSignUpViewComponent(
+            id: InputViewComponent.id.id,
+            labelText: InputViewComponent.id.label,
+            placeHolder:InputViewComponent.id.placeHolder
+        )
+        passwordInputView = factory.makeSignUpViewComponent(
+            id: InputViewComponent.password.id,
+            labelText: InputViewComponent.password.label,
+            placeHolder: InputViewComponent.password.placeHolder
+        )
+        passwordRecheckInputView = factory.makeSignUpViewComponent(
+            id: InputViewComponent.passwordRecheck.id,
+            labelText: InputViewComponent.passwordRecheck.label,
+            placeHolder: InputViewComponent.passwordRecheck.placeHolder
+        )
+        nameInputView = factory.makeSignUpViewComponent(
+            id: InputViewComponent.name.id,
+            labelText: InputViewComponent.name.label,
+            placeHolder: InputViewComponent.name.placeHolder
+        )
         return [IDInputView,passwordInputView,passwordRecheckInputView,nameInputView]
     }
     
@@ -142,6 +152,7 @@ final class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController:InputTextFieldDelegate {
-    func textFieldEndEditing(textField: UITextField) {
+    func textFieldEndEditing(inputViewID: String, textField: UITextField) {
+        
     }
 }
