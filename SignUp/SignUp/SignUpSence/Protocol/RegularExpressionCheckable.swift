@@ -6,5 +6,5 @@
 //
 
 protocol RegularExpressionCheckable {
-    func check(expression:String) -> Bool
+    func check(expression:String) -> TextFieldInputResult
 }

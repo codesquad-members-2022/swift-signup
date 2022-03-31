@@ -28,10 +28,8 @@ final class SignUpViewTextFieldManger {
         guard let inputView = signUpView,
               let text = inputView.getTextFieldText(),
               let checker = regualrExpressionChecker else { return  }
-        self.isValidate = checker.check(expression:text)
+        let result = checker.check(expression:text)
+        print(result)
     }
-    
-    
-    
     
 }

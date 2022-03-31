@@ -8,6 +8,9 @@
 import Foundation
 
 enum TextFieldInputResult {
+
+    case idResult(result:TextFieldInputResult.IDResult)
+    case passwordResult(result:TextFieldInputResult.PasswordResult)
     
     enum IDResult{
         case success
@@ -15,10 +18,8 @@ enum TextFieldInputResult {
     }
 
     enum PasswordResult {
-        case noValidateLength
-        case noUpperCharacter
-        case noNumber
-        case noSpecialCharacter
+        case success
+        case failure(type:PasswordRegex)
     }
 }
 

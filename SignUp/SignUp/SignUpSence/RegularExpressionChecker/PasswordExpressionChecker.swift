@@ -8,8 +8,15 @@
 import Foundation
 
 final class PasswordExpressionChecker:RegularExpressionCheckable {
-    private static let regex = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,16}"
-    func check(expression: String) -> Bool {
-        return expression.range(of: PasswordExpressionChecker.regex, options: .regularExpression) != nil
+    
+    func check(expression: String) -> TextFieldInputResult {
+        //nil값이면 통과못한 Case
+        let nonPassCases = PasswordRegex.allCases.filter {
+            expression.range(of: $0.rawValue, options: .regularExpression) == nil
+        }
+        guard let result = nonPassCases.first else { return TextFieldInputResult.passwordResult(result: .success) }
+        return TextFieldInputResult.passwordResult(result: .failure(type: result))
     }
 }
+
+

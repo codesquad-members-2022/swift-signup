@@ -35,6 +35,7 @@
 		8DD10DC227F580D300D7C15B /* PasswordValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC127F580D300D7C15B /* PasswordValidationResult.swift */; };
 		8DD10DC427F5827300D7C15B /* SignUpViewTextFieldManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC327F5827300D7C15B /* SignUpViewTextFieldManger.swift */; };
 		8DD10DC627F588AC00D7C15B /* TextFieldInputResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */; };
+		8DD10DC827F5A04400D7C15B /* PasswordRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		8DD10DC127F580D300D7C15B /* PasswordValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationResult.swift; sourceTree = "<group>"; };
 		8DD10DC327F5827300D7C15B /* SignUpViewTextFieldManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewTextFieldManger.swift; sourceTree = "<group>"; };
 		8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputResult.swift; sourceTree = "<group>"; };
+		8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */,
 				8DD10DBF27F580B500D7C15B /* IDValidationResult.swift */,
 				8DD10DC127F580D300D7C15B /* PasswordValidationResult.swift */,
+				8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */,
 				8DD10DAE27F54A6100D7C15B /* InputViewComponent.swift in Sources */,
 				8DD10DC027F580B500D7C15B /* IDValidationResult.swift in Sources */,
+				8DD10DC827F5A04400D7C15B /* PasswordRegex.swift in Sources */,
 				8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */,
 				8DD10DC227F580D300D7C15B /* PasswordValidationResult.swift in Sources */,
 				8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */,

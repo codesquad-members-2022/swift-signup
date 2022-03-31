@@ -159,13 +159,15 @@ extension SignUpViewController:InputTextFieldDelegate {
     func textFieldEndEditing(inputViewID: String, textField: UITextField) {
         switch inputViewID {
         case InputViewComponent.id.id:
+            //set checker
             inputExpressionChecker(checker: IDExpressionChecker())
             
+            //set TextFieldmanger
             signUpViewTextFieldManger = SignUpViewTextFieldManger(
                 signUpView: IDInputView,
                 regualrExpressionChecker: regualrExpressionChecker
             )
-            
+            //CheckText
             signUpViewTextFieldManger?.isValidateText()
 
         case InputViewComponent.password.id:
