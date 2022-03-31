@@ -18,7 +18,7 @@ final class SignUpNetwork {
         guard let signUpURL = signUpURL else { return }
         
         var urlRequest = URLRequest(url: signUpURL)
-        urlRequest.httpMethod = "GET"
+        urlRequest.httpMethod = HttpMethod.get
         
         let dataTask = session.dataTask(with: urlRequest) { [weak self] data, response, _ in
             guard let self = self else { return }
@@ -45,7 +45,7 @@ final class SignUpNetwork {
         //is URL available?
         guard let signUpURL = signUpURL else { return }
         var urlRequest = URLRequest(url: signUpURL)
-        urlRequest.httpMethod = "POST"
+        urlRequest.httpMethod = HttpMethod.post
         
         do {
             urlRequest.httpBody = try JSONEncoder().encode(postBody)
@@ -96,28 +96,3 @@ final class SignUpNetwork {
         }
     }
 }
-
-
-enum httepMethod:String {
-    case get = "GET"
-    case post = "POST"
-}
-
-
-
-/*
- var request = URLRequest(url: signUpURL)
- request.httpMethod = "GET"
- 
- let dataTask = session.dataTask(with: request) { [weak self] data, response, error in
-     guard let self = self else { return }
-     guard let data = data else { return }
-     guard let response = response,
-           let response = response as? HTTPURLResponse,(200..<300) ~= response.statusCode else { return }
-           
-     let decoder = JSONDecoder()
-     guard let userInfo = try? decoder.decode(UserID.self, from: data) else { return }
-     
- }
- .resume()
- */

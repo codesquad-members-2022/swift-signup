@@ -29,6 +29,7 @@
 		8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */; };
 		8DD10DA727F443B000D7C15B /* InputTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA627F443B000D7C15B /* InputTextFieldDelegate.swift */; };
 		8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA827F443E000D7C15B /* Typealias.swift */; };
+		8DD10DAC27F5453900D7C15B /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DAB27F5453900D7C15B /* HttpMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordExpressionChecker.swift; sourceTree = "<group>"; };
 		8DD10DA627F443B000D7C15B /* InputTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFieldDelegate.swift; sourceTree = "<group>"; };
 		8DD10DA827F443E000D7C15B /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		8DD10DAB27F5453900D7C15B /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */,
+				8DD10DAB27F5453900D7C15B /* HttpMethod.swift */,
 			);
 			path = Netwrok;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */,
 				8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */,
 				8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */,
+				8DD10DAC27F5453900D7C15B /* HttpMethod.swift in Sources */,
 				8D1E791427F1A2C7004FD949 /* SignUpInputViewFactory.swift in Sources */,
 				8D3FBF2B27F429D800D31E72 /* IDRegularExpressionChecker.swift in Sources */,
 				8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */,
