@@ -11,9 +11,7 @@ import Combine
 
 protocol InputButtonField {
     var publisher: AnyPublisher<Void, Never> { get }
-    
     var view: UIView { get }
     
-    func addAction(_ action: UIAction)
     func setMessage(_ message: String)
 }
