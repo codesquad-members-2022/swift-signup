@@ -11,11 +11,8 @@ class IdentificationViewController: UIViewController {
     
     @IBOutlet weak var nextButtonView: UIView!
     
-    private var idTextFieldDelegate: ValidateTextFieldDelegate?
     @IBOutlet weak var idTextField: CustomTextField! {
         didSet {
-            self.idTextFieldDelegate = ValidateTextFieldDelegate(delegate: idTextField)
-            idTextField.delegate = self.idTextFieldDelegate
             idTextField.validator = ValidationRegularText(as: .id)
         }
     }
@@ -31,4 +28,3 @@ class IdentificationViewController: UIViewController {
         performSegue(withIdentifier: "PrivateInfoViewController", sender: self)
     }
 }
-
