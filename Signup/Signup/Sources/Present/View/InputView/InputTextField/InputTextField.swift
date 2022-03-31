@@ -16,4 +16,5 @@ protocol InputTextField {
     var view: UIView { get }
     
     func setMessage(_ isError: Bool, _ message: String)
+    func setFocused(_ isFocused: Bool)
 }
