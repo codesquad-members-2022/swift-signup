@@ -11,6 +11,8 @@ final class SignUpInputView:UIView,SignUpInputViewable {
     
     var delegate:InputTextFieldDelegate?
     
+    private let ID:String = ""
+    
     private lazy var label:UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
