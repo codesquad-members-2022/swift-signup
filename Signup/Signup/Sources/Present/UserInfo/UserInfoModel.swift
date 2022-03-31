@@ -21,8 +21,8 @@ class UserInfoModel {
     struct State {
         let birthDate = CurrentValueSubject<Date?, Never>(nil)
         let gender = CurrentValueSubject<Gender, Never>(.female)
-        let emailMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
-        let phoneNumberMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
+        let emailMessage = CurrentValueSubject<InputState, Never>(.none)
+        let phoneNumberMessage = CurrentValueSubject<InputState, Never>(.none)
         
         let presentDatePickerView = PassthroughSubject<Date, Never>()
         let isEnabledNextButton = PassthroughSubject<Bool, Never>()
@@ -42,8 +42,8 @@ class UserInfoModel {
             )
             .map {
                 if self.state.birthDate.value != nil,
-                   self.state.emailMessage.value.0,
-                   self.state.phoneNumberMessage.value.0 {
+                   self.state.emailMessage.value == .success,
+                   self.state.phoneNumberMessage.value == .success {
                     return true
                 }
                 return false
@@ -67,9 +67,9 @@ class UserInfoModel {
         action.enteredEmail
             .map {
                 if $0.validatePredicate(format: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}$") {
-                    return (true, "사용가능한 메일입니다.")
+                    return .success
                 }
-                return (false, "이메일 주소를 다시 확인해주세요.")
+                return .errorEmail
             }
             .sink(receiveValue: self.state.emailMessage.send(_:))
             .store(in: &cancellables)
@@ -77,11 +77,30 @@ class UserInfoModel {
         action.enteredPhoneNumber
             .map {
                 if $0.validatePredicate(format: "^01([0-9])([0-9]{3,4})([0-9]{4})$") {
-                    return (true, "사용가능한 번호입니다.")
+                    return .success
                 }
-                return (false, "형식에 맞지 않는 번호입니다.")
+                return .errorPhoneNumber
             }
             .sink(receiveValue: self.state.phoneNumberMessage.send(_:))
             .store(in: &cancellables)
+    }
+}
+
+extension UserInfoModel {
+    enum InputState {
+        case none
+        case success
+        case errorEmail
+        case errorPhoneNumber
+        
+        var message: String {
+            switch self {
+            case .none, .success: return ""
+            case .errorEmail:
+                return "이메일 주소를 다시 확인해주세요."
+            case .errorPhoneNumber:
+                return "형식에 맞지 않는 번호입니다."
+            }
+        }
     }
 }

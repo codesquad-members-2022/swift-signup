@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class SignUpModel {
-        
     struct Action {
         let enteredUserId = CurrentValueSubject<String, Never>("")
         let enteredPassword = CurrentValueSubject<String, Never>("")
@@ -19,10 +18,10 @@ class SignUpModel {
     }
     
     struct State {
-        let userIdMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
-        let passwordMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
-        let checkPasswordMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
-        let userNameMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
+        let userIdState = CurrentValueSubject<InputState, Never>(.none)
+        let passwordState = CurrentValueSubject<InputState, Never>(.none)
+        let checkPasswordState = CurrentValueSubject<InputState, Never>(.none)
+        let userNameState = CurrentValueSubject<InputState, Never>(.none)
         
         let isEnabledNextButton = PassthroughSubject<Bool, Never>()
         let presentNextPage = PassthroughSubject<Void, Never>()
@@ -37,15 +36,15 @@ class SignUpModel {
     init() {
         Publishers
             .Merge4(
-                state.userIdMessage.map { _ in },
-                state.passwordMessage.map { _ in },
-                state.checkPasswordMessage.map { _ in },
-                state.userNameMessage.map { _ in })
+                state.userIdState.map { _ in },
+                state.passwordState.map { _ in },
+                state.checkPasswordState.map { _ in },
+                state.userNameState.map { _ in })
             .map {
-                if self.state.userIdMessage.value.0,
-                   self.state.passwordMessage.value.0,
-                   self.state.checkPasswordMessage.value.0,
-                   self.state.userNameMessage.value.0 {
+                if self.state.userIdState.value == .success,
+                   self.state.passwordState.value == .success,
+                   self.state.checkPasswordState.value == .success,
+                   self.state.userNameState.value == .success {
                     return true
                 }
                 return false
@@ -56,65 +55,63 @@ class SignUpModel {
         action.enteredUserId
             .map {
                 if $0.isEmpty {
-                    return (false ,"")
+                    return .none
                 }
                 if $0.validatePredicate(format: "[A-Za-z0-9_-]{5,20}") {
-                    return (true, "사용 가능한 아이디입니다.")
-                } else {
-                    return (false, "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다.")
-                }
+                    return .success
+                } else { return .errorUserId }
             }
-            .sink(receiveValue: self.state.userIdMessage.send(_:))
+            .sink(receiveValue: self.state.userIdState.send(_:))
             .store(in: &cancellables)
         
         action.enteredPassword
             .map {
                 if $0.isEmpty {
-                    return (false ,"")
+                    return .none
                 }
                 
                 if $0.validatePredicate(format: ".{8,16}") == false {
-                    return (false, "8자 이상 16자 이하로 입력해주세요.")
+                    return .errorLengthLimited
                 }
                 
                 if $0.vaildateRegex(pattern: "[A-Z]") == false {
-                    return (false, "영문 대문자를 최소 1자 이상 포함해주세요.")
+                    return .errorNoCapitalLetters
                 }
                 
                 if $0.vaildateRegex(pattern: "[0-9]") == false {
-                    return (false, "숫자를 최소 1자 이상 포함해주세요.")
+                    return .errorNoNumber
                 }
                 
                 if $0.vaildateRegex(pattern: "[!@#$%^&*()_+=-]") == false {
-                    return (false, "특수문자를 최소 1자 이상 포함해주세요.")
+                    return .errorNoSpecialCharacters
                 }
                 
-                return (true, "안전한 비밀번호입니다.")
+                return .success
             }
-            .sink(receiveValue: self.state.passwordMessage.send(_:))
+            .sink(receiveValue: self.state.passwordState.send(_:))
             .store(in: &cancellables)
         
         action.enteredCheckPassword
             .combineLatest(action.enteredPassword)
             .map {
                 if $0 != $1 {
-                    return (false, "비밀번호가 일치하지 않습니다.")
+                    return .errorNotMatch
                 } else {
-                    return (true, "비밀번호가 일치합니다.")
+                    return .success
                 }
             }
-            .sink(receiveValue: self.state.checkPasswordMessage.send(_:))
+            .sink(receiveValue: self.state.checkPasswordState.send(_:))
             .store(in: &cancellables)
         
         action.enteredUserName
             .map {
                 if $0.isEmpty {
-                    return (false , "이름은 필수 입력 항목입니다.")
+                    return .errorNoInput
                 } else {
-                    return (true , "비밀번호가 일치합니다.")
+                    return .success
                 }
             }
-            .sink(receiveValue: self.state.userNameMessage.send(_:))
+            .sink(receiveValue: self.state.userNameState.send(_:))
             .store(in: &cancellables)
         
         self.action.tappedNextButton
@@ -128,5 +125,39 @@ class SignUpModel {
             }, receiveValue: { data in
                 self.state.presentNextPage.send()
             }).store(in: &cancellables)
+    }
+}
+
+extension SignUpModel {
+    enum InputState {
+        case none
+        case success
+        case errorUserId
+        case errorLengthLimited
+        case errorNoCapitalLetters
+        case errorNoNumber
+        case errorNoSpecialCharacters
+        case errorNotMatch
+        case errorNoInput
+        
+        var message: String {
+            switch self {
+            case .none, .success: return ""
+            case .errorUserId:
+                return "5~20자의 영문 소문자, 숫자와 특수기호(_)(-) 만 사용 가능합니다."
+            case .errorLengthLimited:
+                return "8자 이상 16자 이하로 입력해주세요."
+            case .errorNoCapitalLetters:
+                return "영문 대문자를 최소 1자 이상 포함해주세요."
+            case .errorNoNumber:
+                return "숫자를 최소 1자 이상 포함해주세요."
+            case .errorNoSpecialCharacters:
+                return "특수문자를 최소 1자 이상 포함해주세요."
+            case .errorNotMatch:
+                return "비밀번호가 일치하지 않습니다."
+            case .errorNoInput:
+                return "이름은 필수 입력 항목입니다."
+            }
+        }
     }
 }

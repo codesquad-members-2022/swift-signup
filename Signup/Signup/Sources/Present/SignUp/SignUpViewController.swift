@@ -106,7 +106,13 @@ class SignUpViewController: UIViewController {
             .sink(receiveValue: self.model.action.enteredUserId.send(_:))
             .store(in: &cancellables)
                 
-        model.state.userIdMessage
+        model.state.userIdState
+            .map {
+                if $0 == .success {
+                    return (true, "사용 가능한 아이디입니다.")
+                }
+                return (false, $0.message)
+            }
             .sink(receiveValue: self.userId.setMessage(_:_:))
             .store(in: &cancellables)
         
@@ -115,7 +121,13 @@ class SignUpViewController: UIViewController {
             .sink(receiveValue: self.model.action.enteredPassword.send(_:))
             .store(in: &cancellables)
         
-        model.state.passwordMessage
+        model.state.passwordState
+            .map {
+                if $0 == .success {
+                    return (true, "안전한 비밀번호입니다.")
+                }
+                return (false, $0.message)
+            }
             .sink(receiveValue: self.password.setMessage(_:_:))
             .store(in: &cancellables)
         
@@ -124,7 +136,13 @@ class SignUpViewController: UIViewController {
             .sink(receiveValue: self.model.action.enteredCheckPassword.send(_:))
             .store(in: &cancellables)
         
-        model.state.checkPasswordMessage
+        model.state.checkPasswordState
+            .map {
+                if $0 == .success {
+                    return (true, "비밀번호가 일치합니다.")
+                }
+                return (false, $0.message)
+            }
             .sink(receiveValue: self.checkPassword.setMessage(_:_:))
             .store(in: &cancellables)
         
@@ -133,7 +151,13 @@ class SignUpViewController: UIViewController {
             .sink(receiveValue: self.model.action.enteredUserName.send(_:))
             .store(in: &cancellables)
         
-        model.state.userNameMessage
+        model.state.userNameState
+            .map {
+                if $0 == .success {
+                    return (true , "")
+                }
+                return (false, $0.message)
+            }
             .sink(receiveValue: self.userName.setMessage(_:_:))
             .store(in: &cancellables)
         
