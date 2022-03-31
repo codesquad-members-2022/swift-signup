@@ -36,6 +36,14 @@ class UserInfoViewController: UIViewController {
         return buttonView
     }()
     
+    let gender: InputSegmented = {
+        let segmentedView = InputSegmentedView(items: Gender.allCases.map { $0.name })
+        segmentedView.translatesAutoresizingMaskIntoConstraints = false
+        segmentedView.title = "성별"
+        segmentedView.selectedIndex = 0
+        return segmentedView
+    }()
+    
     let email: InputTextField = {
         let inputView = InputTextFieldView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +99,7 @@ class UserInfoViewController: UIViewController {
     }()
     
     var inputViews: [UIView] {
-        [self.birthDate.view, self.email.view, self.phoneNumber.view]
+        [self.birthDate.view, self.gender.view, self.email.view, self.phoneNumber.view]
     }
     
     var cancellables = Set<AnyCancellable>()
@@ -106,48 +114,54 @@ class UserInfoViewController: UIViewController {
     }
     
     private func bind() {
-        self.birthDate.addAction(UIAction { _ in
-            self.model.action.presentDatePickerView.send()
-        })
+        //BirthDate
+        self.birthDate.publisher
+            .sink(receiveValue: self.model.action.presentDatePickerView.send)
+            .store(in: &cancellables)
         
         model.state.presentDatePickerView
             .sink(receiveValue: self.showAlertDatePicker(date:))
             .store(in: &cancellables)
         
         model.state.birthDate
-            .dropFirst()
             .map { $0?.toString(format: "yyyy-MM-dd") ?? ""}
             .sink(receiveValue: self.birthDate.setMessage(_:))
             .store(in: &cancellables)
         
-        self.email.textPublisher
-            .sink(receiveValue: self.model.action.emailEntered.send(_:))
+        //Gender
+        self.gender.addAction(UIAction { _ in
+            let gender = Gender.allCases[self.gender.selectedIndex]
+            self.model.action.selectGender.send(gender)
+        })
+        
+        //Email
+        self.email.changedPublisher
+            .sink(receiveValue: self.model.action.enteredEmail.send(_:))
             .store(in: &cancellables)
         
         model.state.emailMessage
             .sink(receiveValue: self.email.setSubMessage(_:_:))
             .store(in: &cancellables)
         
-        self.phoneNumber.textPublisher
-            .sink(receiveValue: self.model.action.phoneNumberEntered.send(_:))
+        //PhoneNumber
+        self.phoneNumber.changedPublisher
+            .sink(receiveValue: self.model.action.enteredPhoneNumber.send(_:))
             .store(in: &cancellables)
         
         model.state.phoneNumberMessage
             .sink(receiveValue: self.phoneNumber.setSubMessage(_:_:))
             .store(in: &cancellables)
         
-        model.state.isNextButtonEnabled
+        //Buttons
+        model.state.isEnabledNextButton
             .sink { isEnabled in
                 self.nextButton.isEnabled = isEnabled
             }.store(in: &cancellables)
         
-        prevButton.addAction(UIAction { _ in
-            self.dismiss(animated: true, completion: nil)
-        }, for: .touchUpInside)
-        
-        nextButton.addAction(UIAction { _ in
-//            self.model.action.nextButtonTapped.send()
-        }, for: .touchUpInside)
+        prevButton.publisher(for: .touchUpInside)
+            .sink {
+                self.dismiss(animated: true, completion: nil)
+            }.store(in: &cancellables)
         
     }
     

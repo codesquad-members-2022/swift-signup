@@ -10,19 +10,22 @@ import Combine
 
 class UserInfoModel {
     struct Action {
-        let presentDatePickerView = PassthroughSubject<Void, Never>()
         let selectBirthDate = PassthroughSubject<Date, Never>()
-        let emailEntered = PassthroughSubject<String, Never>()
-        let phoneNumberEntered = PassthroughSubject<String, Never>()
+        let selectGender = PassthroughSubject<Gender, Never>()
+        let enteredEmail = PassthroughSubject<String, Never>()
+        let enteredPhoneNumber = PassthroughSubject<String, Never>()
+        
+        let presentDatePickerView = PassthroughSubject<Void, Never>()
     }
     
     struct State {
         let birthDate = CurrentValueSubject<Date?, Never>(nil)
+        let gender = CurrentValueSubject<Gender, Never>(.female)
         let emailMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
         let phoneNumberMessage = CurrentValueSubject<(Bool, String), Never>((false, ""))
         
         let presentDatePickerView = PassthroughSubject<Date, Never>()
-        let isNextButtonEnabled = PassthroughSubject<Bool, Never>()
+        let isEnabledNextButton = PassthroughSubject<Bool, Never>()
     }
     
     var cancellables = Set<AnyCancellable>()
@@ -33,9 +36,10 @@ class UserInfoModel {
         
         Publishers
             .Merge3(
-                action.selectBirthDate.map { _ in },
-                action.emailEntered.map { _ in },
-                action.phoneNumberEntered.map { _ in })
+                state.birthDate.map { _ in },
+                state.emailMessage.map { _ in },
+                state.phoneNumberMessage.map { _ in }
+            )
             .map {
                 if self.state.birthDate.value != nil,
                    self.state.emailMessage.value.0,
@@ -44,7 +48,7 @@ class UserInfoModel {
                 }
                 return false
             }
-            .sink(receiveValue: self.state.isNextButtonEnabled.send(_:))
+            .sink(receiveValue: self.state.isEnabledNextButton.send(_:))
             .store(in: &cancellables)
         
         action.presentDatePickerView
@@ -56,7 +60,7 @@ class UserInfoModel {
             .sink(receiveValue: self.state.birthDate.send(_:))
             .store(in: &cancellables)
         
-        action.emailEntered
+        action.enteredEmail
             .map {
                 if $0.validatePredicate(format: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}$") {
                     return (true, "사용가능한 메일입니다.")
@@ -66,7 +70,7 @@ class UserInfoModel {
             .sink(receiveValue: self.state.emailMessage.send(_:))
             .store(in: &cancellables)
         
-        action.phoneNumberEntered
+        action.enteredPhoneNumber
             .map {
                 if $0.validatePredicate(format: "^01([0-9])([0-9]{3,4})([0-9]{4})$") {
                     return (true, "사용가능한 번호입니다.")
