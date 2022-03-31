@@ -82,7 +82,6 @@ final class SignUpViewController: UIViewController {
         inputViewComponents.forEach{ inputViewable in
             guard let view = inputViewable as? SignUpInputView else { return }
             stackView.addArrangedSubview(view)
-            view.delegate = self
         }
         
         self.view.addSubview(stackView)
@@ -139,10 +138,5 @@ final class SignUpViewController: UIViewController {
     
     private func inputExpressionChecker(checker:RegularExpressionCheckable) {
         self.regualrExpressionChecker = checker
-    }
-}
-
-extension SignUpViewController:InputTextFieldDelegate {
-    func textFieldEndEditing(textField: UITextField) {
     }
 }
