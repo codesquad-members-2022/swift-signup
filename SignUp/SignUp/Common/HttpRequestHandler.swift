@@ -7,12 +7,8 @@ enum HttpMethod: String{
     case put = "PUT"
 }
 
-enum HttpResponseKey: String{
-    case responseBodyData = "responseBodyData"
 }
 
-struct NotificationName{
-    static let normalResponseReceived = Notification.Name("normalResponseReceived")
 }
 
 class HttpRequestHandler{
@@ -40,8 +36,6 @@ class HttpRequestHandler{
             }
             
             guard let responseBody = try? JSONDecoder().decode(Dictionary<String, String>.self, from: data) else { return }
-            NotificationCenter.default.post(name: NotificationName.normalResponseReceived, object: self, userInfo: [HttpResponseKey.responseBodyData:responseBody])
-            
         }.resume()
     }
 }

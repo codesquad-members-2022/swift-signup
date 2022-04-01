@@ -7,7 +7,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginView.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(responseReceived(_:)), name: NotificationName.normalResponseReceived, object: HttpRequestHandler.self)
     }
 }
 
@@ -36,8 +35,6 @@ extension LoginViewController: LoginViewDelegate{
         }
     }
     
-    @objc func responseReceived(_ notification: Notification){
-        guard let responseBody = notification.userInfo?[HttpResponseKey.responseBodyData] as? Dictionary<String,String> else { return }
         guard let status = responseBody["status"] else { return }
         
         var alertMessage: String = ""
