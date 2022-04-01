@@ -32,14 +32,14 @@
 		B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDeleagte.swift; sourceTree = "<group>"; };
 		B557E9C727F441D200448EC6 /* HttpRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestHandler.swift; sourceTree = "<group>"; };
 		B557E9CB27F4776A00448EC6 /* LoginUserProcotol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserProcotol.swift; sourceTree = "<group>"; };
-		B557E9DD27F58D8500448EC6 /* AlertPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertPresentable.swift; path = SignUp/Views/Protocols/AlertPresentable.swift; sourceTree = SOURCE_ROOT; };
+		B557E9DD27F58D8500448EC6 /* AlertPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertPresentable.swift; path = SignUp/Controllers/Protocols/AlertPresentable.swift; sourceTree = SOURCE_ROOT; };
 		B557E9DF27F5966400448EC6 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		B571ECD427F354E400DF501F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B571ECD727F355C300DF501F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B571ECD927F363BE00DF501F /* SigningUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningUpView.swift; sourceTree = "<group>"; };
 		B571ECDB27F3722900DF501F /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		B571ECDD27F3723C00DF501F /* PersonalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoView.swift; sourceTree = "<group>"; };
-		B5EC66A327F74A010042EFCF /* HttpResponseHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpResponseHandleable.swift; path = SignUp/Common/HttpResponseHandleable.swift; sourceTree = SOURCE_ROOT; };
+		B5EC66A327F74A010042EFCF /* HttpResponseHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpResponseHandleable.swift; path = SignUp/Controllers/Protocols/HttpResponseHandleable.swift; sourceTree = SOURCE_ROOT; };
 		B5F8730327F19EE700FFFE7F /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F8730627F19EE700FFFE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F8730827F19EE700FFFE7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,18 +95,10 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		B557E9D027F4BD4D00448EC6 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				B557E9DD27F58D8500448EC6 /* AlertPresentable.swift */,
-				B5EC66A327F74A010042EFCF /* HttpResponseHandleable.swift */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		B571ECD327F1FA1100DF501F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5EC66A527F754CE0042EFCF /* Protocols */,
 				B5F8730A27F19EE700FFFE7F /* SigningUpViewController.swift */,
 				B571ECD427F354E400DF501F /* LoginViewController.swift */,
 				B571ECDB27F3722900DF501F /* PersonalInfoViewController.swift */,
@@ -117,13 +109,21 @@
 		B571ECD627F355A700DF501F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B557E9D027F4BD4D00448EC6 /* New Group */,
 				B557E9C427F4400400448EC6 /* DelegateProtocols */,
 				B571ECD727F355C300DF501F /* LoginView.swift */,
 				B571ECD927F363BE00DF501F /* SigningUpView.swift */,
 				B571ECDD27F3723C00DF501F /* PersonalInfoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5EC66A527F754CE0042EFCF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B557E9DD27F58D8500448EC6 /* AlertPresentable.swift */,
+				B5EC66A327F74A010042EFCF /* HttpResponseHandleable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B5F872FA27F19EE700FFFE7F = {
