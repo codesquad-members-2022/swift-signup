@@ -8,7 +8,7 @@
 import Foundation
 
 class UserIdVelidate: BaseValidate {
-    static func verification(text: String) -> ValidateResultType {
+    static func verification(text: String) -> ValidateResult {
         if text.isEmpty {
             return .none
         }

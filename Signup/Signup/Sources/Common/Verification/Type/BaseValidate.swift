@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ValidateResultType {
+enum ValidateResult {
     case none
     case success
     case errorUserId
@@ -46,7 +46,7 @@ enum ValidateResultType {
 }
 
 protocol BaseValidate {
-    static func verification(text: String) -> ValidateResultType
+    static func verification(text: String) -> ValidateResult
 }
 
 extension BaseValidate {

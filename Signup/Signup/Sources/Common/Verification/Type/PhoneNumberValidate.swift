@@ -8,7 +8,7 @@
 import Foundation
 
 enum PhoneNumberValidate: BaseValidate {
-    static func verification(text: String) -> ValidateResultType {
+    static func verification(text: String) -> ValidateResult {
         if validatePredicate(text, format: "^01([0-9])([0-9]{3,4})([0-9]{4})$") {
             return .success
         }

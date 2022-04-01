@@ -8,7 +8,7 @@
 import Foundation
 
 class Verification<T: BaseValidate> {
-    func check(text: String) -> ValidateResultType {
+    func check(text: String) -> ValidateResult {
         T.verification(text: text)
     }
 }
