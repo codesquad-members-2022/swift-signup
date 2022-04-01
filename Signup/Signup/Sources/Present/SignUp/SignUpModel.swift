@@ -18,8 +18,8 @@ class SignUpModel {
     }
     
     struct State {
-        let userIdState = CurrentValueSubject<ValidateResultType, Never>(.none)
-        let passwordState = CurrentValueSubject<ValidateResultType, Never>(.none)
+        let userIdState = CurrentValueSubject<ValidateResult, Never>(.none)
+        let passwordState = CurrentValueSubject<ValidateResult, Never>(.none)
         let checkPasswordState = CurrentValueSubject<Bool, Never>(false)
         let userNameState = CurrentValueSubject<Bool, Never>(false)
         
@@ -61,7 +61,7 @@ class SignUpModel {
         
         action.enteredCheckPassword
             .combineLatest(action.enteredPassword)
-            .map { $0 != $1 }
+            .map { $0 == $1 }
             .sink(receiveValue: self.state.checkPasswordState.send(_:))
             .store(in: &cancellables)
         

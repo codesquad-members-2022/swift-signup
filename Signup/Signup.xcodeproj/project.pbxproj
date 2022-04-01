@@ -54,6 +54,8 @@
 		E0BE4BA827F5E2940076403C /* PhoneNumberValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BA727F5E2940076403C /* PhoneNumberValidate.swift */; };
 		E0BE4BAA27F5E4DD0076403C /* UserIdVelidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BA927F5E4DD0076403C /* UserIdVelidate.swift */; };
 		E0BE4BAC27F5E5740076403C /* PasswordVaildate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BAB27F5E5740076403C /* PasswordVaildate.swift */; };
+		E0BE4BAE27F5E93A0076403C /* TermsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BAD27F5E93A0076403C /* TermsModel.swift */; };
+		E0BE4BB227F6EC2C0076403C /* termsText.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4BB127F6EC2C0076403C /* termsText.txt */; };
 		E0F659AB27F58BFD00F5BC48 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +111,8 @@
 		E0BE4BA727F5E2940076403C /* PhoneNumberValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberValidate.swift; sourceTree = "<group>"; };
 		E0BE4BA927F5E4DD0076403C /* UserIdVelidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdVelidate.swift; sourceTree = "<group>"; };
 		E0BE4BAB27F5E5740076403C /* PasswordVaildate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVaildate.swift; sourceTree = "<group>"; };
+		E0BE4BAD27F5E93A0076403C /* TermsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsModel.swift; sourceTree = "<group>"; };
+		E0BE4BB127F6EC2C0076403C /* termsText.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = termsText.txt; sourceTree = "<group>"; };
 		E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +192,7 @@
 				E0B1E35E27F148800018D93E /* Main.storyboard */,
 				E0B1E36127F148810018D93E /* Assets.xcassets */,
 				E0B1E36327F148810018D93E /* LaunchScreen.storyboard */,
+				E0BE4BB127F6EC2C0076403C /* termsText.txt */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -238,7 +243,7 @@
 				E0B1E3CA27F304940018D93E /* View */,
 				E0B1E36F27F148E40018D93E /* SignUp */,
 				E0B1E3C227F2EFEF0018D93E /* UserInfo */,
-				E0B1E3EE27F585F70018D93E /* Tterms */,
+				E0B1E3EE27F585F70018D93E /* Terms */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -366,12 +371,13 @@
 			path = Verification;
 			sourceTree = "<group>";
 		};
-		E0B1E3EE27F585F70018D93E /* Tterms */ = {
+		E0B1E3EE27F585F70018D93E /* Terms */ = {
 			isa = PBXGroup;
 			children = (
 				E0B1E3EF27F5860E0018D93E /* TermsViewController.swift */,
+				E0BE4BAD27F5E93A0076403C /* TermsModel.swift */,
 			);
-			path = Tterms;
+			path = Terms;
 			sourceTree = "<group>";
 		};
 		E0BE4BA627F5E2100076403C /* Type */ = {
@@ -470,6 +476,7 @@
 				E0B1E36527F148810018D93E /* LaunchScreen.storyboard in Resources */,
 				E0B1E36227F148810018D93E /* Assets.xcassets in Resources */,
 				E0B1E36027F148800018D93E /* Main.storyboard in Resources */,
+				E0BE4BB227F6EC2C0076403C /* termsText.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +525,7 @@
 				E0B1E3E327F449020018D93E /* InputSegmented.swift in Sources */,
 				E0B1E3AC27F1BE520018D93E /* NetworkRepository.swift in Sources */,
 				E0B1E38B27F14A140018D93E /* InputView.swift in Sources */,
+				E0BE4BAE27F5E93A0076403C /* TermsModel.swift in Sources */,
 				E0B1E35927F148800018D93E /* AppDelegate.swift in Sources */,
 				E0B1E35B27F148800018D93E /* SceneDelegate.swift in Sources */,
 				E0BE4BAA27F5E4DD0076403C /* UserIdVelidate.swift in Sources */,

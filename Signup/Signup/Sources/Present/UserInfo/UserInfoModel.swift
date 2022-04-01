@@ -21,8 +21,8 @@ class UserInfoModel {
     struct State {
         let birthDate = CurrentValueSubject<Date?, Never>(nil)
         let gender = CurrentValueSubject<Gender, Never>(.female)
-        let emailState = CurrentValueSubject<ValidateResultType, Never>(.none)
-        let phoneNumberState = CurrentValueSubject<ValidateResultType, Never>(.none)
+        let emailState = CurrentValueSubject<ValidateResult, Never>(.none)
+        let phoneNumberState = CurrentValueSubject<ValidateResult, Never>(.none)
         
         let presentDatePickerView = PassthroughSubject<Date, Never>()
         let isEnabledNextButton = PassthroughSubject<Bool, Never>()

@@ -8,7 +8,7 @@
 import Foundation
 
 enum EmailValidate: BaseValidate {
-    static func verification(text: String) -> ValidateResultType {
+    static func verification(text: String) -> ValidateResult {
         if validatePredicate(text, format: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}$") {
             return .success
         }

@@ -95,7 +95,7 @@ class UserInfoViewController: UIViewController {
         button.setTitleColor(.systemGray2, for: .disabled)
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
-        button.isEnabled = false
+        button.isEnabled = true
         return button
     }()
     
@@ -178,6 +178,12 @@ class UserInfoViewController: UIViewController {
         prevButton.publisher(for: .touchUpInside)
             .sink {
                 self.dismiss(animated: true, completion: nil)
+            }.store(in: &cancellables)
+        
+        nextButton.publisher(for: .touchUpInside)
+            .sink {
+                let viewController = TermsViewController()
+                self.present(viewController, animated: true)
             }.store(in: &cancellables)
         
         Publishers
