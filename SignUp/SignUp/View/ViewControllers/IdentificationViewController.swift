@@ -16,12 +16,26 @@ class IdentificationViewController: UIViewController {
             idTextField.validator = ValidationRegularText(as: .id)
         }
     }
+    @IBOutlet weak var passwordTextField: CustomTextField! {
+        didSet {
+            passwordTextField.validator = ValidationRegularText(as: .password)
+        }
+    }
+    
+    var validationCompareComponent: ValidationCompareComponent?
+    @IBOutlet weak var passwordConfirmTextField: CustomTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let button = CustomSegueButton(with: nextButtonView.bounds, as: "다음", using: #selector(nextButtonTouchUpInside(_:)))
         nextButtonView.addSubview(button)
+        validationCompareComponent = ValidationCompareComponent(comparable: passwordTextField) { [weak self] result in
+            if result {
+                self?.passwordConfirmTextField.didEndValidate()
+            }
+        }
+        passwordConfirmTextField.validator = validationCompareComponent
     }
     
     @objc func nextButtonTouchUpInside(_ sender: UIButton) {

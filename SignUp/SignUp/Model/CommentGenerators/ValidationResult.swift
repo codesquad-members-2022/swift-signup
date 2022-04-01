@@ -19,13 +19,11 @@ protocol ValidationResult {
     var state: ValidationResultState { get set }
     // 정규식으로 얻어내는 상세 결과를 이용해 다양한 코멘트를 남길 수 있어야 합니다.
     var validateResult: [NSTextCheckingResult] { get set }
-    var spottedRangeCount: Int { get }
     func validateResultState(in string: String, using results: [NSTextCheckingResult])
     /// 여러 조건에 따라 Comment를 생성하기 위한 메소드입니다.
     ///
     /// in = 검증하려는 텍스트 원문입니다.
     func commentRepresentation(in string: String) -> String
-    
 }
 
 enum CommentColor {

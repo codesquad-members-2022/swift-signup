@@ -14,6 +14,8 @@ class ValidationResultFactory {
             return IDValidationResult()
         case .password:
             return PasswordValidationResult()
+        case .passwordConfirm:
+            return PasswordConfirmValidationResult()
         case .emailAddress:
             return EmailValidationResult()
         case .phoneNumber:
