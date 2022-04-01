@@ -21,7 +21,8 @@ class SigninViewController: UIViewController {
     
     private var validIdLabel: UILabel!
     
-    var check = false
+    let textFieldValueChecker = TextFieldValueChecker()
+    private var check = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,8 @@ class SigninViewController: UIViewController {
         
         setNavigationBar()
         setAttributes()
+        addTextFieldAction()
         setTextFieldDelegate()
-        TextFieldValueChecker.valueChecker.httpGetId()
     }
     
     private func setAttributes(){
@@ -43,6 +44,10 @@ class SigninViewController: UIViewController {
         setNameLabel()
         setNameTextField()
         setValidIdLabel()
+    }
+    
+    private func addTextFieldAction(){
+        idTextField.addTarget(self, action: #selector(checkIdTextFieldValidation), for: .editingChanged)
     }
     
     private func setTextFieldDelegate(){
@@ -63,42 +68,36 @@ class SigninViewController: UIViewController {
 }
 
 
-// MARK: - Use case: TextField Delegate and function
+// MARK: - Use case: TextField validation check function and dismiss keyboard
 
 extension SigninViewController: UITextFieldDelegate{
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return true }
+    @objc func checkIdTextFieldValidation(){
+        guard let text = idTextField.text else { return }
         
-        if textField === idTextField{
-            let newText = text + string
-            
-            switch TextFieldValueChecker.valueChecker.checkID(text: newText){
-            case CheckValidIDCase.invalid
-                : validIdLabel.text = CheckValidIDCase.invalid.showReason()
-                  validIdLabel.textColor = .systemRed
-                  self.check = false
-            case .shortLength
-                : validIdLabel.text = CheckValidIDCase.shortLength.showReason()
-                  validIdLabel.textColor = .systemRed
-                  self.check = false
-            case .longLength
-                : validIdLabel.text = CheckValidIDCase.longLength.showReason()
-                  validIdLabel.textColor = .systemRed
-                  self.check = false
-            case .valid
-                : validIdLabel.text = CheckValidIDCase.valid.showReason()
-                  validIdLabel.textColor = .systemGreen
-                  self.check = true
-            case .usedId
-                : validIdLabel.text = CheckValidIDCase.usedId.showReason()
-                  validIdLabel.textColor = .systemRed
-                  self.check = false
-            }
-            
-            changeTextFieldLayer(textField: textField)
+        switch textFieldValueChecker.checkValidationOfID(text: text){
+        case CheckValidIDCase.invalid
+            : validIdLabel.text = CheckValidIDCase.invalid.showReason()
+              validIdLabel.textColor = .systemRed
+              self.check = false
+        case .shortLength
+            : validIdLabel.text = CheckValidIDCase.shortLength.showReason()
+              validIdLabel.textColor = .systemRed
+              self.check = false
+        case .longLength
+            : validIdLabel.text = CheckValidIDCase.longLength.showReason()
+              validIdLabel.textColor = .systemRed
+              self.check = false
+        case .valid
+            : validIdLabel.text = CheckValidIDCase.valid.showReason()
+              validIdLabel.textColor = .systemGreen
+              self.check = true
+        case .usedId
+            : validIdLabel.text = CheckValidIDCase.usedId.showReason()
+              validIdLabel.textColor = .systemRed
+              self.check = false
         }
         
-        return true
+        changeTextFieldLayer(textField: idTextField)
     }
     
     func changeTextFieldLayer(textField: UITextField){

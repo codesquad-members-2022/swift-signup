@@ -9,12 +9,16 @@ import Foundation
 import os
 
 class TextFieldValueChecker{
-    static let valueChecker = TextFieldValueChecker()
-    private var users = [String]()
+    private var jsonFactory: JSONFactory
     
-    private init() { }
+    init(){
+        self.jsonFactory = JSONFactory()
+        NetworkConnector.respondeGET(url: "https://api.codesquad.kr/signup"){ data in
+            self.jsonFactory.convertExistIdData(data: data)
+        }
+    }
     
-    func checkID(text: String) -> CheckValidIDCase{
+    func checkValidationOfID(text: String) -> CheckValidIDCase{
         let pattern: String = "^[0-9a-z_-]*$"
         
         guard text.range(of: pattern, options: .regularExpression) != nil else{
@@ -26,7 +30,7 @@ class TextFieldValueChecker{
         } else if text.count > 20{
             return .longLength
         } else{
-            let test = users.filter{ $0 == text}
+            let test = jsonFactory.existIds.filter{ $0 == text}
             
             if test.isEmpty{
                 return .valid
@@ -36,6 +40,7 @@ class TextFieldValueChecker{
         }
     }
     
+    /*
     func httpGetId(){
         guard let url = URL(string: "https://api.codesquad.kr/signup") else { return }
         
@@ -63,4 +68,5 @@ class TextFieldValueChecker{
             }
         }.resume()
     }
+     */
 }

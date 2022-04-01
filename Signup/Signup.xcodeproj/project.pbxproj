@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D25D30A527F6C85E00BD3F88 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25D30A427F6C85E00BD3F88 /* NetworkConnector.swift */; };
+		D25D30A927F6DB1300BD3F88 /* JSONFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25D30A827F6DB1300BD3F88 /* JSONFactory.swift */; };
 		D263497D27F427D600F7ED65 /* TextFieldValueChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263497C27F427D600F7ED65 /* TextFieldValueChecker.swift */; };
 		D263498627F436DB00F7ED65 /* CheckValidIDCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D263498527F436DB00F7ED65 /* CheckValidIDCase.swift */; };
 		D270C77F27F2CC300065D215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C77E27F2CC300065D215 /* AppDelegate.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D25D30A427F6C85E00BD3F88 /* NetworkConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
+		D25D30A827F6DB1300BD3F88 /* JSONFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFactory.swift; sourceTree = "<group>"; };
 		D263497C27F427D600F7ED65 /* TextFieldValueChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValueChecker.swift; sourceTree = "<group>"; };
 		D263498527F436DB00F7ED65 /* CheckValidIDCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckValidIDCase.swift; sourceTree = "<group>"; };
 		D270C77B27F2CC300065D215 /* Signup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				D263497C27F427D600F7ED65 /* TextFieldValueChecker.swift */,
+				D25D30A427F6C85E00BD3F88 /* NetworkConnector.swift */,
+				D25D30A827F6DB1300BD3F88 /* JSONFactory.swift */,
 				D263498527F436DB00F7ED65 /* CheckValidIDCase.swift */,
 			);
 			path = Util;
@@ -174,6 +180,8 @@
 				D270C79327F2EBCB0065D215 /* SigninViewController.swift in Sources */,
 				D263498627F436DB00F7ED65 /* CheckValidIDCase.swift in Sources */,
 				D270C78327F2CC300065D215 /* LoginViewController.swift in Sources */,
+				D25D30A927F6DB1300BD3F88 /* JSONFactory.swift in Sources */,
+				D25D30A527F6C85E00BD3F88 /* NetworkConnector.swift in Sources */,
 				D263497D27F427D600F7ED65 /* TextFieldValueChecker.swift in Sources */,
 				D270C77F27F2CC300065D215 /* AppDelegate.swift in Sources */,
 				D270C78127F2CC300065D215 /* SceneDelegate.swift in Sources */,
