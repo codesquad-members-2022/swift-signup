@@ -95,7 +95,7 @@ class UserInfoViewController: UIViewController {
         button.setTitleColor(.systemGray2, for: .disabled)
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
-        button.isEnabled = true
+        button.isEnabled = false
         return button
     }()
     
