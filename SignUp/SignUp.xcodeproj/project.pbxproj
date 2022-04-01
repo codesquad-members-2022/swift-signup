@@ -102,7 +102,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B27823327F1DC4F003A5ADD /* CommentGenerators */ = {
+		1B27823327F1DC4F003A5ADD /* ResultsValidation */ = {
 			isa = PBXGroup;
 			children = (
 				1B27823127F1DB7B003A5ADD /* ValidationResult.swift */,
@@ -112,7 +112,7 @@
 				1B27823A27F1DDEC003A5ADD /* EmailValidationResult.swift */,
 				1B27824027F1E18A003A5ADD /* PhoneNumberValidationResult.swift */,
 			);
-			path = CommentGenerators;
+			path = ResultsValidation;
 			sourceTree = "<group>";
 		};
 		1B27824227F1F473003A5ADD /* CustomViews */ = {
@@ -217,7 +217,7 @@
 			children = (
 				1B0E72A527F3F7AA005DD51B /* CustomInputTextFieldDelegate.swift */,
 				1B27824327F1F4F7003A5ADD /* Validation */,
-				1B27823327F1DC4F003A5ADD /* CommentGenerators */,
+				1B27823327F1DC4F003A5ADD /* ResultsValidation */,
 			);
 			path = Model;
 			sourceTree = "<group>";
