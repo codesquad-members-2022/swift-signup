@@ -56,7 +56,6 @@
 		E0BE4BAC27F5E5740076403C /* PasswordVaildate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BAB27F5E5740076403C /* PasswordVaildate.swift */; };
 		E0BE4BAE27F5E93A0076403C /* TermsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BE4BAD27F5E93A0076403C /* TermsModel.swift */; };
 		E0BE4BB227F6EC2C0076403C /* termsText.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0BE4BB127F6EC2C0076403C /* termsText.txt */; };
-		E0F659AB27F58BFD00F5BC48 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +112,6 @@
 		E0BE4BAB27F5E5740076403C /* PasswordVaildate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVaildate.swift; sourceTree = "<group>"; };
 		E0BE4BAD27F5E93A0076403C /* TermsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsModel.swift; sourceTree = "<group>"; };
 		E0BE4BB127F6EC2C0076403C /* termsText.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = termsText.txt; sourceTree = "<group>"; };
-		E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +230,6 @@
 				E0B1E3DA27F343950018D93E /* Date+Extension.swift */,
 				E0B1E3E427F538DF0018D93E /* UIConrtol+Extension.swift */,
 				E0B1E3E627F5677D0018D93E /* UISegmentedControl+Extension.swift */,
-				E0F659AA27F58BFD00F5BC48 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -504,7 +501,6 @@
 				E0BE4BA527F5E2050076403C /* EmailValidate.swift in Sources */,
 				E0B1E3C427F2F0250018D93E /* UserInfoModel.swift in Sources */,
 				E0B1E3E027F4440D0018D93E /* Gender.swift in Sources */,
-				E0F659AB27F58BFD00F5BC48 /* UIColor+Extension.swift in Sources */,
 				E0B1E3AA27F1BA6E0018D93E /* SignUpTarget.swift in Sources */,
 				E0B1E3CC27F306930018D93E /* InputTextFieldView.swift in Sources */,
 				E0B1E3A527F1B9720018D93E /* SignUpRepositoryImpl.swift in Sources */,

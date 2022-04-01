@@ -50,7 +50,7 @@ class TermsViewController: UIViewController {
         button.setTitle("취소", for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.backgroundColor = .white
-        button.layer.borderColor = UIColor.gray200.cgColor
+        button.layer.borderColor = UIColor.systemGray3.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 10
         return button
@@ -62,7 +62,7 @@ class TermsViewController: UIViewController {
         button.setTitle("동의", for: .normal)
         button.setTitleColor(.systemGreen, for: .normal)
         button.backgroundColor = .white
-        button.layer.borderColor = UIColor.gray200.cgColor
+        button.layer.borderColor = UIColor.systemGray3.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 10
         return button
@@ -98,7 +98,7 @@ class TermsViewController: UIViewController {
     }
     
     private func attribute() {
-        self.view.backgroundColor = .systemGray5
+        self.view.backgroundColor = .systemGray6
     }
     
     private func layout() {

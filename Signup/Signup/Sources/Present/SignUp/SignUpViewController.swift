@@ -33,7 +33,7 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "아이디"
         inputView.textContentType = .name
-        inputView.attributedPlaceholder = NSAttributedString(string: "영문 소문자, 숫자, 특수기호(_,-), 5~20자", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray150])
+        inputView.attributedPlaceholder = NSAttributedString(string: "영문 소문자, 숫자, 특수기호(_,-), 5~20자", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGray2])
         inputView.keyBoardType = .namePhonePad
         return inputView
     }()
@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "비밀번호"
         inputView.textContentType = .password
-        inputView.attributedPlaceholder = NSAttributedString(string: "영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray150])
+        inputView.attributedPlaceholder = NSAttributedString(string: "영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGray2])
         inputView.isSecureTextEntry = true
         inputView.keyBoardType = .default
         return inputView
@@ -204,7 +204,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func attribute() {
-        self.view.backgroundColor = .gray250
+        self.view.backgroundColor = .systemGray6
     }
     
     private func layout() {

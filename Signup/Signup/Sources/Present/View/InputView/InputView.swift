@@ -22,6 +22,7 @@ class InputView: UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 10
         return view
     }()
     

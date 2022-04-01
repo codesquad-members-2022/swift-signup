@@ -18,7 +18,7 @@ class InputTextFieldView: InputView, InputTextField {
         textField.backgroundColor = .white
         textField.addLeftPadding(10)
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.gray200.cgColor
+        textField.layer.borderColor = UIColor.systemGray3.cgColor
         textField.layer.cornerRadius = 10
         return textField
     }()
@@ -79,11 +79,11 @@ class InputTextFieldView: InputView, InputTextField {
         textField.bottomAnchor.constraint(equalTo: optionView.bottomAnchor).isActive = true
     }
     
-    var prevBorderColor: CGColor? = UIColor.gray200.cgColor
+    var prevBorderColor: CGColor? = UIColor.systemGray3.cgColor
     
     func setMessage(_ isError: Bool, _ message: String) {
         if message.isEmpty {
-            self.textField.layer.borderColor = UIColor.gray200.cgColor
+            self.textField.layer.borderColor = UIColor.systemGray3.cgColor
             self.subLabel.isHidden = true
             return
         }
