@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		1B0E72A627F3F7AA005DD51B /* CustomInputTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E72A527F3F7AA005DD51B /* CustomInputTextFieldDelegate.swift */; };
 		1B0E72A827F42287005DD51B /* ValidationResultFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E72A727F42287005DD51B /* ValidationResultFactory.swift */; };
-		1B27823227F1DB7B003A5ADD /* CommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */; };
-		1B27823527F1DDD8003A5ADD /* IDCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */; };
-		1B27823727F1DDDD003A5ADD /* PasswordCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */; };
-		1B27823B27F1DDEC003A5ADD /* EmailCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823A27F1DDEC003A5ADD /* EmailCommentGenerator.swift */; };
+		1B0E72AA27F58A86005DD51B /* PasswordConfirmValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E72A927F58A86005DD51B /* PasswordConfirmValidationResult.swift */; };
+		1B27823227F1DB7B003A5ADD /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823127F1DB7B003A5ADD /* ValidationResult.swift */; };
+		1B27823527F1DDD8003A5ADD /* IDValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823427F1DDD8003A5ADD /* IDValidationResult.swift */; };
+		1B27823727F1DDDD003A5ADD /* PasswordValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823627F1DDDD003A5ADD /* PasswordValidationResult.swift */; };
+		1B27823B27F1DDEC003A5ADD /* EmailValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27823A27F1DDEC003A5ADD /* EmailValidationResult.swift */; };
 		1B27824127F1E18A003A5ADD /* PhoneNumberValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B27824027F1E18A003A5ADD /* PhoneNumberValidationResult.swift */; };
+		1B5E85AB27F5B62F0029D714 /* ValidationCompareComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E85AA27F5B62F0029D714 /* ValidationCompareComponent.swift */; };
+		1B5E85AD27F5B79E0029D714 /* ValidationCommons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5E85AC27F5B79E0029D714 /* ValidationCommons.swift */; };
 		1B64B70027F14CF700B29580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B6FF27F14CF700B29580 /* AppDelegate.swift */; };
 		1B64B70227F14CF700B29580 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B70127F14CF700B29580 /* SceneDelegate.swift */; };
 		1B64B70427F14CF700B29580 /* IdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64B70327F14CF700B29580 /* IdentificationViewController.swift */; };
@@ -49,11 +52,14 @@
 /* Begin PBXFileReference section */
 		1B0E72A527F3F7AA005DD51B /* CustomInputTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputTextFieldDelegate.swift; sourceTree = "<group>"; };
 		1B0E72A727F42287005DD51B /* ValidationResultFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResultFactory.swift; sourceTree = "<group>"; };
-		1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentGenerator.swift; sourceTree = "<group>"; };
-		1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDCommentGenerator.swift; sourceTree = "<group>"; };
-		1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCommentGenerator.swift; sourceTree = "<group>"; };
-		1B27823A27F1DDEC003A5ADD /* EmailCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCommentGenerator.swift; sourceTree = "<group>"; };
+		1B0E72A927F58A86005DD51B /* PasswordConfirmValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConfirmValidationResult.swift; sourceTree = "<group>"; };
+		1B27823127F1DB7B003A5ADD /* ValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		1B27823427F1DDD8003A5ADD /* IDValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDValidationResult.swift; sourceTree = "<group>"; };
+		1B27823627F1DDDD003A5ADD /* PasswordValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationResult.swift; sourceTree = "<group>"; };
+		1B27823A27F1DDEC003A5ADD /* EmailValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationResult.swift; sourceTree = "<group>"; };
 		1B27824027F1E18A003A5ADD /* PhoneNumberValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberValidationResult.swift; sourceTree = "<group>"; };
+		1B5E85AA27F5B62F0029D714 /* ValidationCompareComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationCompareComponent.swift; sourceTree = "<group>"; };
+		1B5E85AC27F5B79E0029D714 /* ValidationCommons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationCommons.swift; sourceTree = "<group>"; };
 		1B64B6FC27F14CF700B29580 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B64B6FF27F14CF700B29580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B64B70127F14CF700B29580 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,10 +107,11 @@
 		1B27823327F1DC4F003A5ADD /* CommentGenerators */ = {
 			isa = PBXGroup;
 			children = (
-				1B27823127F1DB7B003A5ADD /* CommentGenerator.swift */,
-				1B27823427F1DDD8003A5ADD /* IDCommentGenerator.swift */,
-				1B27823627F1DDDD003A5ADD /* PasswordCommentGenerator.swift */,
-				1B27823A27F1DDEC003A5ADD /* EmailCommentGenerator.swift */,
+				1B27823127F1DB7B003A5ADD /* ValidationResult.swift */,
+				1B27823427F1DDD8003A5ADD /* IDValidationResult.swift */,
+				1B27823627F1DDDD003A5ADD /* PasswordValidationResult.swift */,
+				1B0E72A927F58A86005DD51B /* PasswordConfirmValidationResult.swift */,
+				1B27823A27F1DDEC003A5ADD /* EmailValidationResult.swift */,
 				1B27824027F1E18A003A5ADD /* PhoneNumberValidationResult.swift */,
 			);
 			path = CommentGenerators;
@@ -126,6 +133,8 @@
 				1B64B74327F1B33700B29580 /* ValidationRegularTextFactory.swift */,
 				1B0E72A727F42287005DD51B /* ValidationResultFactory.swift */,
 				1B64B73E27F1A34100B29580 /* ValidationRegularText.swift */,
+				1B5E85AA27F5B62F0029D714 /* ValidationCompareComponent.swift */,
+				1B5E85AC27F5B79E0029D714 /* ValidationCommons.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -353,17 +362,20 @@
 				1B64B73927F1744B00B29580 /* PrivateInfoViewController.swift in Sources */,
 				1B64B70427F14CF700B29580 /* IdentificationViewController.swift in Sources */,
 				1B64B74427F1B33700B29580 /* ValidationRegularTextFactory.swift in Sources */,
-				1B27823B27F1DDEC003A5ADD /* EmailCommentGenerator.swift in Sources */,
+				1B27823B27F1DDEC003A5ADD /* EmailValidationResult.swift in Sources */,
+				1B5E85AB27F5B62F0029D714 /* ValidationCompareComponent.swift in Sources */,
 				1B27824127F1E18A003A5ADD /* PhoneNumberValidationResult.swift in Sources */,
-				1B27823527F1DDD8003A5ADD /* IDCommentGenerator.swift in Sources */,
+				1B27823527F1DDD8003A5ADD /* IDValidationResult.swift in Sources */,
 				1B64B70027F14CF700B29580 /* AppDelegate.swift in Sources */,
-				1B27823227F1DB7B003A5ADD /* CommentGenerator.swift in Sources */,
+				1B0E72AA27F58A86005DD51B /* PasswordConfirmValidationResult.swift in Sources */,
+				1B27823227F1DB7B003A5ADD /* ValidationResult.swift in Sources */,
 				1B0E72A827F42287005DD51B /* ValidationResultFactory.swift in Sources */,
 				1B64B70227F14CF700B29580 /* SceneDelegate.swift in Sources */,
+				1B5E85AD27F5B79E0029D714 /* ValidationCommons.swift in Sources */,
 				1B64B73727F15D9400B29580 /* CustomSegueButton.swift in Sources */,
 				1B64B74227F1B13200B29580 /* CustomTextField.swift in Sources */,
 				1B0E72A627F3F7AA005DD51B /* CustomInputTextFieldDelegate.swift in Sources */,
-				1B27823727F1DDDD003A5ADD /* PasswordCommentGenerator.swift in Sources */,
+				1B27823727F1DDDD003A5ADD /* PasswordValidationResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
