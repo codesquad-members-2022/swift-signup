@@ -10,6 +10,7 @@ protocol SignUpInputViewable {
     func labelText(text:String)
     func placeholder(text:String)
     func setAlertText(text:String)
+    func setAlertTextColor(color:RGB)
     func setIdentifier(id:inputViewIdentifierable)
     func getIdentifier() -> inputViewIdentifierable?
 }

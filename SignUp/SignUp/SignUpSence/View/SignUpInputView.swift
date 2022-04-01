@@ -26,9 +26,10 @@ final class SignUpInputView:UIView,SignUpInputViewable {
         return textField
     }()
     
-    private lazy var validatedTextLabel:UILabel = {
+    private lazy var alertTextLabel:UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 10,weight: .light)
+        label.font = .systemFont(ofSize: 10,weight: .bold)
+        label.textColor = .red
         return label
     }()
     
@@ -64,18 +65,21 @@ final class SignUpInputView:UIView,SignUpInputViewable {
     }
     
     func setAlertText(text:String) {
-        self.validatedTextLabel.text = text
+        self.alertTextLabel.text = text
     }
     
+    func setAlertTextColor(color: RGB) {
+        self.alertTextLabel.textColor = UIColor(red: CGFloat(color.red / 255), green: CGFloat(color.green / 255), blue: CGFloat(color.blue / 255), alpha: 1.0)
+    }
     
     private func setUp() {
         let space:CGFloat = 8.0
         let textFieldHeight:CGFloat = 32.0
-        [label,textField,validatedTextLabel].forEach{ self.addSubview($0) }
+        [label,textField,alertTextLabel].forEach{ self.addSubview($0) }
         
         label.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
-        validatedTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        alertTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         label.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         label.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -85,9 +89,9 @@ final class SignUpInputView:UIView,SignUpInputViewable {
         textField.topAnchor.constraint(equalTo: label.bottomAnchor,constant: space).isActive = true
         textField.heightAnchor.constraint(equalToConstant:textFieldHeight).isActive = true
         
-        validatedTextLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        validatedTextLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        validatedTextLabel.topAnchor.constraint(equalTo: textField.bottomAnchor).isActive = true
+        alertTextLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        alertTextLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        alertTextLabel.topAnchor.constraint(equalTo: textField.bottomAnchor).isActive = true
     }
 }
 

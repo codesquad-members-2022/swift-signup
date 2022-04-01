@@ -33,6 +33,7 @@
 		8D3B6E7027F5FBA60025C3A3 /* TextFieldMangerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E6F27F5FBA60025C3A3 /* TextFieldMangerCreator.swift */; };
 		8D3B6E7227F5FD150025C3A3 /* TextFieldMangerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E7127F5FD150025C3A3 /* TextFieldMangerFactory.swift */; };
 		8D3B6E7427F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */; };
+		8D3E69B327F6F9F9005A5330 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E69B227F6F9F9005A5330 /* RGB.swift */; };
 		8D3FBF2527F3E7C500D31E72 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */; };
 		8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */; };
 		8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */; };
@@ -97,6 +98,7 @@
 		8D3B6E6F27F5FBA60025C3A3 /* TextFieldMangerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMangerCreator.swift; sourceTree = "<group>"; };
 		8D3B6E7127F5FD150025C3A3 /* TextFieldMangerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMangerFactory.swift; sourceTree = "<group>"; };
 		8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewTextFieldMangerable.swift; sourceTree = "<group>"; };
+		8D3E69B227F6F9F9005A5330 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkError.swift; sourceTree = "<group>"; };
 		8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionCheckable.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */,
 				8DD10DC927F5DA4B00D7C15B /* IDError.swift */,
 				8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */,
+				8D3E69B227F6F9F9005A5330 /* RGB.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				8D3B6E5E27F5EE0B0025C3A3 /* PasswordRecheckComponentModel.swift in Sources */,
 				8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */,
 				8D3B6E7227F5FD150025C3A3 /* TextFieldMangerFactory.swift in Sources */,
+				8D3E69B327F6F9F9005A5330 /* RGB.swift in Sources */,
 				8D3B6E5C27F5EDF70025C3A3 /* PasswordInputComponentModel.swift in Sources */,
 				8D3B6E6027F5EE200025C3A3 /* NameInputComponentModel.swift in Sources */,
 				8D1E791827F1AB6D004FD949 /* SignUpNextButton.swift in Sources */,

@@ -38,6 +38,7 @@ final class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignUpView()
+        configureNotificationCenter()
         getRequest()
     }
     
@@ -137,6 +138,28 @@ final class SignUpViewController: UIViewController {
         return selectedInputView ?? nil
     }
     
+    //MARK: -- notificationCenter
+    private func configureNotificationCenter() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(checkedTextField(_:)),
+            name: SignUpTextFieldManger.NotificationName.checkedTextField,
+            object: signUpViewTextFieldManger )
+    }
+    
+    @objc func checkedTextField(_ notification:Notification) {
+        guard let result = notification.userInfo?[SignUpTextFieldManger.UserInfoKey.checkedValidation] as?
+                (TextFieldInputResult,SignUpInputView),
+              let signUpViewTextFieldManger = signUpViewTextFieldManger else { return }
+        let alertTextComponent = signUpViewTextFieldManger.transFormResultToText(checkedResult: result.0)
+        let inputView = result.1
+        let alertText = alertTextComponent.0
+        let alertTextColor = alertTextComponent.1
+        
+        inputView.setAlertText(text: alertText)
+        inputView.setAlertTextColor(color: alertTextColor)
+    }
+    
     //MARK: -- injection
     private func inputViewCreator(creator:SignUpInputViewCreator) {
         self.inputViewCreator = creator
@@ -157,14 +180,9 @@ extension SignUpViewController:SignUpInputTextFieldDelegate {
         guard let factory = textFieldMangerCreator,
               let inputView = self.findSpecificInputView(inputViewID: inputViewID)
               else { return }
+        
         signUpViewTextFieldManger = factory.makeTextFieldManger(id: inputViewID)
         
-        //Check Text & return result
-        guard let checkedResult = signUpViewTextFieldManger?.validateText(signUpInputView: inputView) else { return }
-        
-        //resultText that will appear view
-        guard let textFieldAlertText = signUpViewTextFieldManger?.InputResultText(checkedResult: checkedResult) else { return }
-        
-        inputView.setAlertText(text: textFieldAlertText)
+        signUpViewTextFieldManger?.validateText(signUpInputView: inputView)
     }
 }
