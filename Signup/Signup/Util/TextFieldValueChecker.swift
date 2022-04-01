@@ -71,4 +71,12 @@ class TextFieldValueChecker{
             return .invalid
         }
     }
+    
+    func checkValidationOfRecheckPsw(originText: String, newText: String) -> CheckValidRecheckPswCase{
+        if originText == newText{
+            return .valid
+        } else{
+            return .invalid
+        }
+    }
 }

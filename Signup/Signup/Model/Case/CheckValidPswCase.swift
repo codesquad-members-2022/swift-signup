@@ -14,7 +14,7 @@ enum CheckValidPswCase: String{
     case noNumber = "숫자가 포함되지 않았습니다"
     case noSpecialChar = "특수문자가 포함되지 않거나 올바르지 않습니다"
     case invalid = "유효하지 않은 비밀번호입니다"
-    case valid = "유효한 비밀번호입니다"
+    case valid = "안전한 비밀번호입니다"
     
     func showReason() -> String{
         return self.rawValue

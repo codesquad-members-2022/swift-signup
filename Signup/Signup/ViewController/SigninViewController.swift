@@ -21,10 +21,12 @@ class SigninViewController: UIViewController {
     
     private var validIdLabel: UILabel!
     private var validPswLabel: UILabel!
+    private var validRecheckPswLabel: UILabel!
     
     let textFieldValueChecker = TextFieldValueChecker()
     private var idCheck = false
     private var pswCheck = false
+    private var recheckPswCheck = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ class SigninViewController: UIViewController {
         setAttributes()
         addTextFieldAction()
         setTextFieldDelegate()
+        setKeyboardReturnType()
     }
     
     private func setAttributes(){
@@ -41,17 +44,19 @@ class SigninViewController: UIViewController {
         setIdTextField()
         setPswLabel()
         setPswTextField()
-        setCheckPswLabel()
-        setCheckPswTextField()
+        setRecheckPswLabel()
+        setRecheckPswTextField()
         setNameLabel()
         setNameTextField()
         setValidIdLabel()
         setValidPswLabel()
+        setValidRecheckPswLabel()
     }
     
     private func addTextFieldAction(){
         idTextField.addTarget(self, action: #selector(checkIdTextFieldValidation), for: .editingChanged)
         pswTextField.addTarget(self, action: #selector(checkPswTextFieldValidation), for: .editingChanged)
+        recheckPswTextField.addTarget(self, action: #selector(checkRecheckPswTextFieldValidation), for: .editingChanged)
     }
     
     private func setTextFieldDelegate(){
@@ -59,6 +64,13 @@ class SigninViewController: UIViewController {
         pswTextField.delegate = self
         recheckPswTextField.delegate = self
         nameTextField.delegate = self
+    }
+    
+    private func setKeyboardReturnType(){
+        idTextField.returnKeyType = .next
+        pswTextField.returnKeyType = .next
+        recheckPswTextField.returnKeyType = .next
+        nameTextField.returnKeyType = .next
     }
     
     func setNavigationBar(){
@@ -141,6 +153,23 @@ extension SigninViewController: UITextFieldDelegate{
         changeTextFieldLayer(check: pswCheck, textField: pswTextField)
     }
     
+    @objc func checkRecheckPswTextFieldValidation(){
+        guard let originText = pswTextField.text, let newText = recheckPswTextField.text else { return }
+        
+        switch textFieldValueChecker.checkValidationOfRecheckPsw(originText: originText, newText: newText){
+        case .invalid:
+            validRecheckPswLabel.text = CheckValidRecheckPswCase.invalid.showReason()
+            validRecheckPswLabel.textColor = .systemRed
+            self.recheckPswCheck = false
+        case .valid:
+            validRecheckPswLabel.text = CheckValidRecheckPswCase.valid.showReason()
+            validRecheckPswLabel.textColor = .systemGreen
+            self.recheckPswCheck = true
+        }
+        
+        changeTextFieldLayer(check: recheckPswCheck, textField: recheckPswTextField)
+    }
+    
     func changeTextFieldLayer(check: Bool, textField: UITextField){
         if check{
             textField.layer.borderColor = UIColor.systemGreen.cgColor
@@ -220,7 +249,7 @@ extension SigninViewController{
         self.view.addSubview(validPswLabel)
     }
     
-    private func setCheckPswLabel(){
+    private func setRecheckPswLabel(){
         recheckPswLabel = UILabel(frame: CGRect(x: 40, y: pswTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
         recheckPswLabel.text = "비밀번호 재확인"
         recheckPswLabel.font = UIFont.boldSystemFont(ofSize: 15)
@@ -229,11 +258,19 @@ extension SigninViewController{
         self.view.addSubview(recheckPswLabel)
     }
     
-    private func setCheckPswTextField(){
+    private func setRecheckPswTextField(){
         recheckPswTextField = UITextField(frame: CGRect(x: 40, y: recheckPswLabel.frame.maxY, width: view.frame.width - 80, height: 30))
         textFieldCommonSetting(textField: recheckPswTextField)
+        recheckPswTextField.isSecureTextEntry = true
         
         self.view.addSubview(recheckPswTextField)
+    }
+    
+    private func setValidRecheckPswLabel(){
+        validRecheckPswLabel = UILabel(frame: CGRect(x: 40, y: recheckPswTextField.frame.maxY, width: view.frame.width - 80, height: 30))
+        validRecheckPswLabel.font = UIFont.systemFont(ofSize: 10)
+        
+        self.view.addSubview(validRecheckPswLabel)
     }
     
     private func setNameLabel(){
