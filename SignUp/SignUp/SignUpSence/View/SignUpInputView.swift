@@ -8,10 +8,11 @@
 import UIKit
 
 final class SignUpInputView:UIView,SignUpInputViewable {
+
     
     var delegate:InputTextFieldDelegate?
     
-    private var identifier:String = ""
+    private var identifier:inputViewIdentifierable?
     
     private lazy var label:UILabel = {
         let label = UILabel()
@@ -48,8 +49,12 @@ final class SignUpInputView:UIView,SignUpInputViewable {
         self.textField.placeholder = text
     }
     
-    func setIdentifier(id:String) {
+    func setIdentifier(id:inputViewIdentifierable) {
         self.identifier = id
+    }
+    
+    func getIdentifier() -> inputViewIdentifierable? {
+        return self.identifier ?? nil
     }
     
     private func setUp() {
@@ -72,6 +77,7 @@ final class SignUpInputView:UIView,SignUpInputViewable {
 
 extension SignUpInputView:UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let identifier = identifier else { return }
         delegate?.textFieldEndEditing(inputViewID: identifier, textField: textField)
     }
 }

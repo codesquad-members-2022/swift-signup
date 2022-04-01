@@ -9,5 +9,6 @@ protocol SignUpInputViewable {
     func getTextFieldText() -> String?
     func labelText(text:String)
     func placeholder(text:String)
-    func setIdentifier(id:String)
+    func setIdentifier(id:inputViewIdentifierable)
+    func getIdentifier() -> inputViewIdentifierable?
 }

@@ -17,6 +17,7 @@ final class SignUpViewController: UIViewController {
     private var passwordInputView:SignUpInputViewable?
     private var passwordRecheckInputView:SignUpInputViewable?
     private var nameInputView:SignUpInputViewable?
+    private var inputViewComponents:[SignUpInputViewable?] = []
     
     //network
     private var signUpNetwork = SignUpNetwork()
@@ -24,15 +25,13 @@ final class SignUpViewController: UIViewController {
     private var registeredID:UserID = UserID()
     //model that if use post method
     private var postResult:PostResult?
-    
-    //RegularExpression
-    private var regualrExpressionChecker:RegularExpressionCheckable?
-    
+
     //creator
     private var inputViewCreator:SignUpInputViewCreator?
+    private var textFieldMangerCreator:TextFieldMangerCreator?
     
     //inputIsValidate?
-    private var signUpViewTextFieldManger:SignUpViewTextFieldManger?
+    private var signUpViewTextFieldManger:SignUpInputViewTextFieldMangerable?
     private var isValidate:Bool?
     
     
@@ -113,27 +112,13 @@ final class SignUpViewController: UIViewController {
         inputViewCreator(creator: SignUpInputViewFactory())
         guard let factory = inputViewCreator else { return [] }
         
-        IDInputView = factory.makeSignUpViewComponent(
-            id: InputViewComponent.id.id,
-            labelText: InputViewComponent.id.label,
-            placeHolder:InputViewComponent.id.placeHolder
-        )
-        passwordInputView = factory.makeSignUpViewComponent(
-            id: InputViewComponent.password.id,
-            labelText: InputViewComponent.password.label,
-            placeHolder: InputViewComponent.password.placeHolder
-        )
-        passwordRecheckInputView = factory.makeSignUpViewComponent(
-            id: InputViewComponent.passwordRecheck.id,
-            labelText: InputViewComponent.passwordRecheck.label,
-            placeHolder: InputViewComponent.passwordRecheck.placeHolder
-        )
-        nameInputView = factory.makeSignUpViewComponent(
-            id: InputViewComponent.name.id,
-            labelText: InputViewComponent.name.label,
-            placeHolder: InputViewComponent.name.placeHolder
-        )
-        return [IDInputView,passwordInputView,passwordRecheckInputView,nameInputView]
+        IDInputView = factory.makeSignUpViewComponent(inputModel: IDInputComponentModel() )
+        passwordInputView = factory.makeSignUpViewComponent(inputModel: PasswordInputComponentModel() )
+        passwordRecheckInputView = factory.makeSignUpViewComponent(inputModel: PasswordRecheckInputComponentModel() )
+        nameInputView = factory.makeSignUpViewComponent(inputModel: NameInputComponentModel() )
+        
+        inputViewComponents = [IDInputView,passwordInputView,passwordRecheckInputView,nameInputView]
+        return inputViewComponents
     }
     
     //button
@@ -145,53 +130,40 @@ final class SignUpViewController: UIViewController {
         nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -bottomInset).isActive = true
     }
     
+    private func findSpecificInputView(inputViewID: inputViewIdentifierable) -> SignUpInputViewable? {
+        let selectedInputView = inputViewComponents.first {
+            $0?.getIdentifier()?.id == inputViewID.id
+        }
+        return selectedInputView ?? nil
+    }
+    
     //MARK: -- injection
     private func inputViewCreator(creator:SignUpInputViewCreator) {
         self.inputViewCreator = creator
     }
     
-    private func inputExpressionChecker(checker:RegularExpressionCheckable) {
-        self.regualrExpressionChecker = checker
+    private func inputTextFieldMangerCreator(creator:TextFieldMangerCreator) {
+        self.textFieldMangerCreator = creator
     }
+    
 }
 
 extension SignUpViewController:InputTextFieldDelegate {
-    func textFieldEndEditing(inputViewID: String, textField: UITextField) {
-        switch inputViewID {
-        case InputViewComponent.id.id:
-            //set checker
-            inputExpressionChecker(checker: IDExpressionChecker())
-            
-            //set TextFieldmanger
-            signUpViewTextFieldManger = SignUpViewTextFieldManger(
-                signUpView: IDInputView,
-                regualrExpressionChecker: regualrExpressionChecker
-            )
-            //CheckText
-            let a = signUpViewTextFieldManger?.check()
-            print(a)
-        case InputViewComponent.password.id:
-            inputExpressionChecker(checker: PasswordExpressionChecker())
-            
-            signUpViewTextFieldManger = SignUpViewTextFieldManger(
-                signUpView: passwordInputView,
-                regualrExpressionChecker: regualrExpressionChecker
-            )
-            
-            let b = signUpViewTextFieldManger?.check()
-            print(b)
-        case InputViewComponent.passwordRecheck.id:
-            
-            guard let inputtedPassword = passwordInputView,
-                  let inputView = passwordRecheckInputView else { return }
-            
-            guard let password = inputtedPassword.getTextFieldText(),
-                  let text = inputView.getTextFieldText() else { return }
 
-            isValidate = (password == text)
-            
-        default:
-            break
-        }
+    func textFieldEndEditing(inputViewID: inputViewIdentifierable, textField: UITextField) {
+        //injection creator
+        inputTextFieldMangerCreator(creator: TextFieldMangerFactory())
+        
+        //make factory and find specificInputView
+        guard let factory = textFieldMangerCreator,
+              let inputView = self.findSpecificInputView(inputViewID: inputViewID)
+              else { return }
+        signUpViewTextFieldManger = factory.makeTextFieldManger(id: inputViewID)
+        
+        //Check Text & return result
+        guard let checkedText = signUpViewTextFieldManger?.validateText(signUpInputView: inputView) else { return }
+        
+        //result to will appear view
+        print(signUpViewTextFieldManger?.check(checkedText: checkedText))
     }
 }

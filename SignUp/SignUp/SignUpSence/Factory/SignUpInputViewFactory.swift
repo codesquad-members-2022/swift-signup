@@ -6,11 +6,11 @@
 //
 
 final class SignUpInputViewFactory:SignUpInputViewCreator {
-    func makeSignUpViewComponent(id:String, labelText: String, placeHolder: String) -> SignUpInputViewable {
+    func makeSignUpViewComponent(inputModel:InputComponentable) -> SignUpInputViewable {
         let viewComponent = SignUpInputView(frame: .zero)
-        viewComponent.labelText(text: labelText)
-        viewComponent.placeholder(text: placeHolder)
-        viewComponent.setIdentifier(id: id)
+        viewComponent.labelText(text: inputModel.labelText)
+        viewComponent.placeholder(text: inputModel.placeHolder)
+        viewComponent.setIdentifier(id:inputModel.id)
         return viewComponent
     }
 }

@@ -8,5 +8,5 @@
 import UIKit
 
 protocol InputTextFieldDelegate {
-    func textFieldEndEditing(inputViewID:String, textField:UITextField)
+    func textFieldEndEditing(inputViewID:inputViewIdentifierable, textField:UITextField)
 }
