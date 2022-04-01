@@ -1,11 +1,20 @@
 import Foundation
 
-enum HttpMethod: String{
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-}
-
+enum HttpMethod: CustomStringConvertible{
+    case get
+    case post
+    case put
+    
+    var description: String{
+        switch self{
+        case .get:
+            return "GET"
+        case .post:
+            return "POST"
+        case .put:
+            return "PUT"
+        }
+    }
 }
 
 enum HttpError: Error, CustomStringConvertible{
@@ -30,6 +39,7 @@ class HttpRequestHandler{
     static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, completion: @escaping ()->Void){
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
+        request.httpMethod = "\(httpMethod)"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
     static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, completion: @escaping (_ result: Result<Data,Error>)->Void){
