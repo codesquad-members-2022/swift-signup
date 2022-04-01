@@ -19,7 +19,36 @@
 		8D3347BD27F14CE200AD1F41 /* SignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347BC27F14CE200AD1F41 /* SignUpTests.swift */; };
 		8D3347C727F14CE200AD1F41 /* SignUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347C627F14CE200AD1F41 /* SignUpUITests.swift */; };
 		8D3347C927F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */; };
-		8D3347D827F151A200AD1F41 /* SignUpInputViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347D727F151A200AD1F41 /* SignUpInputViewComponent.swift */; };
+		8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3347D727F151A200AD1F41 /* SignUpInputView.swift */; };
+		8D3B6E5627F5EC850025C3A3 /* InputComponentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E5527F5EC850025C3A3 /* InputComponentable.swift */; };
+		8D3B6E5A27F5ED4F0025C3A3 /* IDInputComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E5927F5ED4F0025C3A3 /* IDInputComponentModel.swift */; };
+		8D3B6E5C27F5EDF70025C3A3 /* PasswordInputComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E5B27F5EDF70025C3A3 /* PasswordInputComponentModel.swift */; };
+		8D3B6E5E27F5EE0B0025C3A3 /* PasswordRecheckComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E5D27F5EE0B0025C3A3 /* PasswordRecheckComponentModel.swift */; };
+		8D3B6E6027F5EE200025C3A3 /* NameInputComponentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E5F27F5EE200025C3A3 /* NameInputComponentModel.swift */; };
+		8D3B6E6327F5F2490025C3A3 /* inputViewIdentifierable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E6227F5F2490025C3A3 /* inputViewIdentifierable.swift */; };
+		8D3B6E6727F5F5EC0025C3A3 /* IDViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E6627F5F5EC0025C3A3 /* IDViewIdentifier.swift */; };
+		8D3B6E6927F5F5FD0025C3A3 /* PasswordViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E6827F5F5FD0025C3A3 /* PasswordViewIdentifier.swift */; };
+		8D3B6E6B27F5F6080025C3A3 /* PasswordRecheckIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E6A27F5F6080025C3A3 /* PasswordRecheckIdentifier.swift */; };
+		8D3B6E6D27F5F6160025C3A3 /* NameViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E6C27F5F6160025C3A3 /* NameViewIdentifier.swift */; };
+		8D3B6E7027F5FBA60025C3A3 /* TextFieldMangerCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E6F27F5FBA60025C3A3 /* TextFieldMangerCreator.swift */; };
+		8D3B6E7227F5FD150025C3A3 /* TextFieldMangerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E7127F5FD150025C3A3 /* TextFieldMangerFactory.swift */; };
+		8D3B6E7427F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */; };
+		8D3E69B327F6F9F9005A5330 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E69B227F6F9F9005A5330 /* RGB.swift */; };
+		8D3E69B527F70C13005A5330 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E69B427F70C13005A5330 /* Identifiers.swift */; };
+		8D3FBF2527F3E7C500D31E72 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */; };
+		8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */; };
+		8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */; };
+		8D3FBF2B27F429D800D31E72 /* IDExpressionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2A27F429D800D31E72 /* IDExpressionChecker.swift */; };
+		8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */; };
+		8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512927F35F2500BF6D7B /* PostResult.swift */; };
+		8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */; };
+		8DD10DA727F443B000D7C15B /* SignUpInputTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA627F443B000D7C15B /* SignUpInputTextFieldDelegate.swift */; };
+		8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA827F443E000D7C15B /* Typealias.swift */; };
+		8DD10DAC27F5453900D7C15B /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DAB27F5453900D7C15B /* HttpMethod.swift */; };
+		8DD10DC427F5827300D7C15B /* SignUpTextFieldManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC327F5827300D7C15B /* SignUpTextFieldManger.swift */; };
+		8DD10DC627F588AC00D7C15B /* TextFieldInputResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */; };
+		8DD10DC827F5A04400D7C15B /* PasswordRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */; };
+		8DD10DCA27F5DA4B00D7C15B /* IDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC927F5DA4B00D7C15B /* IDError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +85,36 @@
 		8D3347C227F14CE200AD1F41 /* SignUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3347C627F14CE200AD1F41 /* SignUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUITests.swift; sourceTree = "<group>"; };
 		8D3347C827F14CE200AD1F41 /* SignUpUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		8D3347D727F151A200AD1F41 /* SignUpInputViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewComponent.swift; sourceTree = "<group>"; };
+		8D3347D727F151A200AD1F41 /* SignUpInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputView.swift; sourceTree = "<group>"; };
+		8D3B6E5527F5EC850025C3A3 /* InputComponentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputComponentable.swift; sourceTree = "<group>"; };
+		8D3B6E5927F5ED4F0025C3A3 /* IDInputComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInputComponentModel.swift; sourceTree = "<group>"; };
+		8D3B6E5B27F5EDF70025C3A3 /* PasswordInputComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputComponentModel.swift; sourceTree = "<group>"; };
+		8D3B6E5D27F5EE0B0025C3A3 /* PasswordRecheckComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecheckComponentModel.swift; sourceTree = "<group>"; };
+		8D3B6E5F27F5EE200025C3A3 /* NameInputComponentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputComponentModel.swift; sourceTree = "<group>"; };
+		8D3B6E6227F5F2490025C3A3 /* inputViewIdentifierable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputViewIdentifierable.swift; sourceTree = "<group>"; };
+		8D3B6E6627F5F5EC0025C3A3 /* IDViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewIdentifier.swift; sourceTree = "<group>"; };
+		8D3B6E6827F5F5FD0025C3A3 /* PasswordViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewIdentifier.swift; sourceTree = "<group>"; };
+		8D3B6E6A27F5F6080025C3A3 /* PasswordRecheckIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecheckIdentifier.swift; sourceTree = "<group>"; };
+		8D3B6E6C27F5F6160025C3A3 /* NameViewIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewIdentifier.swift; sourceTree = "<group>"; };
+		8D3B6E6F27F5FBA60025C3A3 /* TextFieldMangerCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMangerCreator.swift; sourceTree = "<group>"; };
+		8D3B6E7127F5FD150025C3A3 /* TextFieldMangerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMangerFactory.swift; sourceTree = "<group>"; };
+		8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewTextFieldMangerable.swift; sourceTree = "<group>"; };
+		8D3E69B227F6F9F9005A5330 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		8D3E69B427F70C13005A5330 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkError.swift; sourceTree = "<group>"; };
+		8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionCheckable.swift; sourceTree = "<group>"; };
+		8D3FBF2A27F429D800D31E72 /* IDExpressionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDExpressionChecker.swift; sourceTree = "<group>"; };
+		8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
+		8D42512927F35F2500BF6D7B /* PostResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResult.swift; sourceTree = "<group>"; };
+		8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordExpressionChecker.swift; sourceTree = "<group>"; };
+		8DD10DA627F443B000D7C15B /* SignUpInputTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputTextFieldDelegate.swift; sourceTree = "<group>"; };
+		8DD10DA827F443E000D7C15B /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		8DD10DAB27F5453900D7C15B /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		8DD10DC327F5827300D7C15B /* SignUpTextFieldManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldManger.swift; sourceTree = "<group>"; };
+		8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInputResult.swift; sourceTree = "<group>"; };
+		8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegex.swift; sourceTree = "<group>"; };
+		8DD10DC927F5DA4B00D7C15B /* IDError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +145,7 @@
 		8D1E791927F1D12E004FD949 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8D3347D727F151A200AD1F41 /* SignUpInputViewComponent.swift */,
+				8D3347D727F151A200AD1F41 /* SignUpInputView.swift */,
 				8D1E791727F1AB6D004FD949 /* SignUpNextButton.swift */,
 			);
 			path = View;
@@ -97,7 +155,13 @@
 			isa = PBXGroup;
 			children = (
 				8D1E791527F1A2F6004FD949 /* SignUpInputViewCreator.swift */,
+				8D3B6E6F27F5FBA60025C3A3 /* TextFieldMangerCreator.swift */,
 				8D1E791127F1A23A004FD949 /* SignUpInputViewable.swift */,
+				8D3B6E5527F5EC850025C3A3 /* InputComponentable.swift */,
+				8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */,
+				8DD10DA627F443B000D7C15B /* SignUpInputTextFieldDelegate.swift */,
+				8D3B6E6227F5F2490025C3A3 /* inputViewIdentifierable.swift */,
+				8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -152,6 +216,7 @@
 		8D3347D527F14CF500AD1F41 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				8DD10DA827F443E000D7C15B /* Typealias.swift */,
 				8D3347A527F14CDE00AD1F41 /* AppDelegate.swift */,
 				8D3347A727F14CDE00AD1F41 /* SceneDelegate.swift */,
 				8D3347AE27F14CE100AD1F41 /* Assets.xcassets */,
@@ -164,11 +229,81 @@
 			isa = PBXGroup;
 			children = (
 				8D3347A927F14CDE00AD1F41 /* SignUpViewController.swift */,
-				8D1E791327F1A2C7004FD949 /* SignUpInputViewFactory.swift */,
+				8DD10DC327F5827300D7C15B /* SignUpTextFieldManger.swift */,
+				8DD10DAA27F47C4E00D7C15B /* Factory */,
+				8DD10DA327F438EA00D7C15B /* RegularExpressionChecker */,
+				8D42512627F3003000BF6D7B /* Model */,
 				8D1E791927F1D12E004FD949 /* View */,
 				8D1E791A27F1D13F004FD949 /* Protocol */,
 			);
 			path = SignUpSence;
+			sourceTree = "<group>";
+		};
+		8D3B6E6127F5EEC20025C3A3 /* InputComponentModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D3B6E5927F5ED4F0025C3A3 /* IDInputComponentModel.swift */,
+				8D3B6E5B27F5EDF70025C3A3 /* PasswordInputComponentModel.swift */,
+				8D3B6E5D27F5EE0B0025C3A3 /* PasswordRecheckComponentModel.swift */,
+				8D3B6E5F27F5EE200025C3A3 /* NameInputComponentModel.swift */,
+			);
+			path = InputComponentModel;
+			sourceTree = "<group>";
+		};
+		8D3B6E6E27F5F6B80025C3A3 /* Identifier */ = {
+			isa = PBXGroup;
+			children = (
+				8D3B6E6627F5F5EC0025C3A3 /* IDViewIdentifier.swift */,
+				8D3B6E6827F5F5FD0025C3A3 /* PasswordViewIdentifier.swift */,
+				8D3B6E6A27F5F6080025C3A3 /* PasswordRecheckIdentifier.swift */,
+				8D3B6E6C27F5F6160025C3A3 /* NameViewIdentifier.swift */,
+				8D3E69B427F70C13005A5330 /* Identifiers.swift */,
+			);
+			path = Identifier;
+			sourceTree = "<group>";
+		};
+		8D42512127F2FD8400BF6D7B /* Netwrok */ = {
+			isa = PBXGroup;
+			children = (
+				8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */,
+				8DD10DAB27F5453900D7C15B /* HttpMethod.swift */,
+			);
+			path = Netwrok;
+			sourceTree = "<group>";
+		};
+		8D42512627F3003000BF6D7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D3B6E6E27F5F6B80025C3A3 /* Identifier */,
+				8D3B6E6127F5EEC20025C3A3 /* InputComponentModel */,
+				8D42512127F2FD8400BF6D7B /* Netwrok */,
+				8D42512927F35F2500BF6D7B /* PostResult.swift */,
+				8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */,
+				8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */,
+				8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */,
+				8DD10DC927F5DA4B00D7C15B /* IDError.swift */,
+				8DD10DC727F5A04400D7C15B /* PasswordRegex.swift */,
+				8D3E69B227F6F9F9005A5330 /* RGB.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8DD10DA327F438EA00D7C15B /* RegularExpressionChecker */ = {
+			isa = PBXGroup;
+			children = (
+				8D3FBF2A27F429D800D31E72 /* IDExpressionChecker.swift */,
+				8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */,
+			);
+			path = RegularExpressionChecker;
+			sourceTree = "<group>";
+		};
+		8DD10DAA27F47C4E00D7C15B /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				8D1E791327F1A2C7004FD949 /* SignUpInputViewFactory.swift */,
+				8D3B6E7127F5FD150025C3A3 /* TextFieldMangerFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,14 +436,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D3347D827F151A200AD1F41 /* SignUpInputViewComponent.swift in Sources */,
+				8D3347D827F151A200AD1F41 /* SignUpInputView.swift in Sources */,
+				8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */,
+				8DD10DC827F5A04400D7C15B /* PasswordRegex.swift in Sources */,
+				8DD10DCA27F5DA4B00D7C15B /* IDError.swift in Sources */,
+				8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */,
+				8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */,
+				8D3B6E6327F5F2490025C3A3 /* inputViewIdentifierable.swift in Sources */,
+				8DD10DAC27F5453900D7C15B /* HttpMethod.swift in Sources */,
+				8D3B6E7027F5FBA60025C3A3 /* TextFieldMangerCreator.swift in Sources */,
+				8D3B6E6727F5F5EC0025C3A3 /* IDViewIdentifier.swift in Sources */,
 				8D1E791427F1A2C7004FD949 /* SignUpInputViewFactory.swift in Sources */,
+				8D3FBF2B27F429D800D31E72 /* IDExpressionChecker.swift in Sources */,
+				8D3B6E5E27F5EE0B0025C3A3 /* PasswordRecheckComponentModel.swift in Sources */,
+				8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */,
+				8D3B6E7227F5FD150025C3A3 /* TextFieldMangerFactory.swift in Sources */,
+				8D3E69B327F6F9F9005A5330 /* RGB.swift in Sources */,
+				8D3B6E5C27F5EDF70025C3A3 /* PasswordInputComponentModel.swift in Sources */,
+				8D3B6E6027F5EE200025C3A3 /* NameInputComponentModel.swift in Sources */,
 				8D1E791827F1AB6D004FD949 /* SignUpNextButton.swift in Sources */,
+				8D3B6E6B27F5F6080025C3A3 /* PasswordRecheckIdentifier.swift in Sources */,
+				8D3B6E6927F5F5FD0025C3A3 /* PasswordViewIdentifier.swift in Sources */,
+				8D3B6E6D27F5F6160025C3A3 /* NameViewIdentifier.swift in Sources */,
 				8D3347AA27F14CDE00AD1F41 /* SignUpViewController.swift in Sources */,
 				8D1E791227F1A23A004FD949 /* SignUpInputViewable.swift in Sources */,
+				8D3B6E7427F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift in Sources */,
+				8D3B6E5A27F5ED4F0025C3A3 /* IDInputComponentModel.swift in Sources */,
 				8D3347A627F14CDE00AD1F41 /* AppDelegate.swift in Sources */,
+				8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */,
 				8D1E791627F1A2F6004FD949 /* SignUpInputViewCreator.swift in Sources */,
+				8DD10DC627F588AC00D7C15B /* TextFieldInputResult.swift in Sources */,
+				8D3B6E5627F5EC850025C3A3 /* InputComponentable.swift in Sources */,
+				8DD10DC427F5827300D7C15B /* SignUpTextFieldManger.swift in Sources */,
+				8DD10DA727F443B000D7C15B /* SignUpInputTextFieldDelegate.swift in Sources */,
+				8D3E69B527F70C13005A5330 /* Identifiers.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
+				8D3FBF2527F3E7C500D31E72 /* UserInfo.swift in Sources */,
+				8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

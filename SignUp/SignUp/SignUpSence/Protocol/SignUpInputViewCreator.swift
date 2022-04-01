@@ -6,5 +6,5 @@
 //
 
 protocol SignUpInputViewCreator {
-    func makeSignUpViewComponent(labelText:String, placeHolder:String) -> SignUpInputViewable
+    func makeSignUpViewComponent(inputModel:InputComponentable) -> SignUpInputViewable
 }

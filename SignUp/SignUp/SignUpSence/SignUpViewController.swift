@@ -6,24 +6,69 @@
 //
 
 import UIKit
+import OSLog
 
 final class SignUpViewController: UIViewController {
     
+    //view
     private let stackView = UIStackView(frame: .zero)
     private let nextButton = SignUpNextButton(frame: .zero)
-    private var IDComponent:SignUpInputViewable?
-    private var passwordComponet:SignUpInputViewable?
-    private var passwordRecheckComponent:SignUpInputViewable?
-    private var nameComponent:SignUpInputViewable?
+    private var IDInputView:SignUpInputViewable?
+    private var passwordInputView:SignUpInputViewable?
+    private var passwordRecheckInputView:SignUpInputViewable?
+    private var nameInputView:SignUpInputViewable?
+    private var inputViewComponents:[SignUpInputViewable?] = []
     
+    //network
+    private var signUpNetwork = SignUpNetwork()
+    //model that if use get method
+    private var registeredID:UserID = UserID()
+    //model that if use post method
+    private var postResult:PostResult?
+
+    //creator
     private var inputViewCreator:SignUpInputViewCreator?
+    private var textFieldMangerCreator:TextFieldMangerCreator?
+    
+    //inputIsValidate?
+    private var signUpViewTextFieldManger:SignUpInputViewTextFieldMangerable?
+    private var isValidate:Bool?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSignUpView()
-        
+        configureNotificationCenter()
+        getRequest()
     }
-
+    
+    private func postRequest(userInfo:UserInfo) {
+        signUpNetwork.postRequest(postBody: userInfo) { [weak self] (result:Result<PostResult,SignUpNetworkError>) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let postResult):
+                self.postResult = postResult
+            case .failure(let error):
+                os_log(.error, "\(error.localizedDescription)")
+                return
+            }
+        }
+    }
+    
+    
+    private func getRequest() {
+        signUpNetwork.getRequest { [weak self] (result: Result<UserID, SignUpNetworkError>) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let userID):
+                self.registeredID = userID
+            case .failure(let error):
+                os_log(.error, "\(error.localizedDescription)")
+                return
+            }
+        }
+    }
+    
     private func configureSignUpView() {
         setTitle()
         configureNextButton()
@@ -39,12 +84,13 @@ final class SignUpViewController: UIViewController {
         stackView.distribution = .fillProportionally
         
         inputViewComponents.forEach{ inputViewable in
-            guard let view = inputViewable as? SignUpInputViewComponent else { return }
+            guard let view = inputViewable as? SignUpInputView else { return }
             stackView.addArrangedSubview(view)
+            view.delegate = self
         }
         
         self.view.addSubview(stackView)
-    
+        
         stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor,constant: constant).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor,constant: -constant).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.nextButton.topAnchor,constant: -constant).isActive = true
@@ -67,12 +113,13 @@ final class SignUpViewController: UIViewController {
         inputViewCreator(creator: SignUpInputViewFactory())
         guard let factory = inputViewCreator else { return [] }
         
-        IDComponent = factory.makeSignUpViewComponent(labelText: "아이디", placeHolder: "영문 대/소문자, 숫자, 특수기호(_,-) 5~20자")
-        passwordComponet = factory.makeSignUpViewComponent(labelText: "비밀번호", placeHolder: "영문 대/소문자, 숫자, 특수문자(!@#$% 8~16자")
-        passwordRecheckComponent = factory.makeSignUpViewComponent(labelText: "비밀번호 재확인", placeHolder: "")
-        nameComponent = factory.makeSignUpViewComponent(labelText: "이름", placeHolder: "")
+        IDInputView = factory.makeSignUpViewComponent(inputModel: IDInputComponentModel() )
+        passwordInputView = factory.makeSignUpViewComponent(inputModel: PasswordInputComponentModel() )
+        passwordRecheckInputView = factory.makeSignUpViewComponent(inputModel: PasswordRecheckInputComponentModel() )
+        nameInputView = factory.makeSignUpViewComponent(inputModel: NameInputComponentModel() )
         
-        return [IDComponent,passwordComponet,passwordRecheckComponent,nameComponent]
+        inputViewComponents = [IDInputView,passwordInputView,passwordRecheckInputView,nameInputView]
+        return inputViewComponents
     }
     
     //button
@@ -84,9 +131,58 @@ final class SignUpViewController: UIViewController {
         nextButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -bottomInset).isActive = true
     }
     
-    //injection creator
+    private func findSpecificInputView(inputViewID: inputViewIdentifierable) -> SignUpInputViewable? {
+        let selectedInputView = inputViewComponents.first {
+            $0?.getIdentifier()?.id == inputViewID.id
+        }
+        return selectedInputView ?? nil
+    }
+    
+    //MARK: -- notificationCenter
+    private func configureNotificationCenter() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(checkedTextField(_:)),
+            name: SignUpTextFieldManger.NotificationName.checkedTextField,
+            object: signUpViewTextFieldManger )
+    }
+    
+    @objc func checkedTextField(_ notification:Notification) {
+        guard let result = notification.userInfo?[SignUpTextFieldManger.UserInfoKey.checkedValidation] as?
+                (TextFieldInputResult,SignUpInputView),
+              let signUpViewTextFieldManger = signUpViewTextFieldManger else { return }
+        let alertTextComponent = signUpViewTextFieldManger.transFormResultToText(checkedResult: result.0)
+        let inputView = result.1
+        let alertText = alertTextComponent.0
+        let alertTextColor = alertTextComponent.1
+        
+        inputView.setAlertText(text: alertText)
+        inputView.setAlertTextColor(color: alertTextColor)
+    }
+    
+    //MARK: -- injection
     private func inputViewCreator(creator:SignUpInputViewCreator) {
         self.inputViewCreator = creator
     }
+    
+    private func inputTextFieldMangerCreator(creator:TextFieldMangerCreator) {
+        self.textFieldMangerCreator = creator
+    }
 }
 
+extension SignUpViewController:SignUpInputTextFieldDelegate {
+
+    func textFieldEndEditing(inputViewID: inputViewIdentifierable, textField: UITextField) {
+        //injection creator
+        inputTextFieldMangerCreator(creator: TextFieldMangerFactory())
+        
+        //make factory and find specificInputView
+        guard let factory = textFieldMangerCreator,
+              let inputView = self.findSpecificInputView(inputViewID: inputViewID)
+              else { return }
+        
+        signUpViewTextFieldManger = factory.makeTextFieldManger(id: inputViewID)
+        
+        signUpViewTextFieldManger?.validateText(signUpInputView: inputView)
+    }
+}
