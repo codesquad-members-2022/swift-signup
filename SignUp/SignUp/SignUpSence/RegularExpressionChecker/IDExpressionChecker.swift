@@ -8,7 +8,8 @@
 import Foundation
 
 final class IDExpressionChecker:RegularExpressionCheckable {
-    private static let regex = "[a-z0-9-_]{5,20}"
+    private static let regex = "^[a-z0-9_-]{5,20}$"
+    
     func check(expression: String) -> TextFieldInputResult {
         if expression.range(of: IDExpressionChecker.regex, options: .regularExpression) != nil {
             return TextFieldInputResult.idResult(result: .success)

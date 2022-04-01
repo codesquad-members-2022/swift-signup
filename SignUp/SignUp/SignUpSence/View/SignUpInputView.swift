@@ -8,9 +8,8 @@
 import UIKit
 
 final class SignUpInputView:UIView,SignUpInputViewable {
-
     
-    var delegate:InputTextFieldDelegate?
+    var delegate:SignUpInputTextFieldDelegate?
     
     private var identifier:inputViewIdentifierable?
     
@@ -26,6 +25,13 @@ final class SignUpInputView:UIView,SignUpInputViewable {
         textField.layer.borderWidth = 1.0
         return textField
     }()
+    
+    private lazy var validatedTextLabel:UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 10,weight: .light)
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,13 +63,19 @@ final class SignUpInputView:UIView,SignUpInputViewable {
         return self.identifier ?? nil
     }
     
+    func setAlertText(text:String) {
+        self.validatedTextLabel.text = text
+    }
+    
+    
     private func setUp() {
         let space:CGFloat = 8.0
         let textFieldHeight:CGFloat = 32.0
-        [label,textField].forEach{ self.addSubview($0) }
+        [label,textField,validatedTextLabel].forEach{ self.addSubview($0) }
         
         label.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
+        validatedTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         label.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         label.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -72,6 +84,10 @@ final class SignUpInputView:UIView,SignUpInputViewable {
         textField.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         textField.topAnchor.constraint(equalTo: label.bottomAnchor,constant: space).isActive = true
         textField.heightAnchor.constraint(equalToConstant:textFieldHeight).isActive = true
+        
+        validatedTextLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        validatedTextLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        validatedTextLabel.topAnchor.constraint(equalTo: textField.bottomAnchor).isActive = true
     }
 }
 

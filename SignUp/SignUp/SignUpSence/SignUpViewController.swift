@@ -145,10 +145,9 @@ final class SignUpViewController: UIViewController {
     private func inputTextFieldMangerCreator(creator:TextFieldMangerCreator) {
         self.textFieldMangerCreator = creator
     }
-    
 }
 
-extension SignUpViewController:InputTextFieldDelegate {
+extension SignUpViewController:SignUpInputTextFieldDelegate {
 
     func textFieldEndEditing(inputViewID: inputViewIdentifierable, textField: UITextField) {
         //injection creator
@@ -161,9 +160,11 @@ extension SignUpViewController:InputTextFieldDelegate {
         signUpViewTextFieldManger = factory.makeTextFieldManger(id: inputViewID)
         
         //Check Text & return result
-        guard let checkedText = signUpViewTextFieldManger?.validateText(signUpInputView: inputView) else { return }
+        guard let checkedResult = signUpViewTextFieldManger?.validateText(signUpInputView: inputView) else { return }
         
-        //result to will appear view
-        print(signUpViewTextFieldManger?.check(checkedText: checkedText))
+        //resultText that will appear view
+        guard let textFieldAlertText = signUpViewTextFieldManger?.InputResultText(checkedResult: checkedResult) else { return }
+        
+        inputView.setAlertText(text: textFieldAlertText)
     }
 }

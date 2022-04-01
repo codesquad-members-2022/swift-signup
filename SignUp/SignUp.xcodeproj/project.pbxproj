@@ -40,7 +40,7 @@
 		8D42512027F2F2A000BF6D7B /* SignUpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */; };
 		8D42512A27F35F2500BF6D7B /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42512927F35F2500BF6D7B /* PostResult.swift */; };
 		8DD10DA527F4390900D7C15B /* PasswordExpressionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */; };
-		8DD10DA727F443B000D7C15B /* InputTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA627F443B000D7C15B /* InputTextFieldDelegate.swift */; };
+		8DD10DA727F443B000D7C15B /* SignUpInputTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA627F443B000D7C15B /* SignUpInputTextFieldDelegate.swift */; };
 		8DD10DA927F443E000D7C15B /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DA827F443E000D7C15B /* Typealias.swift */; };
 		8DD10DAC27F5453900D7C15B /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DAB27F5453900D7C15B /* HttpMethod.swift */; };
 		8DD10DC427F5827300D7C15B /* SignUpTextFieldManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD10DC327F5827300D7C15B /* SignUpTextFieldManger.swift */; };
@@ -104,7 +104,7 @@
 		8D42511F27F2F2A000BF6D7B /* SignUpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetwork.swift; sourceTree = "<group>"; };
 		8D42512927F35F2500BF6D7B /* PostResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResult.swift; sourceTree = "<group>"; };
 		8DD10DA427F4390900D7C15B /* PasswordExpressionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordExpressionChecker.swift; sourceTree = "<group>"; };
-		8DD10DA627F443B000D7C15B /* InputTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextFieldDelegate.swift; sourceTree = "<group>"; };
+		8DD10DA627F443B000D7C15B /* SignUpInputTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputTextFieldDelegate.swift; sourceTree = "<group>"; };
 		8DD10DA827F443E000D7C15B /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		8DD10DAB27F5453900D7C15B /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		8DD10DC327F5827300D7C15B /* SignUpTextFieldManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextFieldManger.swift; sourceTree = "<group>"; };
@@ -151,12 +151,12 @@
 			isa = PBXGroup;
 			children = (
 				8D1E791527F1A2F6004FD949 /* SignUpInputViewCreator.swift */,
-				8D1E791127F1A23A004FD949 /* SignUpInputViewable.swift */,
-				8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */,
-				8DD10DA627F443B000D7C15B /* InputTextFieldDelegate.swift */,
-				8D3B6E5527F5EC850025C3A3 /* InputComponentable.swift */,
-				8D3B6E6227F5F2490025C3A3 /* inputViewIdentifierable.swift */,
 				8D3B6E6F27F5FBA60025C3A3 /* TextFieldMangerCreator.swift */,
+				8D1E791127F1A23A004FD949 /* SignUpInputViewable.swift */,
+				8D3B6E5527F5EC850025C3A3 /* InputComponentable.swift */,
+				8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */,
+				8DD10DA627F443B000D7C15B /* SignUpInputTextFieldDelegate.swift */,
+				8D3B6E6227F5F2490025C3A3 /* inputViewIdentifierable.swift */,
 				8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */,
 			);
 			path = Protocol;
@@ -229,7 +229,6 @@
 				8DD10DAA27F47C4E00D7C15B /* Factory */,
 				8DD10DA327F438EA00D7C15B /* RegularExpressionChecker */,
 				8D42512627F3003000BF6D7B /* Model */,
-				8D42512127F2FD8400BF6D7B /* Netwrok */,
 				8D1E791927F1D12E004FD949 /* View */,
 				8D1E791A27F1D13F004FD949 /* Protocol */,
 			);
@@ -270,10 +269,11 @@
 		8D42512627F3003000BF6D7B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D42512927F35F2500BF6D7B /* PostResult.swift */,
-				8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */,
 				8D3B6E6E27F5F6B80025C3A3 /* Identifier */,
 				8D3B6E6127F5EEC20025C3A3 /* InputComponentModel */,
+				8D42512127F2FD8400BF6D7B /* Netwrok */,
+				8D42512927F35F2500BF6D7B /* PostResult.swift */,
+				8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */,
 				8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */,
 				8DD10DC527F588AC00D7C15B /* TextFieldInputResult.swift */,
 				8DD10DC927F5DA4B00D7C15B /* IDError.swift */,
@@ -461,7 +461,7 @@
 				8DD10DC627F588AC00D7C15B /* TextFieldInputResult.swift in Sources */,
 				8D3B6E5627F5EC850025C3A3 /* InputComponentable.swift in Sources */,
 				8DD10DC427F5827300D7C15B /* SignUpTextFieldManger.swift in Sources */,
-				8DD10DA727F443B000D7C15B /* InputTextFieldDelegate.swift in Sources */,
+				8DD10DA727F443B000D7C15B /* SignUpInputTextFieldDelegate.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
 				8D3FBF2527F3E7C500D31E72 /* UserInfo.swift in Sources */,
 				8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */,

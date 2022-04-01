@@ -7,6 +7,6 @@
 
 import UIKit
 
-protocol InputTextFieldDelegate {
+protocol SignUpInputTextFieldDelegate {
     func textFieldEndEditing(inputViewID:inputViewIdentifierable, textField:UITextField)
 }

@@ -8,5 +8,5 @@
 protocol SignUpInputViewTextFieldMangerable {
     var checker:RegularExpressionCheckable? { get }
     func validateText(signUpInputView: SignUpInputViewable) -> TextFieldInputResult
-    func check(checkedText:TextFieldInputResult) -> String
+    func InputResultText(checkedResult:TextFieldInputResult) -> String
 }

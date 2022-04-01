@@ -13,8 +13,8 @@ final class SignUpTextFieldManger:SignUpInputViewTextFieldMangerable{
         self.checker = checker
     }
     
-    func check(checkedText:TextFieldInputResult) -> String {
-        switch checkedText {
+    func InputResultText(checkedResult:TextFieldInputResult) -> String {
+        switch checkedResult {
         case .idResult(result: .success):
             return "사용 가능한 아이디입니다."
         case .idResult(result: .failure(type: .alreadyExisted)):
