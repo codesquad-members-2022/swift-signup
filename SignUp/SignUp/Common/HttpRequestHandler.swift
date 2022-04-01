@@ -32,6 +32,7 @@ class HttpRequestHandler{
         request.httpMethod = httpMethod.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
+    static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, completion: @escaping (_ result: Result<Data,Error>)->Void){
         URLSession.shared.dataTask(with: request){ data, response, error in
             if let error = error{
                 completion(.failure(HttpError.normalError(error: error)))
@@ -47,8 +48,17 @@ class HttpRequestHandler{
                 completion(.failure(HttpError.requestError))
                 return
             }
-            
-            guard let responseBody = try? JSONDecoder().decode(Dictionary<String, String>.self, from: data) else { return }
+
+            completion(.success(data))
         }.resume()
+    }
+    
+    static func handleResponse(target: HttpResponseHandlable, result: Result<Data, Error>){
+        switch result{
+        case .success(let data):
+            target.handleSuccess(data: data)
+        case .failure(let error):
+            target.handleFailure(error: error)
+        }
     }
 }
