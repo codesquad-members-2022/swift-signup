@@ -1,48 +1,77 @@
 import Foundation
-import OSLog
 
-enum HttpMethod: String{
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
+enum HttpMethod: CustomStringConvertible{
+    case get
+    case post
+    case put
+    
+    var description: String{
+        switch self{
+        case .get:
+            return "GET"
+        case .post:
+            return "POST"
+        case .put:
+            return "PUT"
+        }
+    }
 }
 
-enum HttpResponseKey: String{
-    case responseBodyData = "responseBodyData"
-}
-
-struct NotificationName{
-    static let normalResponseReceived = Notification.Name("normalResponseReceived")
+enum HttpError: Error, CustomStringConvertible{
+    case normalError(error: Error)
+    case dataNotReceivedError
+    case requestError
+    
+    var description: String{
+        switch self {
+        case .normalError(let error):
+            return error.localizedDescription
+        case .dataNotReceivedError:
+            return "data not received"
+        case .requestError:
+            return "client request error"
+        }
+    }
 }
 
 class HttpRequestHandler{
     
-    static let logger = Logger()
-    static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, completion: @escaping ()->Void){
+    static func generateURLRequest(data: Data?, url: URL, httpMethod: HttpMethod) -> URLRequest{
         var request = URLRequest(url: url)
-        request.httpMethod = httpMethod.rawValue
+        request.httpMethod = "\(httpMethod)"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
+        return request
+    }
+    
+    static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, target: HttpResponseHandlable) {
+        let request = generateURLRequest(data: data, url: url, httpMethod: httpMethod)
         URLSession.shared.dataTask(with: request){ data, response, error in
-            guard error == nil else {
-                self.logger.error("\(error.debugDescription)")
+            if let error = error{
+                self.handleResponse(target: target, result: .failure(HttpError.normalError(error: error)))
                 return
             }
-            
+
             guard let data = data, let response = response as? HTTPURLResponse else {
-                self.logger.error("Could not receive any response or data")
-                //네트워크 오류로 인한 로그인 실패 출력
+                self.handleResponse(target: target, result: .failure(HttpError.dataNotReceivedError))
                 return
             }
-            
+
             if(response.statusCode >= 400){
-                self.logger.debug("detected response with \(response.statusCode) status\nurl : \(url)")
+                self.handleResponse(target: target, result: .failure(HttpError.requestError))
                 return
             }
             
-            guard let responseBody = try? JSONDecoder().decode(Dictionary<String, String>.self, from: data) else { return }
-            NotificationCenter.default.post(name: NotificationName.normalResponseReceived, object: self, userInfo: [HttpResponseKey.responseBodyData:responseBody])
-            
+            self.handleResponse(target: target, result: .success(data))
         }.resume()
+    }
+
+    static func handleResponse(target: HttpResponseHandlable, result: Result<Data, Error>){
+        switch result{
+        case .success(let data):
+            target.handleSuccess(data: data)
+        case .failure(let error):
+            target.handleFailure(error: error)
+        }
     }
 }

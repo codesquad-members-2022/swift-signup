@@ -11,12 +11,14 @@
 		B557E9C627F4401700448EC6 /* LoginViewDeleagte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */; };
 		B557E9C827F441D200448EC6 /* HttpRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9C727F441D200448EC6 /* HttpRequestHandler.swift */; };
 		B557E9CC27F4776A00448EC6 /* LoginUserProcotol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9CB27F4776A00448EC6 /* LoginUserProcotol.swift */; };
-		B557E9CE27F48A1E00448EC6 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */; };
+		B557E9DE27F58D8500448EC6 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9DD27F58D8500448EC6 /* AlertPresentable.swift */; };
+		B557E9E027F5966400448EC6 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B557E9DF27F5966400448EC6 /* HttpResponse.swift */; };
 		B571ECD527F354E400DF501F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD427F354E400DF501F /* LoginViewController.swift */; };
 		B571ECD827F355C300DF501F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD727F355C300DF501F /* LoginView.swift */; };
 		B571ECDA27F363BE00DF501F /* SigningUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECD927F363BE00DF501F /* SigningUpView.swift */; };
 		B571ECDC27F3722900DF501F /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECDB27F3722900DF501F /* PersonalInfoViewController.swift */; };
 		B571ECDE27F3723C00DF501F /* PersonalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B571ECDD27F3723C00DF501F /* PersonalInfoView.swift */; };
+		B5EC66A427F74A010042EFCF /* HttpResponseHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EC66A327F74A010042EFCF /* HttpResponseHandleable.swift */; };
 		B5F8730727F19EE700FFFE7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8730627F19EE700FFFE7F /* AppDelegate.swift */; };
 		B5F8730927F19EE700FFFE7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8730827F19EE700FFFE7F /* SceneDelegate.swift */; };
 		B5F8730B27F19EE700FFFE7F /* SigningUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F8730A27F19EE700FFFE7F /* SigningUpViewController.swift */; };
@@ -30,12 +32,14 @@
 		B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewDeleagte.swift; sourceTree = "<group>"; };
 		B557E9C727F441D200448EC6 /* HttpRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestHandler.swift; sourceTree = "<group>"; };
 		B557E9CB27F4776A00448EC6 /* LoginUserProcotol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserProcotol.swift; sourceTree = "<group>"; };
-		B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
+		B557E9DD27F58D8500448EC6 /* AlertPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertPresentable.swift; path = SignUp/Controllers/Protocols/AlertPresentable.swift; sourceTree = SOURCE_ROOT; };
+		B557E9DF27F5966400448EC6 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		B571ECD427F354E400DF501F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B571ECD727F355C300DF501F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B571ECD927F363BE00DF501F /* SigningUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningUpView.swift; sourceTree = "<group>"; };
 		B571ECDB27F3722900DF501F /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		B571ECDD27F3723C00DF501F /* PersonalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoView.swift; sourceTree = "<group>"; };
+		B5EC66A327F74A010042EFCF /* HttpResponseHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpResponseHandleable.swift; path = SignUp/Controllers/Protocols/HttpResponseHandleable.swift; sourceTree = SOURCE_ROOT; };
 		B5F8730327F19EE700FFFE7F /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F8730627F19EE700FFFE7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F8730827F19EE700FFFE7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				B557E9C527F4401700448EC6 /* LoginViewDeleagte.swift */,
-				B557E9CD27F48A1E00448EC6 /* AlertPresentable.swift */,
 			);
 			path = DelegateProtocols;
 			sourceTree = "<group>";
@@ -79,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				B557E9C727F441D200448EC6 /* HttpRequestHandler.swift */,
+				B557E9DF27F5966400448EC6 /* HttpResponse.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -94,6 +98,7 @@
 		B571ECD327F1FA1100DF501F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5EC66A527F754CE0042EFCF /* Protocols */,
 				B5F8730A27F19EE700FFFE7F /* SigningUpViewController.swift */,
 				B571ECD427F354E400DF501F /* LoginViewController.swift */,
 				B571ECDB27F3722900DF501F /* PersonalInfoViewController.swift */,
@@ -110,6 +115,15 @@
 				B571ECDD27F3723C00DF501F /* PersonalInfoView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5EC66A527F754CE0042EFCF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B557E9DD27F58D8500448EC6 /* AlertPresentable.swift */,
+				B5EC66A327F74A010042EFCF /* HttpResponseHandleable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		B5F872FA27F19EE700FFFE7F = {
@@ -216,18 +230,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B557E9DE27F58D8500448EC6 /* AlertPresentable.swift in Sources */,
 				B557E9CC27F4776A00448EC6 /* LoginUserProcotol.swift in Sources */,
 				B571ECD527F354E400DF501F /* LoginViewController.swift in Sources */,
 				B571ECDA27F363BE00DF501F /* SigningUpView.swift in Sources */,
 				B5F8730B27F19EE700FFFE7F /* SigningUpViewController.swift in Sources */,
-				B557E9CE27F48A1E00448EC6 /* AlertPresentable.swift in Sources */,
 				B557E9C827F441D200448EC6 /* HttpRequestHandler.swift in Sources */,
 				B557E9C627F4401700448EC6 /* LoginViewDeleagte.swift in Sources */,
 				B557E9C327F43B8800448EC6 /* LoginUser.swift in Sources */,
 				B5F8730727F19EE700FFFE7F /* AppDelegate.swift in Sources */,
 				B571ECDE27F3723C00DF501F /* PersonalInfoView.swift in Sources */,
 				B571ECDC27F3722900DF501F /* PersonalInfoViewController.swift in Sources */,
+				B5EC66A427F74A010042EFCF /* HttpResponseHandleable.swift in Sources */,
 				B571ECD827F355C300DF501F /* LoginView.swift in Sources */,
+				B557E9E027F5966400448EC6 /* HttpResponse.swift in Sources */,
 				B5F8730927F19EE700FFFE7F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
