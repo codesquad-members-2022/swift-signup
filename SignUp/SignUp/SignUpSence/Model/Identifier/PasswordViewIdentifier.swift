@@ -6,5 +6,5 @@
 //
 
 struct PasswordViewIdentifier:inputViewIdentifierable {
-    var id: String = "password"
+    var id: String = Identifiers.password
 }

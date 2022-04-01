@@ -8,9 +8,9 @@
 final class TextFieldMangerFactory:TextFieldMangerCreator {
     func makeTextFieldManger(id: inputViewIdentifierable) -> SignUpInputViewTextFieldMangerable {
         switch id.id {
-        case "ID":
+        case Identifiers.id:
             return SignUpTextFieldManger(checker: IDExpressionChecker())
-        case "password":
+        case Identifiers.password:
             return SignUpTextFieldManger(checker: PasswordExpressionChecker())
         default:
             return SignUpTextFieldManger(checker: nil)

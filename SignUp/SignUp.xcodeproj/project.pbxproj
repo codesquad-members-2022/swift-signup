@@ -34,6 +34,7 @@
 		8D3B6E7227F5FD150025C3A3 /* TextFieldMangerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E7127F5FD150025C3A3 /* TextFieldMangerFactory.swift */; };
 		8D3B6E7427F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */; };
 		8D3E69B327F6F9F9005A5330 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E69B227F6F9F9005A5330 /* RGB.swift */; };
+		8D3E69B527F70C13005A5330 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3E69B427F70C13005A5330 /* Identifiers.swift */; };
 		8D3FBF2527F3E7C500D31E72 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */; };
 		8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */; };
 		8D3FBF2927F428BD00D31E72 /* RegularExpressionCheckable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */; };
@@ -99,6 +100,7 @@
 		8D3B6E7127F5FD150025C3A3 /* TextFieldMangerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldMangerFactory.swift; sourceTree = "<group>"; };
 		8D3B6E7327F601B30025C3A3 /* SignUpInputViewTextFieldMangerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputViewTextFieldMangerable.swift; sourceTree = "<group>"; };
 		8D3E69B227F6F9F9005A5330 /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		8D3E69B427F70C13005A5330 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		8D3FBF2427F3E7C500D31E72 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		8D3FBF2627F3E9FA00D31E72 /* SignUpNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNetworkError.swift; sourceTree = "<group>"; };
 		8D3FBF2827F428BD00D31E72 /* RegularExpressionCheckable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularExpressionCheckable.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				8D3B6E6827F5F5FD0025C3A3 /* PasswordViewIdentifier.swift */,
 				8D3B6E6A27F5F6080025C3A3 /* PasswordRecheckIdentifier.swift */,
 				8D3B6E6C27F5F6160025C3A3 /* NameViewIdentifier.swift */,
+				8D3E69B427F70C13005A5330 /* Identifiers.swift */,
 			);
 			path = Identifier;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				8D3B6E5627F5EC850025C3A3 /* InputComponentable.swift in Sources */,
 				8DD10DC427F5827300D7C15B /* SignUpTextFieldManger.swift in Sources */,
 				8DD10DA727F443B000D7C15B /* SignUpInputTextFieldDelegate.swift in Sources */,
+				8D3E69B527F70C13005A5330 /* Identifiers.swift in Sources */,
 				8D3347A827F14CDE00AD1F41 /* SceneDelegate.swift in Sources */,
 				8D3FBF2527F3E7C500D31E72 /* UserInfo.swift in Sources */,
 				8D3FBF2727F3E9FA00D31E72 /* SignUpNetworkError.swift in Sources */,

@@ -6,5 +6,5 @@
 //
 
 struct IDViewIdentifier:inputViewIdentifierable {
-    var id: String = "ID"
+    var id: String = Identifiers.id
 }

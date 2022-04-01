@@ -6,5 +6,5 @@
 //
 
 struct PasswordRecheckIdentifier:inputViewIdentifierable {
-    var id: String = "passwordRecheck"
+    var id: String = Identifiers.passwordRecheck
 }

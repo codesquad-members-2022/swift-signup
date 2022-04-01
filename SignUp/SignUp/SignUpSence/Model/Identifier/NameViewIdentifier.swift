@@ -6,5 +6,5 @@
 //
 
 struct NameViewIdentifier:inputViewIdentifierable {
-    var id: String = "name"
+    var id: String = Identifiers.name
 }
