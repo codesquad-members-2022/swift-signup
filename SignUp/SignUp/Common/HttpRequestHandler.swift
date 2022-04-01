@@ -44,28 +44,28 @@ class HttpRequestHandler{
         return request
     }
     
-    static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, completion: @escaping (_ result: Result<Data,Error>)->Void){
+    static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, target: HttpResponseHandlable) {
         let request = generateURLRequest(data: data, url: url, httpMethod: httpMethod)
         URLSession.shared.dataTask(with: request){ data, response, error in
             if let error = error{
-                completion(.failure(HttpError.normalError(error: error)))
+                self.handleResponse(target: target, result: .failure(HttpError.normalError(error: error)))
                 return
             }
 
             guard let data = data, let response = response as? HTTPURLResponse else {
-                completion(.failure(HttpError.dataNotReceivedError))
+                self.handleResponse(target: target, result: .failure(HttpError.dataNotReceivedError))
                 return
             }
 
             if(response.statusCode >= 400){
-                completion(.failure(HttpError.requestError))
+                self.handleResponse(target: target, result: .failure(HttpError.requestError))
                 return
             }
-
-            completion(.success(data))
+            
+            self.handleResponse(target: target, result: .success(data))
         }.resume()
     }
-    
+
     static func handleResponse(target: HttpResponseHandlable, result: Result<Data, Error>){
         switch result{
         case .success(let data):

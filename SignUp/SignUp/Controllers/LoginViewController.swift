@@ -31,9 +31,7 @@ extension LoginViewController: LoginViewDelegate, HttpResponseHandlable{
         let loginUser = LoginUser(id: id, password: password)
         let jsonData = try? JSONEncoder().encode(loginUser)
         if let url = URL(string: "https://api.codesquad.kr/signup"){
-            HttpRequestHandler.sendRequest(data: jsonData, url: url, httpMethod: HttpMethod.post){ result in
-                HttpRequestHandler.handleResponse(target: self, result: result)
-            }
+            HttpRequestHandler.sendRequest(data: jsonData, url: url, httpMethod: HttpMethod.post, target: self)
         }
     }
     
