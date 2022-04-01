@@ -56,7 +56,7 @@ class UserInfoViewController: UIViewController {
         let inputView = InputTextFieldView()
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.title = "휴대전화"
-        inputView.attributedPlaceholder = NSAttributedString(string: "- 없이 입력해주세요 예)01012341234", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray150])
+        inputView.attributedPlaceholder = NSAttributedString(string: "- 없이 입력해주세요 예)01012341234", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGray2])
         inputView.textContentType = .telephoneNumber
         inputView.keyBoardType = .numberPad
         return inputView
@@ -199,7 +199,7 @@ class UserInfoViewController: UIViewController {
     }
     
     private func attribute() {
-        self.view.backgroundColor = .gray250
+        self.view.backgroundColor = .systemGray6
     }
     
     private func layout() {

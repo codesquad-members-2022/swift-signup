@@ -34,7 +34,7 @@ class InputSegmentedView: InputView, InputSegmented {
     
     private func attribute() {
         segmentedController.translatesAutoresizingMaskIntoConstraints = false
-        segmentedController.backgroundColor = .gray250
+        segmentedController.backgroundColor = .systemGray5
     }
     
     private func layout() {
