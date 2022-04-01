@@ -36,13 +36,16 @@ enum HttpError: Error, CustomStringConvertible{
 
 class HttpRequestHandler{
     
-    static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, completion: @escaping ()->Void){
+    static func generateURLRequest(data: Data?, url: URL, httpMethod: HttpMethod) -> URLRequest{
         var request = URLRequest(url: url)
-        request.httpMethod = httpMethod.rawValue
         request.httpMethod = "\(httpMethod)"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = data
+        return request
+    }
+    
     static func sendRequest(data: Data?, url: URL, httpMethod: HttpMethod, completion: @escaping (_ result: Result<Data,Error>)->Void){
+        let request = generateURLRequest(data: data, url: url, httpMethod: httpMethod)
         URLSession.shared.dataTask(with: request){ data, response, error in
             if let error = error{
                 completion(.failure(HttpError.normalError(error: error)))
