@@ -11,18 +11,20 @@ import UIKit
 class SigninViewController: UIViewController {
     private var idLabel: UILabel!
     private var pswLabel: UILabel!
-    private var checkPswLabel: UILabel!
+    private var recheckPswLabel: UILabel!
     private var nameLabel: UILabel!
     
     private var idTextField: UITextField!
     private var pswTextField: UITextField!
-    private var checkPswTextField: UITextField!
+    private var recheckPswTextField: UITextField!
     private var nameTextField: UITextField!
     
     private var validIdLabel: UILabel!
+    private var validPswLabel: UILabel!
     
     let textFieldValueChecker = TextFieldValueChecker()
-    private var check = false
+    private var idCheck = false
+    private var pswCheck = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +46,18 @@ class SigninViewController: UIViewController {
         setNameLabel()
         setNameTextField()
         setValidIdLabel()
+        setValidPswLabel()
     }
     
     private func addTextFieldAction(){
         idTextField.addTarget(self, action: #selector(checkIdTextFieldValidation), for: .editingChanged)
+        pswTextField.addTarget(self, action: #selector(checkPswTextFieldValidation), for: .editingChanged)
     }
     
     private func setTextFieldDelegate(){
         idTextField.delegate = self
         pswTextField.delegate = self
-        checkPswTextField.delegate = self
+        recheckPswTextField.delegate = self
         nameTextField.delegate = self
     }
     
@@ -78,29 +82,66 @@ extension SigninViewController: UITextFieldDelegate{
         case CheckValidIDCase.invalid
             : validIdLabel.text = CheckValidIDCase.invalid.showReason()
               validIdLabel.textColor = .systemRed
-              self.check = false
+              self.idCheck = false
         case .shortLength
             : validIdLabel.text = CheckValidIDCase.shortLength.showReason()
               validIdLabel.textColor = .systemRed
-              self.check = false
+              self.idCheck = false
         case .longLength
             : validIdLabel.text = CheckValidIDCase.longLength.showReason()
               validIdLabel.textColor = .systemRed
-              self.check = false
+              self.idCheck = false
         case .valid
             : validIdLabel.text = CheckValidIDCase.valid.showReason()
               validIdLabel.textColor = .systemGreen
-              self.check = true
+              self.idCheck = true
         case .usedId
             : validIdLabel.text = CheckValidIDCase.usedId.showReason()
               validIdLabel.textColor = .systemRed
-              self.check = false
+              self.idCheck = false
         }
         
-        changeTextFieldLayer(textField: idTextField)
+        changeTextFieldLayer(check: idCheck , textField: idTextField)
     }
     
-    func changeTextFieldLayer(textField: UITextField){
+    @objc func checkPswTextFieldValidation(){
+        guard let text = pswTextField.text else { return }
+        
+        switch textFieldValueChecker.checkValidationOfPsw(text: text){
+        case .shortLegth:
+            validPswLabel.text = CheckValidPswCase.shortLegth.showReason()
+            validPswLabel.textColor = .systemRed
+            self.pswCheck = false
+        case .longLength:
+            validPswLabel.text = CheckValidPswCase.longLength.showReason()
+            validPswLabel.textColor = .systemRed
+            self.pswCheck = false
+        case .noUpperCase:
+            validPswLabel.text = CheckValidPswCase.noUpperCase.showReason()
+            validPswLabel.textColor = .systemRed
+            self.pswCheck = false
+        case .noNumber:
+            validPswLabel.text = CheckValidPswCase.noNumber.showReason()
+            validPswLabel.textColor = .systemRed
+            self.pswCheck = false
+        case .noSpecialChar:
+            validPswLabel.text = CheckValidPswCase.noSpecialChar.showReason()
+            validPswLabel.textColor = .systemRed
+            self.pswCheck = false
+        case .invalid:
+            validPswLabel.text = CheckValidPswCase.invalid.showReason()
+            validPswLabel.textColor = .systemRed
+            self.pswCheck = false
+        case .valid:
+            validPswLabel.text = CheckValidPswCase.valid.showReason()
+            validPswLabel.textColor = .systemGreen
+            self.pswCheck = true
+        }
+        
+        changeTextFieldLayer(check: pswCheck, textField: pswTextField)
+    }
+    
+    func changeTextFieldLayer(check: Bool, textField: UITextField){
         if check{
             textField.layer.borderColor = UIColor.systemGreen.cgColor
         } else{
@@ -172,24 +213,31 @@ extension SigninViewController{
         self.view.addSubview(pswTextField)
     }
     
-    private func setCheckPswLabel(){
-        checkPswLabel = UILabel(frame: CGRect(x: 40, y: pswTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
-        checkPswLabel.text = "비밀번호 재확인"
-        checkPswLabel.font = UIFont.boldSystemFont(ofSize: 15)
-        checkPswLabel.textColor = .black
+    private func setValidPswLabel(){
+        validPswLabel = UILabel(frame: CGRect(x: 40, y: pswTextField.frame.maxY, width: view.frame.width - 80, height: 30))
+        validPswLabel.font = UIFont.systemFont(ofSize: 10)
         
-        self.view.addSubview(checkPswLabel)
+        self.view.addSubview(validPswLabel)
+    }
+    
+    private func setCheckPswLabel(){
+        recheckPswLabel = UILabel(frame: CGRect(x: 40, y: pswTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
+        recheckPswLabel.text = "비밀번호 재확인"
+        recheckPswLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        recheckPswLabel.textColor = .black
+        
+        self.view.addSubview(recheckPswLabel)
     }
     
     private func setCheckPswTextField(){
-        checkPswTextField = UITextField(frame: CGRect(x: 40, y: checkPswLabel.frame.maxY, width: view.frame.width - 80, height: 30))
-        textFieldCommonSetting(textField: checkPswTextField)
+        recheckPswTextField = UITextField(frame: CGRect(x: 40, y: recheckPswLabel.frame.maxY, width: view.frame.width - 80, height: 30))
+        textFieldCommonSetting(textField: recheckPswTextField)
         
-        self.view.addSubview(checkPswTextField)
+        self.view.addSubview(recheckPswTextField)
     }
     
     private func setNameLabel(){
-        nameLabel = UILabel(frame: CGRect(x: 40, y: checkPswTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
+        nameLabel = UILabel(frame: CGRect(x: 40, y: recheckPswTextField.frame.maxY + 30, width: view.frame.width - 80, height: 30))
         nameLabel.text = "이름"
         nameLabel.font = UIFont.boldSystemFont(ofSize: 15)
         nameLabel.textColor = .black

@@ -8,7 +8,7 @@
 import Foundation
 import os
 
-class JSONFactory{
+class JSONConverter{
     private(set) var existIds = [String]()
     
     func convertExistIdData(data: Data){

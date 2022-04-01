@@ -9,10 +9,10 @@ import Foundation
 import os
 
 class TextFieldValueChecker{
-    private var jsonFactory: JSONFactory
+    private var jsonFactory: JSONConverter
     
     init(){
-        self.jsonFactory = JSONFactory()
+        self.jsonFactory = JSONConverter()
         NetworkConnector.respondeGET(url: "https://api.codesquad.kr/signup"){ data in
             self.jsonFactory.convertExistIdData(data: data)
         }
@@ -40,33 +40,35 @@ class TextFieldValueChecker{
         }
     }
     
-    /*
-    func httpGetId(){
-        guard let url = URL(string: "https://api.codesquad.kr/signup") else { return }
+    func checkValidationOfPsw(text: String) -> CheckValidPswCase{
+        let fullPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,16}$"
+        let fullPred = NSPredicate(format: "SELF MATCHES %@", fullPattern)
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        let upperPattern = "^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%]).{8,16}$"
+        let upperPred = NSPredicate(format: "SELF MATCHES %@", upperPattern)
         
-        URLSession.shared.dataTask(with: request){ data, response, error in
-            guard let data = data else {
-                os_log("%@", "\(String(describing: data))")
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode) else {
-                os_log("%@", "\(response?.description))")
-                return
-            }
-            
-            do{
-                let result = try JSONDecoder().decode([String].self, from: data)
-                self.users = result
-                os_log("%@", "\(self.users)")
-            } catch{
-                os_log("%@", "\(error)")
-                return
-            }
-        }.resume()
+        let numberPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,16}$"
+        let numberPred = NSPredicate(format: "SELF MATCHES %@", numberPattern)
+        
+        let specialPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$"
+        let specialPred = NSPredicate(format: "SELF MATCHES %@", specialPattern)
+        
+        guard !fullPred.evaluate(with: text) else{
+            return .valid
+        }
+
+        if text.count < 8{
+            return .shortLegth
+        } else if text.count > 16{
+            return .longLength
+        } else if upperPred.evaluate(with: text){
+            return .noUpperCase
+        } else if numberPred.evaluate(with: text){
+            return .noNumber
+        } else if specialPred.evaluate(with: text){
+            return .noSpecialChar
+        } else{
+            return .invalid
+        }
     }
-     */
 }
