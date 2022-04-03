@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7207BDE627F1ACA800BA32A9 /* DebounceableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207BDE527F1ACA700BA32A9 /* DebounceableTextField.swift */; };
+		7207BDE627F1ACA800BA32A9 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207BDE527F1ACA700BA32A9 /* CustomUITextField.swift */; };
 		7207BDE827F1B3A600BA32A9 /* SignupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207BDE727F1B3A600BA32A9 /* SignupManager.swift */; };
 		7207BDEA27F1B56B00BA32A9 /* NetworkModelUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207BDE927F1B56B00BA32A9 /* NetworkModelUsable.swift */; };
 		72427A6D27F176B000BF7ABB /* SignupTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72427A6C27F176B000BF7ABB /* SignupTextFieldDelegate.swift */; };
@@ -18,6 +18,7 @@
 		7254842E27F5BE25002869F7 /* SignupDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254842D27F5BE25002869F7 /* SignupDependency.swift */; };
 		7254843027F5BE51002869F7 /* SignupDependencyUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7254842F27F5BE51002869F7 /* SignupDependencyUsable.swift */; };
 		726821A027F44D5100596040 /* ComposeDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7268219F27F44D5100596040 /* ComposeDependency.swift */; };
+		72826DD327F99DFB00E9BF61 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72826DD227F99DFA00E9BF61 /* TextFieldDelegate.swift */; };
 		72D1587827F141A300917AA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D1587727F141A300917AA7 /* AppDelegate.swift */; };
 		72D1587A27F141A300917AA7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D1587927F141A300917AA7 /* SceneDelegate.swift */; };
 		72D1587C27F141A300917AA7 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D1587B27F141A300917AA7 /* SignupViewController.swift */; };
@@ -51,7 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7207BDE527F1ACA700BA32A9 /* DebounceableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceableTextField.swift; sourceTree = "<group>"; };
+		7207BDE527F1ACA700BA32A9 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 		7207BDE727F1B3A600BA32A9 /* SignupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupManager.swift; sourceTree = "<group>"; };
 		7207BDE927F1B56B00BA32A9 /* NetworkModelUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelUsable.swift; sourceTree = "<group>"; };
 		72427A6C27F176B000BF7ABB /* SignupTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTextFieldDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		7254842D27F5BE25002869F7 /* SignupDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDependency.swift; sourceTree = "<group>"; };
 		7254842F27F5BE51002869F7 /* SignupDependencyUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDependencyUsable.swift; sourceTree = "<group>"; };
 		7268219F27F44D5100596040 /* ComposeDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeDependency.swift; sourceTree = "<group>"; };
+		72826DD227F99DFA00E9BF61 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		72D1587427F141A300917AA7 /* SignupApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignupApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72D1587727F141A300917AA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72D1587927F141A300917AA7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +203,8 @@
 				72D158B127F1577600917AA7 /* navigation */,
 				72D158AC27F1547200917AA7 /* signup */,
 				72D158B227F1586D00917AA7 /* personalDataInput */,
-				7207BDE527F1ACA700BA32A9 /* DebounceableTextField.swift */,
+				7207BDE527F1ACA700BA32A9 /* CustomUITextField.swift */,
+				72826DD227F99DFA00E9BF61 /* TextFieldDelegate.swift */,
 			);
 			path = page;
 			sourceTree = "<group>";
@@ -373,12 +376,13 @@
 				72D158A927F151BD00917AA7 /* NavigationController.swift in Sources */,
 				724B493E27F1DFB2000F4307 /* SignupExpressionCheckable.swift in Sources */,
 				7207BDEA27F1B56B00BA32A9 /* NetworkModelUsable.swift in Sources */,
+				72826DD327F99DFB00E9BF61 /* TextFieldDelegate.swift in Sources */,
 				7207BDE827F1B3A600BA32A9 /* SignupManager.swift in Sources */,
 				724B493B27F1DD9B000F4307 /* RegularExpressionCheck.swift in Sources */,
 				726821A027F44D5100596040 /* ComposeDependency.swift in Sources */,
 				724B494227F1F6D4000F4307 /* SignupNetwork.swift in Sources */,
 				7254843027F5BE51002869F7 /* SignupDependencyUsable.swift in Sources */,
-				7207BDE627F1ACA800BA32A9 /* DebounceableTextField.swift in Sources */,
+				7207BDE627F1ACA800BA32A9 /* CustomUITextField.swift in Sources */,
 				72427A6D27F176B000BF7ABB /* SignupTextFieldDelegate.swift in Sources */,
 				724B494027F1EFB7000F4307 /* SignManagable.swift in Sources */,
 				7254842E27F5BE25002869F7 /* SignupDependency.swift in Sources */,

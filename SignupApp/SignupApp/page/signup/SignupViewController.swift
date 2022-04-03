@@ -10,12 +10,12 @@ import UIKit
 class SignupViewController: UIViewController {
     
     private var signupManagable: SignManagable?
+    private let textFieldDeleagate = TextFieldDelegate()
     
-    @IBOutlet weak var idTextField: DebounceableTextField!
-    @IBOutlet weak var passwordTextField: DebounceableTextField!
-    @IBOutlet weak var passwordCheckTextField: DebounceableTextField!
-    @IBOutlet weak var nameTextField: DebounceableTextField!
-    
+    @IBOutlet weak var idTextField: IDTextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
+    @IBOutlet weak var passwordCheckTextField: PasswordCheckTextField!
+    @IBOutlet weak var nameTextField: NameTextField!
     func injectDependency(signupDependency: SignupDependencyUsable){
         self.signupManagable = signupDependency.getManagable()
     }
@@ -32,28 +32,9 @@ class SignupViewController: UIViewController {
     }
     
     private func setTextfieldsDelegate(){
-        idTextField.setDelegate(inputableDelegate: self as IDInputable, protocolType: IDInputable.self)
-        passwordTextField.setDelegate(inputableDelegate: self, protocolType: PasswordInputable.self)
-        passwordCheckTextField.setDelegate(inputableDelegate: self, protocolType: PasswordCheckInputable.self)
-        nameTextField.setDelegate(inputableDelegate: self, protocolType: NameInputable.self)
-    }
-}
-
-
-extension SignupViewController: SignupInputDelegate{
-    func editedPasswordTextField(password: String) {
-        signupManagable?.verifyPassword(password: password)
-    }
-    
-    func editedPasswordCheckTextField(passwordCheck: String) {
-        signupManagable?.verifyPasswordCheck(password: passwordCheck)
-    }
-    
-    func editedNameTextField(name: String) {
-        
-    }
-    
-    func editedIdTextField(id: String) {
-        signupManagable?.verifyid(id: id)
+        idTextField.delegate = textFieldDeleagate
+        passwordTextField.delegate = textFieldDeleagate
+        passwordCheckTextField.delegate = textFieldDeleagate
+        nameTextField.delegate = textFieldDeleagate
     }
 }

@@ -30,7 +30,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="idTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="영문 소문자, 숫자, 특수기호(_,-), 5-20자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-aw-Qr3" customClass="DebounceableTextField" customModule="SignupApp" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="idTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="영문 소문자, 숫자, 특수기호(_,-), 5-20자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-aw-Qr3" customClass="IDTextField" customModule="SignupApp" customModuleProvider="target">
                                 <rect key="frame" x="36" y="136" width="318" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -43,7 +43,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="passwordTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YyD-JR-wSd" customClass="DebounceableTextField" customModule="SignupApp" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="passwordTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="영문 대/소문자, 숫자, 특수문자(!@#$%) 8~16자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YyD-JR-wSd" customClass="PasswordTextField" customModule="SignupApp" customModuleProvider="target">
                                 <rect key="frame" x="36" y="226" width="318" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -56,7 +56,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="passwordCheckTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUd-Vl-2hg" customClass="DebounceableTextField" customModule="SignupApp" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="passwordCheckTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xUd-Vl-2hg" customClass="PasswordCheckTextField" customModule="SignupApp" customModuleProvider="target">
                                 <rect key="frame" x="36" y="316" width="318" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -69,7 +69,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="nameTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9i-Ko-LCA" customClass="DebounceableTextField" customModule="SignupApp" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="nameTextField" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9i-Ko-LCA" customClass="NameTextField" customModule="SignupApp" customModuleProvider="target">
                                 <rect key="frame" x="36" y="404" width="318" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -86,10 +86,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="idTextField" destination="bPc-aw-Qr3" id="AFB-gz-JI2"/>
-                        <outlet property="nameTextField" destination="G9i-Ko-LCA" id="T6I-bo-gKR"/>
-                        <outlet property="passwordCheckTextField" destination="xUd-Vl-2hg" id="VgI-p6-mTz"/>
-                        <outlet property="passwordTextField" destination="YyD-JR-wSd" id="Vrc-fh-YXS"/>
+                        <outlet property="idTextField" destination="bPc-aw-Qr3" id="wNb-3v-f3o"/>
+                        <outlet property="nameTextField" destination="G9i-Ko-LCA" id="F2U-HF-8vS"/>
+                        <outlet property="passwordCheckTextField" destination="xUd-Vl-2hg" id="ilQ-Og-Od4"/>
+                        <outlet property="passwordTextField" destination="YyD-JR-wSd" id="3CM-JD-PNv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

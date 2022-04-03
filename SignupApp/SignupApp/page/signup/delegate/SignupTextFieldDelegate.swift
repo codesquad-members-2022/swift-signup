@@ -15,7 +15,7 @@ protocol SignupTextFieldDelegate{
 }
 
 protocol InputableDelegate{
-   
+    func editedChangeTextField(text: String)
 }
 
 protocol IDInputable: InputableDelegate{
