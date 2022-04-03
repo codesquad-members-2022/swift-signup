@@ -21,6 +21,7 @@
 		D270C78B27F2CC310065D215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D270C78927F2CC310065D215 /* LaunchScreen.storyboard */; };
 		D270C79327F2EBCB0065D215 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C79227F2EBCB0065D215 /* SigninViewController.swift */; };
 		D273B7E827F9C37B009D5A69 /* CheckValidNameCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B7E727F9C37B009D5A69 /* CheckValidNameCase.swift */; };
+		D273B7EA27F9C91B009D5A69 /* InformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B7E927F9C91B009D5A69 /* InformationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D270C78C27F2CC310065D215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D270C79227F2EBCB0065D215 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		D273B7E727F9C37B009D5A69 /* CheckValidNameCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckValidNameCase.swift; sourceTree = "<group>"; };
+		D273B7E927F9C91B009D5A69 /* InformationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				D270C78227F2CC300065D215 /* LoginViewController.swift */,
 				D270C79227F2EBCB0065D215 /* SigninViewController.swift */,
+				D273B7E927F9C91B009D5A69 /* InformationController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D273B7EA27F9C91B009D5A69 /* InformationController.swift in Sources */,
 				D273B7E827F9C37B009D5A69 /* CheckValidNameCase.swift in Sources */,
 				D270C79327F2EBCB0065D215 /* SigninViewController.swift in Sources */,
 				D263498627F436DB00F7ED65 /* CheckValidIDCase.swift in Sources */,

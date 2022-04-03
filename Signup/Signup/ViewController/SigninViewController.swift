@@ -24,6 +24,8 @@ class SigninViewController: UIViewController {
     private var validRecheckPswLabel: UILabel!
     private var validNameLabel: UILabel!
     
+    private var nextButton: UIButton!
+    
     let textFieldValueChecker = TextFieldValueChecker()
     private var idCheck = false
     private var pswCheck = false
@@ -39,6 +41,7 @@ class SigninViewController: UIViewController {
         addTextFieldAction()
         setTextFieldDelegate()
         setKeyboardReturnType()
+        addButtonAction()
     }
     
     private func setAttributes(){
@@ -54,6 +57,7 @@ class SigninViewController: UIViewController {
         setValidPswLabel()
         setValidRecheckPswLabel()
         setValidNameLabel()
+        setNextButton()
     }
     
     private func setTextFieldDelegate(){
@@ -118,6 +122,7 @@ extension SigninViewController{
         }
         
         changeTextFieldLayer(check: idCheck , textField: idTextField)
+        CheckNextButtonEnable()
     }
     
     @objc func checkPswTextFieldValidation(){
@@ -155,6 +160,7 @@ extension SigninViewController{
         }
         
         changeTextFieldLayer(check: pswCheck, textField: pswTextField)
+        CheckNextButtonEnable()
     }
     
     @objc func checkRecheckPswTextFieldValidation(){
@@ -172,6 +178,7 @@ extension SigninViewController{
         }
         
         changeTextFieldLayer(check: recheckPswCheck, textField: recheckPswTextField)
+        CheckNextButtonEnable()
     }
     
     @objc func checkNameTextFieldValidation(){
@@ -189,22 +196,57 @@ extension SigninViewController{
         }
         
         changeTextFieldLayer(check: nameCheck, textField: nameTextField)
+        CheckNextButtonEnable()
     }
     
-    func changeTextFieldLayer(check: Bool, textField: UITextField){
+    private func changeTextFieldLayer(check: Bool, textField: UITextField){
         if check{
             textField.layer.borderColor = UIColor.systemGreen.cgColor
         } else{
             textField.layer.borderColor = UIColor.systemRed.cgColor
         }
     }
+    
+    private func CheckNextButtonEnable(){
+        guard idCheck, pswCheck, recheckPswCheck, nameCheck else{
+            nextButton.layer.borderColor = UIColor.systemGray.cgColor
+            nextButton.setTitleColor(.systemGray, for: .normal)
+            nextButton.isEnabled = false
+            return
+        }
+        
+        nextButton.layer.borderColor = UIColor.systemGreen.cgColor
+        nextButton.setTitleColor(.systemGreen, for: .normal)
+        nextButton.isEnabled = true
+    }
 }
 
 // MARK: - Use case: TextField delegate and dismiss keyboard
 
 extension SigninViewController: UITextFieldDelegate{
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField === pswTextField{
+            pswTextField.isSecureTextEntry = true
+            return true
+        } else if textField === recheckPswTextField{
+            recheckPswTextField.isSecureTextEntry = true
+            return true
+        } else{
+            return true
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField === nameTextField, idCheck, pswCheck, recheckPswCheck, nameCheck else {
+            textField.resignFirstResponder()
+            nameTextField.returnKeyType = .next
+            return true
+        }
+        
+        nameTextField.returnKeyType = .done
         textField.resignFirstResponder()
+        let nextVC = InformationController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
         return true
     }
     
@@ -219,6 +261,20 @@ extension SigninViewController: UITextFieldDelegate{
     }
 }
 
+// MARK: - Use case: Next navigation with nextButton action
+
+extension SigninViewController{
+    private func addButtonAction(){
+        nextButton.addTarget(self, action: #selector(pushNextNavigationVC), for: .touchUpInside)
+    }
+    
+    @objc func pushNextNavigationVC(){
+        guard idCheck, pswCheck, recheckPswCheck, nameCheck else{ return }
+        
+        let nextVC = InformationController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+}
 
 // MARK: - Use case: Configure attributes
 
@@ -262,7 +318,6 @@ extension SigninViewController{
         pswTextField.attributedPlaceholder = NSAttributedString(string: "영문 대/소문자, 숫자, 특수문자(!@#$%), 8-16자", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 11)])
         
         textFieldCommonSetting(textField: pswTextField)
-        pswTextField.isSecureTextEntry = true
         
         self.view.addSubview(pswTextField)
     }
@@ -286,7 +341,6 @@ extension SigninViewController{
     private func setRecheckPswTextField(){
         recheckPswTextField = UITextField(frame: CGRect(x: 40, y: recheckPswLabel.frame.maxY, width: view.frame.width - 80, height: 30))
         textFieldCommonSetting(textField: recheckPswTextField)
-        recheckPswTextField.isSecureTextEntry = true
         
         self.view.addSubview(recheckPswTextField)
     }
@@ -319,6 +373,17 @@ extension SigninViewController{
         validNameLabel.font = UIFont.systemFont(ofSize: 10)
         
         self.view.addSubview(validNameLabel)
+    }
+    
+    private func setNextButton(){
+        nextButton = UIButton(frame: CGRect(x: self.view.center.x - 50, y: validNameLabel.frame.maxY + 20, width: 100, height: 40))
+        nextButton.layer.borderWidth = 1
+        nextButton.layer.borderColor = UIColor.systemGray.cgColor
+        nextButton.setTitle("다음", for: .normal)
+        nextButton.setTitleColor(.systemGray, for: .normal)
+        nextButton.isEnabled = false
+        
+        self.view.addSubview(nextButton)
     }
     
     private func textFieldCommonSetting(textField: UITextField){
