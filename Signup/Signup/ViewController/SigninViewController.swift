@@ -26,11 +26,13 @@ class SigninViewController: UIViewController {
     
     private var nextButton: UIButton!
     
-    let textFieldValueChecker = TextFieldValueChecker()
     private var idCheck = false
     private var pswCheck = false
     private var recheckPswCheck = false
     private var nameCheck = false
+    
+    let textFieldValueChecker = TextFieldValueChecker()
+    let nextVC = InformationController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -245,7 +247,6 @@ extension SigninViewController: UITextFieldDelegate{
         
         nameTextField.returnKeyType = .done
         textField.resignFirstResponder()
-        let nextVC = InformationController()
         self.navigationController?.pushViewController(nextVC, animated: true)
         return true
     }
@@ -271,7 +272,6 @@ extension SigninViewController{
     @objc func pushNextNavigationVC(){
         guard idCheck, pswCheck, recheckPswCheck, nameCheck else{ return }
         
-        let nextVC = InformationController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
