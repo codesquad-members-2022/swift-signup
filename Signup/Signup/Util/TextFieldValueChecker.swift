@@ -79,4 +79,12 @@ class TextFieldValueChecker{
             return .invalid
         }
     }
+    
+    func checkValidationOfName(text: String) -> CheckValidNameCase{
+        guard !text.isEmpty else{
+            return .invalid
+        }
+        
+        return .valid
+    }
 }

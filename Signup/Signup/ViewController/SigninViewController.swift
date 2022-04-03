@@ -22,11 +22,13 @@ class SigninViewController: UIViewController {
     private var validIdLabel: UILabel!
     private var validPswLabel: UILabel!
     private var validRecheckPswLabel: UILabel!
+    private var validNameLabel: UILabel!
     
     let textFieldValueChecker = TextFieldValueChecker()
     private var idCheck = false
     private var pswCheck = false
     private var recheckPswCheck = false
+    private var nameCheck = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +53,7 @@ class SigninViewController: UIViewController {
         setValidIdLabel()
         setValidPswLabel()
         setValidRecheckPswLabel()
-    }
-    
-    private func addTextFieldAction(){
-        idTextField.addTarget(self, action: #selector(checkIdTextFieldValidation), for: .editingChanged)
-        pswTextField.addTarget(self, action: #selector(checkPswTextFieldValidation), for: .editingChanged)
-        recheckPswTextField.addTarget(self, action: #selector(checkRecheckPswTextFieldValidation), for: .editingChanged)
+        setValidNameLabel()
     }
     
     private func setTextFieldDelegate(){
@@ -84,9 +81,16 @@ class SigninViewController: UIViewController {
 }
 
 
-// MARK: - Use case: TextField validation check function and dismiss keyboard
+// MARK: - Use case: TextField validation check action
 
-extension SigninViewController: UITextFieldDelegate{
+extension SigninViewController{
+    private func addTextFieldAction(){
+        idTextField.addTarget(self, action: #selector(checkIdTextFieldValidation), for: .editingChanged)
+        pswTextField.addTarget(self, action: #selector(checkPswTextFieldValidation), for: .editingChanged)
+        recheckPswTextField.addTarget(self, action: #selector(checkRecheckPswTextFieldValidation), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(checkNameTextFieldValidation), for: .editingChanged)
+    }
+    
     @objc func checkIdTextFieldValidation(){
         guard let text = idTextField.text else { return }
         
@@ -170,6 +174,23 @@ extension SigninViewController: UITextFieldDelegate{
         changeTextFieldLayer(check: recheckPswCheck, textField: recheckPswTextField)
     }
     
+    @objc func checkNameTextFieldValidation(){
+        guard let text = nameTextField.text else{ return }
+        
+        switch textFieldValueChecker.checkValidationOfName(text: text){
+        case .invalid:
+            validNameLabel.text = CheckValidNameCase.invalid.showReason()
+            validNameLabel.textColor = .systemRed
+            self.nameCheck = false
+        case .valid:
+            validNameLabel.text = CheckValidNameCase.valid.showReason()
+            validNameLabel.textColor = .systemGreen
+            self.nameCheck = true
+        }
+        
+        changeTextFieldLayer(check: nameCheck, textField: nameTextField)
+    }
+    
     func changeTextFieldLayer(check: Bool, textField: UITextField){
         if check{
             textField.layer.borderColor = UIColor.systemGreen.cgColor
@@ -177,7 +198,11 @@ extension SigninViewController: UITextFieldDelegate{
             textField.layer.borderColor = UIColor.systemRed.cgColor
         }
     }
-    
+}
+
+// MARK: - Use case: TextField delegate and dismiss keyboard
+
+extension SigninViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -287,6 +312,13 @@ extension SigninViewController{
         textFieldCommonSetting(textField: nameTextField)
         
         self.view.addSubview(nameTextField)
+    }
+    
+    private func setValidNameLabel(){
+        validNameLabel = UILabel(frame: CGRect(x: 40, y: nameTextField.frame.maxY, width: view.frame.width - 80, height: 30))
+        validNameLabel.font = UIFont.systemFont(ofSize: 10)
+        
+        self.view.addSubview(validNameLabel)
     }
     
     private func textFieldCommonSetting(textField: UITextField){

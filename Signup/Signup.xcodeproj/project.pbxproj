@@ -20,6 +20,7 @@
 		D270C78827F2CC310065D215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D270C78727F2CC310065D215 /* Assets.xcassets */; };
 		D270C78B27F2CC310065D215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D270C78927F2CC310065D215 /* LaunchScreen.storyboard */; };
 		D270C79327F2EBCB0065D215 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270C79227F2EBCB0065D215 /* SigninViewController.swift */; };
+		D273B7E827F9C37B009D5A69 /* CheckValidNameCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D273B7E727F9C37B009D5A69 /* CheckValidNameCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D270C78A27F2CC310065D215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D270C78C27F2CC310065D215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D270C79227F2EBCB0065D215 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		D273B7E727F9C37B009D5A69 /* CheckValidNameCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckValidNameCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,14 +61,15 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
-		D25D30AB27F6DEB100BD3F88 /* Case */ = {
+		D25D30AB27F6DEB100BD3F88 /* ValidationCase */ = {
 			isa = PBXGroup;
 			children = (
 				D263498527F436DB00F7ED65 /* CheckValidIDCase.swift */,
 				D25D30AC27F6E49400BD3F88 /* CheckValidPswCase.swift */,
 				D25D30AE27F6F0A900BD3F88 /* CheckValidRecheckPswCase.swift */,
+				D273B7E727F9C37B009D5A69 /* CheckValidNameCase.swift */,
 			);
-			path = Case;
+			path = ValidationCase;
 			sourceTree = "<group>";
 		};
 		D263497E27F42CB700F7ED65 /* ViewController */ = {
@@ -90,7 +93,7 @@
 		D263498227F42CDF00F7ED65 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D25D30AB27F6DEB100BD3F88 /* Case */,
+				D25D30AB27F6DEB100BD3F88 /* ValidationCase */,
 				D25D30AA27F6DE8A00BD3F88 /* Factory */,
 			);
 			path = Model;
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D273B7E827F9C37B009D5A69 /* CheckValidNameCase.swift in Sources */,
 				D270C79327F2EBCB0065D215 /* SigninViewController.swift in Sources */,
 				D263498627F436DB00F7ED65 /* CheckValidIDCase.swift in Sources */,
 				D270C78327F2CC300065D215 /* LoginViewController.swift in Sources */,
